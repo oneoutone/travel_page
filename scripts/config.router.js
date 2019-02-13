@@ -26,7 +26,9 @@
         url: '/app',
         views: {
           '': {
-            templateUrl: 'views/layout/layout.html'
+            templateUrl: 'views/layout/layout.html',
+            controller: "layoutCtrl",
+            resolve: load(['scripts/layout/layout.js'])
           }
         }
       })
@@ -35,7 +37,7 @@
         url: '/home',
         templateUrl: 'views/home/home.html',
         controller: "homeCtrl",
-        resolve: load(['scripts/home/home.js'])
+        resolve: load(['scripts/js/slider.js','scripts/home/home.js'])
       })
 
     function load(srcs, callback) {
