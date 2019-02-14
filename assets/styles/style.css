@@ -1295,6 +1295,7 @@ iframe {
 	transition: color .15s ease;
 	color: #00A4FF;
 }
+
 /*
  * banner轮播
  */
@@ -1315,6 +1316,7 @@ iframe {
 }
 
 .banner ul {
+	position: relative;
 	border: none;
 }
 
@@ -1544,5 +1546,5 @@ iframe {
 
 .ban-text .img {
 	display: block;
-	margin: 20px auto;
+	margin: 40px auto 30px;
 }
