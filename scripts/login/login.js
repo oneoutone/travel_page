@@ -5,9 +5,9 @@
     'use strict';
     angular
         .module('app')
-        .controller('homeCtrl', homeCtrl);
-    homeCtrl.$inject = ['$scope'];
-    function  homeCtrl($scope) {
+        .controller('loginCtrl', loginCtrl);
+    loginCtrl.$inject = ['$scope'];
+    function  loginCtrl($scope) {
 
     }
 

@@ -37,7 +37,99 @@
         url: '/home',
         templateUrl: 'views/home/home.html',
         controller: "homeCtrl",
-        resolve: load(['scripts/js/slider.js','scripts/home/home.js'])
+        resolve: load(['scripts/js/slider.js','scripts/home/home.js']),
+        data: {
+        	css: 'assets/styles/index.css'
+    	}
+      })
+      
+      .state('app.login', {
+        url: '/login',
+        templateUrl: 'views/login/login.html',
+        controller: "loginCtrl",
+        resolve: load(['scripts/login/login.js']),
+        data: {
+        	css: 'assets/styles/login.css'
+    	}
+      })
+      
+      .state('app.register', {
+        url: '/register',
+        templateUrl: 'views/register/register.html',
+        data: {
+        	css: 'assets/styles/login.css'
+    	}
+      })
+      
+      .state('app.pfs_index', {
+        url: '/pfs_index',
+        templateUrl: 'views/pfs/pfs_index.html',
+        data: {
+        	css: 'assets/styles/pfs_index.css'
+    	}
+      })
+      
+      .state('app.my', {
+        url: '/my',
+        templateUrl: 'views/pfs/my.html',
+        data: {
+        	css: ['assets/styles/my.css', 'assets/styles/product_list.css']
+    	}
+      })
+      
+      .state('app.console', {
+        url: '/console',
+        templateUrl: 'views/pfs/console.html',
+        data: {
+        	css: 'assets/styles/pfs_index.css'
+    	}
+      })
+      
+      .state('app.news_list', {
+        url: '/news_list',
+        templateUrl: 'views/pfs/news_list.html',
+        data: {
+        	css: 'assets/styles/news_list.css'
+    	}
+      })
+      
+      .state('app.news_detail', {
+        url: '/news_detail',
+        templateUrl: 'views/pfs/news_detail.html',
+        data: {
+        	css: 'assets/styles/news_detail.css'
+    	}
+      })
+      
+      .state('app.pfs_data_source', {
+        url: '/pfs_data_source',
+        templateUrl: 'views/pfs/pfs_data_source.html'
+      })
+      
+      .state('app.pfs_detail', {
+        url: '/pfs_detail',
+        templateUrl: 'views/pfs/pfs_detail.html',
+        data: {
+        	css: 'assets/styles/pfs_detail.css'
+    	}
+      })
+      
+      .state('app.pfs_keyword', {
+        url: '/pfs_keyword',
+        templateUrl: 'views/pfs/pfs_keyword.html'
+      })
+      
+      .state('app.pfs_set', {
+        url: '/pfs_set',
+        templateUrl: 'views/pfs/pfs_set.html'
+      })
+      
+      .state('app.product_list', {
+        url: '/product_list',
+        templateUrl: 'views/pfs/product_list.html',
+        data: {
+        	css: 'assets/styles/product_list.css'
+    	}
       })
 
     function load(srcs, callback) {

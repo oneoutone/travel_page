@@ -1,0 +1,46 @@
+/*个人中心*/
+
+.my-info {
+	background-color: #fff;
+	padding: 20px;
+	margin-bottom: 10px;
+}
+
+.my-info .head-box {
+	float: left;
+	border: 7px solid #f4f4f4;
+	border-radius: 50%;
+	margin-right: 20px;
+	overflow: hidden;
+}
+
+.my-info .head-box .my-head {
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+}
+
+.my-info .info-cont {
+	float: left;
+	width: 800px;
+	padding: 12px 0;
+	line-height: 40px;
+}
+
+.my-info .info-item {
+	color: #666666;
+	font-size: 18px;
+	padding: 9px 0;
+	line-height: 22px;
+}
+
+.my-info .info-item .c-btn {
+	display: inline-block;
+	width: auto;
+	height: 22px;
+	line-height: 22px;
+	padding: 0 8px;
+	border-radius: 3px;
+	vertical-align: top;
+	margin-left: 15px;
+}

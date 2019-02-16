@@ -7,7 +7,8 @@
       'ngSanitize',
       'ngStorage',
       'ui.router',
-      'oc.lazyLoad'
+      'oc.lazyLoad',
+      'uiRouterStyles'
     ]);
 })();
 

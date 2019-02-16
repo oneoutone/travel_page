@@ -1,0 +1,88 @@
+/*
+ * 新闻列表
+ */
+
+.col-article-list {
+	padding: 0 20px;
+}
+
+.com-article-panel {
+	margin-bottom: 20px
+}
+
+.com-article-panel>a {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	border-bottom: 1px solid #e5e5e5;
+	padding-bottom: 20px;
+}
+
+.com-article-panel-body {
+	position: relative;
+	display: table-cell;
+	vertical-align: middle
+}
+
+.com-article-panel-body .type {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 50px;
+	text-align: right;
+	font-size: 16px;
+	line-height: 27px;
+}
+
+.com-article-panel-body .type1 {
+	color: #37c3d9;
+}
+
+.com-article-panel-body .type2 {
+	color: #d94b4b;
+}
+
+.com-article-panel-body .type3 {
+	color: #f5bc34;
+}
+
+.com-article-panel-info {
+	margin-bottom: 10px;
+	color: #999;
+	font-size: 0
+}
+
+.com-article-panel-info>span {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 14px;
+	margin-left: 30px;
+}
+
+.com-article-panel-info>span:first-child {
+	margin-left: 0;
+}
+
+.com-article-panel-title {
+	font-size: 18px;
+	line-height: 27px;
+	color: #000;
+	font-weight: 400;
+	margin-bottom: 10px;
+	margin-right: 50px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis
+}
+
+.com-article-panel>a:hover .com-article-panel-title {
+	color: #00a4ff
+}
+
+.com-article-panel-desc {
+	line-height: 24px;
+	color: #666;
+	word-wrap: break-word
+}

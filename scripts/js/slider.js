@@ -180,9 +180,9 @@
                 if (!ul.queue('fx').length) {
                     //  Handle those pesky dots
                     if( index >= li.length-2 ){
-                        el.find('.dot').eq(0).addClass('active').siblings().removeClass('active');
+                        el.find('.dot').eq(0).addClass('actived').siblings().removeClass('actived');
                     }else{
-                        el.find('.dot').eq(index).addClass('active').siblings().removeClass('active');
+                        el.find('.dot').eq(index).addClass('actived').siblings().removeClass('actived');
                     }
 
 
@@ -193,7 +193,7 @@
                             $.isFunction(o.complete) && !callback && o.complete(el, target);
                         });
                     }else if( _._index >= li.length-2 ){
-                        el.find('.dot').eq(li.length-3).addClass('active').siblings().removeClass('active');
+                        el.find('.dot').eq(li.length-3).addClass('actived').siblings().removeClass('actived');
                         el.animate(obj, speed, easing) && ul.animate($.extend({left: '0'}, obj), speed, easing, function(data) {
                             _.i = li.length-3;
                             _._index = _.i;
@@ -239,7 +239,7 @@
             if (name == 'dot') {
                 html = '<ol class="dots">';
                 $.each(_.li, function(index) {
-                    if($(this).attr('class') != 'chone') html += '<li class="' + (index === _.i ? name + ' active' : name) + '">' + ++index + '</li>';
+                    if($(this).attr('class') != 'chone') html += '<li class="' + (index === _.i ? name + ' actived' : name) + '">' + ++index + '</li>';
 
                 });
                 html += '</ol>';

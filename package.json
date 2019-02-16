@@ -2,7 +2,7 @@
   "name": "travel_page",
   "description": "travel_page",
   "scripts": {
-    "start": "node node_modules/.bin/http-server -c-1 -o -p 8080"
+    "start": "node node_modules/http-server/bin/http-server -c-1 -o -p 8080"
   },
   "keywords": [],
   "repository": "",

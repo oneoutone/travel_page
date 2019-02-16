@@ -7,7 +7,7 @@
 				<span class="c-nav-all-trigger-text">菜单</span>
 			</a>
 			<i class="c-nav-top-divider"></i>
-			<a class="c-nav-logo" href="javascript:void(0);">广西旅游大数据云平台</a>
+			<a class="c-nav-logo" href="javascript:void(0);" ui-sref="app.home">广西旅游大数据云平台</a>
 			<div class="c-nav-top-operation">
 				<div class="c-nav-top-search" href="javascript:void(0);">
 					<div class="c-nav-top-search-text" ng-click="isSearchbar=true"><i class="nav-search-icon"></i> 搜索</div>
@@ -57,7 +57,7 @@
 						<a href="javascript:void(0);" class="c-nav-dropdown-btn-inner">
 							<i class="c-nav-icon-global"></i>
 							<span class="nav-dropdown-btn-txt">广西</span>
-							<i class="nav-dropdown-btn-icon"></i>
+							<!--<i class="nav-dropdown-btn-icon"></i>-->
 						</a>
 						<!--<div class="c-bubble c-bubble-top" ng-show="isLanguage">
 							<div class="c-bubble-inner">
@@ -65,7 +65,7 @@
 									<div class="dropdown-mini-inner dropdown-mini-lang">
 										<div class="dropdown-mini-list">
 											<ul>
-												<li class="dropdown-mini-item actived">
+												<li class="dropdown-mini-item activedd">
 													<a href="javascript:void(0);">中国站</a>
 												</li>
 												<li class="dropdown-mini-item">
@@ -79,13 +79,13 @@
 						</div>-->
 					</div>
 					<div class="c-nav-top-links">
-						<a href="javascript:void(0);" class="link-item">登录</a>
-						<a href="javascript:void(0);" class="nav-register-btn c-btn">免费注册</a>
+						<a href="javascript:void(0);" class="link-item" ui-sref="app.login">登录</a>
+						<a href="javascript:void(0);" class="nav-register-btn c-btn" ui-sref="app.register">免费注册</a>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="c-nav-mask" ng-click="isSearchbar=false" ng-class="isSearchbar?'active':''"></div>
+		<div class="c-nav-mask" ng-click="isSearchbar=false" ng-class="isSearchbar?'actived':''"></div>
 	</div>
 </div>
 <!--内容-->
@@ -168,7 +168,7 @@
 				<div class="nav-dropdown-menu-inner">
 					<div class="menu-area">
 						<ul>
-							<li class="menu-link curr">
+							<li class="menu-link curr actived">
 								<a href="javascript:void(0);">舆情监测平台</a>
 							</li>
 							<li class="menu-link">
@@ -193,31 +193,55 @@
 					</div>
 				</div>
 			</div>
-			<div id="sndLeftNav" class="nav-dropdown-menu menu-level-2">
-				<div class="nav-dropdown-menu-inner">
+			<div id="sndLeftNav" class="nav-dropdown-menu menu-level-2 actived">
+				<div class="nav-dropdown-menu-inner actived">
 					<div class="menu-area has-sub-menu">
-						<h2 class="menu-area-tit">舆情监测平台</h2>
+						<!--<h2 class="menu-area-tit">舆情监测平台</h2>-->
 						<div class="menu-area sub-menu-area">
-							<h2 class="menu-area-tit J-qcMenuTitle">关于</h2>
 							<ul class="menu-list J-qcMenuList">
 								<li class="menu-item">
-									<a href="javascript:void(0);">
-										<h3>关于我们</h3> </a>
+									<a href="javascript:void(0);" ui-sref="app.pfs_index">
+										<h3>舆情监测平台</h3> </a>
 								</li>
 								<li class="menu-item">
-									<a href="javascript:void(0);">
-										<h3>客户案例</h3> </a>
+									<a href="javascript:void(0);" ui-sref="app.console">
+										<h3>控制台</h3> </a>
 								</li>
-								<li class="menu-item">
+								<li class="menu-item" ui-sref="app.my">
 									<a href="javascript:void(0);">
-										<h3>全球基础设施</h3> </a>
+										<h3>个人中心</h3> </a>
 								</li>
-								<li class="menu-item">
+								<li class="menu-item" ui-sref="app.product_list">
 									<a href="javascript:void(0);">
-										<h3>联系我们</h3> </a>
+										<h3>产品列表</h3> </a>
+								</li>
+								<li class="menu-item" ui-sref="app.news_list">
+									<a href="javascript:void(0);">
+										<h3>舆情列表</h3> </a>
+								</li>
+								<li class="menu-item" ui-sref="app.pfs_detail">
+									<a href="javascript:void(0);">
+										<h3>舆情详情</h3> </a>
+								</li>
+								<li class="menu-item" ui-sref="app.pfs_data_source">
+									<a href="javascript:void(0);">
+										<h3>数据源设置</h3> </a>
+								</li>
+								<li class="menu-item" ui-sref="app.pfs_keyword">
+									<a href="javascript:void(0);">
+										<h3>关键字设置</h3> </a>
+								</li>
+								<li class="menu-item" ui-sref="app.pfs_set">
+									<a href="javascript:void(0);">
+										<h3>报警条件设置</h3> </a>
 								</li>
 							</ul>
 						</div>
+					</div>
+				</div>
+				<div class="nav-dropdown-menu-inner">
+					<div class="menu-area has-sub-menu">
+						<h2 class="menu-area-tit">旅游教育大数据平台</h2>
 						<div class="menu-area sub-menu-area">
 							<h2 class="menu-area-tit J-qcMenuTitle">入门</h2>
 							<ul class="menu-list J-qcMenuList">
@@ -231,11 +255,6 @@
 								</li>
 							</ul>
 						</div>
-					</div>
-				</div>
-				<div class="nav-dropdown-menu-inner">
-					<div class="menu-area has-sub-menu">
-						<h2 class="menu-area-tit">旅游教育大数据平台</h2>
 					</div>
 				</div>
 				<div class="nav-dropdown-menu-inner">
@@ -270,44 +289,59 @@
 </div>
 <script type="text/javascript">
 	$(function() {
-		$("#leftNavBtn").hover(function(){
-			$(this).addClass("active");
-			leftNav();
-		})
-	});
-	function leftNav(){
-		$("#leftNav").addClass("active");
-		$("#leftNav").hover(fstNav,resetNav)
-	}
-	function fstNav(){
-		$("#leftNavBtn").addClass("active");
-		$("#fstLeftNav").hover(function(){
-			fstNavLevel();
-		},
-		function(){
-			$("#sndLeftNav").removeClass("active");
-			$("#fstLeftNav .menu-link").removeClass("active");
-			$("#sndLeftNav .nav-dropdown-menu-inner").removeClass("active");
-		})
-	}
-	function fstNavLevel(){
-		$("#leftNav #fstLeftNav .menu-link").hover(function(){
-			$(this).addClass('active').siblings().removeClass("active");
-			$("#leftNav #sndLeftNav").addClass("active");
-			$("#leftNav #sndLeftNav .nav-dropdown-menu-inner").eq($(this).index()).addClass("active").siblings().removeClass("active");
-		},function(){
-			$(this).removeClass("active");
-			$("#leftNav #sndLeftNav .nav-dropdown-menu-inner").eq($(this).index()).removeClass("active");
-			if($("#leftNav #fstLeftNav .menu-link").not(".active")){
-				$("#leftNav #sndLeftNav").removeClass("active");
+		$("#leftNavBtn").on("click", function() {
+			if($(this).hasClass("actived")){
+				closeNav();
+			}else{
+				$(this).addClass("actived");
+				$("#leftNav").addClass("actived");
 			}
+			
+			
+			$("#sndLeftNav .menu-item").click(closeNav);
 		})
+		//		$("#leftNavBtn").hover(function(){
+		//			$(this).addClass("actived");
+		//			leftNav();
+		//		})
+	});
+
+	function closeNav() {
+		$("#leftNavBtn").removeClass("actived");
+		$("#leftNav").removeClass("actived");
 	}
-	function resetNav(){
-		$("#leftNavBtn").removeClass("active");
-		$("#leftNav").removeClass("active");
-		$("#sndLeftNav").removeClass("active");
-		$("#fstLeftNav .menu-link").removeClass("active");
-		$("#sndLeftNav .nav-dropdown-menu-inner").removeClass("active");
-	}
+	//	function leftNav(){
+	//		$("#leftNav").addClass("actived");
+	//		$("#leftNav").hover(fstNav,resetNav)
+	//	}
+	//	function fstNav(){
+	//		$("#leftNavBtn").addClass("actived");
+	//		$("#fstLeftNav").hover(function(){
+	//			fstNavLevel();
+	//		},
+	//		function(){
+	//			$("#sndLeftNav").removeClass("actived");
+	//			$("#sndLeftNav .nav-dropdown-menu-inner").removeClass("actived");
+	//		})
+	//	}
+	//	function fstNavLevel(){
+	//		$("#leftNav #fstLeftNav .menu-link").hover(function(){
+	//			$(this).addClass('actived').siblings().removeClass("actived");
+	//			$("#leftNav #sndLeftNav").addClass("actived");
+	//			$("#leftNav #sndLeftNav .nav-dropdown-menu-inner").eq($(this).index()).addClass("actived").siblings().removeClass("actived");
+	//		},function(){
+	//			$(this).removeClass("actived");
+	//			$("#leftNav #sndLeftNav .nav-dropdown-menu-inner").eq($(this).index()).removeClass("actived");
+	//			if($("#leftNav #fstLeftNav .menu-link").not(".actived")){
+	//				$("#leftNav #sndLeftNav").removeClass("actived");
+	//			}
+	//		})
+	//	}
+	//	function resetNav(){
+	//		$("#leftNavBtn").removeClass("actived");
+	//		$("#leftNav").removeClass("actived");
+	//		$("#sndLeftNav").removeClass("actived");
+	//		$("#fstLeftNav .menu-link").removeClass("actived");
+	//		$("#sndLeftNav .nav-dropdown-menu-inner").removeClass("actived");
+	//	}
 </script>

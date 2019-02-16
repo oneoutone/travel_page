@@ -1,33 +1,9 @@
 /*
- * 首页内容模块
+ * 首页
  */
 
-.c-section.c-p-y-tall {
-	padding: 45px 0 50px 0
-}
-
-.c-section.bg-color {
-	background: #f7f8fa
-}
-
-.c-section-inner {
-	margin: 0 auto;
-	width: 1200px;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	padding: 0 10px
-}
-
-.c-section-hd {
-	margin-bottom: 30px
-}
-
-.c-section-tit {
-	color: #000;
-	font-size: 24px;
-	font-weight: 400;
-	text-align: center;
-	line-height: 1.5
+html {
+	background-color: #ffffff;
 }
 
 
@@ -651,29 +627,6 @@
 
 
 /*7.内容-提供安全专家服务和合规性资质*/
-
-.c-media-img {
-	width: 100%;
-	text-align: center;
-}
-
-.c-media-heading {
-	text-align: center;
-	font-size: 18px;
-	color: #333;
-	margin: 0;
-	padding: 0;
-	font-weight: 400;
-	line-height: 1.5;
-}
-
-.c-media-info {
-	font-size: 14px;
-	color: #666;
-	margin-top: 10px;
-	line-height: 1.7;
-	word-wrap: break-word;
-}
 
 .c-media-horiz {
 	position: relative;
