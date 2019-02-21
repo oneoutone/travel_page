@@ -36,6 +36,14 @@
         files: [
           'libs/js/moment/min/moment-with-locales.min.js'
         ]
+      },
+      {
+        name: 'toastr',
+        module: true,
+        files: [
+          'libs/angular/angular-toastr/angular-toastr.tpls.min.js',
+          'libs/angular/angular-toastr/angular-toastr.min.css'
+        ]
       }
     ])
     .config(['$ocLazyLoadProvider', 'MODULE_CONFIG', function($ocLazyLoadProvider, MODULE_CONFIG) {

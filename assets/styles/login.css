@@ -122,3 +122,15 @@
 	background-color: #ffffff;
 	border: 1px solid #00a4ff;
 }
+
+.login-form .get-code .get-code-btn-disabled {
+	float: right;
+	display: block;
+	width: 120px;
+	color: #999999;
+	font-size: 16px;
+	line-height: 34px;
+	text-align: center;
+	background-color: #ffffff;
+	border: 1px solid #00a4ff;
+}
