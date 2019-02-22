@@ -56,6 +56,8 @@
       .state('app.register', {
         url: '/register',
         templateUrl: 'views/register/register.html',
+        controller: "registerCtrl",
+        resolve: load(['toastr', 'scripts/register/register.js']),
         data: {
         	css: 'assets/styles/login.css'
     	}
