@@ -53,6 +53,14 @@
     	}
       })
       
+      .state('app.recover_pwd', {
+        url: '/recover_pwd',
+        templateUrl: 'views/login/recover_pwd.html',
+        data: {
+        	css: 'assets/styles/login.css'
+    	}
+      })
+      
       .state('app.register', {
         url: '/register',
         templateUrl: 'views/register/register.html',
