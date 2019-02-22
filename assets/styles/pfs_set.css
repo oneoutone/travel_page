@@ -1,0 +1,27 @@
+.data-box .channel-set {
+	width: 600px;
+}
+
+.channel-set .i-checks {
+	padding: 13px 0;
+}
+
+.channel-set .i-checks label {
+	color: #666666;
+	font-weight: normal;
+	margin-bottom: 0;
+}
+
+.channel-set .icheckbox_square-blue,
+.channel-set .iradio_square-blue {
+	margin-right: 20px;
+}
+
+.channel-set .card-txt {
+	color: #999999;
+	margin: 20px auto 0
+}
+
+.channel-set .card-txt a {
+	color: #00a4ff
+}

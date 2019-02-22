@@ -8,6 +8,8 @@
 
 (function() {
   'use strict';
+  var apiInclude ='../views/include/';
+  
   angular
     .module('app')
     .controller('AppCtrl', AppCtrl);
@@ -20,5 +22,7 @@
     vm.app = {
         name: 'travel_page',
     }
+    
+    vm.apiInclude = apiInclude;
   }
 })();

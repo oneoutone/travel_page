@@ -1,3 +1,5 @@
+<div ng-include="apiInclude + 'head_nav.html'"></div>
+
 <div class="c-section c-main">
 	<div class="c-section-inner">
 		<!--设置-->
@@ -6,14 +8,14 @@
 				<div class="tool-l">
 					<div class="tool-item">
 						<label>数据源设置：</label>
-						<select class="form-control">
-							<option>所以数据源</option>
+						<select class="tool-control">
+							<option>所有数据源</option>
 							<option>自定义数据源</option>
 						</select>
 					</div>
 					<div class="tool-item">
 						<label>状态：</label>
-						<select class="form-control">
+						<select class="tool-control">
 							<option>已添加</option>
 							<option>未添加</option>
 						</select>
@@ -21,7 +23,7 @@
 				</div>
 				<div class="tool-r">
 					<div class="tool-item search-input clearfix">
-						<input type="text" placeholder="请输入您要查找的关键词" class="form-control">
+						<input type="text" placeholder="请输入您要查找的关键词" class="tool-control">
 						<button type="button" class="c-btn">搜索</button>
 					</div>
 				</div>

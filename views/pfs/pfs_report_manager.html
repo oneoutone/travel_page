@@ -1,0 +1,93 @@
+<div ng-include="apiInclude + 'head_nav.html'"></div>
+
+<div class="c-section c-main">
+	<div class="c-section-inner">
+		<!--设置-->
+		<div class="c-cont data-box">
+			<div class="table-tool">
+				<div class="tool-row clearfix">
+					<div class="tool-item">
+						<label>统计单位：</label>
+						<ul class="tab-list">
+							<li class="tab-item actived">
+								<a href="javascript:void(0);">日报</a>
+							</li>
+							<li class="tab-item">
+								<a href="javascript:void(0);">月报</a>
+							</li>
+							<li class="tab-item">
+								<a href="javascript:void(0);">年报</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="tool-row clearfix">
+					<div class="tool-item">
+						<label>开始时间：</label>
+						<input type="text" class="datepicker tool-control" name="start" >
+					</div>
+					<div class="tool-item">
+						<label>结束时间：</label>
+						<input type="text" class="datepicker tool-control" name="end">
+					</div>
+					<button type="button" class="tool-item c-btn">搜索</button>
+				</div>
+			</div>
+
+			<table class="table-data">
+				<thead>
+					<tr>
+						<th>采集时间</th>
+						<th>采集信息总数</th>
+						<th>采集信息源头总数</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>2018-05-20 - 2019-01-09</td>
+						<td>10000</td>
+						<td>10000</td>
+						<td class="opt">
+							<a href="javascript:void(0);">明细下载</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!--分页-->
+			<!--<div class="pageation">
+				<ul class="pageation-list">
+					<li class="list-item">
+						<a href="javascript:void(0);">上一页</a>
+					</li>
+					<li class="list-item actived">
+						<a href="javascript:void(0);">1</a>
+					</li>
+					<li class="list-item">
+						<a href="javascript:void(0);">2</a>
+					</li>
+					<li class="list-item">
+						<a href="javascript:void(0);">3</a>
+					</li>
+					<li class="list-item disabled">
+						<a href="javascript:void(0);">...</a>
+					</li>
+					<li class="list-item">
+						<a href="javascript:void(0);">10</a>
+					</li>
+					<li class="list-item">
+						<a href="javascript:void(0);">下一页</a>
+					</li>
+				</ul>
+			</div>-->
+
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$('.tab-list li').click(function() {
+		$(this).addClass('actived').siblings().removeClass('actived');
+	})
+
+	$(".datepicker").datepicker();
+</script>
