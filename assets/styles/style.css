@@ -1834,6 +1834,21 @@ a:focus,a:hover {
 	width: 80%;
 }
 
+.f-list-item .c-f-list-con .i-checks {
+	display: inline-block;
+}
+
+.f-list-item .c-f-list-con .i-checks label {
+    color: #171d25;
+	font-size: 14px;
+    font-weight: normal;
+	margin: 11px 20px 0 0;
+}
+
+.f-list-item .c-f-list-con .i-checks .icheckbox_square-blue {
+    margin-right: 10px;
+}
+
 .f-list-item .text-list {
 	padding: 10px 0;
 	color: #999999;
@@ -2059,6 +2074,12 @@ textarea.c-control {
 
 .table-tool {
 	margin-bottom: 20px;
+}
+
+.table-tool .title {
+	color: #333;
+    font-size: 18px;
+    line-height: 34px;
 }
 
 .table-tool .tool-l {

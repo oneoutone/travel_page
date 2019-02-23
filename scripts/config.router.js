@@ -170,6 +170,11 @@
         url: '/dcs_index',
         templateUrl: 'views/dcs/dcs_index.html'
       })
+      
+      .state('app.dcs_report_list', {
+        url: '/dcs_report_list',
+        templateUrl: 'views/dcs/dcs_report_list.html'
+      })
 
     function load(srcs, callback) {
       return {

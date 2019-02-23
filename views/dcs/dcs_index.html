@@ -7,7 +7,7 @@
 					<button type="button" class="tool-item c-btn" data-toggle="modal" data-target="#myModal">新建</button>
 				</div>
 			</div>
-			
+
 			<table class="table-data">
 				<thead>
 					<tr>
@@ -21,12 +21,102 @@
 				<tbody>
 					<tr>
 						<td>任务1</td>
+						<td>待确认</td>
+						<td>2019-11-02</td>
+						<td>8000</td>
+						<td class="opt">
+							<a href="javascript:void(0);">采集详情</a>
+							<a href="javascript:void(0);" ui-sref="app.dcs_report_list">历史报告</a>
+						</td>
+					</tr>
+					<tr>
+						<td>任务2</td>
 						<td>已支付</td>
 						<td>2019-11-02</td>
 						<td>10000</td>
 						<td class="opt">
 							<a href="javascript:void(0);">采集详情</a>
-							<a href="javascript:void(0);">历史报告</a>
+							<a href="javascript:void(0);" ui-sref="app.dcs_report_list">历史报告</a>
+						</td>
+					</tr>
+					<tr>
+						<td>任务3</td>
+						<td>待评估</td>
+						<td>2019-11-02</td>
+						<td>9000</td>
+						<td class="opt">
+							<a href="javascript:void(0);">采集详情</a>
+							<a href="javascript:void(0);" ui-sref="app.dcs_report_list">历史报告</a>
+						</td>
+					</tr>
+					<tr>
+						<td>任务4</td>
+						<td>待支付</td>
+						<td>2019-11-02</td>
+						<td>/</td>
+						<td class="opt">
+							<a href="javascript:void(0);">采集详情</a>
+							<a href="javascript:void(0);" ui-sref="app.dcs_report_list">历史报告</a>
+						</td>
+					</tr>
+					<tr>
+						<td>任务5</td>
+						<td>已确认</td>
+						<td>2019-11-02</td>
+						<td>/</td>
+						<td class="opt">
+							<a href="javascript:void(0);">采集详情</a>
+							<a href="javascript:void(0);" ui-sref="app.dcs_report_list">历史报告</a>
+						</td>
+					</tr>
+					<tr>
+						<td>任务6</td>
+						<td>待支付</td>
+						<td>2019-11-02</td>
+						<td>8000</td>
+						<td class="opt">
+							<a href="javascript:void(0);">采集详情</a>
+							<a href="javascript:void(0);" ui-sref="app.dcs_report_list">历史报告</a>
+						</td>
+					</tr>
+					<tr>
+						<td>任务7</td>
+						<td>待确认</td>
+						<td>2019-11-02</td>
+						<td>20000</td>
+						<td class="opt">
+							<a href="javascript:void(0);">采集详情</a>
+							<a href="javascript:void(0);" ui-sref="app.dcs_report_list">历史报告</a>
+						</td>
+					</tr>
+					<tr>
+						<td>任务8</td>
+						<td>已确定</td>
+						<td>2019-11-02</td>
+						<td>/</td>
+						<td class="opt">
+							<a href="javascript:void(0);">采集详情</a>
+							<a href="javascript:void(0);" ui-sref="app.dcs_report_list">历史报告</a>
+						</td>
+					</tr>
+					<tr>
+						<td>任务9</td>
+						<td>已确定</td>
+						<td>2019-11-02</td>
+						<td>/</td>
+						<td class="opt">
+							<a href="javascript:void(0);">采集详情</a>
+							<a href="javascript:void(0);" ui-sref="app.dcs_report_list">历史报告</a>
+						</td>
+					</tr>
+					<tr>
+						<td>任务10</td>
+						<td>已确定</td>
+						<td>2019-11-02</td>
+						<td>7000</td>
+						<td class="opt">
+							<a href="javascript:void(0);">采集详情</a>
+							<a href="javascript:void(0);" ui-sref="app.dcs_report_list">历史报告</a>
 						</td>
 					</tr>
 				</tbody>
@@ -102,7 +192,15 @@
 					<div class="f-list-item">
 						<label class="c-f-list-tit"><span>推送方式</span></label>
 						<div class="c-f-list-con">
-							
+							<div class="i-checks">
+								<label><input type="checkbox" value="">短信</label>
+							</div>
+							<div class="i-checks">
+								<label><input type="checkbox" value="">微信</label>
+							</div>
+							<div class="i-checks">
+								<label><input type="checkbox" value="">邮件</label>
+							</div>
 						</div>
 					</div>
 					<div class="f-list-item">
@@ -120,3 +218,8 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	$('.i-checks').iCheck({
+		checkboxClass: 'icheckbox_square-blue'
+	});
+</script>
