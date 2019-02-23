@@ -175,6 +175,20 @@
         url: '/dcs_report_list',
         templateUrl: 'views/dcs/dcs_report_list.html'
       })
+      
+      .state('app.bps_index', {
+        url: '/bps_index',
+        templateUrl: 'views/bps/bps_index.html',
+        data: {
+        	css: 'assets/styles/pfs_detail.css'
+    	}
+      })
+      
+      .state('app.bps_purchase', {
+        url: '/bps_purchase',
+        templateUrl: 'views/bps/bps_purchase.html'
+      })
+      
 
     function load(srcs, callback) {
       return {
