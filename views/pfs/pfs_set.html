@@ -32,11 +32,77 @@
 							<td>600</td>
 							<td>18</td>
 							<td class="opt">
-								<a href="javascript:void(0);" data-toggle="modal" data-target="#myModal">编辑</a>
+								<a href="javascript:void(0);" class="edit-btn">编辑</a>
+							</td>
+						</tr>
+						<tr>
+							<td>www.taobao.com</td>
+							<td>10000</td>
+							<td>1804</td>
+							<td>600</td>
+							<td>18</td>
+							<td class="opt">
+								<a href="javascript:void(0);" class="edit-btn">编辑</a>
+							</td>
+						</tr>
+						<tr>
+							<td>www.sina.com</td>
+							<td>10000</td>
+							<td>1804</td>
+							<td>600</td>
+							<td>18</td>
+							<td class="opt">
+								<a href="javascript:void(0);" class="edit-btn">编辑</a>
+							</td>
+						</tr>
+						<tr>
+							<td>www.sina.com</td>
+							<td>10000</td>
+							<td>1804</td>
+							<td>600</td>
+							<td>18</td>
+							<td class="opt">
+								<a href="javascript:void(0);" class="edit-btn">编辑</a>
+							</td>
+						</tr>
+						<tr>
+							<td>www.sina.com</td>
+							<td>10000</td>
+							<td>1804</td>
+							<td>600</td>
+							<td>18</td>
+							<td class="opt">
+								<a href="javascript:void(0);" class="edit-btn">编辑</a>
 							</td>
 						</tr>
 					</tbody>
 				</table>
+				<!--分页-->
+				<div class="pageation">
+					<ul class="pageation-list">
+						<li class="list-item">
+							<a href="javascript:void(0);">上一页</a>
+						</li>
+						<li class="list-item actived">
+							<a href="javascript:void(0);">1</a>
+						</li>
+						<li class="list-item">
+							<a href="javascript:void(0);">2</a>
+						</li>
+						<li class="list-item">
+							<a href="javascript:void(0);">3</a>
+						</li>
+						<li class="list-item disabled">
+							<a href="javascript:void(0);">...</a>
+						</li>
+						<li class="list-item">
+							<a href="javascript:void(0);">10</a>
+						</li>
+						<li class="list-item">
+							<a href="javascript:void(0);">下一页</a>
+						</li>
+					</ul>
+				</div>
 			</div>
 			<!--推送渠道设置-->
 			<div class="tab-pane">
@@ -116,4 +182,8 @@
 	$('.i-checks').iCheck({
 		checkboxClass: 'icheckbox_square-blue'
 	});
+
+	$(".table-data .edit-btn").on("click", function() {
+		$('#myModal').modal('show');
+	})
 </script>

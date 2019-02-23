@@ -1,0 +1,122 @@
+<div class="c-section c-main">
+	<div class="c-section-inner">
+		<!--设置-->
+		<div class="c-cont data-box">
+			<div class="table-tool clearfix">
+				<div class="tool-l">
+					<button type="button" class="tool-item c-btn" data-toggle="modal" data-target="#myModal">新建</button>
+				</div>
+			</div>
+			
+			<table class="table-data">
+				<thead>
+					<tr>
+						<th>任务名称</th>
+						<th>状态</th>
+						<th>申请时间</th>
+						<th>评估金额</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>任务1</td>
+						<td>已支付</td>
+						<td>2019-11-02</td>
+						<td>10000</td>
+						<td class="opt">
+							<a href="javascript:void(0);">采集详情</a>
+							<a href="javascript:void(0);">历史报告</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!--分页-->
+			<div class="pageation">
+				<ul class="pageation-list">
+					<li class="list-item">
+						<a href="javascript:void(0);">上一页</a>
+					</li>
+					<li class="list-item actived">
+						<a href="javascript:void(0);">1</a>
+					</li>
+					<li class="list-item">
+						<a href="javascript:void(0);">2</a>
+					</li>
+					<li class="list-item">
+						<a href="javascript:void(0);">3</a>
+					</li>
+					<li class="list-item disabled">
+						<a href="javascript:void(0);">...</a>
+					</li>
+					<li class="list-item">
+						<a href="javascript:void(0);">10</a>
+					</li>
+					<li class="list-item">
+						<a href="javascript:void(0);">下一页</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+				<h4 class="modal-title" id="myModalLabel">新建采集</h4>
+			</div>
+			<div class="modal-body">
+				<form class="c-f-list">
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>任务名称</span></label>
+						<div class="c-f-list-con">
+							<input type="text" class="c-control">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>数据源</span></label>
+						<div class="c-f-list-con">
+							<textarea name="content" rows="4" class="c-control"></textarea>
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>发送周期</span></label>
+						<div class="c-f-list-con">
+							<select class="c-control">
+								<option>早中晚</option>
+								<option>一周</option>
+							</select>
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>优选数量</span></label>
+						<div class="c-f-list-con">
+							<input type="text" class="c-control">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>推送方式</span></label>
+						<div class="c-f-list-con">
+							
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>备注</span></label>
+						<div class="c-f-list-con">
+							<textarea name="content" rows="4" class="c-control"></textarea>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-send">确定</button>
+			</div>
+		</div>
+	</div>
+</div>

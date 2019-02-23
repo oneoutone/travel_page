@@ -165,6 +165,11 @@
         controller: "pfsReportManagerCtrl",
         resolve: load(['scripts/pfs/pfs_report_manager.js'])
       })
+      
+      .state('app.dcs_index', {
+        url: '/dcs_index',
+        templateUrl: 'views/dcs/dcs_index.html'
+      })
 
     function load(srcs, callback) {
       return {
