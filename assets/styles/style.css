@@ -1233,6 +1233,11 @@ a:focus,a:hover {
 	line-height: 1.5
 }
 
+.c-section-bd .c-grid {
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
 .c-media {
 	line-height: 1.5;
 	-webkit-box-sizing: border-box;
