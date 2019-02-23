@@ -1895,8 +1895,7 @@ a:focus,a:hover {
 	background-image: url(../img/icon-del.png);
 	background-repeat: no-repeat;
 	background-position: center;
-	background-color: rgba(255, 255, 255, 0.60);
-	filter: alpha(opacity=60);
+	cursor: pointer;
 }
 
 .upload-img-list .add-img {
@@ -2235,5 +2234,7 @@ textarea.c-control {
 }
 
 .modal-body {
+	max-height: 400px;
 	padding: 20px 40px 20px 20px;
+    overflow: auto;
 }
