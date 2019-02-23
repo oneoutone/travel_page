@@ -178,15 +178,22 @@
       
       .state('app.bps_index', {
         url: '/bps_index',
-        templateUrl: 'views/bps/bps_index.html',
-        data: {
-        	css: 'assets/styles/pfs_detail.css'
-    	}
+        templateUrl: 'views/bps/bps_index.html'
       })
       
       .state('app.bps_purchase', {
         url: '/bps_purchase',
         templateUrl: 'views/bps/bps_purchase.html'
+      })
+      
+      .state('app.bps_supplier', {
+        url: '/bps_supplier',
+        templateUrl: 'views/bps/bps_supplier.html'
+      })
+      
+      .state('app.bps_supplier_optimization', {
+        url: '/bps_supplier_optimization',
+        templateUrl: 'views/bps/bps_supplier_optimization.html'
       })
       
 

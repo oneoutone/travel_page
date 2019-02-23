@@ -143,67 +143,6 @@
  * 控制台标题
  */
 
-.coll-section-hd {
-	margin-bottom: 20px;
-	zoom: 1
-}
-
-.coll-section-hd:after {
-	content: "";
-	display: block;
-	height: 0;
-	clear: both;
-	visibility: hidden
-}
-
-.coll-section-hd-extra {
-	float: right;
-	line-height: 40px;
-	margin-left: 20px
-}
-
-.coll-section-hd-extra:after {
-	content: "";
-	display: inline-block;
-	vertical-align: bottom;
-	width: 0;
-	height: 100%;
-	font-size: 0
-}
-
-.coll-section-more {
-	display: inline-block;
-	vertical-align: top;
-	margin-top: 4px;
-	padding-left: 16px;
-	padding-right: 16px;
-	min-width: 60px;
-	height: 32px;
-	line-height: 30px;
-	font-size: 14px;
-	color: #00a4ff;
-	border: 1px solid #00a4ff;
-	text-align: center;
-	border-radius: 4px;
-	box-sizing: border-box;
-	cursor: pointer;
-}
-
-.coll-section-more:hover {
-	color: #ffffff;
-	background-color: #00a4ff;
-}
-
-.coll-section-hd-tit {
-	line-height: 40px;
-	font-size: 28px;
-	color: #333;
-	font-weight: 400;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden
-}
-
 .coll-section-bd .c-grid {
 	margin-left: -10px;
 	margin-right: -10px;
