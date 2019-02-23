@@ -26,6 +26,7 @@
 }
 
 .login-form .input-group {
+	display: block;
 	position: relative;
 	line-height: 36px;
 	padding: 27px 0;
