@@ -1,0 +1,131 @@
+<div ng-include="apiInclude + 'head_nav_bps.html'"></div>
+
+<div class="c-section c-main">
+	<div class="c-section-inner">
+
+		<div class="c-cont data-box">
+			
+			<div class="steps">
+				<ul class="clearfix">
+					<li class="step-item first" ng-class="step == 1?'actived':''">
+						<a href="javascript:void(0);"><span class="number">1</span> 完善企业信息</a>
+					</li>
+					<li class="step-item" ng-class="step == 2?'actived':''">
+						<a href="javascript:void(0);"><span class="number">2</span> 善优选信息</a>
+					</li>
+					<li class="step-item last" ng-class="step == 3?'actived':''">
+						<a href="javascript:void(0);"><span class="number">3</span> 完成</a>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="tab-pane" ng-class="step == 1?'actived':''">
+				<form class="c-f-list">
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>公司名称：</span></label>
+						<div class="c-f-list-con">
+							<input type="text" class="c-control">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>统一社会信用代码：</span></label>
+						<div class="c-f-list-con">
+							<input type="text" class="c-control">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>公司账号：</span></label>
+						<div class="c-f-list-con">
+							<input type="text" class="c-control">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>开户行：</span></label>
+						<div class="c-f-list-con">
+							<input type="text" class="c-control">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>公司地址：</span></label>
+						<div class="c-f-list-con">
+							<input type="text" class="c-control">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>联系电话：</span></label>
+						<div class="c-f-list-con">
+							<input type="text" class="c-control">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>联系人：</span></label>
+						<div class="c-f-list-con">
+							<input type="text" class="c-control">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<div class="c-f-list-con send-btn-box">
+							<button type="button" class="c-btn" ng-click="step=2">下一步</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="tab-pane" ng-class="step == 2?'actived':''">
+
+				<form class="c-f-list">
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>产品名称：</span></label>
+						<div class="c-f-list-con">
+							<input type="text" class="c-control">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>类别：</span></label>
+						<div class="c-f-list-con">
+							<input type="text" class="c-control">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>适应行业：</span></label>
+						<div class="c-f-list-con">
+							<input type="text" class="c-control">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>行业关键词：</span></label>
+						<div class="c-f-list-con">
+							<input type="text" class="c-control">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>产品优势：</span></label>
+						<div class="c-f-list-con">
+							<textarea name="content" rows="4" class="c-control"></textarea>
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>实施优势：</span></label>
+						<div class="c-f-list-con">
+							<textarea name="content" rows="4" class="c-control"></textarea>
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>相关链接：</span></label>
+						<div class="c-f-list-con">
+							<input type="text" class="c-control">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<div class="c-f-list-con send-btn-box">
+							<button type="button" class="c-btn" ng-click="step=3">下一步</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="tab-pane" ng-class="step == 3?'actived':''">
+				<div class="audit-result">您的申请被受理，将在3个工作日内完成审核</div>
+			</div>
+
+		</div>
+	</div>
+</div>

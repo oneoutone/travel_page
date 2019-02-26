@@ -198,7 +198,10 @@
       
       .state('app.bps_index', {
         url: '/bps_index',
-        templateUrl: 'views/bps/bps_index.html'
+        templateUrl: 'views/bps/bps_index.html',
+        data: {
+        	css: 'assets/styles/bps_index.css'
+    	}
       })
       
       .state('app.bps_purchase', {
@@ -214,6 +217,21 @@
       .state('app.bps_supplier_optimization', {
         url: '/bps_supplier_optimization',
         templateUrl: 'views/bps/bps_supplier_optimization.html'
+      })
+      
+      .state('app.bps_audit', {
+        url: '/bps_audit',
+        templateUrl: 'views/bps/bps_audit.html',
+        controller: "bpsAuditCtrl",
+        resolve: load(['scripts/bps/bps_audit.js']),
+        data: {
+        	css: 'assets/styles/bps_audit.css'
+    	}
+      })
+      
+      .state('app.bps_distributor', {
+        url: '/bps_distributor',
+        templateUrl: 'views/bps/bps_distributor.html'
       })
       
 
