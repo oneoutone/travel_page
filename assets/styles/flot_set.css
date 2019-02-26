@@ -6,14 +6,21 @@
 	margin-top: 0;
 }
 
+.legend>table {
+	font-size: 14px!important;
+}
+
 .legendColorBox>div {
-	border: 1px solid transparent!important;
+	border: 0!important;
+	padding: 0!important;
 }
 
 .legendColorBox>div>div {
 	border-radius: 2px;
+	border-width: 6px!important;
+	box-sizing: content-box;
 }
 
-.legendColorBox .legendLabel {
+.legendLabel {
 	padding-left: 8px;
 }

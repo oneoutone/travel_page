@@ -17,7 +17,7 @@
                 series: { pie: { show: true, innerRadius: 0, stroke: { width: 0 }, label: { show: true, threshold: 0.05 } } },
                 legend: {backgroundColor: 'transparent'},
                 colors: [vm.app.color.primary],
-                grid: { hoverable: true, clickable: true, borderWidth: 0, color: 'rgba(120,120,120,0.5)' },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#666' },
                 tooltip: true,
                 tooltipOpts: { content: '%s: %p%' }
             }).draw();
@@ -30,7 +30,7 @@
 		// 			series: { pie: { show: true, innerRadius: 0, stroke: { width: 0 }, label: { show: true, threshold: 0.05 } } },
 		// 			legend: {backgroundColor: 'transparent'},
 		// 			colors: [vm.app.color.primary],
-		// 			grid: { hoverable: true, clickable: true, borderWidth: 0, color: 'rgba(120,120,120,0.5)' },
+		// 			grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#666' },
 		// 			tooltip: true,
 		// 			tooltipOpts: { content: '%s: %p%' }
 		// 		}).draw();
@@ -46,7 +46,7 @@
         			series: { pie: { show: true, innerRadius: 0, stroke: { width: 0 }, label: { show: true, threshold: 0.05 } } },
         			legend: {backgroundColor: 'transparent'},
         			colors: [vm.app.color.primary],
-        			grid: { hoverable: true, clickable: true, borderWidth: 0, color: 'rgba(120,120,120,0.5)' },
+        			grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#666' },
         			tooltip: true,
         			tooltipOpts: { content: '%s: %p%' }
         		}).draw();
@@ -59,7 +59,7 @@
 		// 			series: { pie: { show: true, innerRadius: 0, stroke: { width: 0 }, label: { show: true, threshold: 0.05 } } },
 		// 			legend: {backgroundColor: 'transparent'},
 		// 			colors: [vm.app.color.primary],
-		// 			grid: { hoverable: true, clickable: true, borderWidth: 0, color: 'rgba(120,120,120,0.5)' },
+		// 			grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#666' },
 		// 			tooltip: true,
 		// 			tooltipOpts: { content: '%s: %p%' }
 		// 		}).draw();

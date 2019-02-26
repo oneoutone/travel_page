@@ -21,7 +21,7 @@
     vm.app = {
       name: 'travel_page',
       color: {
-        primary: '#0cc2aa',
+        primary: '#59def3',
         accent: '#a88add',
         warn: '#fcc100',
         info: '#6887ff',
