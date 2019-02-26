@@ -1,0 +1,19 @@
+.legend>div,
+.legend>table {
+	height: 200px!important;
+	top: 50%!important;
+	margin-top: -100px!important;
+	margin-top: 0;
+}
+
+.legendColorBox>div {
+	border: 1px solid transparent!important;
+}
+
+.legendColorBox>div>div {
+	border-radius: 2px;
+}
+
+.legendColorBox .legendLabel {
+	padding-left: 8px;
+}

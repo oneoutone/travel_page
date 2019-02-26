@@ -130,7 +130,7 @@
         controller: "pfsIndexCtrl",
         resolve: load(['scripts/pfs/pfs_index.js']),
         data: {
-        	css: 'assets/styles/pfs_index.css'
+        	css: ['assets/styles/flot_set.css', 'assets/styles/pfs_index.css']
     	}
       })
       
