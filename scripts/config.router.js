@@ -21,6 +21,22 @@
 
     $urlRouterProvider.otherwise('/app/home');
     $stateProvider
+      .state('spider', {
+      	url: '/spider_index',
+      	templateUrl: 'views/spider/index.html',
+        data: {
+        	css: 'assets/styles/spider/style_3.css'
+    	}
+      })
+      
+      .state('collection', {
+      	url: '/spider_collection',
+      	templateUrl: 'views/spider/collection.html',
+        data: {
+        	css: 'assets/styles/spider/style_3.css'
+    	}
+      })
+      
       .state('app', {
         abstract: true,
         url: '/app',
@@ -30,7 +46,10 @@
             controller: "layoutCtrl",
             resolve: load(['scripts/layout/layout.js'])
           }
-        }
+        },
+        data: {
+        	css: ['assets/styles/style.css', 'assets/styles/plugins/iCheck/custom.css', 'assets/styles/plugins/datapicker/datepicker3.css', 'assets/styles/bootstrap.min.css']
+    	}
       })
 
       .state('app.home', {
