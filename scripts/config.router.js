@@ -66,12 +66,12 @@
         url: '/login',
         templateUrl: 'views/login/login.html',
         controller: "loginCtrl",
-        resolve: load(['scripts/login/login.js']),
+        resolve: load(['toastr', 'jsencrypt', 'scripts/login/login.js']),
         data: {
         	css: 'assets/styles/login.css'
     	}
       })
-      
+
       .state('app.recover_pwd', {
         url: '/recover_pwd',
         templateUrl: 'views/login/recover_pwd.html',
@@ -79,12 +79,13 @@
         	css: 'assets/styles/login.css'
     	}
       })
-      
+
+
       .state('app.register', {
         url: '/register',
         templateUrl: 'views/register/register.html',
         controller: "registerCtrl",
-        resolve: load(['toastr', 'scripts/register/register.js']),
+        resolve: load(['toastr', 'jsencrypt', 'scripts/register/register.js']),
         data: {
         	css: 'assets/styles/login.css'
     	}
@@ -128,7 +129,7 @@
         url: '/pfs_index',
         templateUrl: 'views/pfs/pfs_index.html',
         controller: "pfsIndexCtrl",
-        resolve: load(['scripts/pfs/pfs_index.js']),
+        resolve: load(['plot', 'scripts/pfs/pfs_index.js']),
         data: {
         	css: ['assets/styles/flot_set.css', 'assets/styles/pfs_index.css']
     	}

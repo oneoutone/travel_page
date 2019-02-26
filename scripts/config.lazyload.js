@@ -44,6 +44,24 @@
           'libs/angular/angular-toastr/angular-toastr.tpls.min.js',
           'libs/angular/angular-toastr/angular-toastr.min.css'
         ]
+      },
+      {
+        name: 'jsencrypt',
+        module: false,
+        files: [
+          'libs/js/JSEncrypt/jsencrypt.js'
+        ]
+      },
+      {
+        name: 'plot',
+        module: false,
+        files: [
+          'libs/jquery/flot/jquery.flot.js',
+          'libs/jquery/flot/jquery.flot.resize.js',
+          'libs/jquery/flot/jquery.flot.pie.js',
+          'libs/jquery/flot.tooltip/js/jquery.flot.tooltip.min.js',
+          'libs/jquery/flot-spline/js/jquery.flot.spline.min.js'
+        ]
       }
     ])
     .config(['$ocLazyLoadProvider', 'MODULE_CONFIG', function($ocLazyLoadProvider, MODULE_CONFIG) {

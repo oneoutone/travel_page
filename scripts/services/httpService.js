@@ -69,6 +69,47 @@
             }
 
             /**
+             * login
+             * @param data
+             * @param success
+             * @param fail
+             */
+            self.login = function(data, success, fail){
+                postRequest(host + '/users/login', data, {auth:false}, success, fail)
+            }
+
+            /**
+             *get user info
+             */
+            self.getProfile = function(data, success, fail){
+                getRequest(host + '/users/'+data.id, data, {auth:true}, success, fail)
+            }
+
+            /**
+             * today yuqing info
+             * @param data
+             * @param success
+             * @param fail
+             */
+            self.today_data = function(success,fail){
+                getRequest(host + '/yuqing/today_data', null, {auth:true}, success, fail)
+            }
+
+            /**
+             * today yuqing info
+             * @param data
+             * @param success
+             * @param fail
+             */
+            self.history_data = function(success,fail){
+                getRequest(host + '/yuqing/history_data', null, {auth:true}, success, fail)
+            }
+
+            self.emotion_date = function(data,success, fail){
+                getRequest(host + '/yuqing/emotion_data', data, {auth:true}, success, fail)
+            }
+
+            /**
              * get stored access token
              * @returns {*|string}
              */

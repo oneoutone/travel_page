@@ -78,7 +78,10 @@
                 toastr.error('两次输入的密码 不一致')
                 return
             }
-            httpService.register({phone: vm.phone, password: vm.password, code: vm.code}, function (r) {
+            var crypt = new JSEncrypt()
+            crypt.setPublicKey(vm.app.key)
+            var enpassword = crypt.encrypt(vm.password);
+            httpService.register({phone: vm.phone, password: enpassword, code: vm.code}, function (r) {
                 toastr.success('注册成功, 正在跳转等登陆页')
                 $state.go('app.login')
             }, function(r){
