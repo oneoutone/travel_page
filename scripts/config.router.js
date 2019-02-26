@@ -62,6 +62,14 @@
     	}
       })
       
+      .state('app.intro', {
+        url: '/intro',
+        templateUrl: 'views/home/intro.html',
+        data: {
+        	css: 'assets/styles/intro.css'
+    	}
+      })
+      
       .state('app.login', {
         url: '/login',
         templateUrl: 'views/login/login.html',

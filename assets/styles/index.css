@@ -19,7 +19,8 @@
 .c-tab-normal .c-tab-simple a {
 	display: block;
 	padding: 10px 30px;
-	text-decoration: none
+	text-decoration: none;
+	outline: none;
 }
 
 .c-tab-normal .c-tab-simple .c-tab-tit {
@@ -534,7 +535,12 @@
 }
 
 .home-solution-item {
-	padding-top: 25px
+	display: none;
+	padding-top: 25px;
+}
+
+.home-solution-item.actived {
+	display: block;
 }
 
 .home-solution-tit {
@@ -610,8 +616,9 @@
 
 .solution-logo-item img {
 	display: block;
-	width: 82px;
-	height: 82px;
+	width: auto;
+	max-width: 132px;
+	max-height: 82px;
 	margin: 0 auto;
 }
 
