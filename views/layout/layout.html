@@ -79,8 +79,11 @@
 						</div>-->
 					</div>
 					<div class="c-nav-top-links">
-						<a href="javascript:void(0);" class="link-item" ui-sref="app.login">登录</a>
-						<a href="javascript:void(0);" class="nav-register-btn c-btn" ui-sref="app.register">免费注册</a>
+						<a class="link-item" ui-sref="app.login" ng-show="!app.setting.user">登录</a>
+						<a class="nav-register-btn c-btn" ui-sref="app.register" ng-show="!app.setting.user">免费注册</a>
+						<a class="link-item" ui-sref="app.my" ng-show="app.setting.user">我的账户</a>
+						<a class="link-item" ui-sref="app.console" ng-show="app.setting.user">我的空间</a>
+						<a class="link-item" ng-click="app.logout()" ng-show="app.setting.user">登出</a>
 					</div>
 				</div>
 			</div>

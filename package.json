@@ -9,6 +9,7 @@
   "author": "JinChuang",
   "license": "Envato REGULAR LICENSE",
   "dependencies": {
+    "crypto-js": "^3.1.9-1",
     "http-server": "^0.11.1"
   }
 }
