@@ -163,6 +163,13 @@
     	}
       })
       
+      .state('app.news_analyse', {
+        url: '/news_analyse',
+        templateUrl: 'views/pfs/news_analyse.html',
+        controller: "newsAnalyseCtrl",
+        resolve: load(['scripts/pfs/news_analyse.js'])
+      })
+      
       .state('app.pfs_keyword', {
         url: '/pfs_keyword',
         templateUrl: 'views/pfs/pfs_keyword.html',

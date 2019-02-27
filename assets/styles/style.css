@@ -2058,6 +2058,35 @@ textarea.c-control {
 	background-color: #d51616;
 }
 
+.table-text {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 1px;
+	background-color: #e5e5e5;
+}
+
+.table-text td,
+.table-text th {
+	text-align: center;
+	padding: 10px;
+	background-color: #ffffff;
+}
+
+.table-text th {
+	color: #999;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 1.6;
+}
+
+.table-text td {
+	color: #333;
+	font-size: 14px;
+	line-height: 1.6;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+
 .table-tool {
 	margin-bottom: 20px;
 }
