@@ -171,25 +171,25 @@
 				<div class="nav-dropdown-menu-inner">
 					<div class="menu-area">
 						<ul>
-							<li class="menu-link curr actived">
+							<li class="menu-link curr" data-id="mlf1">
 								<a href="javascript:void(0);">舆情监测平台</a>
 							</li>
-							<li class="menu-link">
+							<li class="menu-link" data-id="mlf2">
 								<a href="javascript:void(0);">旅游教育大数据平台</a>
 							</li>
-							<li class="menu-link">
+							<li class="menu-link" data-id="mlf3">
 								<a href="javascript:void(0);">广西在线旅游产品分析系统</a>
 							</li>
-							<li class="menu-link">
+							<li class="menu-link" data-id="mlf4">
 								<a href="javascript:void(0);">东盟旅游大数据平台</a>
 							</li>
-							<li class="menu-link">
+							<li class="menu-link" data-id="mlf5">
 								<a href="javascript:void(0);">东盟旅游舆情监测与精准营销平台</a>
 							</li>
-							<li class="menu-link">
+							<li class="menu-link" data-id="mlf6">
 								<a href="javascript:void(0);">采招项目服务平台</a>
 							</li>
-							<li class="menu-link">
+							<li class="menu-link" data-id="mlf7">
 								<a href="javascript:void(0);">数据定制平台</a>
 							</li>
 						</ul>
@@ -197,7 +197,7 @@
 				</div>
 			</div>
 			<div id="sndLeftNav" class="nav-dropdown-menu menu-level-2">
-				<div class="nav-dropdown-menu-inner">
+				<div class="nav-dropdown-menu-inner" data-id="mlf1">
 					<div class="menu-area">
 						<h2 class="menu-area-tit">舆情监测平台</h2>
 						<ul class="menu-list">
@@ -234,27 +234,27 @@
 						</ul>
 					</div>
 				</div>
-				<div class="nav-dropdown-menu-inner">
+				<div class="nav-dropdown-menu-inner" data-id="mlf2">
 					<div class="menu-area">
 						<h2 class="menu-area-tit">旅游教育大数据平台</h2>
 					</div>
 				</div>
-				<div class="nav-dropdown-menu-inner">
+				<div class="nav-dropdown-menu-inner" data-id="mlf3">
 					<div class="menu-area">
 						<h2 class="menu-area-tit">广西在线旅游产品分析系统</h2>
 					</div>
 				</div>
-				<div class="nav-dropdown-menu-inner">
+				<div class="nav-dropdown-menu-inner" data-id="mlf4">
 					<div class="menu-area">
 						<h2 class="menu-area-tit">东盟旅游大数据平台</h2>
 					</div>
 				</div>
-				<div class="nav-dropdown-menu-inner">
+				<div class="nav-dropdown-menu-inner" data-id="mlf5">
 					<div class="menu-area">
 						<h2 class="menu-area-tit">东盟旅游舆情监测与精准营销平台</h2>
 					</div>
 				</div>
-				<div class="nav-dropdown-menu-inner">
+				<div class="nav-dropdown-menu-inner" data-id="mlf6">
 					<div class="menu-area">
 						<h2 class="menu-area-tit">采招项目服务平台</h2>
 						<ul class="menu-list">
@@ -276,7 +276,7 @@
 						</ul>
 					</div>
 				</div>
-				<div class="nav-dropdown-menu-inner">
+				<div class="nav-dropdown-menu-inner" data-id="mlf7">
 					<div class="menu-area">
 						<h2 class="menu-area-tit">数据定制平台</h2>
 						<ul class="menu-list">
@@ -296,34 +296,48 @@
 </div>
 <script type="text/javascript">
 	$(function() {
-		$("#leftNavBtn").on("click", function() {
-			if($(this).hasClass("actived")){
-				closeNav();
-			}else{
-				showLeftNav();
-			}
-		});
 		
-		$("#fstLeftNav .menu-link").on("click", function(){
-			$(this).addClass('actived').siblings().removeClass("actived");
+		$("#leftNavBtn, #leftNav").hover(function() {
+			showLeftNav();
+		},function() {
+			closeNav();
+		});
+
+		$("#fstLeftNav .menu-link").hover(function(){
+			var thisId=$(this).attr('data-id');
 			$("#sndLeftNav").addClass("actived");
-			$("#sndLeftNav .nav-dropdown-menu-inner").eq($(this).index()).addClass("actived").siblings().removeClass("actived");
+			$("#sndLeftNav .nav-dropdown-menu-inner, #fstLeftNav .menu-link").removeClass("actived");
+			$("[data-id='"+thisId+"']").addClass("actived");
+			sndLeftNav(thisId);
+		},function(){
+			var thisId=$(this).attr('data-id');
+			$("#sndLeftNav").removeClass("actived");
+			$("#sndLeftNav .nav-dropdown-menu-inner, #fstLeftNav .menu-link").removeClass("actived");
+			$("[data-id='"+thisId+"']").removeClass("actived");
+			sndLeftNav(thisId);
 		});
-		
+
 		$("#sndLeftNav .menu-item").on("click", closeNav);
 
 	});
+	
+	function sndLeftNav(thisId) {
+		$("#sndLeftNav").hover(function(){
+			$("#sndLeftNav").addClass("actived");
+			$("#sndLeftNav .nav-dropdown-menu-inner, #fstLeftNav .menu-link").removeClass("actived");
+			$("[data-id='"+thisId+"']").addClass("actived");
+		},function(){
+			$("#sndLeftNav").removeClass("actived");
+		});
+	}
 
 	function closeNav(){
 		$("#leftNavBtn").removeClass("actived");
-		$("#sndLeftNav .nav-dropdown-menu-inner").removeClass("actived");
-		$("#sndLeftNav").removeClass("actived");
-		$("#fstLeftNav .menu-link").removeClass("actived");
-		$("#leftNav").removeClass("actived");
+		$("#sndLeftNav .nav-dropdown-menu-inner, #sndLeftNav").removeClass("actived");
+		$("#fstLeftNav .menu-link, #leftNav").removeClass("actived");
 	}
 	
 	function showLeftNav(){
-		$("#leftNavBtn").addClass("actived");
-		$("#leftNav").addClass("actived");
+		$("#leftNavBtn, #leftNav").addClass("actived");
 	}
 </script>
