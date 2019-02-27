@@ -471,6 +471,20 @@
 	margin: 10px auto 0 auto;
 }
 
+.home-btn-more {
+	font-size: 14px;
+	text-align: center;
+	margin-top: 15px;
+}
+
+.home-btn-more a {
+	color: #00a4ff
+}
+
+.home-btn-more a:hover {
+	text-decoration: underline
+}
+
 
 /*5.内容-支持192个业务场景的全栈解决方案*/
 
