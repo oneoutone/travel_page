@@ -297,11 +297,7 @@
 <script type="text/javascript">
 	$(function() {
 		
-		$("#leftNavBtn, #leftNav").hover(function() {
-			showLeftNav();
-		},function() {
-			closeNav();
-		});
+		$("#leftNavBtn, #leftNav").hover(showLeftNav, closeNav);
 
 		$("#fstLeftNav .menu-link").hover(function(){
 			var thisId=$(this).attr('data-id');
