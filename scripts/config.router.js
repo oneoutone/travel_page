@@ -191,7 +191,10 @@
         url: '/pfs_data_source',
         templateUrl: 'views/pfs/pfs_data_source.html',
         controller: "pfsDataSourceCtrl",
-        resolve: load(['scripts/pfs/pfs_data_source.js'])
+        resolve: load(['scripts/pfs/pfs_data_source.js']),
+        data: {
+        	css: 'assets/styles/pfs_data_source.css'
+    	}
       })
       
       .state('app.pfs_report_manager', {

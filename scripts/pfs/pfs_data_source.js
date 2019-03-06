@@ -6,7 +6,9 @@
 	pfsDataSourceCtrl.$inject = ['$scope'];
 
 	function pfsDataSourceCtrl($scope) {
-		$scope.data = {name:'5'};
+		var vm = $scope;
+		vm.data = {name:'5'};
+		vm.custom = "no";
 	}
 
 })();

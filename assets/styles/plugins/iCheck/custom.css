@@ -8,8 +8,8 @@
 	vertical-align: middle;
 	margin: 0;
 	padding: 0;
-	width: 22px;
-	height: 22px;
+	width: 20px;
+	height: 20px;
 	border: 1px solid #d1d2d3;
 	cursor: pointer;
 	background-repeat: no-repeat;
@@ -23,9 +23,12 @@
 	border: 1px solid #00a4ff;
 }
 
-.icheckbox_square-blue.checked,
-.iradio_square-blue.checked {
+.icheckbox_square-blue.checked {
 	background-image: url(blue1.png);
+}
+
+.iradio_square-blue.checked {
+	background-image: url(blue3.png);
 }
 
 .icheckbox_square-blue.disabled,
@@ -39,9 +42,12 @@
 	border: 1px solid #d1d2d3;
 }
 
-.icheckbox_square-blue.checked.disabled,
-.iradio_square-blue.checked.disabled {
+.icheckbox_square-blue.checked.disabled {
 	background-image: url(blue2.png);
+}
+
+.iradio_square-blue.checked.disabled {
+	background-image: url(blue4.png);
 }
 
 .iradio_square-blue {
