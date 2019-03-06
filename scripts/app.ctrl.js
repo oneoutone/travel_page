@@ -8,7 +8,7 @@
 
 (function() {
   'use strict';
-  var apiInclude ='../views/include/';
+  var apiInclude ='views/include/';
   
   angular
     .module('app')
@@ -20,6 +20,7 @@
     var vm = $scope;
     vm.app = {
       name: 'travel_page',
+      setting: {},
       color: {
         primary: '#59def3',
         accent: '#a88add',
@@ -49,16 +50,16 @@
       return false
     }
 
-    // $rootScope.$on('$stateChangeStart', function (event, toState) {
-    //   //check if login
-    //   if (!vm.app.isAuthenticated() && toState.name.indexOf('login') == -1 && toState.name.indexOf('register') == -1 && toState.name.indexOf('home') == -1){
-    //     var url = $location.path();
-    //     var from = encodeURIComponent(url);
-    //     // 如果已经在登陆界面，接收到401跳转到登陆界面了。
-    //     vm.app.setting = {}
-    //     $location.path('/app/login').search('state=' + from);
-    //   }
-    // });
+    $rootScope.$on('$stateChangeStart', function (event, toState) {
+      //check if login
+      if (!vm.app.isAuthenticated() && toState.name.indexOf('login') == -1 && toState.name.indexOf('register') == -1 && toState.name.indexOf('home') == -1){
+        var url = $location.path();
+        var from = encodeURIComponent(url);
+        // 如果已经在登陆界面，接收到401跳转到登陆界面了。
+        vm.app.setting = {}
+        $location.path('/app/login').search('state=' + from);
+      }
+    });
 
     vm.app.isReady = false;    // 程序是否初始化成功
     var todos = [];

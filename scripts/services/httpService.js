@@ -4,6 +4,7 @@
         .module('httpService', [])
         .service('httpService', ['$http', '$localStorage', function ($http, $localStorage) {
             var self = this;
+            //var host = 'http://hadupu.cn/api'
             var host = 'http://localhost:8080/api'
 
             function postRequest(url, data, options, success, fail){
@@ -109,6 +110,33 @@
                 getRequest(host + '/yuqing/emotion_data', data, {auth:true}, success, fail)
             }
 
+            self.data = function(data, success,fail){
+                getRequest(host + '/yuqing/data', data, {auth:true}, success, fail)
+            }
+
+            self.weiboV = function(success,fail){
+                getRequest(host + '/yuqing/weiboV', null, {auth:true}, success, fail)
+            }
+
+            self.weiboHot = function(success,fail){
+                getRequest(host + '/yuqing/weiboHot', null, {auth:true}, success, fail)
+            }
+
+            self.addKeyWord = function(data,success,fail){
+                postRequest(host + '/yuqing/keyWord/add', data, {auth:true}, success, fail)
+            }
+            self.getKeyWordList = function(data,success,fail){
+                getRequest(host + '/yuqing/keyWord/list', data, {auth:true}, success, fail)
+            }
+            self.getKeyWordCount = function(success,fail){
+                getRequest(host + '/yuqing/keyWord/count', null, {auth:true}, success, fail)
+            }
+            self.updateKeyWord = function(data, success, fail){
+                postRequest(host + '/yuqing/keyWord/update', data, {auth:true}, success, fail)
+            }
+            self.deleteKeyWord = function(data, success, fail){
+                postRequest(host + '/yuqing/keyWord/delete', data, {auth:true}, success, fail)
+            }
             /**
              * get stored access token
              * @returns {*|string}

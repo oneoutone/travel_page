@@ -9,9 +9,17 @@
     .module('app')
     .constant('MODULE_CONFIG', [
       {
-        name: 'mgcrea.ngStrap',
+        name: 'ui.bootstrap',
         module: true,
         serie: true,
+        files: [
+          // 'libs/angular/angular-bootstrap/ui-bootstrap-tpls.min.js'
+          '//cdn.bootcss.com/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js'
+        ]
+      },
+      {
+        name: 'mgcrea.ngStrap',
+        module: true,
         files: [
           'assets/angular-motion/dist/angular-motion.min.css',
           'assets/bootstrap-additions/dist/bootstrap-additions.min.css',
