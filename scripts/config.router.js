@@ -139,8 +139,8 @@
         controller: "pfsIndexCtrl",
         resolve: load(['plot', 'scripts/pfs/pfs_index.js']),
         data: {
-        	css: ['assets/styles/flot_set.css', 'assets/styles/pfs_index.css']
-    	}
+          css: ['assets/styles/flot_set.css', 'assets/styles/pfs_index.css']
+        }
       })
       
       .state('app.news_list', {
@@ -171,10 +171,10 @@
       })
       
       .state('app.pfs_keyword', {
-        url: '/pfs_keyword',
+        url: '/pfs_keyword?page&filter',
         templateUrl: 'views/pfs/pfs_keyword.html',
         controller: "pfsKeywordCtrl",
-        resolve: load(['scripts/pfs/pfs_keyword.js'])
+        resolve: load(['ui.bootstrap' ,'mgcrea.ngStrap', 'toastr', 'scripts/pfs/pfs_keyword.js'])
       })
       
       .state('app.pfs_set', {

@@ -8,7 +8,7 @@
       'ngStorage',
       'ui.router',
       'oc.lazyLoad',
-      'uiRouterStyles',
+        'uiRouterStyles',
         'httpService'
     ]);
 })();
