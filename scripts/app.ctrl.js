@@ -102,7 +102,7 @@
      *
      */
     vm.app.init = function(callback){
-      httpService.getProfile({id: vm.app.setting.userId},function(data){
+      httpService.getProfile(function(data){
         if(!data.id){
           var url = $location.path();
           var from = encodeURIComponent(url);

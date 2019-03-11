@@ -32,6 +32,8 @@
       .state('collection', {
       	url: '/spider_collection',
       	templateUrl: 'views/spider/collection.html',
+        controller: "collectionCtrl",
+        resolve: load(['toastr', 'scripts/spider/collection.js']),
         data: {
         	css: 'assets/styles/spider/style_3.css'
     	}
@@ -144,17 +146,17 @@
       })
       
       .state('app.news_list', {
-        url: '/news_list',
+        url: '/news/?channel&type&page',
         templateUrl: 'views/pfs/news_list.html',
         controller: "newsListCtrl",
-        resolve: load(['scripts/pfs/news_list.js']),
+        resolve: load(['ui.bootstrap' ,'mgcrea.ngStrap', 'toastr', 'scripts/pfs/news_list.js']),
         data: {
         	css: 'assets/styles/news_list.css'
     	}
       })
       
       .state('app.news_detail', {
-        url: '/news_detail',
+        url: '/news/:id',
         templateUrl: 'views/pfs/news_detail.html',
         controller: "newsDetailCtrl",
         resolve: load(['scripts/pfs/news_detail.js']),
@@ -178,20 +180,20 @@
       })
       
       .state('app.pfs_set', {
-        url: '/pfs_set',
+        url: '/pfs_set?page',
         templateUrl: 'views/pfs/pfs_set.html',
         controller: "pfsSetCtrl",
-        resolve: load(['scripts/pfs/pfs_set.js']),
+        resolve: load(['ui.bootstrap', 'mgcrea.ngStrap', 'toastr', 'ui.select', 'scripts/pfs/pfs_set.js']),
         data: {
         	css: 'assets/styles/pfs_set.css'
     	}
       })
       
       .state('app.pfs_data_source', {
-        url: '/pfs_data_source',
+        url: '/pfs_data_source&page',
         templateUrl: 'views/pfs/pfs_data_source.html',
         controller: "pfsDataSourceCtrl",
-        resolve: load(['scripts/pfs/pfs_data_source.js']),
+        resolve: load(['ui.bootstrap' ,'mgcrea.ngStrap', 'toastr', 'scripts/pfs/pfs_data_source.js']),
         data: {
         	css: 'assets/styles/pfs_data_source.css'
     	}
@@ -205,8 +207,10 @@
       })
       
       .state('app.dcs_index', {
-        url: '/dcs_index',
-        templateUrl: 'views/dcs/dcs_index.html'
+        url: '/dcs_index?page',
+        templateUrl: 'views/dcs/dcs_index.html',
+        controller: "requestListCtrl",
+        resolve: load(['ui.bootstrap' ,'mgcrea.ngStrap', 'toastr', 'scripts/dcs/dcs_index.js'])
       })
       
       .state('app.dcs_report_list', {

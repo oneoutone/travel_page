@@ -70,6 +70,14 @@
           'libs/jquery/flot.tooltip/js/jquery.flot.tooltip.min.js',
           'libs/jquery/flot-spline/js/jquery.flot.spline.min.js'
         ]
+      },
+      {
+        name: 'ui.select',
+        module: true,
+        files: [
+          'libs/angular/angular-ui-select/dist/select.min.js',
+          'libs/angular/angular-ui-select/dist/select.min.css'
+        ]
       }
     ])
     .config(['$ocLazyLoadProvider', 'MODULE_CONFIG', function($ocLazyLoadProvider, MODULE_CONFIG) {

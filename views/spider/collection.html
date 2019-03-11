@@ -13,48 +13,49 @@
 <div class="bt_s bt_s1">填写您具体需求，完成数据采集分析。</div>
 
 <div class="cj_bg">
+    <div class="cj_n1"><p class="cj_p cj_p_h"><font class="cj_x">*</font>任务名称:</p><input type="text" placeholder="为采集任务定义名称" ng-model="data.jobName"></div>
+
 <div class="cj_n2">
-<p class="cj_p">数据源:</p>
-<textarea>www.baidu.com
-www.google.com</textarea>
+<p class="cj_p"><font class="cj_x">*</font>数据源:</p>
+<textarea placeholder="www.baidu.com,www.google.com(多条数据使用逗号分割)" ng-model="data.source"></textarea>
 </div>
 
 <div class="cj_n2">
 <p class="cj_p">采集关键词:</p>
-<textarea>关键词   关键词    关键词   关键词</textarea>
+<textarea placeholder="关键词" ng-model="data.keyWord"></textarea>
 </div>
 
 <div class="cj_n3">
 <div class="cj_n1">
 <p class="cj_p cj_p_h">交付报告周期:</p>
-<select>
-<option>一次性交货</option>
+<select ng-model="data.type">
+    <option selected>一次性交货</option>
+    <option>按周交货</option>
+    <option>按月交货</option>
+    <option>按季度交货</option>
 </select>
 </div>
-<div class="cj_n1"><textarea>自定义详细说明
-自定义详细说明
-自定义详细说明</textarea></div>
+<div class="cj_n1"><textarea placeholder="自定义详细说明" ng-model="data.remark"></textarea></div>
 
-<div class="cj_n1"><div class="box"><input type="file"  ><label>截屏注释有助于确保您获得所需内容。</label></div></div>
 </div>
 
 <div class="cj_n3">
-<div class="cj_n1"><input type="radio" /><p class="cj_p cj_p_h">短信发送:</p><input type="text" value="手机号码（100条/月免费）"></div>
-<div class="cj_n1"><p class="cj_p cj_p_h">电子邮箱:</p><input type="text" value="接收提示电子邮箱，格式***@***.com"></div>
+<div class="cj_n1"><input type="radio" ng-value=1 ng-model="data.message" ><p class="cj_p cj_p_h">短信发送:</p><input type="text" ng-model="data.phone" placeholder="手机号码（100条/月免费）"></div>
+<div class="cj_n1"><p class="cj_p cj_p_h">电子邮箱:</p><input type="text" ng-model="data.email" placeholder="接收提示电子邮箱，格式***@***.com"></div>
 </div>
 
 <div class="cj_n3">
 <div class="cj_n1"><p class="cj_p cj_p_h">联系信息 （初次手机或邮箱为会员用户名，初始密码为手机后6位，邮箱为6个1。）</p></div>
 
-<div class="cj_n4"><p class="cj_p cj_p_h"><font class="cj_x">*</font> 电话号码:</p><input type="text" value=""></div>
-<div class="cj_n4 cj_n4_m"><p class="cj_p cj_p_h">企业邮箱:</p><input type="text" value=""></div>
+<div class="cj_n4"><p class="cj_p cj_p_h"><font class="cj_x">*</font> 电话号码:</p><input type="text"  ng-model="data.companyMobile" ></div>
+<div class="cj_n4 cj_n4_m"><p class="cj_p cj_p_h">企业邮箱:</p><input type="text" ng-model="data.companyEmail"></div>
 
-<div class="cj_n4"><p class="cj_p cj_p_h">名&nbsp;&nbsp;字:</p><input type="text" value=""></div>
-<div class="cj_n4 cj_n4_m"><p class="cj_p cj_p_h">职&nbsp;&nbsp;称:</p><input type="text" value=""></div>
+<div class="cj_n4"><p class="cj_p cj_p_h">名&nbsp;&nbsp;字:</p><input type="text" ng-model="data.name"></div>
+<div class="cj_n4 cj_n4_m"><p class="cj_p cj_p_h">职&nbsp;&nbsp;称:</p><input type="text" ng-model="data.position"></div>
 
 <div class="cj_n5">
 <p class="cj_p cj_p_h">公&nbsp;&nbsp;司:</p>
-<input type="text" value="">
+<input type="text"  ng-model="data.company">
 </div>
 </div>
 
@@ -62,7 +63,7 @@ www.google.com</textarea>
 </div>
 
 
-<input type="button" class="button_big" value="提&nbsp;&nbsp;交" ui-sref="app.dcs_index">
+<input type="button" class="button_big" value="提&nbsp;&nbsp;交" ng-click="addRequest()">
 
 </div>
 

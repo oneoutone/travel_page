@@ -6,7 +6,7 @@
 		<div class="c-area">
 			<div id="selectTab" class="c-area-con">
 				<div class="c-selectarea-item actived">报警条件设置</div>
-				<div class="c-selectarea-item">推送渠道设置</div>
+				<div class="c-selectarea-item ">推送渠道设置</div>
 			</div>
 		</div>
 
@@ -15,7 +15,7 @@
 			<div class="tab-pane actived">
 				<div class="table-tool clearfix">
 					<div class="tool-l">
-						<button type="button" class="tool-item c-btn" data-toggle="modal" data-target="#myModal">添加</button>
+						<button type="button" class="tool-item c-btn"ng-click="showAdd()">添加</button>
 					</div>
 				</div>
 				<table class="table-data">
@@ -30,96 +30,38 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>www.sina.com</td>
-							<td>10000</td>
-							<td>1804</td>
-							<td>600</td>
-							<td>18</td>
+						<tr ng-repeat="item in sets">
+							<td>{{item.sourceUrl}}</td>
+							<td>{{item.readNum}}</td>
+							<td>{{item.discussNum}}</td>
+							<td>{{item.shareNum}}</td>
+							<td>{{item.negValue}}</td>
 							<td class="opt">
-								<a href="javascript:void(0);" class="edit-btn">编辑</a>
+								<a  class="edit-btn" ng-click="showAdd(item)">编辑</a>
+								<a  class="edit-btn" ng-click="showDelete(item)">删除</a>
 							</td>
 						</tr>
-						<tr>
-							<td>www.taobao.com</td>
-							<td>10000</td>
-							<td>1804</td>
-							<td>600</td>
-							<td>18</td>
-							<td class="opt">
-								<a href="javascript:void(0);" class="edit-btn">编辑</a>
-							</td>
-						</tr>
-						<tr>
-							<td>www.sina.com</td>
-							<td>10000</td>
-							<td>1804</td>
-							<td>600</td>
-							<td>18</td>
-							<td class="opt">
-								<a href="javascript:void(0);" class="edit-btn">编辑</a>
-							</td>
-						</tr>
-						<tr>
-							<td>www.sina.com</td>
-							<td>10000</td>
-							<td>1804</td>
-							<td>600</td>
-							<td>18</td>
-							<td class="opt">
-								<a href="javascript:void(0);" class="edit-btn">编辑</a>
-							</td>
-						</tr>
-						<tr>
-							<td>www.sina.com</td>
-							<td>10000</td>
-							<td>1804</td>
-							<td>600</td>
-							<td>18</td>
-							<td class="opt">
-								<a href="javascript:void(0);" class="edit-btn">编辑</a>
+						<tr class="white b-white" >
+							<td colspan="10" class="white b-white text-center">
+								<ul class="pagination" uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" total-items="true" max-size="10" class="pagination-sm" boundary-link-numbers="true" next-text="下一页" previous-text="上一页" rotate="false" ng-change="pageChanged()"></ul>
+
 							</td>
 						</tr>
 					</tbody>
 				</table>
-				<!--分页-->
-				<div class="pageation">
-					<ul class="pageation-list">
-						<li class="list-item">
-							<a href="javascript:void(0);">上一页</a>
-						</li>
-						<li class="list-item actived">
-							<a href="javascript:void(0);">1</a>
-						</li>
-						<li class="list-item">
-							<a href="javascript:void(0);">2</a>
-						</li>
-						<li class="list-item">
-							<a href="javascript:void(0);">3</a>
-						</li>
-						<li class="list-item disabled">
-							<a href="javascript:void(0);">...</a>
-						</li>
-						<li class="list-item">
-							<a href="javascript:void(0);">10</a>
-						</li>
-						<li class="list-item">
-							<a href="javascript:void(0);">下一页</a>
-						</li>
-					</ul>
-				</div>
+
 			</div>
 			<!--推送渠道设置-->
 			<div class="tab-pane">
 				<form class="c-f-list channel-set">
 					<div class="i-checks">
-						<label><input type="checkbox" value="">短信</label>
+						<label><input type="checkbox" ng-model="message_warn" ng-change="updateUserWarn()" class="icheckbox_square-blue" id="c1">短信</label>
 					</div>
 					<div class="i-checks">
-						<label><input type="checkbox" value="">微信</label>
+						<label><input type="checkbox" ng-model="wechat_warn" ng-change="updateUserWarn()" class="icheckbox_square-blue"  id="c2" >微信</label>
 					</div>
 					<div class="i-checks">
-						<label><input type="checkbox" value="">邮件</label>
+						<label><input type="checkbox" ng-model="email_warn" ng-change="updateUserWarn()" class="icheckbox_square-blue"  id="c3" >邮件</label>
 					</div>
 					<div class="card-txt">相关渠道信息请到用户云平台->
 						<a href="javascript:void(0);" ui-sref="app.my">账户管理</a>中进行绑定</div>
@@ -139,56 +81,80 @@
 			</div>
 			<div class="modal-body">
 				<form class="c-f-list">
-					<div class="f-list-item">
+					<div class="f-list-item" ng-show="!set.id">
 						<label class="c-f-list-tit"><span>指定来源</span></label>
 						<div class="c-f-list-con">
-							<input type="text" class="c-control">
+							<ui-select  required="true" id="name" ng-model="set.url" theme="bootstrap">
+								<ui-select-match class="ui-select-match" id="yry" placeholder="选择资源">{{$select.selected.result.website}}({{$select.selected.result.website_url}})</ui-select-match>
+								<ui-select-choices refresh-delay="100" minimum-input-length="1" refresh="fetchSource($select)" class="ui-select-choices" repeat="item in sources">
+									<div ng-bind-html="item.result.website_url | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
+						</div>
+					</div>
+					<div class="f-list-item" ng-show="set.id">
+						<label class="c-f-list-tit"><span>指定来源</span></label>
+						<div class="c-f-list-con">
+							<input type="text" disabled ng-model="set.sourceUrl" class="c-control">
 						</div>
 					</div>
 					<div class="f-list-item">
 						<label class="c-f-list-tit"><span>阅读量阙值</span></label>
 						<div class="c-f-list-con">
-							<input type="text" class="c-control">
+							<input type="number" id="tt" ng-model="set.readNum" class="c-control">
 						</div>
 					</div>
 					<div class="f-list-item">
 						<label class="c-f-list-tit"><span>评论数阙值</span></label>
 						<div class="c-f-list-con">
-							<input type="text" class="c-control">
+							<input type="number" ng-model="set.discussNum"   class="c-control">
 						</div>
 					</div>
 					<div class="f-list-item">
 						<label class="c-f-list-tit"><span>转发数阙值</span></label>
 						<div class="c-f-list-con">
-							<input type="text" class="c-control">
+							<input type="number"  ng-model="set.shareNum"  class="c-control">
 						</div>
 					</div>
 					<div class="f-list-item">
 						<label class="c-f-list-tit"><span>负面情绪阙值</span></label>
 						<div class="c-f-list-con">
-							<input type="text" class="c-control">
+							<input type="number" ng-model="set.negValue" class="c-control">
 						</div>
 					</div>
 				</form>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-				<button type="button" class="btn btn-send">确定</button>
+				<button type="button" class="btn btn-send" ng-click="addWarningSet()">确定</button>
 			</div>
 		</div>
 	</div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="delete" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+
+				<label class="c-f-list-tit"><span>确定删除报警设置？</span></label>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-send" ng-click="deleteWarningSet()">确定</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 <script type="text/javascript">
 	$('#selectTab .c-selectarea-item').click(function() {
 		$(this).addClass('actived').siblings().removeClass('actived');
 		$('.tab-pane').eq($(this).index()).addClass('actived').siblings().removeClass('actived');
 	});
 
-	$('.i-checks').iCheck({
-		checkboxClass: 'icheckbox_square-blue'
-	});
 
-	$(".table-data .edit-btn").on("click", function() {
-		$('#myModal').modal('show');
-	})
 </script>

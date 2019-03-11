@@ -5,12 +5,12 @@
 		<div class="custom-data clearfix">
 			<div class="tit">自定义数据源{{choose}}</div>
 			<div class="switch">
-				<input type="checkbox" ng-model="custom" ng-true-value="'yes'" ng-false-value="'no'" />
+				<input type="checkbox" ng-model="custom"  ng-change="sourceChanged()" />
 				<label></label>
 			</div>
 		</div>
 		<div class="c-cont data-box">
-			<div ng-show="custom=='yes'">
+			<div ng-show="custom">
 				<div class="table-tool clearfix">
 					<div class="tool-l">
 						<button type="button" class="tool-item c-btn" data-toggle="modal" data-target="#myModal">添加</button>
@@ -26,104 +26,21 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>知乎旅行</td>
-							<td>https://www.zhihu.com/topic/19551556/top-answers</td>
+						<tr ng-repeat="item in sources">
+							<td>{{item.sourceName}}</td>
+							<td>{{item.sourceUrl}}</td>
 							<td class="opt">
-								<a href="javascript:void(0);">删除</a>
+								<a ng-click="showDeleteModal(item)">删除</a>
 							</td>
 						</tr>
-						<tr>
-							<td>知乎旅行</td>
-							<td>https://www.zhihu.com/topic/19551556/top-answers</td>
-							<td class="opt">
-								<a href="javascript:void(0);">删除</a>
-							</td>
-						</tr>
-						<tr>
-							<td>知乎旅行</td>
-							<td>https://www.zhihu.com/topic/19551556/top-answers</td>
-							<td class="opt">
-								<a href="javascript:void(0);">删除</a>
-							</td>
-						</tr>
-						<tr>
-							<td>知乎旅行</td>
-							<td>https://www.zhihu.com/topic/19551556/top-answers</td>
-							<td class="opt">
-								<a href="javascript:void(0);">删除</a>
-							</td>
-						</tr>
-						<tr>
-							<td>知乎旅行</td>
-							<td>https://www.zhihu.com/topic/19551556/top-answers</td>
-							<td class="opt">
-								<a href="javascript:void(0);">删除</a>
-							</td>
-						</tr>
-						<tr>
-							<td>知乎旅行</td>
-							<td>https://www.zhihu.com/topic/19551556/top-answers</td>
-							<td class="opt">
-								<a href="javascript:void(0);">删除</a>
-							</td>
-						</tr>
-						<tr>
-							<td>知乎旅行</td>
-							<td>https://www.zhihu.com/topic/19551556/top-answers</td>
-							<td class="opt">
-								<a href="javascript:void(0);">删除</a>
-							</td>
-						</tr>
-						<tr>
-							<td>知乎旅行</td>
-							<td>https://www.zhihu.com/topic/19551556/top-answers</td>
-							<td class="opt">
-								<a href="javascript:void(0);">删除</a>
-							</td>
-						</tr>
-						<tr>
-							<td>知乎旅行</td>
-							<td>https://www.zhihu.com/topic/19551556/top-answers</td>
-							<td class="opt">
-								<a href="javascript:void(0);">删除</a>
-							</td>
-						</tr>
-						<tr>
-							<td>知乎旅行</td>
-							<td>https://www.zhihu.com/topic/19551556/top-answers</td>
-							<td class="opt">
-								<a href="javascript:void(0);">删除</a>
+						<tr class="white b-white"  ng-show="sources.length > 10">
+							<td colspan="10" class="white b-white text-center">
+								<ul class="pagination" uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" total-items="true" max-size="10" class="pagination-sm" boundary-link-numbers="true" next-text="下一页" previous-text="上一页" rotate="false" ng-change="pageChanged()"></ul>
+
 							</td>
 						</tr>
 					</tbody>
 				</table>
-				<!--分页-->
-				<div class="pageation">
-					<ul class="pageation-list">
-						<li class="list-item">
-							<a href="javascript:void(0);">上一页</a>
-						</li>
-						<li class="list-item actived">
-							<a href="javascript:void(0);">1</a>
-						</li>
-						<li class="list-item">
-							<a href="javascript:void(0);">2</a>
-						</li>
-						<li class="list-item">
-							<a href="javascript:void(0);">3</a>
-						</li>
-						<li class="list-item disabled">
-							<a href="javascript:void(0);">...</a>
-						</li>
-						<li class="list-item">
-							<a href="javascript:void(0);">10</a>
-						</li>
-						<li class="list-item">
-							<a href="javascript:void(0);">下一页</a>
-						</li>
-					</ul>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -141,7 +58,7 @@
 				<div class="table-tool clearfix">
 					<div class="tool-l">
 						<div class="tool-item search-input clearfix">
-							<input type="text" placeholder="请输入您要查找的关键词" class="tool-control">
+							<input type="text" placeholder="请输入您要查找的url"  ng-model="filter" class="tool-control" ng-change="fetchSource()">
 							<button type="button" class="c-btn">搜索</button>
 						</div>
 					</div>
@@ -149,80 +66,15 @@
 				<table class="table-data">
 					<thead>
 						<tr>
-							<th>名称</th>
 							<th>地址</th>
 							<th>操作</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>知乎旅行</td>
-							<td>https://www.zhihu.com/topic/19551556/top-answers</td>
+						<tr ng-repeat="item in urls">
+							<td>{{item.result.website_url}}</td>
 							<td class="opt">
-								<a href="javascript:void(0);">添加</a>
-							</td>
-						</tr>
-						<tr>
-							<td>知乎旅行</td>
-							<td>https://www.zhihu.com/topic/19551556/top-answers</td>
-							<td class="opt">
-								<a href="javascript:void(0);">添加</a>
-							</td>
-						</tr>
-						<tr>
-							<td>知乎旅行</td>
-							<td>https://www.zhihu.com/topic/19551556/top-answers</td>
-							<td class="opt">
-								<a href="javascript:void(0);">添加</a>
-							</td>
-						</tr>
-						<tr>
-							<td>知乎旅行</td>
-							<td>https://www.zhihu.com/topic/19551556/top-answers</td>
-							<td class="opt">
-								<a href="javascript:void(0);">添加</a>
-							</td>
-						</tr>
-						<tr>
-							<td>知乎旅行</td>
-							<td>https://www.zhihu.com/topic/19551556/top-answers</td>
-							<td class="opt">
-								<a href="javascript:void(0);">添加</a>
-							</td>
-						</tr>
-						<tr>
-							<td>知乎旅行</td>
-							<td>https://www.zhihu.com/topic/19551556/top-answers</td>
-							<td class="opt">
-								<a href="javascript:void(0);">添加</a>
-							</td>
-						</tr>
-						<tr>
-							<td>知乎旅行</td>
-							<td>https://www.zhihu.com/topic/19551556/top-answers</td>
-							<td class="opt">
-								<a href="javascript:void(0);">添加</a>
-							</td>
-						</tr>
-						<tr>
-							<td>知乎旅行</td>
-							<td>https://www.zhihu.com/topic/19551556/top-answers</td>
-							<td class="opt">
-								<a href="javascript:void(0);">添加</a>
-							</td>
-						</tr>
-						<tr>
-							<td>知乎旅行</td>
-							<td>https://www.zhihu.com/topic/19551556/top-answers</td>
-							<td class="opt">
-								<a href="javascript:void(0);">添加</a>
-							</td>
-						</tr>
-						<tr>
-							<td>知乎旅行</td>
-							<td>https://www.zhihu.com/topic/19551556/top-answers</td>
-							<td class="opt">
-								<a href="javascript:void(0);">添加</a>
+								<a ng-click="addSource(item)">添加</a>
 							</td>
 						</tr>
 					</tbody>
@@ -230,6 +82,23 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="delete" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+
+				<label class="c-f-list-tit"><span>确定删除数据源？</span></label>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-send" ng-click="deleteDataSource()">确定</button>
 			</div>
 		</div>
 	</div>
