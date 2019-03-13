@@ -2198,6 +2198,34 @@ textarea.c-control {
  * Bootstrap弹框样式重写
  */
 
+.modal .modal-dialog {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	margin: 0;
+	-webkit-transform: translate(-40%, -50%);
+	-moz-transform: translate(-40%, -50%);
+	-ms-transform: translate(-40%, -50%);
+	-o-transform: translate(-40%, -50%);
+	transform: translate(-40%, -50%);
+}
+
+.modal.fade .modal-dialog {
+    -webkit-transform: translate(-40%, -75%);
+    -moz-transform: translate(-40%, -75%);
+    -ms-transform: translate(-40%, -75%);
+    -o-transform: translate(-40%, -75%);
+    transform: translate(-40%, -75%);
+}
+
+.modal.in .modal-dialog {
+	-webkit-transform: translate(-40%, -50%);
+	-moz-transform: translate(-40%, -50%);
+	-ms-transform: translate(-40%, -50%);
+	-o-transform: translate(-40%, -50%);
+	transform: translate(-40%, -50%);
+}
+
 .modal-content {
 	border: 1px solid #dadde0;
 	border-radius: 0;
@@ -2244,7 +2272,7 @@ textarea.c-control {
 }
 
 .modal-footer {
-	padding: 29px 20px;
+	padding: 19px 20px;
 	text-align: center;
 	border-top: 1px solid #dadde0;
 	background-color: #fff;
