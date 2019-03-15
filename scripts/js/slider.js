@@ -161,8 +161,6 @@
         var __ = this;
         var len = this.length;
         var li = __.children().children();
-        
-        li.eq(0).show();
 
         if( li.length != 1 ){
             __.hover(function () { move('20px','0.7'); },function(){ move('20px','0'); });
