@@ -6,7 +6,6 @@
       'ngResource',
       'ngSanitize',
       'ngStorage',
-        'ui.load',
       'ui.router',
       'oc.lazyLoad',
         'uiRouterStyles',

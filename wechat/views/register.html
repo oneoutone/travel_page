@@ -1,0 +1,41 @@
+	<div>
+			<form class="reg">
+				
+				<div class="logo">
+					<img class="logo-img" src="../assets/img/wechat/img-logo.png" />
+				</div>
+				
+				<ul class="input-group">
+					<li class="input-row layout-box">
+						<label class="iconfont iconshouji"></label>
+						<div class="input-box flex-item1">
+							<input class="input" type="tel" id="phone" ng-model="phone" placeholder="请输入手机号" />
+						</div>
+					</li>
+					<li class="input-row layout-box">
+						<label class="iconfont iconyzm"></label>
+						<div class="input-box flex-item1">
+							<input class="input" type="text" id="code" ng-model="code" placeholder="请输入手机验证码" />
+						</div>
+						<span class="get-code" ng-click="getCode()">{{codeString}}</span>
+					</li>
+				</ul>
+
+				<button type="submit" class="btn-main" ng-click="bind()">绑定注册</button>
+			</form>
+		</div>
+
+	<div id="loadingToast" style="display:none;">
+		<div class="weui-mask_transparent"></div>
+		<div class="weui-toast">
+			<i class="weui-loading weui-icon_toast"></i>
+			<p class="weui-toast__content">请稍等</p>
+		</div>
+	</div>
+
+	<div id="errToastr" style="display: none;">
+		<div class="weui-mask_transparent"></div>
+		<div class="weui-toast">
+			<p class="weui-toast__content">{{msg}}</p>
+		</div>
+	</div>

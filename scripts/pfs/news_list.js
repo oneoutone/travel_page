@@ -55,6 +55,15 @@
 			if(vm.type == 'middle'){
 				data.sentiment = 3
 			}
+
+			httpService.data_count(data,function(result){
+				console.log(result)
+				vm.bigTotalItems = result.size
+				vm.bigCurrentPage = vm.page
+			}, function(e){
+				console.log(e)
+			})
+
 			httpService.data(data,function(result){
 				console.log(result)
 				vm.data = result.data
@@ -63,12 +72,17 @@
 						vm.data[i].result.desc = vm.data[i].result.content.substr(0, 100)+'...'
 					}
 				}
-				vm.bigTotalItems = result.size
-				vm.bigCurrentPage = vm.page
 			}, function(e){
 				console.log(e)
 			})
 
+		}
+
+		vm.pageChanged = function(){
+			if(vm.bigCurrentPage == vm.page){
+				return
+			}
+			$state.go('app.news_list', {page: vm.bigCurrentPage, channel: vm.channel, type: vm.type})
 		}
 
 		vm.app.ready(function(){

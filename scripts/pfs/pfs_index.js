@@ -129,7 +129,7 @@
 		httpService.data({
 			article_type: 4,
 			sentiment: 4,
-			page: 0,
+			page: 1,
 			size: 5
 		}, function(r){
 			vm.news = r.data

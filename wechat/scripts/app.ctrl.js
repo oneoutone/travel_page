@@ -8,7 +8,7 @@
 
 (function() {
   'use strict';
-  var apiInclude ='/views/include/';
+  var apiInclude ='/cloud/views/include/';
   
   angular
     .module('app')
@@ -33,31 +33,29 @@
         light: '#f1f2f3',
         dark: '#2e3e4e',
         black: '#2a2b3c'
-      },
-      key: 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDl/Gib2wdSzW7n+zpB76tkfHbj\n' +
-          'i8HMiG/9uIVDn+l9HyHqY3WucEcw7DX7eoCY3S3E6vqLYOzvrAipF7mcWK7ch67B\n' +
-          '6GQ0hiMwHxzOQvG3Pd3w0t7q6rmBM3l59eBNMbPZ2lZ1NuyuZMgcOPLLdn3GENyE\n' +
-          'NUkMSruAiAlJIOc4DwIDAQAB'
+      }
     }
 
-    vm.apiInclude = apiInclude;
 
     vm.app.isAuthenticated = function(){
+      console.log('start')
       var now = new Date()
       if(vm.app.setting && vm.app.setting.accessToken && vm.app.setting.expire && now < moment(vm.app.setting.expire).toDate()){
+        console.log('true')
         return true
       }
+      console.log('false')
       return false
     }
 
     $rootScope.$on('$stateChangeStart', function (event, toState) {
       //check if login
+      console.log('$stateChangeStart')
       if (!vm.app.isAuthenticated() && toState.name.indexOf('login') == -1 && toState.name.indexOf('register') == -1 && toState.name.indexOf('home') == -1){
         var url = $location.path();
         var from = encodeURIComponent(url);
         // 如果已经在登陆界面，接收到401跳转到登陆界面了。
-        vm.app.setting = {}
-        $location.path('/app/login').search('state=' + from);
+        $location.path('/register').search('state=' + from);
       }
     });
 
@@ -102,11 +100,12 @@
      *
      */
     vm.app.init = function(callback){
+      console.log('profile')
       httpService.getProfile(function(data){
         if(!data.id){
           var url = $location.path();
           var from = encodeURIComponent(url);
-          $location.path('/app/login').search('state=' + from);
+          $location.path('/register').search('state=' + from);
         }
         vm.app.setting.user = data
         vm.app.isReady = true
@@ -121,6 +120,7 @@
 
 
     if(vm.app.isAuthenticated()){
+      console.log('init')
       vm.app.init();
     }
   }

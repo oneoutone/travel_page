@@ -93,6 +93,18 @@
             self.updateSpecifySource = function(data, success,fail){
                 postRequest(host + '/users/updateSpecifySource', data, {auth:true}, success, fail)
             }
+
+            self.wechatOpenId = function(data, success, fail){
+                postRequest(host + '/users/wechatOpenId', data, {auth:false}, success, fail)
+            }
+
+            self.wechatBind = function(data, success, fail){
+                postRequest(host + '/users/wechatBind', data, {auth:false}, success, fail)
+            }
+
+            self.wechatAuth = function(data, success, fail){
+                postRequest(host + '/users/wechatAuth', data, {auth:false}, success, fail)
+            }
             /**
              * today yuqing info
              * @param data
@@ -119,6 +131,10 @@
 
             self.data = function(data, success,fail){
                 getRequest(host + '/yuqing/data', data, {auth:true}, success, fail)
+            }
+
+            self.data_count = function(data, success,fail){
+                getRequest(host + '/yuqing/data_page', data, {auth:true}, success, fail)
             }
 
             self.article = function(data, success,fail){
@@ -196,6 +212,7 @@
                 if (!self.accessToken) {
                     self.accessToken = $localStorage["local-setting"].accessToken
                 }
+                console.log(self.accessToken)
                 return self.accessToken
             }
         }])
