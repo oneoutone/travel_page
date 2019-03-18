@@ -1395,14 +1395,28 @@ a:focus,a:hover {
 
 .banner ul {
 	position: relative;
+	height: 450px;
 	border: none;
+	background-color: rgb(31, 37, 49);
 }
 
-.banner li {
-	zoom: 1;
-	float: left;
+.banner ul li {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
 	width: 100%;
-	vertical-align: middle;
+	height: 450px;
+	z-index: -1;
+}
+
+.banner ul li.actived {
+	z-index: 0;
+}
+
+.banner ul li:first-child {
+	display: block;
+	z-index: 0;
 }
 
 .banner img {
@@ -2197,6 +2211,34 @@ textarea.c-control {
 /*
  * Bootstrap弹框样式重写
  */
+
+.modal .modal-dialog {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	margin: 0;
+	-webkit-transform: translate(-40%, -50%);
+	-moz-transform: translate(-40%, -50%);
+	-ms-transform: translate(-40%, -50%);
+	-o-transform: translate(-40%, -50%);
+	transform: translate(-40%, -50%);
+}
+
+.modal.fade .modal-dialog {
+    -webkit-transform: translate(-40%, -75%);
+    -moz-transform: translate(-40%, -75%);
+    -ms-transform: translate(-40%, -75%);
+    -o-transform: translate(-40%, -75%);
+    transform: translate(-40%, -75%);
+}
+
+.modal.in .modal-dialog {
+	-webkit-transform: translate(-40%, -50%);
+	-moz-transform: translate(-40%, -50%);
+	-ms-transform: translate(-40%, -50%);
+	-o-transform: translate(-40%, -50%);
+	transform: translate(-40%, -50%);
+}
 
 .modal-content {
 	border: 1px solid #dadde0;

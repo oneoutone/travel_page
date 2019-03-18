@@ -10,12 +10,10 @@
             init: 0,        // init delay, false for no delay (integer or boolean)
             pause: !f,      // pause on hover (boolean)
             loop: !f,       // infinitely looping (boolean)
-            keys: f,        // keyboard shortcuts (boolean)
             dots: f,        // display dots pagination (boolean)
             arrows: f,      // display prev/next arrows (boolean)
             prev: '&larr;', // text or html inside prev button (string)
             next: '&rarr;', // same as for prev option
-            fluid: f,       // is it a percentage width? (boolean)
             starting: f,    // invoke before animation (function with argument)
             complete: f,    // invoke after animation (function with argument)
             items: '>ul',   // slides container selector
@@ -30,16 +28,7 @@
 
             _.el = el;
             _.ul = el.find(_.o.items);
-            _.max = [el.outerWidth() | 0, el.outerHeight() | 0];
-            _.li = _.ul.find(_.o.item).each(function(index) {
-                var me = $(this),
-                    width = me.outerWidth(),
-                    height = me.outerHeight();
-
-                //  Set the max values
-                if (width > _.max[0]) _.max[0] = width;
-                if (height > _.max[1]) _.max[1] = height;
-            });
+            _.li = _.ul.find(_.o.item);
 
 
             //  Cached vars
@@ -50,18 +39,7 @@
 
             //  Current indeed
             _.i = 0;
-            _._index = 0;
 
-            //  Set the main element
-            el.css({width: _.max[0], height: li.first().outerHeight(), overflow: 'hidden'});
-
-            //  Set the relative widths
-            ul.css({position: 'relative', left: '-100%', width: (len * 100) + '%'});
-            if(o.fluid) {
-                li.css({'float': 'left', width: (100 / len) + '%'});
-            } else {
-                li.css({'float': 'left', width: (_.max[0]) + 'px'});
-            }
 
             //  Autoslide
             o.autoplay && setTimeout(function() {
@@ -77,71 +55,11 @@
                 }
             }, o.init | 0);
 
-            //  Keypresses
-            if (o.keys) {
-                $(document).keydown(function(e) {
-                    switch(e.which) {
-                        case 37:
-                            _.prev(); // Left
-                            break;
-                        case 39:
-                            _.next(); // Right
-                            break;
-                        case 27:
-                            _.stop(); // Esc
-                            break;
-                    }
-                });
-            }
-
             //  Dot pagination
             o.dots && nav('dot');
 
             //  Arrows support
             o.arrows && nav('arrow');
-
-            //  Patch for fluid-width sliders. Screw those guys.
-            o.fluid && $(window).resize(function() {
-                _.r && clearTimeout(_.r);
-
-                _.r = setTimeout(function() {
-                    var styl = {height: li.eq(_.i).outerHeight()},
-                        width = el.outerWidth();
-
-                    ul.css(styl);
-                    styl['width'] = Math.min(Math.round((width / el.parent().width()) * 100), 100) + '%';
-                    el.css(styl);
-                    li.css({ width: width + 'px' });
-                }, 50);
-            }).resize();
-
-            //  Move support
-            if ($.event.special['move'] || $.Event('move')) {
-                el.on('movestart', function(e) {
-                    if ((e.distX > e.distY && e.distX < -e.distY) || (e.distX < e.distY && e.distX > -e.distY)) {
-                        e.preventDefault();
-                    }else{
-                        el.data("left", _.ul.offset().left / el.width() * 100);
-                    }
-                }).on('move', function(e) {
-                    var left = 100 * e.distX / el.width();
-                    var leftDelta = 100 * e.deltaX / el.width();
-                    _.ul[0].style.left = parseInt(_.ul[0].style.left.replace("%", ""))+leftDelta+"%";
-
-                    _.ul.data("left", left);
-                }).on('moveend', function(e) {
-                    var left = _.ul.data("left");
-                    if (Math.abs(left) > 30){
-                        var i = left > 0 ? _.i-1 : _.i+1;
-                        if (i < 0 || i >= len) i = _.i;
-                        _.to(i);
-                    }else{
-                        _.to(_.i);
-                    }
-                });
-            }
-
-
 
             return _;
         };
@@ -159,56 +77,35 @@
                 current = _.i,
                 target = li.eq(index);
 
+        	console.log("index:"+index+" target:"+target.length+" li.length:"+li.length)
             $.isFunction(o.starting) && !callback && o.starting(el, li.eq(current));
 
             //  To slide or not to slide
             if ((!target.length || index < 0) && o.loop === f) return;
 
             //  Check if it's out of bounds
-            if (!target.length || index > li.length -2 ) index = 1;
-            if (index < 0) index = li.length - 2;
-            if (_._index < 0) _._index = li.length - 2;
+            if (!target.length || index >= li.length ) index = 0;
+            if (index < 0) index = li.length-1;
             target = li.eq(index);
 
             var speed = callback ? 5 : o.speed | 0,
-                easing = o.easing,
-                obj = {height: target.outerHeight()};
+                easing = o.easing;
 
             if(ul[0]){
-
-
                 if (!ul.queue('fx').length) {
-                    //  Handle those pesky dots
-                    if( index >= li.length-2 ){
-                        el.find('.dot').eq(0).addClass('actived').siblings().removeClass('actived');
-                    }else{
-                        el.find('.dot').eq(index).addClass('actived').siblings().removeClass('actived');
-                    }
-
-
-                    if( index >= li.length-2 && _._index != li.length-2 ){
-                        el.animate(obj, speed, easing) && ul.animate($.extend({left: '-' + Number(index+1) + '00%'}, obj), speed, easing, function(data) {
-                            _.i = index;
-                            ul.css('left', '-100%');
-                            $.isFunction(o.complete) && !callback && o.complete(el, target);
-                        });
-                    }else if( _._index >= li.length-2 ){
-                        el.find('.dot').eq(li.length-3).addClass('actived').siblings().removeClass('actived');
-                        el.animate(obj, speed, easing) && ul.animate($.extend({left: '0'}, obj), speed, easing, function(data) {
-                            _.i = li.length-3;
-                            _._index = _.i;
-                            ul.css('left', '-' + Number(li.length-2) + '00%');
-                            $.isFunction(o.complete) && !callback && o.complete(el, target);
-                        });
-                    }else{
-                        el.animate(obj, speed, easing) && ul.animate($.extend({left: '-' + Number(index+1) + '00%'}, obj), speed, easing, function(data) {
-                            _.i = index;
-                            $.isFunction(o.complete) && !callback && o.complete(el, target);
-                        });
-                    }
+                    el.find('.dot').eq(index).addClass('actived').siblings().removeClass('actived');
+                    target.addClass('actived').siblings().removeClass('actived');
+                	target.fadeIn(speed, function(data) {
+                		_.i = index;
+                		$.isFunction(o.complete) && !callback && o.complete(el, target);
+                	});
+                    target.siblings().fadeOut(speed, function(data) {
+                    	_.i = index;
+                    	$.isFunction(o.complete) && !callback && o.complete(el, target);
+                    });
                 }
             }
-
+            
         };
 
         //  Autoplay functionality
@@ -230,8 +127,7 @@
         };
 
         _.prev = function() {
-            var t = _.i - 1; _._index = (t == _.li.length-3) ? t+1 : t;
-            return _.stop().to(t);
+            return _.stop().to(_.i - 1);
         };
 
         //  Create dots and arrows
@@ -239,7 +135,7 @@
             if (name == 'dot') {
                 html = '<ol class="dots">';
                 $.each(_.li, function(index) {
-                    if($(this).attr('class') != 'chone') html += '<li class="' + (index === _.i ? name + ' actived' : name) + '">' + ++index + '</li>';
+                    html += '<li class="' + (index === _.i ? name + ' actived' : name) + '">' + ++index + '</li>';
 
                 });
                 html += '</ol>';
@@ -266,7 +162,6 @@
         var len = this.length;
         var li = __.children().children();
 
-
         if( li.length != 1 ){
             __.hover(function () { move('20px','0.7'); },function(){ move('20px','0'); });
             function move(data,str){
@@ -289,8 +184,6 @@
                 //  Invoke an Unslider instance
                 me.data(key, instance).data('key', key);
             });
-        }else{
-            li.css('float', 'none');
         }
 
     };

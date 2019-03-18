@@ -95,7 +95,7 @@
 				</div>
 				<div class="panel-bd">
 					<ul class="com-disorder-list large">
-						<li ng-repeat="item in weiboHots">
+						<li ng-repeat="item in weiboHots | limitTo: 5">
 							<a href="javascript:void(0);" target="_blank" class="clearfix"><div class="tit">{{item.result.content}}</div><span class="num num1">{{item.result.source_name}}</span></a>
 						</li>
 					</ul>
@@ -112,8 +112,11 @@
 				</div>
 				<div class="panel-bd">
 					<ul class="com-disorder-list large">
-						<li ng-repeat="item in weiboVs">
-							<a href="javascript:void(0);" target="_blank" class="clearfix"><div class="tit">{{item.result.name}}</div></a>
+						<li ng-repeat="item in weiboVs | limitTo: 5">
+							<a href="javascript:void(0);" target="_blank" class="clearfix">
+								<img class="qa-media-img" src="{{item.result.avatar_url}}"/>
+								<div class="tit">{{item.result.name}}</div>
+							</a>
 						</li>
 					</ul>
 				</div>
