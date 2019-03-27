@@ -45,7 +45,8 @@
 			if(vm.channel == 'weixin'){
 				data.article_type = 3
 			}
-			data.sentiment = 4
+			data.sentiment = 8
+
 			if(vm.type == 'actvive'){
 				data.sentiment = 1
 			}

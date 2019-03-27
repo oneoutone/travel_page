@@ -105,7 +105,7 @@
         url: '/my',
         templateUrl: 'views/pfs/my.html',
         controller: "myCtrl",
-        resolve: load(['scripts/pfs/my.js']),
+        resolve: load(['toastr', 'scripts/pfs/my.js']),
         data: {
         	css: ['assets/styles/my.css', 'assets/styles/product_list.css']
     	}
