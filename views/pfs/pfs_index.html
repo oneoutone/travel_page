@@ -1,27 +1,55 @@
 <div ng-include="apiInclude + 'head_nav_pfs.html'"></div>
+<div class="c-section c-main">
+	<div class="c-section-inner">
+		<div class="c-cont data-box" style="min-height: auto;margin-bottom: 0px;">
+			<div class="table-tool">
+				<div class="tool-row clearfix">
+					<img src="assets/img/icon-warn.png" style="float: left;width: 44px;height: 44px;" />
+					<div class="tool-item" style="margin-top: 5px;">
+						<label>舆情</label>
+					</div>
+				</div>
+			</div>
 
+			<table class="table-data">
+				<thead>
+					<tr>
+						<th>级别</th>
+						<th>类别</th>
+						<th>时间</th>
+						<th>来源</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>敏感/高度敏感</td>
+						<td>大虾太贵了，坑人</td>
+						<td>2019-03-27 15:52</td>
+						<td>马蜂窝旅游</td>
+						<td class="opt">
+							<a href="javascript:void(0);">已读</a>
+							<a href="javascript:void(0);">未读</a>
+						</td>
+					</tr>
+					<tr>
+						<td>敏感/高度敏感</td>
+						<td>大虾太贵了，坑人</td>
+						<td>2019-03-27 15:52</td>
+						<td>马蜂窝旅游</td>
+						<td class="opt">
+							<a href="javascript:void(0);">已读</a>
+							<a href="javascript:void(0);">未读</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+</div>
 <div class="chart-list c-grid">
-	<div class="c-grid-layout">
-		<div class="c-g-12">
-			<div class="com-sidebar-panel">
-				<div class="panel-hd">
-					<h2 class="panel-title">今日采集</h2>
-				</div>
-				<div class="panel-bd" >
-					<div id="chart1" style="height:240px"></div>
-				</div>
-			</div>
-		</div>
-		<div class="c-g-12">
-			<div class="com-sidebar-panel">
-				<div class="panel-hd">
-					<h2 class="panel-title">历史采集</h2>
-				</div>
-				<div class="panel-bd">
-					<div id="chart2" style="height:240px"></div>
-				</div>
-			</div>
-		</div>
+	<div class="c-grid-layout" style="padding: 0;">
 		<div class="c-g-24">
 			<div class="com-sidebar-panel">
 				<div class="panel-hd">
@@ -39,89 +67,57 @@
 				</div>
 			</div>
 		</div>
-		<div class="c-g-12">
-			<div class="com-sidebar-panel">
-				<div class="panel-hd">
-					<h2 class="panel-title">最新消息</h2>
-					<div class="panel-extra">
-						<a href="javascript:void(0);" target="_blank" class="panel-extra-link">更多&gt;&gt;</a>
-					</div>
-				</div>
-				<div class="panel-bd">
-					<ul class="com-disorder-list large">
-						<li ng-repeat="item in news">
-							<a target="_blank" class="clearfix"><div class="tit">{{item.result.title}}</div><span class="num num1">{{item.result.source_name}}</span></a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="c-g-12">
-			<div class="com-sidebar-panel">
-				<div class="panel-hd">
-					<h2 class="panel-title">舆情警告</h2>
-					<div class="panel-extra">
-						<a href="javascript:void(0);" target="_blank" class="panel-extra-link">更多&gt;&gt;</a>
-					</div>
-				</div>
-				<div class="panel-bd">
-					<ul class="com-disorder-list large">
-						<li>
-							<a href="javascript:void(0);" target="_blank" class="clearfix"><div class="tit">台旅游协会：免费落地签有望再延3个月</div><span class="time">2018-12-15</span></a>
-						</li>
-						<li>
-							<a href="javascript:void(0);" target="_blank" class="clearfix"><div class="tit">印尼预计2019年吸引350万中国游客</div><span class="time">2018-12-15</span></a>
-						</li>
-						<li>
-							<a href="javascript:void(0);" target="_blank" class="clearfix"><div class="tit">2018年全国新建改扩建旅游厕所近2.4万座</div><span class="time">2018-12-15</span></a>
-						</li>
-						<li>
-							<a href="javascript:void(0);" target="_blank" class="clearfix"><div class="tit">故宫年接待观众量首破1700万人次</div><span class="time">2018-12-15</span></a>
-						</li>
-						<li>
-							<a href="javascript:void(0);" target="_blank" class="clearfix"><div class="tit">促进旅游品牌升级 2018发展论坛在京召开</div><span class="time">2018-12-15</span></a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="c-g-12">
-			<div class="com-sidebar-panel">
-				<div class="panel-hd">
-					<h2 class="panel-title">微博热点</h2>
-					<div class="panel-extra">
-						<a href="javascript:void(0);" target="_blank" class="panel-extra-link">更多&gt;&gt;</a>
-					</div>
-				</div>
-				<div class="panel-bd">
-					<ul class="com-disorder-list large">
-						<li ng-repeat="item in weiboHots | limitTo: 5">
-							<a href="javascript:void(0);" target="_blank" class="clearfix"><div class="tit">{{item.result.content}}</div><span class="num num1">{{item.result.source_name}}</span></a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="c-g-12">
-			<div class="com-sidebar-panel">
-				<div class="panel-hd">
-					<h2 class="panel-title">热门微博</h2>
-					<div class="panel-extra">
-						<a href="javascript:void(0);" target="_blank" class="panel-extra-link">更多&gt;&gt;</a>
-					</div>
-				</div>
-				<div class="panel-bd">
-					<ul class="com-disorder-list large">
-						<li ng-repeat="item in weiboVs | limitTo: 5">
-							<a href="javascript:void(0);" target="_blank" class="clearfix">
-								<img class="qa-media-img" src="{{item.result.avatar_url}}"/>
-								<div class="tit">{{item.result.name}}</div>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
 	</div>
 </div>
 
+<div class="c-section c-main">
+	<div class="c-section-inner">
+		<!--筛选-->
+		<div class="c-area" style="margin-bottom: 1px;">
+			<div class="c-area-con">
+				<div class="c-selectarea-item {{channel == 'all' ? 'actived' : ''}}" ng-click="setChannel('all')">全部渠道</div>
+				<div class="c-selectarea-item {{channel == 'website' ? 'actived' : ''}}" ng-click="setChannel('website')">网站</div>
+				<div class="c-selectarea-item {{channel == 'weibo' ? 'actived' : ''}} " ng-click="setChannel('weibo')">微博</div>
+				<div class="c-selectarea-item {{channel == 'wechat' ? 'actived' : ''}}" ng-click="setChannel('wechat')">微信</div>
+
+			</div>
+		</div>
+
+		<!--文章-->
+		<div class="c-cont tab">
+			<div class="tab-nav">
+				<ul class="tab-nav-list">
+					<li class="tab-nav-item {{type == 'all' ? 'actived' : ''}}" ng-click="setType('all')"><span>全部</span></li>
+					<li class="tab-nav-item {{type == 'active' ? 'actived' : ''}}" ng-click="setType('active')"><span>正面</span></li>
+					<li class="tab-nav-item {{type == 'negtive' ? 'actived' : ''}}" ng-click="setType('negtive')"><span>负面</span></li>
+					<li class="tab-nav-item {{type == 'middle' ? 'actived' : ''}}" ng-click="setType('middle')"><span>中性</span></li>
+				</ul>
+			</div>
+			<div class="tab-content">
+				<div class="tab-pane actived">
+
+					<!--文章列表-->
+					<div class="col-article-list">
+						<div class="com-article-panel" ng-repeat="item in data" ui-sref="app.news_detail({id: item.result.article_id})">
+							<div class="com-article-panel-body">
+								<span class="type type2">负面</span>
+								<h3 class="com-article-panel-title"><a ui-sref="app.news_detail">{{item.result.title}}</a></h3>
+								<div class="com-article-panel-info"><span>{{item.result.publish_time}}</span><span>来源：{{item.result.source_name}}</span><a class="news-analyse" href="javascript:void(0);" ui-sref="app.news_analyse">页面分析</a></div>
+								<p class="com-article-panel-desc">
+									<a href="javascript:void(0);" ui-sref="app.news_detail">{{item.result.desc}}</a>
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!--分页-->
+					<div class="pageation" style="text-align:center">
+						<ul class="pagination" uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" total-items="true" max-size="10" class="pagination-sm" boundary-link-numbers="true" next-text="下一页" previous-text="上一页" rotate="false" ng-change="pageChanged()"></ul>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
