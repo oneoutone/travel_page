@@ -1,0 +1,88 @@
+<div ng-include="apiInclude + 'head_nav_pfs.html'"></div>
+
+<div class="c-section c-main">
+	<div class="c-section-inner">
+		<div class="c-cont data-box">
+			<div class="table-tool clearfix">
+				<div class="tool-l">
+					<div class="tool-item search-input clearfix">
+						<input type="text" placeholder="请输入您要查找的内容" ng-model="filter" class="tool-control">
+						<button type="button" class="c-btn"  ng-click="doFilter()">搜索</button>
+					</div>
+					<button type="button" class="tool-item c-btn" data-toggle="modal" data-target="#myModal">添加</button>
+				</div>
+			</div>
+			
+			<table class="table-data">
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>状态</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in keyWords">
+						<td>{{item.word}}</td>
+						<td><button  class="{{item.status == 'enabled' ? 't-open-btn' : 't-close-btn'}}">{{item.status == 'enabled' ? '启用' : '禁用'}}</button></td>
+						<td class="opt">
+							<a href="javascript:void(0);" >查看</a>
+							<a ng-click="updateKeyWord(item)" >{{item.status == 'enabled' ? '禁用' : '启用'}}</a>
+							<a ng-click="showDeleteModal(item)">删除</a>
+						</td>
+					</tr>
+					<tr class="white b-white" >
+						<td colspan="6" class="white b-white text-center">
+							<ul class="pagination" uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" total-items="true" max-size="10" class="pagination-sm" boundary-link-numbers="true" next-text="下一页" previous-text="上一页" rotate="false" ng-change="pageChanged()"></ul>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+				<h4 class="modal-title" id="myModalLabel">添加关键词</h4>
+			</div>
+			<div class="modal-body">
+				<form class="c-f-list">
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>关键词</span></label>
+						<div class="c-f-list-con">
+							<input type="text" ng-model="word" class="c-control">
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-send" ng-click="addKeyWord()">确定</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+
+				<label class="c-f-list-tit"><span>确定删除关键词？</span></label>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-send" ng-click="deleteKeyWord()">确定</button>
+			</div>
+		</div>
+	</div>
+</div>
+

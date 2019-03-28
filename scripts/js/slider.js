@@ -77,7 +77,6 @@
                 current = _.i,
                 target = li.eq(index);
 
-        	console.log("index:"+index+" target:"+target.length+" li.length:"+li.length)
             $.isFunction(o.starting) && !callback && o.starting(el, li.eq(current));
 
             //  To slide or not to slide
