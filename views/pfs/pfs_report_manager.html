@@ -6,30 +6,42 @@
 			<div class="table-tool">
 				<div class="tool-row clearfix">
 					<div class="tool-item">
-						<label>统计单位：</label>
+						<label>生成报表：</label>
 						<ul class="tab-list">
 							<li class="tab-item actived">
 								<a href="javascript:void(0);">日报</a>
 							</li>
 							<li class="tab-item">
+								<a href="javascript:void(0);">周报</a>
+							</li>
+							<li class="tab-item">
 								<a href="javascript:void(0);">月报</a>
+							</li>
+							<li class="tab-item">
+								<a href="javascript:void(0);">季报</a>
 							</li>
 							<li class="tab-item">
 								<a href="javascript:void(0);">年报</a>
 							</li>
 						</ul>
 					</div>
-				</div>
-				<div class="tool-row clearfix">
-					<div class="tool-item">
-						<label>开始时间：</label>
+				<!--</div>
+				<div class="tool-row clearfix">-->
+					<!--<div class="tool-item">
+						<label>自定义：开始时间：</label>
 						<input type="text" class="datepicker tool-control" name="start" >
 					</div>
 					<div class="tool-item">
 						<label>结束时间：</label>
 						<input type="text" class="datepicker tool-control" name="end">
+					</div>-->
+					<div class="tool-item">
+						<label>自定义：</label>
+						<input type="text" class="datepicker tool-control" name="start" placeholder="开始时间" style="margin-right: 5px;" >
+						<label>-</label>
+						<input type="text" class="datepicker tool-control" name="end" placeholder="结束时间" >
 					</div>
-					<button type="button" class="tool-item c-btn">搜索</button>
+					<button type="button" class="tool-item c-btn" style="float: right;">生成</button>
 				</div>
 			</div>
 
@@ -37,16 +49,18 @@
 				<thead>
 					<tr>
 						<th>采集时间</th>
-						<th>采集信息总数</th>
-						<th>采集信息源头总数</th>
+						<th>类别</th>
+						<!--<th>采集信息总数</th>
+						<th>采集信息源头总数</th>-->
 						<th>操作</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td>2018-05-20 - 2019-01-09</td>
-						<td>10000</td>
-						<td>10000</td>
+						<td>日报</td>
+						<!--<td>10000</td>
+						<td>10000</td>-->
 						<td class="opt">
 							<a href="javascript:void(0);">明细下载</a>
 						</td>
@@ -79,6 +93,23 @@
 					</li>
 				</ul>
 			</div>-->
+			<div class="chart-list" style="margin-top: 25px;">
+				<div class="com-sidebar-panel">
+					<div class="panel-hd">
+						<h2 class="panel-title">情感走势</h2>
+						<div class="panel-extra">
+							<ul class="sign">
+								<li><img src="assets/img/icon-yq1.png" />正面</li>
+								<li><img src="assets/img/icon-yq2.png" />负面</li>
+								<li><img src="assets/img/icon-yq3.png" />中性</li>
+							</ul>
+						</div>
+					</div>
+					<div class="panel-bd">
+						<div style="height:280px"><img src="assets/img/img-yq-e3.png"/></div>
+					</div>
+				</div>
+			</div>
 
 		</div>
 	</div>

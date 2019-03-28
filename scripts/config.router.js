@@ -203,7 +203,10 @@
         url: '/pfs_report_manager',
         templateUrl: 'views/pfs/pfs_report_manager.html',
         controller: "pfsReportManagerCtrl",
-        resolve: load(['scripts/pfs/pfs_report_manager.js'])
+        resolve: load(['scripts/pfs/pfs_report_manager.js']),
+        data: {
+          css: 'assets/styles/pfs_index.css'
+        }
       })
       
       .state('app.dcs_index', {
