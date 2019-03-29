@@ -15,11 +15,20 @@
 	}
 	
 	.kwd-list li {
-		width: 20%;
+		width: 25%;
 		float: left;
 		color: #444;
 		line-height: 24px;
 		padding: 5px 8px;
+	}
+	
+	.c-grid {
+		margin: 0 -10px;
+	}
+	
+	.table-data th,
+	.table-data td {
+		padding: 8px 10px;
 	}
 </style>
 
@@ -38,176 +47,235 @@
 					<input type="text" placeholder="请输入您要查找的内容" ng-model="filter" class="tool-control">
 					<button type="button" class="c-btn" ng-click="doFilter()">搜索</button>
 				</div>
-				<button type="button" class="tool-item c-btn" data-toggle="modal" data-target="#myModal">添加</button>
 			</div>
 		</div>
 
-		<div class="c-cont">
-			<div class="tab-pane actived">
-				<ul class="kwd-list clearfix">
-					<li class="ellipsis">汉服文件节</li>
-					<li class="ellipsis">贝里卢度假区</li>
-					<li class="ellipsis">服务态度好</li>
-					<li class="ellipsis">风景优美</li>
-					<li class="ellipsis">价格低廉</li>
-					<li class="ellipsis">樱花节</li>
-					<li class="ellipsis">游客很多</li>
-					<li class="ellipsis">门票免费</li>
-					<li class="ellipsis">各种各样的美食</li>
-					<li class="ellipsis">武汉大学樱花</li>
-					<li class="ellipsis">情人园郁金香花园</li>
-					<li class="ellipsis">牡丹国花园</li>
-					<li class="ellipsis">无量山樱花谷</li>
-					<li class="ellipsis">交通便捷，环境优美</li>
-					<li class="ellipsis">清远薰衣草世界</li>
-					<li class="ellipsis">东方普罗旺斯薰衣草庄园</li>
-					<li class="ellipsis">萤火虫主题公园</li>
-					<li class="ellipsis">游乐设施齐全</li>
-					<li class="ellipsis">空中玻璃走廊</li>
-					<li class="ellipsis">服务态度差</li>
-					<li class="ellipsis">风景一般</li>
-					<li class="ellipsis">2019广西十大旅游景点</li>
-					<li class="ellipsis">通石岭国际旅游度假区</li>
-					<li class="ellipsis">度假度假度假区和梦山县</li>
-					<li class="ellipsis">梁育生公园公园山区城市公园</li>
-					<li class="ellipsis">北城市和北流市</li>
-					<li class="ellipsis">贝里卢国际旅游度假区</li>
-					<li class="ellipsis">大新德天瀑布旅游区</li>
-					<li class="ellipsis">百色乐业大石围天坑群旅游景区</li>
-					<li class="ellipsis">清远薰衣草世界</li>
-					<li class="ellipsis">东方普罗旺斯薰衣草庄园</li>
-					<li class="ellipsis">萤火虫主题公园</li>
-					<li class="ellipsis">游乐设施齐全</li>
-					<li class="ellipsis">空中玻璃走廊</li>
-					<li class="ellipsis">桂林两江四湖景区</li>
-					<li class="ellipsis">桂林乐满地度假世界</li>
-					<li class="ellipsis">桂林漓江景区</li>
-					<li class="ellipsis">钦州三娘湾旅游景区</li>
-					<li class="ellipsis">北海银滩国家旅游度假区</li>
-					<li class="ellipsis">广西龙头旅游景区</li>
-					<li class="ellipsis">宜州下枧河</li>
-				</ul>
-			</div>
-			<div class="tab-pane">
-				<div class="tab-nav">
-					<ul class="tab-nav-list">
-						<li class="tab-nav-item actived"><span>行政区域</span></li>
-						<li class="tab-nav-item"><span>机构名称</span></li>
-						<li class="tab-nav-item"><span>产品名称</span></li>
-						<li class="tab-nav-item"><span>企业名称</span></li>
-						<li class="tab-nav-item"><span>领导姓名</span></li>
-						<li class="tab-nav-item"><span>会议会奖</span></li>
-						<li class="tab-nav-item"><span>其他</span></li>
-					</ul>
-				</div>
-				<ul class="kwd-list clearfix">
-					<li class="ellipsis">服务态度好</li>
-					<li class="ellipsis">风景优美</li>
-					<li class="ellipsis">价格低廉</li>
-					<li class="ellipsis">樱花节</li>
-					<li class="ellipsis">游客很多</li>
-					<li class="ellipsis">门票免费</li>
-					<li class="ellipsis">各种各样的美食</li>
-					<li class="ellipsis">武汉大学樱花</li>
-					<li class="ellipsis">情人园郁金香花园</li>
-					<li class="ellipsis">牡丹国花园</li>
-					<li class="ellipsis">无量山樱花谷</li>
-					<li class="ellipsis">交通便捷，环境优美</li>
-					<li class="ellipsis">清远薰衣草世界</li>
-					<li class="ellipsis">东方普罗旺斯薰衣草庄园</li>
-					<li class="ellipsis">萤火虫主题公园</li>
-					<li class="ellipsis">游乐设施齐全</li>
-					<li class="ellipsis">空中玻璃走廊</li>
-					<li class="ellipsis">服务态度差</li>
-					<li class="ellipsis">风景一般</li>
-					<li class="ellipsis">桂林两江四湖景区</li>
-					<li class="ellipsis">桂林乐满地度假世界</li>
-					<li class="ellipsis">桂林漓江景区</li>
-					<li class="ellipsis">钦州三娘湾旅游景区</li>
-					<li class="ellipsis">桂林漓江景区</li>
-					<li class="ellipsis">北海银滩国家旅游度假区</li>
-					<li class="ellipsis">2019广西十大旅游景点</li>
-					<li class="ellipsis">通石岭国际旅游度假区</li>
-					<li class="ellipsis">大新德天瀑布旅游区</li>
-					<li class="ellipsis">百色乐业大石围天坑群旅游景区</li>
-					<li class="ellipsis">广西龙头旅游景区</li>
-					<li class="ellipsis">宜州下枧河</li>
-				</ul>
-			</div>
-			<div class="tab-pane">
-				<ul class="kwd-list clearfix">
-					<li class="ellipsis">服务态度好</li>
-					<li class="ellipsis">风景优美</li>
-					<li class="ellipsis">价格低廉</li>
-					<li class="ellipsis">樱花节</li>
-					<li class="ellipsis">游客很多</li>
-					<li class="ellipsis">门票免费</li>
-					<li class="ellipsis">各种各样的美食</li>
-					<li class="ellipsis">武汉大学樱花</li>
-					<li class="ellipsis">情人园郁金香花园</li>
-					<li class="ellipsis">牡丹国花园</li>
-					<li class="ellipsis">无量山樱花谷</li>
-					<li class="ellipsis">交通便捷，环境优美</li>
-					<li class="ellipsis">清远薰衣草世界</li>
-					<li class="ellipsis">东方普罗旺斯薰衣草庄园</li>
-					<li class="ellipsis">萤火虫主题公园</li>
-					<li class="ellipsis">游乐设施齐全</li>
-					<li class="ellipsis">空中玻璃走廊</li>
-					<li class="ellipsis">2019广西十大旅游景点</li>
-					<li class="ellipsis">通石岭国际旅游度假区</li>
-					<li class="ellipsis">桂林两江四湖景区</li>
-					<li class="ellipsis">桂林乐满地度假世界</li>
-					<li class="ellipsis">桂林漓江景区</li>
-					<li class="ellipsis">钦州三娘湾旅游景区</li>
-					<li class="ellipsis">桂林漓江景区</li>
-					<li class="ellipsis">北海银滩国家旅游度假区</li>
-				</ul>
-			</div>
-			<div class="tab-pane">
-				<div class="tab-nav">
-					<ul class="tab-nav-list">
-						<li class="tab-nav-item actived"><span>高度敏感</span></li>
-						<li class="tab-nav-item"><span>敏感</span></li>
-					</ul>
-				</div>
-				<ul class="kwd-list clearfix">
-					<li class="ellipsis">服务态度差</li>
-					<li class="ellipsis">风景一般</li>
-					<li class="ellipsis">湖水不干净很脏</li>
-					<li class="ellipsis">景区地面垃圾多</li>
-					<li class="ellipsis">门票收费太高</li>
-				</ul>
-			</div>
-			<div class="tab-pane">
-				<ul class="kwd-list clearfix">
-					<li class="ellipsis">2019广西十大旅游景点</li>
-					<li class="ellipsis">通石岭国际旅游度假区</li>
-					<li class="ellipsis">服务态度好</li>
-					<li class="ellipsis">风景优美</li>
-					<li class="ellipsis">价格低廉</li>
-					<li class="ellipsis">樱花节</li>
-					<li class="ellipsis">游客很多</li>
-					<li class="ellipsis">门票免费</li>
-					<li class="ellipsis">各种各样的美食</li>
-					<li class="ellipsis">武汉大学樱花</li>
-					<li class="ellipsis">情人园郁金香花园</li>
-					<li class="ellipsis">牡丹国花园</li>
-					<li class="ellipsis">无量山樱花谷</li>
-					<li class="ellipsis">交通便捷，环境优美</li>
-					<li class="ellipsis">清远薰衣草世界</li>
-					<li class="ellipsis">东方普罗旺斯薰衣草庄园</li>
-					<li class="ellipsis">萤火虫主题公园</li>
-					<li class="ellipsis">游乐设施齐全</li>
-					<li class="ellipsis">空中玻璃走廊</li>
-					<li class="ellipsis">服务态度差</li>
-					<li class="ellipsis">风景一般</li>
-				</ul>
-			</div>
+		<div class="c-grid">
+			<div class="c-grid-layout">
+				<div class="c-g-16">
+					<div class="c-cont">
+						<div class="tab-pane actived">
+							<ul class="kwd-list clearfix">
+								<li class="ellipsis">汉服文件节</li>
+								<li class="ellipsis">贝里卢度假区</li>
+								<li class="ellipsis">服务态度好</li>
+								<li class="ellipsis">风景优美</li>
+								<li class="ellipsis">价格低廉</li>
+								<li class="ellipsis">樱花节</li>
+								<li class="ellipsis">游客很多</li>
+								<li class="ellipsis">门票免费</li>
+								<li class="ellipsis">各种各样的美食</li>
+								<li class="ellipsis">武汉大学樱花</li>
+								<li class="ellipsis">情人园郁金香花园</li>
+								<li class="ellipsis">牡丹国花园</li>
+								<li class="ellipsis">无量山樱花谷</li>
+								<li class="ellipsis">交通便捷，环境优美</li>
+								<li class="ellipsis">清远薰衣草世界</li>
+								<li class="ellipsis">东方普罗旺斯薰衣草庄园</li>
+								<li class="ellipsis">萤火虫主题公园</li>
+								<li class="ellipsis">游乐设施齐全</li>
+								<li class="ellipsis">空中玻璃走廊</li>
+								<li class="ellipsis">服务态度差</li>
+								<li class="ellipsis">风景一般</li>
+								<li class="ellipsis">2019广西十大旅游景点</li>
+								<li class="ellipsis">通石岭国际旅游度假区</li>
+								<li class="ellipsis">度假度假度假区和梦山县</li>
+								<li class="ellipsis">梁育生公园公园山区城市公园</li>
+								<li class="ellipsis">北城市和北流市</li>
+								<li class="ellipsis">贝里卢国际旅游度假区</li>
+								<li class="ellipsis">大新德天瀑布旅游区</li>
+								<li class="ellipsis">百色乐业大石围天坑群旅游景区</li>
+								<li class="ellipsis">清远薰衣草世界</li>
+								<li class="ellipsis">东方普罗旺斯薰衣草庄园</li>
+								<li class="ellipsis">萤火虫主题公园</li>
+								<li class="ellipsis">游乐设施齐全</li>
+								<li class="ellipsis">空中玻璃走廊</li>
+								<li class="ellipsis">桂林两江四湖景区</li>
+								<li class="ellipsis">桂林乐满地度假世界</li>
+								<li class="ellipsis">桂林漓江景区</li>
+								<li class="ellipsis">钦州三娘湾旅游景区</li>
+								<li class="ellipsis">北海银滩国家旅游度假区</li>
+								<li class="ellipsis">广西龙头旅游景区</li>
+								<li class="ellipsis">宜州下枧河</li>
+							</ul>
+						</div>
+						<div class="tab-pane">
+							<div class="tab-nav">
+								<ul class="tab-nav-list">
+									<li class="tab-nav-item actived"><span>行政区域</span></li>
+									<li class="tab-nav-item"><span>机构名称</span></li>
+									<li class="tab-nav-item"><span>产品名称</span></li>
+									<li class="tab-nav-item"><span>企业名称</span></li>
+									<li class="tab-nav-item"><span>领导姓名</span></li>
+									<li class="tab-nav-item"><span>会议会奖</span></li>
+									<li class="tab-nav-item"><span>其他</span></li>
+								</ul>
+							</div>
+							<ul class="kwd-list clearfix">
+								<li class="ellipsis">服务态度好</li>
+								<li class="ellipsis">风景优美</li>
+								<li class="ellipsis">价格低廉</li>
+								<li class="ellipsis">樱花节</li>
+								<li class="ellipsis">游客很多</li>
+								<li class="ellipsis">门票免费</li>
+								<li class="ellipsis">各种各样的美食</li>
+								<li class="ellipsis">武汉大学樱花</li>
+								<li class="ellipsis">情人园郁金香花园</li>
+								<li class="ellipsis">牡丹国花园</li>
+								<li class="ellipsis">无量山樱花谷</li>
+								<li class="ellipsis">交通便捷，环境优美</li>
+								<li class="ellipsis">清远薰衣草世界</li>
+								<li class="ellipsis">东方普罗旺斯薰衣草庄园</li>
+								<li class="ellipsis">萤火虫主题公园</li>
+								<li class="ellipsis">游乐设施齐全</li>
+								<li class="ellipsis">空中玻璃走廊</li>
+								<li class="ellipsis">服务态度差</li>
+								<li class="ellipsis">风景一般</li>
+								<li class="ellipsis">桂林两江四湖景区</li>
+								<li class="ellipsis">桂林乐满地度假世界</li>
+								<li class="ellipsis">桂林漓江景区</li>
+								<li class="ellipsis">钦州三娘湾旅游景区</li>
+								<li class="ellipsis">桂林漓江景区</li>
+								<li class="ellipsis">北海银滩国家旅游度假区</li>
+								<li class="ellipsis">2019广西十大旅游景点</li>
+								<li class="ellipsis">通石岭国际旅游度假区</li>
+								<li class="ellipsis">大新德天瀑布旅游区</li>
+								<li class="ellipsis">百色乐业大石围天坑群旅游景区</li>
+								<li class="ellipsis">广西龙头旅游景区</li>
+								<li class="ellipsis">宜州下枧河</li>
+							</ul>
+						</div>
+						<div class="tab-pane">
+							<ul class="kwd-list clearfix">
+								<li class="ellipsis">服务态度好</li>
+								<li class="ellipsis">风景优美</li>
+								<li class="ellipsis">价格低廉</li>
+								<li class="ellipsis">樱花节</li>
+								<li class="ellipsis">游客很多</li>
+								<li class="ellipsis">门票免费</li>
+								<li class="ellipsis">各种各样的美食</li>
+								<li class="ellipsis">武汉大学樱花</li>
+								<li class="ellipsis">情人园郁金香花园</li>
+								<li class="ellipsis">牡丹国花园</li>
+								<li class="ellipsis">无量山樱花谷</li>
+								<li class="ellipsis">交通便捷，环境优美</li>
+								<li class="ellipsis">清远薰衣草世界</li>
+								<li class="ellipsis">东方普罗旺斯薰衣草庄园</li>
+								<li class="ellipsis">萤火虫主题公园</li>
+								<li class="ellipsis">游乐设施齐全</li>
+								<li class="ellipsis">空中玻璃走廊</li>
+								<li class="ellipsis">2019广西十大旅游景点</li>
+								<li class="ellipsis">通石岭国际旅游度假区</li>
+								<li class="ellipsis">桂林两江四湖景区</li>
+								<li class="ellipsis">桂林乐满地度假世界</li>
+								<li class="ellipsis">桂林漓江景区</li>
+								<li class="ellipsis">钦州三娘湾旅游景区</li>
+								<li class="ellipsis">桂林漓江景区</li>
+								<li class="ellipsis">北海银滩国家旅游度假区</li>
+							</ul>
+						</div>
+						<div class="tab-pane">
+							<div class="tab-nav">
+								<ul class="tab-nav-list">
+									<li class="tab-nav-item actived"><span>高度敏感</span></li>
+									<li class="tab-nav-item"><span>敏感</span></li>
+								</ul>
+							</div>
+							<ul class="kwd-list clearfix">
+								<li class="ellipsis">服务态度差</li>
+								<li class="ellipsis">风景一般</li>
+								<li class="ellipsis">湖水不干净很脏</li>
+								<li class="ellipsis">景区地面垃圾多</li>
+								<li class="ellipsis">门票收费太高</li>
+							</ul>
+						</div>
+						<div class="tab-pane">
+							<ul class="kwd-list clearfix">
+								<li class="ellipsis">2019广西十大旅游景点</li>
+								<li class="ellipsis">通石岭国际旅游度假区</li>
+								<li class="ellipsis">服务态度好</li>
+								<li class="ellipsis">风景优美</li>
+								<li class="ellipsis">价格低廉</li>
+								<li class="ellipsis">樱花节</li>
+								<li class="ellipsis">游客很多</li>
+								<li class="ellipsis">门票免费</li>
+								<li class="ellipsis">各种各样的美食</li>
+								<li class="ellipsis">武汉大学樱花</li>
+								<li class="ellipsis">情人园郁金香花园</li>
+								<li class="ellipsis">牡丹国花园</li>
+								<li class="ellipsis">无量山樱花谷</li>
+								<li class="ellipsis">交通便捷，环境优美</li>
+								<li class="ellipsis">清远薰衣草世界</li>
+								<li class="ellipsis">东方普罗旺斯薰衣草庄园</li>
+								<li class="ellipsis">萤火虫主题公园</li>
+								<li class="ellipsis">游乐设施齐全</li>
+								<li class="ellipsis">空中玻璃走廊</li>
+								<li class="ellipsis">服务态度差</li>
+								<li class="ellipsis">风景一般</li>
+							</ul>
+						</div>
 
-			<!--<ul ng-repeat="item in keyWords">
+						<!--<ul ng-repeat="item in keyWords">
 				<li>{{item.word}}</li>
 			</ul>-->
-
+					</div>
+				</div>
+				<div class="c-g-8">
+					<div class="c-cont data-box">
+						<div class="table-tool clearfix">
+							<div class="tool-r">
+								<button type="button" class="tool-item c-btn" data-toggle="modal" data-target="#myModal">添加</button>
+							</div>
+						</div>
+						<table class="table-data">
+							<thead>
+								<tr>
+									<th>名称</th>
+									<th>状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>风景秀丽</td>
+									<td>未审核</td>
+									<td class="opt">
+										<a>删除</a>
+									</td>
+								</tr>
+								<tr>
+									<td>口碑好</td>
+									<td>未审核</td>
+									<td class="opt">
+										<a>删除</a>
+									</td>
+								</tr>
+								<tr>
+									<td>性价比高</td>
+									<td>未审核</td>
+									<td class="opt">
+										<a>删除</a>
+									</td>
+								</tr>
+								<tr>
+									<td>便宜实惠</td>
+									<td>未审核</td>
+									<td class="opt">
+										<a>删除</a>
+									</td>
+								</tr>
+								<tr>
+									<td>桂林</td>
+									<td>未审核</td>
+									<td class="opt">
+										<a>删除</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
