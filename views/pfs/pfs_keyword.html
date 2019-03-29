@@ -1,25 +1,18 @@
 <div ng-include="apiInclude + 'head_nav_pfs.html'"></div>
 
 <style type="text/css">
-	.c-area .c-area-con {
-		float: left;
-	}
-	
-	.c-area .table-tool {
-		float: right;
-		margin-bottom: 0;
-	}
-	
-	.kwd-list {
-		padding: 20px;
-	}
-	
 	.kwd-list li {
 		width: 25%;
 		float: left;
 		color: #444;
 		line-height: 24px;
 		padding: 5px 8px;
+	}
+	
+	.ellipsis {
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
 	}
 	
 	.c-grid {
@@ -42,18 +35,20 @@
 				<div class="c-selectarea-item">负面词</div>
 				<div class="c-selectarea-item">热词</div>
 			</div>
-			<div class="table-tool">
-				<div class="tool-item search-input clearfix">
-					<input type="text" placeholder="请输入您要查找的内容" ng-model="filter" class="tool-control">
-					<button type="button" class="c-btn" ng-click="doFilter()">搜索</button>
-				</div>
-			</div>
 		</div>
 
 		<div class="c-grid">
 			<div class="c-grid-layout">
 				<div class="c-g-16">
-					<div class="c-cont">
+					<div class="c-cont data-box">
+						<div class="table-tool clearfix">
+							<div class="tool-r">
+								<div class="tool-item search-input clearfix">
+									<input type="text" placeholder="请输入您要查找的内容" ng-model="filter" class="tool-control">
+									<button type="button" class="c-btn" ng-click="doFilter()">搜索</button>
+								</div>
+							</div>
+						</div>
 						<div class="tab-pane actived">
 							<ul class="kwd-list clearfix">
 								<li class="ellipsis">汉服文件节</li>
