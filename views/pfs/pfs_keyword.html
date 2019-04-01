@@ -1,6 +1,11 @@
 <div ng-include="apiInclude + 'head_nav_pfs.html'"></div>
 
 <style type="text/css">
+	.kwd-list {
+		padding: 5px;
+		border: 1px solid #e5e5e5;
+	}
+	
 	.kwd-list li {
 		width: 25%;
 		float: left;
@@ -22,6 +27,16 @@
 	.table-data th,
 	.table-data td {
 		padding: 8px 10px;
+	}
+	
+	.kwd-foot {
+		color: #999;
+		text-align: right;
+		padding: 5px 0;
+	}
+	
+	.kwd-foot .sum {
+		margin: 0 5px;
 	}
 </style>
 
@@ -93,6 +108,7 @@
 								<li class="ellipsis">广西龙头旅游景区</li>
 								<li class="ellipsis">宜州下枧河</li>
 							</ul>
+							<div class="kwd-foot">共<span class="sum">41</span>个</div>
 						</div>
 						<div class="tab-pane">
 							<div class="tab-nav">
@@ -139,6 +155,7 @@
 								<li class="ellipsis">广西龙头旅游景区</li>
 								<li class="ellipsis">宜州下枧河</li>
 							</ul>
+							<div class="kwd-foot">共<span class="sum">31</span>个</div>
 						</div>
 						<div class="tab-pane">
 							<ul class="kwd-list clearfix">
@@ -168,6 +185,7 @@
 								<li class="ellipsis">桂林漓江景区</li>
 								<li class="ellipsis">北海银滩国家旅游度假区</li>
 							</ul>
+							<div class="kwd-foot">共<span class="sum">25</span>个</div>
 						</div>
 						<div class="tab-pane">
 							<div class="tab-nav">
@@ -183,6 +201,7 @@
 								<li class="ellipsis">景区地面垃圾多</li>
 								<li class="ellipsis">门票收费太高</li>
 							</ul>
+							<div class="kwd-foot">共<span class="sum">5</span>个</div>
 						</div>
 						<div class="tab-pane">
 							<ul class="kwd-list clearfix">
@@ -208,6 +227,7 @@
 								<li class="ellipsis">服务态度差</li>
 								<li class="ellipsis">风景一般</li>
 							</ul>
+							<div class="kwd-foot">共<span class="sum">21</span>个</div>
 						</div>
 
 						<!--<ul ng-repeat="item in keyWords">
