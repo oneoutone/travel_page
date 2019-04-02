@@ -1,9 +1,57 @@
 <div ng-include="apiInclude + 'head_nav_pfs.html'"></div>
 
 <style type="text/css">
+	html,
+	body,
+	.app {
+		min-height: 965px;
+		height: 100%;
+	}
+	
+	.app-body {
+		min-height: 678px;
+		height: calc(100% - 40px - 247px);
+	}
+	
+	.c-main {
+		min-height: 623px;
+		height: calc(100% - 55px);
+	}
+	
+	.c-section-inner,
+	.c-section-inner .c-grid,
+	.c-section-inner .c-grid-layout,
+	.c-section-inner .c-g-16,
+	.c-section-inner .c-g-8 {
+		height: 100%;
+	}
+	
+	.c-section-inner .c-cont {
+		height: calc(100% - 82px);
+		min-height: auto;
+	}
+	
+	.c-section-inner .c-cont .tab-pane {
+		height: calc(100% - 34px);
+		overflow: hidden;
+	}
+	
+	.c-cont .table-tool {
+		margin-bottom: 0;
+	}
+	
 	.kwd-list {
+		min-height: 372px;
+		height: calc(100% - 45px);
 		padding: 5px;
 		border: 1px solid #e5e5e5;
+		overflow: auto;
+		margin-top: 20px;
+	}
+	
+	.tab-nav~.kwd-list {
+		min-height: 320px;
+		height: calc(100% - 45px - 52px);
 	}
 	
 	.kwd-list li {
@@ -24,37 +72,170 @@
 		margin: 0 -10px;
 	}
 	
-	.table-data th,
-	.table-data td {
-		padding: 8px 10px;
-	}
-	
 	.kwd-foot {
 		color: #999;
 		text-align: right;
-		padding: 5px 0;
+		padding-top: 5px;
 	}
 	
 	.kwd-foot .sum {
 		margin: 0 5px;
 	}
+	
+	.c-cont-l {
+		padding: 12px 20px 20px 20px;
+		background-color: #fff;
+		overflow: hidden;
+		margin-top: 10px;
+	}
+	
+	.c-cont-l:first-child {
+		margin-top: 0;
+	}
+	
+	.c-cont-l .section-title {
+		color: #333;
+		font-size: 16px;
+		line-height: 24px;
+		font-weight: 400;
+		margin-bottom: 15px;
+	}
+	
+	.c-cont-l .section-title .num {
+		color: #00a4ff;
+		margin: 0 5px;
+	}
+	
+	.add-kwd-box {
+		min-height: 360px;
+		height: calc(100% - 213px);
+	}
+	
+	.add-kwd-list {
+		min-height: 264px;
+		height: calc(100% - 29px - 35px);
+		margin: 0 -10px -10px 0;
+		overflow: auto;
+	}
+	
+	.add-kwd-list li {
+		display: inline-block;
+		vertical-align: middle;
+		max-width: 100%;
+	}
+	
+	.add-kwd-list a {
+		padding: 0 10px;
+		height: 26px;
+		max-width: none;
+		display: block;
+		vertical-align: middle;
+		margin-right: 10px;
+		margin-bottom: 10px;
+		border-radius: 2px;
+		color: #666;
+		border: 1px solid #E8ECF3;
+		background-color: #fff;
+		position: relative;
+	}
+	
+	.add-kwd-list a .text {
+		font-size: 12px;
+		line-height: 24px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	
+	.add-kwd-list a .del {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 14px;
+		color: #FE7902;
+		line-height: 22px;
+		text-align: center;
+		padding-right: 2px;
+		border-radius: 50%;
+		opacity: 0;
+	}
+	
+	.add-kwd-list a:hover {
+		padding: 0 14px 0 6px;
+		border-color: #FE7902;
+		background-color: #FAECE0;
+		color: #FE7902;
+	}
+	
+	.add-kwd-list a:hover .del {
+		opacity: 1;
+	}
+	
+	.add-kwd-foot {
+		padding: 15px 0 0 0;
+	}
+	
+	.add-kwd-foot .page-num,
+	.add-kwd-foot .page-btn {
+		float: left;
+		color: #999;
+		font-size: 14px;
+		margin-right: 15px;
+	}
+	
+	.add-kwd-foot .page-btn:hover {
+		text-decoration: underline;
+		color: #00a4ff;
+	}
+	
+	.c-cont-l .table-tool {
+		margin-bottom: 0;
+	}
+	
+	.c-cont-l .table-tool .tool-item {
+		float: none;
+		margin-left: 0;
+		margin-top: 15px;
+	}
+	
+	.c-cont-l .table-tool .tool-item:first-child {
+		margin-top: 0;
+	}
+	
+	.c-cont-l .tool-item label {
+		width: 68px;
+		color: #666;
+		text-align: right;
+		padding-right: 8px;
+	}
+	
+	.c-cont-l .tool-item .tool-control {
+		width: 270px;
+		margin-right: 0px;
+	}
+	
+	.c-cont-l .table-tool .c-btn {
+		width: 100%;
+	}
 </style>
 
 <div class="c-section c-main">
 	<div class="c-section-inner">
-		<div class="c-area clearfix">
-			<div id="selectTab" class="c-area-con">
-				<div class="c-selectarea-item actived">分词词库</div>
-				<div class="c-selectarea-item">行业基础词库</div>
-				<div class="c-selectarea-item">正面词</div>
-				<div class="c-selectarea-item">负面词</div>
-				<div class="c-selectarea-item">热词</div>
-			</div>
-		</div>
 
 		<div class="c-grid">
 			<div class="c-grid-layout">
 				<div class="c-g-16">
+
+					<div class="c-area clearfix">
+						<div id="selectTab" class="c-area-con">
+							<div class="c-selectarea-item actived">分词词库</div>
+							<div class="c-selectarea-item">行业基础词库</div>
+							<div class="c-selectarea-item">正面词</div>
+							<div class="c-selectarea-item">负面词</div>
+							<div class="c-selectarea-item">热词</div>
+						</div>
+					</div>
+
 					<div class="c-cont data-box">
 						<div class="table-tool clearfix">
 							<div class="tool-r">
@@ -229,108 +410,188 @@
 							</ul>
 							<div class="kwd-foot">共<span class="sum">21</span>个</div>
 						</div>
-
-						<!--<ul ng-repeat="item in keyWords">
-				<li>{{item.word}}</li>
-			</ul>-->
 					</div>
 				</div>
 				<div class="c-g-8">
-					<div class="c-cont data-box">
-						<div class="table-tool clearfix">
-							<div class="tool-r">
-								<button type="button" class="tool-item c-btn" data-toggle="modal" data-target="#myModal">添加</button>
+					<div class="c-cont-l">
+						<div class="section-title">添加关键词</div>
+						<div class="table-tool">
+							<div class="tool-item clearfix">
+								<label>领域词典</label>
+								<select class="tool-control">
+									<option>分词词库</option>
+									<option>行业基础词库</option>
+									<option>正面词</option>
+									<option>负面词</option>
+									<option>热词</option>
+								</select>
 							</div>
+							<div class="tool-item clearfix">
+								<label>关键词</label>
+								<input type="text" ng-model="word" class="tool-control">
+							</div>
+							<button type="button" class="tool-item c-btn" ng-click="addKeyWord()">提&nbsp;交</button>
 						</div>
-						<table class="table-data">
-							<thead>
-								<tr>
-									<th>名称</th>
-									<th>状态</th>
-									<th>操作</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>风景秀丽</td>
-									<td>未审核</td>
-									<td class="opt">
-										<a>删除</a>
-									</td>
-								</tr>
-								<tr>
-									<td>口碑好</td>
-									<td>未审核</td>
-									<td class="opt">
-										<a>删除</a>
-									</td>
-								</tr>
-								<tr>
-									<td>性价比高</td>
-									<td>未审核</td>
-									<td class="opt">
-										<a>删除</a>
-									</td>
-								</tr>
-								<tr>
-									<td>便宜实惠</td>
-									<td>未审核</td>
-									<td class="opt">
-										<a>删除</a>
-									</td>
-								</tr>
-								<tr>
-									<td>桂林</td>
-									<td>未审核</td>
-									<td class="opt">
-										<a>删除</a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
+					</div>
+					<div class="c-cont-l add-kwd-box">
+						<div class="section-title">已添加<span class="num">200</span>个关键词</div>
+						<ul class="add-kwd-list clearfix">
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">风景秀丽</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">口碑好</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">性价比高</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">便宜实惠</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">桂林景点</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">文化底蕴深</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">口碑好评价高</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">杜鹃谷</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">桃花山</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">桂林</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">汉服旅游文化节</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">郁金香展</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">拍照圣地</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">庙会 美食 活动</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">特产</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">景色宜人</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">十里画廊</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">杜鹃谷</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">旅游团</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">桂林 旅游</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">北海涠洲岛攻略</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">新手游桂林</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">庙会 美食 活动</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="text">广西自驾游攻略</div>
+									<span class="del">×</span>
+								</a>
+							</li>
+						</ul>
+						<div class="add-kwd-foot clearfix">
+							<a class="page-btn" href="javascript:void(0);">上一页</a>
+							<span class="page-num">第1/2页</span>
+							<a class="page-btn" href="javascript:void(0);">下一页</a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-				<h4 class="modal-title" id="myModalLabel">添加关键词</h4>
-			</div>
-			<div class="modal-body">
-				<form class="c-f-list">
-					<div class="f-list-item">
-						<label class="c-f-list-tit"><span>领域词典</span></label>
-						<div class="c-f-list-con">
-							<select class="c-control">
-								<option>分词词库</option>
-								<option>行业基础词库</option>
-								<option>正面词</option>
-								<option>负面词</option>
-								<option>热词</option>
-							</select>
-						</div>
-					</div>
-					<div class="f-list-item">
-						<label class="c-f-list-tit"><span>关键词</span></label>
-						<div class="c-f-list-con">
-							<input type="text" ng-model="word" class="c-control">
-						</div>
-					</div>
-				</form>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-				<button type="button" class="btn btn-send" ng-click="addKeyWord()">确定</button>
-			</div>
-		</div>
-	</div>
 </div>
 
 <script type="text/javascript">
