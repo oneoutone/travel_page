@@ -259,6 +259,37 @@
         templateUrl: 'views/bps/bps_distributor.html'
       })
       
+      .state('app.tes_recruit', {
+        url: '/tes_recruit',
+        templateUrl: 'views/tes/tes_recruit.html',
+        data: {
+          css: ['assets/styles/flot_set.css', 'assets/styles/pfs_index.css']
+        }
+      })
+      
+      .state('app.tes_report', {
+        url: '/tes_report',
+        templateUrl: 'views/tes/tes_report.html'
+      })
+      
+      .state('app.tas_index', {
+        url: '/tas_index',
+        templateUrl: 'views/tas/tas_index.html',
+        data: {
+          css: ['assets/styles/flot_set.css', 'assets/styles/pfs_index.css']
+        }
+      })
+      
+      .state('app.tas_scenic_spot', {
+        url: '/tas_scenic_spot',
+        templateUrl: 'views/tas/tas_scenic_spot.html'
+      })
+      
+      .state('app.tas_travel_product', {
+        url: '/tas_travel_product',
+        templateUrl: 'views/tas/tas_travel_product.html'
+      })
+      
 
     function load(srcs, callback) {
       return {

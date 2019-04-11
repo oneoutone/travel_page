@@ -2005,6 +2005,11 @@ textarea.c-control {
 	text-align: center;
 }
 
+.table-data th.tl,
+.table-data td.tl {
+	text-align: left;
+}
+
 .table-data th {
 	padding: 12px 10px;
 	color: #999;
