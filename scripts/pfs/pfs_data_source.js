@@ -15,6 +15,7 @@
 	function pfsDataSourceCtrl($scope, httpService, toastr, $stateParams, $state) {
 		var vm = $scope;
 		vm.data = {name:'5'};
+		vm.default = true;
 
 		vm.sourceChanged = function(){
 			httpService.updateSpecifySource({specifySource: vm.custom}, function(){
