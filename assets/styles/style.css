@@ -79,6 +79,10 @@ a:focus,a:hover {
 	text-decoration: none;
 }
 
+a:focus{
+	outline: none;
+}
+
 :focus {
 	outline: 0
 }

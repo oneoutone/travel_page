@@ -1,3 +1,52 @@
+<style type="text/css">
+	.channel-set .icheckbox_square-blue,
+	.channel-set .iradio_square-blue {
+		margin-top: 0;
+	}
+	
+	.data-box .channel-set {
+		width: 810px;
+	}
+	
+	.f-set-item {
+		padding: 10px 0;
+	}
+	
+	.f-set-item .i-checks {
+		float: left;
+		width: 80px;
+		padding: 12px 0;
+		line-height: 20px;
+	}
+	
+	.f-set-item .f-set-con {
+		float: right;
+		width: 720px;
+	}
+	
+	.f-set-item .f-set-con .c-control {
+		float: left;
+		width: 220px;
+		margin-left: 20px;
+	}
+	
+	.f-set-item .f-set-con .img {
+		width: 134px;
+		height: 134px;
+		margin: 10px 0 10px 20px;
+	}
+	
+	.data-box .send-btn-box {
+		padding: 40px 0 20px 0;
+		border-top: 1px solid #e8e8e8;
+	}
+	
+	.data-box .send-btn-box .c-btn {
+		width: auto;
+		border-radius: 2px;
+		margin-left: 165px;
+	}
+</style>
 <div ng-include="apiInclude + 'head_nav_pfs.html'"></div>
 
 <div class="c-section c-main">
@@ -10,125 +59,395 @@
 			</div>
 		</div>
 
-		<div class="c-cont data-box">
+		<div class="c-cont">
 			<!--报警条件设置-->
-			<div class="tab-pane actived">
-				<div class="table-tool clearfix">
-					<div class="tool-l">
-						<button type="button" class="tool-item c-btn"ng-click="showAdd()">添加</button>
+			<div class="tab-pane tab-pane1 actived">
+				<div class="tab">
+					<div class="tab-nav">
+						<ul class="tab-nav-list">
+							<li class="tab-nav-item actived"><span>默认</span></li>
+							<li class="tab-nav-item"><span>自定义</span></li>
+						</ul>
+					</div>
+					<div class="tab-content">
+						<div class="tab-pane tab-pane2 actived">
+							<div class="data-box">
+								<table class="table-data">
+									<thead>
+										<tr>
+											<th class="tl">指定来源</th>
+											<th class="tl">全部数据源</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="tl">阅读量阙值</td>
+											<td class="tl">文章被转发超过该值会触发报警提醒，主要针对微博类数据使用，建议值100</td>
+										</tr>
+										<tr>
+											<td class="tl">评论数阙值</td>
+											<td class="tl">文章被评论超过该值会触发报警提醒，主要针对微博类数据使用，建议值100</td>
+										</tr>
+										<tr>
+											<td class="tl">转发数阙值</td>
+											<td class="tl">文章被转发超过该值会触 报警提醒，主要针对微博类数据使用，建议值100</td>
+										</tr>
+										<tr>
+											<td class="tl">负面情绪阙值</td>
+											<td class="tl">文章情感值小于该值会触发报警，针对所有数据类型，建议值0.2</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div class="tab-pane tab-pane2">
+							<div class="data-box subtab">
+								<div class="table-tool">
+									<div class="tool-row clearfix">
+										<div class="tool-item">
+											<ul class="tab-list">
+												<li class="tab-item actived">
+													<a href="javascript:void(0);">指定来源</a>
+												</li>
+												<li class="tab-item">
+													<a href="javascript:void(0);">自定义数据源</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane tab-pane3 actived">
+									<table class="table-data">
+										<thead>
+											<tr>
+												<th>名称</th>
+												<th>地址</th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>知乎旅行</td>
+												<td>https://www.zhihu.com/topic/19551556/top-answers</td>
+												<td>
+													<div class="i-checks">
+														<label><input type="checkbox" class="icheckbox_square-blue"></label>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>知乎旅行</td>
+												<td>https://www.zhihu.com/topic/19551556/top-answers</td>
+												<td>
+													<div class="i-checks">
+														<label><input type="checkbox" class="icheckbox_square-blue"></label>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>知乎旅行</td>
+												<td>https://www.zhihu.com/topic/19551556/top-answers</td>
+												<td>
+													<div class="i-checks">
+														<label><input type="checkbox" class="icheckbox_square-blue"></label>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>知乎旅行</td>
+												<td>https://www.zhihu.com/topic/19551556/top-answers</td>
+												<td>
+													<div class="i-checks">
+														<label><input type="checkbox" class="icheckbox_square-blue"></label>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>知乎旅行</td>
+												<td>https://www.zhihu.com/topic/19551556/top-answers</td>
+												<td>
+													<div class="i-checks">
+														<label><input type="checkbox" class="icheckbox_square-blue"></label>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>知乎旅行</td>
+												<td>https://www.zhihu.com/topic/19551556/top-answers</td>
+												<td>
+													<div class="i-checks">
+														<label><input type="checkbox" class="icheckbox_square-blue"></label>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>知乎旅行</td>
+												<td>https://www.zhihu.com/topic/19551556/top-answers</td>
+												<td>
+													<div class="i-checks">
+														<label><input type="checkbox" class="icheckbox_square-blue"></label>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>知乎旅行</td>
+												<td>https://www.zhihu.com/topic/19551556/top-answers</td>
+												<td>
+													<div class="i-checks">
+														<label><input type="checkbox" class="icheckbox_square-blue"></label>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>知乎旅行</td>
+												<td>https://www.zhihu.com/topic/19551556/top-answers</td>
+												<td>
+													<div class="i-checks">
+														<label><input type="checkbox" class="icheckbox_square-blue"></label>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>知乎旅行</td>
+												<td>https://www.zhihu.com/topic/19551556/top-answers</td>
+												<td>
+													<div class="i-checks">
+														<label><input type="checkbox" class="icheckbox_square-blue"></label>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<!--分页-->
+									<div class="pageation">
+										<ul class="pageation-list">
+											<li class="list-item">
+												<a href="javascript:void(0);">上一页</a>
+											</li>
+											<li class="list-item actived">
+												<a href="javascript:void(0);">1</a>
+											</li>
+											<li class="list-item">
+												<a href="javascript:void(0);">2</a>
+											</li>
+											<li class="list-item">
+												<a href="javascript:void(0);">3</a>
+											</li>
+											<li class="list-item disabled">
+												<a href="javascript:void(0);">...</a>
+											</li>
+											<li class="list-item">
+												<a href="javascript:void(0);">10</a>
+											</li>
+											<li class="list-item">
+												<a href="javascript:void(0);">下一页</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="tab-pane tab-pane3">
+									<table class="table-data">
+										<thead>
+											<tr>
+												<th>来源</th>
+												<th>阅读量阙值</th>
+												<th>评论数阙值</th>
+												<th>转发数阙值</th>
+												<th>负面情绪阙值</th>
+												<th>操作</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>全部</td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td class="opt">
+													<a class="edit-btn">保存</a>
+												</td>
+											</tr>
+											<tr>
+												<td>https://www.zhihu.com</td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td class="opt">
+													<a class="edit-btn">保存</a>
+													<a class="edit-btn" ng-click="showDelete()">删除</a>
+												</td>
+											</tr>
+											<tr>
+												<td>https://www.zhihu.com</td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td class="opt">
+													<a class="edit-btn">保存</a>
+													<a class="edit-btn" ng-click="showDelete()">删除</a>
+												</td>
+											</tr>
+											<tr>
+												<td>https://www.zhihu.com</td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td class="opt">
+													<a class="edit-btn">保存</a>
+													<a class="edit-btn" ng-click="showDelete()">删除</a>
+												</td>
+											</tr>
+											<tr>
+												<td>https://www.zhihu.com</td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td class="opt">
+													<a class="edit-btn">保存</a>
+													<a class="edit-btn" ng-click="showDelete()">删除</a>
+												</td>
+											</tr>
+											<tr>
+												<td>https://www.zhihu.com</td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td class="opt">
+													<a class="edit-btn">保存</a>
+													<a class="edit-btn" ng-click="showDelete()">删除</a>
+												</td>
+											</tr>
+											<tr>
+												<td>https://www.zhihu.com</td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td class="opt">
+													<a class="edit-btn">保存</a>
+													<a class="edit-btn" ng-click="showDelete()">删除</a>
+												</td>
+											</tr>
+											<tr>
+												<td>https://www.zhihu.com</td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td class="opt">
+													<a class="edit-btn">保存</a>
+													<a class="edit-btn" ng-click="showDelete()">删除</a>
+												</td>
+											</tr>
+											<tr>
+												<td>https://www.zhihu.com</td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td class="opt">
+													<a class="edit-btn">保存</a>
+													<a class="edit-btn" ng-click="showDelete()">删除</a>
+												</td>
+											</tr>
+											<tr>
+												<td>https://www.zhihu.com</td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td><input type="text" class="form-control" /></td>
+												<td class="opt">
+													<a class="edit-btn">保存</a>
+													<a class="edit-btn" ng-click="showDelete()">删除</a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<!--分页-->
+									<div class="pageation">
+										<ul class="pageation-list">
+											<li class="list-item">
+												<a href="javascript:void(0);">上一页</a>
+											</li>
+											<li class="list-item actived">
+												<a href="javascript:void(0);">1</a>
+											</li>
+											<li class="list-item">
+												<a href="javascript:void(0);">2</a>
+											</li>
+											<li class="list-item">
+												<a href="javascript:void(0);">3</a>
+											</li>
+											<li class="list-item disabled">
+												<a href="javascript:void(0);">...</a>
+											</li>
+											<li class="list-item">
+												<a href="javascript:void(0);">10</a>
+											</li>
+											<li class="list-item">
+												<a href="javascript:void(0);">下一页</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+						</div>
 					</div>
 				</div>
-				<table class="table-data">
-					<thead>
-						<tr>
-							<th>指定来源</th>
-							<th>阅读量阙值</th>
-							<th>评论数阙值</th>
-							<th>转发数阙值</th>
-							<th>负面情绪阙值</th>
-							<th>操作</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr ng-repeat="item in sets">
-							<td>{{item.sourceUrl}}</td>
-							<td>{{item.readNum}}</td>
-							<td>{{item.discussNum}}</td>
-							<td>{{item.shareNum}}</td>
-							<td>{{item.negValue}}</td>
-							<td class="opt">
-								<a  class="edit-btn" ng-click="showAdd(item)">编辑</a>
-								<a  class="edit-btn" ng-click="showDelete(item)">删除</a>
-							</td>
-						</tr>
-						<tr class="white b-white" >
-							<td colspan="10" class="white b-white text-center">
-								<ul class="pagination" uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" total-items="true" max-size="10" class="pagination-sm" boundary-link-numbers="true" next-text="下一页" previous-text="上一页" rotate="false" ng-change="pageChanged()"></ul>
-
-							</td>
-						</tr>
-					</tbody>
-				</table>
-
 			</div>
+
 			<!--推送渠道设置-->
-			<div class="tab-pane">
-				<form class="c-f-list channel-set">
-					<div class="i-checks">
-						<label><input type="checkbox" ng-model="message_warn" ng-change="updateUserWarn()" class="icheckbox_square-blue" id="c1">短信</label>
+			<div class="tab-pane tab-pane1">
+				<form class="data-box">
+					<div class="c-f-list channel-set">
+						<div class="f-set-item clearfix">
+							<div class="i-checks">
+								<label><input type="checkbox" ng-model="message_warn" ng-change="updateUserWarn()" class="icheckbox_square-blue" id="c1">短信</label>
+							</div>
+							<div class="f-set-con">
+								<input type="text" class="c-control" value="15786452131" />
+								<input type="text" class="c-control" value="15786452131" />
+								<input type="text" class="c-control" value="15786452131" />
+							</div>
+						</div>
+						<div class="f-set-item clearfix">
+							<div class="i-checks">
+								<label><input type="checkbox" ng-model="wechat_warn" ng-change="updateUserWarn()" class="icheckbox_square-blue"  id="c2" >微信</label>
+							</div>
+							<div class="f-set-con"><img class="img" src="assets/img/img-qr-code.png" alt="" /></div>
+						</div>
+						<div class="f-set-item clearfix">
+							<div class="i-checks">
+								<label><input type="checkbox" class="icheckbox_square-blue">APP</label>
+							</div>
+							<div class="f-set-con"><img class="img" src="assets/img/img-qr-code.png" alt="" /></div>
+						</div>
+						<div class="f-set-item clearfix">
+							<div class="i-checks">
+								<label><input type="checkbox" ng-model="email_warn" ng-change="updateUserWarn()" class="icheckbox_square-blue"  id="c3" >邮件</label>
+							</div>
+							<div class="f-set-con">
+								<input type="text" class="c-control" value="15786452131@163.com" />
+								<input type="text" class="c-control" value="15786452131@163.com" />
+								<input type="text" class="c-control" value="15786452131@163.com" />
+							</div>
+						</div>
 					</div>
-					<div class="i-checks">
-						<label><input type="checkbox" ng-model="wechat_warn" ng-change="updateUserWarn()" class="icheckbox_square-blue"  id="c2" >微信</label>
+					<div class="send-btn-box">
+						<button type="button" class="c-btn">保&nbsp;存</button>
 					</div>
-					<div class="i-checks">
-						<label><input type="checkbox" ng-model="email_warn" ng-change="updateUserWarn()" class="icheckbox_square-blue"  id="c3" >邮件</label>
-					</div>
-					<div class="card-txt">相关渠道信息请到用户云平台->
-						<a href="javascript:void(0);" ui-sref="app.my">账户管理</a>中进行绑定</div>
 				</form>
 			</div>
 		</div>
-	</div>
-</div>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-				<h4 class="modal-title" id="myModalLabel">报警条件设置</h4>
-			</div>
-			<div class="modal-body">
-				<form class="c-f-list">
-					<div class="f-list-item" ng-show="!set.id">
-						<label class="c-f-list-tit"><span>指定来源</span></label>
-						<div class="c-f-list-con">
-							<ui-select  required="true" id="name" ng-model="set.url" theme="bootstrap">
-								<ui-select-match class="ui-select-match" id="yry" placeholder="选择资源">{{$select.selected.result.website}}({{$select.selected.result.website_url}})</ui-select-match>
-								<ui-select-choices refresh-delay="100" minimum-input-length="1" refresh="fetchSource($select)" class="ui-select-choices" repeat="item in sources">
-									<div ng-bind-html="item.result.website_url | highlight: $select.search"></div>
-								</ui-select-choices>
-							</ui-select>
-						</div>
-					</div>
-					<div class="f-list-item" ng-show="set.id">
-						<label class="c-f-list-tit"><span>指定来源</span></label>
-						<div class="c-f-list-con">
-							<input type="text" disabled ng-model="set.sourceUrl" class="c-control">
-						</div>
-					</div>
-					<div class="f-list-item">
-						<label class="c-f-list-tit"><span>阅读量阙值</span></label>
-						<div class="c-f-list-con">
-							<input type="number" id="tt" ng-model="set.readNum" class="c-control">
-						</div>
-					</div>
-					<div class="f-list-item">
-						<label class="c-f-list-tit"><span>评论数阙值</span></label>
-						<div class="c-f-list-con">
-							<input type="number" ng-model="set.discussNum"   class="c-control">
-						</div>
-					</div>
-					<div class="f-list-item">
-						<label class="c-f-list-tit"><span>转发数阙值</span></label>
-						<div class="c-f-list-con">
-							<input type="number"  ng-model="set.shareNum"  class="c-control">
-						</div>
-					</div>
-					<div class="f-list-item">
-						<label class="c-f-list-tit"><span>负面情绪阙值</span></label>
-						<div class="c-f-list-con">
-							<input type="number" ng-model="set.negValue" class="c-control">
-						</div>
-					</div>
-				</form>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-				<button type="button" class="btn btn-send" ng-click="addWarningSet()">确定</button>
-			</div>
-		</div>
 	</div>
 </div>
 
@@ -142,19 +461,27 @@
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
 				<button type="button" class="btn btn-send" ng-click="deleteWarningSet()">确定</button>
 			</div>
 		</div>
 	</div>
 </div>
 
-
 <script type="text/javascript">
 	$('#selectTab .c-selectarea-item').click(function() {
 		$(this).addClass('actived').siblings().removeClass('actived');
-		$('.tab-pane').eq($(this).index()).addClass('actived').siblings().removeClass('actived');
+		$('.tab-pane1').eq($(this).index()).addClass('actived').siblings().removeClass('actived');
 	});
 
+	$('.tab-nav .tab-nav-item').click(function() {
+		$(this).addClass('actived').siblings().removeClass('actived');
+		$('.tab-pane2').eq($(this).index()).addClass('actived').siblings().removeClass('actived');
+	});
 
+	$('.tab-list li').click(function() {
+		var panel = $(this).closest(".subtab");
+		$(this).addClass('actived').siblings().removeClass('actived');
+		$('.tab-pane3').eq($(this).index()).addClass('actived').siblings().removeClass('actived');
+	})
 </script>

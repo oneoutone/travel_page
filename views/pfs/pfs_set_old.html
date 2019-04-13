@@ -1,0 +1,160 @@
+<div ng-include="apiInclude + 'head_nav_pfs.html'"></div>
+
+<div class="c-section c-main">
+	<div class="c-section-inner">
+		<!--筛选-->
+		<div class="c-area">
+			<div id="selectTab" class="c-area-con">
+				<div class="c-selectarea-item actived">报警条件设置</div>
+				<div class="c-selectarea-item ">推送渠道设置</div>
+			</div>
+		</div>
+
+		<div class="c-cont data-box">
+			<!--报警条件设置-->
+			<div class="tab-pane actived">
+				<div class="table-tool clearfix">
+					<div class="tool-l">
+						<button type="button" class="tool-item c-btn"ng-click="showAdd()">添加</button>
+					</div>
+				</div>
+				<table class="table-data">
+					<thead>
+						<tr>
+							<th>指定来源</th>
+							<th>阅读量阙值</th>
+							<th>评论数阙值</th>
+							<th>转发数阙值</th>
+							<th>负面情绪阙值</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in sets">
+							<td>{{item.sourceUrl}}</td>
+							<td>{{item.readNum}}</td>
+							<td>{{item.discussNum}}</td>
+							<td>{{item.shareNum}}</td>
+							<td>{{item.negValue}}</td>
+							<td class="opt">
+								<a  class="edit-btn" ng-click="showAdd(item)">编辑</a>
+								<a  class="edit-btn" ng-click="showDelete(item)">删除</a>
+							</td>
+						</tr>
+						<tr class="white b-white" >
+							<td colspan="10" class="white b-white text-center">
+								<ul class="pagination" uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" total-items="true" max-size="10" class="pagination-sm" boundary-link-numbers="true" next-text="下一页" previous-text="上一页" rotate="false" ng-change="pageChanged()"></ul>
+
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+			<!--推送渠道设置-->
+			<div class="tab-pane">
+				<form class="c-f-list channel-set">
+					<div class="i-checks">
+						<label><input type="checkbox" ng-model="message_warn" ng-change="updateUserWarn()" class="icheckbox_square-blue" id="c1">短信</label>
+					</div>
+					<div class="i-checks">
+						<label><input type="checkbox" ng-model="wechat_warn" ng-change="updateUserWarn()" class="icheckbox_square-blue"  id="c2" >微信</label>
+					</div>
+					<div class="i-checks">
+						<label><input type="checkbox" ng-model="email_warn" ng-change="updateUserWarn()" class="icheckbox_square-blue"  id="c3" >邮件</label>
+					</div>
+					<div class="card-txt">相关渠道信息请到用户云平台->
+						<a href="javascript:void(0);" ui-sref="app.my">账户管理</a>中进行绑定</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+				<h4 class="modal-title" id="myModalLabel">报警条件设置</h4>
+			</div>
+			<div class="modal-body">
+				<form class="c-f-list">
+					<div class="f-list-item" ng-show="!set.id">
+						<label class="c-f-list-tit"><span>指定来源</span></label>
+						<div class="c-f-list-con">
+							<ui-select  required="true" id="name" ng-model="set.url" theme="bootstrap">
+								<ui-select-match class="ui-select-match" id="yry" placeholder="选择资源">{{$select.selected.result.website}}({{$select.selected.result.website_url}})</ui-select-match>
+								<ui-select-choices refresh-delay="100" minimum-input-length="1" refresh="fetchSource($select)" class="ui-select-choices" repeat="item in sources">
+									<div ng-bind-html="item.result.website_url | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
+						</div>
+					</div>
+					<div class="f-list-item" ng-show="set.id">
+						<label class="c-f-list-tit"><span>指定来源</span></label>
+						<div class="c-f-list-con">
+							<input type="text" disabled ng-model="set.sourceUrl" class="c-control">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>阅读量阙值</span></label>
+						<div class="c-f-list-con">
+							<input type="number" id="tt" ng-model="set.readNum" class="c-control">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>评论数阙值</span></label>
+						<div class="c-f-list-con">
+							<input type="number" ng-model="set.discussNum"   class="c-control">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>转发数阙值</span></label>
+						<div class="c-f-list-con">
+							<input type="number"  ng-model="set.shareNum"  class="c-control">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>负面情绪阙值</span></label>
+						<div class="c-f-list-con">
+							<input type="number" ng-model="set.negValue" class="c-control">
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-send" ng-click="addWarningSet()">确定</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="delete" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+
+				<label class="c-f-list-tit"><span>确定删除报警设置？</span></label>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-send" ng-click="deleteWarningSet()">确定</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	$('#selectTab .c-selectarea-item').click(function() {
+		$(this).addClass('actived').siblings().removeClass('actived');
+		$('.tab-pane').eq($(this).index()).addClass('actived').siblings().removeClass('actived');
+	});
+
+
+</script>
