@@ -211,7 +211,10 @@
       
       .state('app.pfs_analysis', {
         url: '/pfs_analysis',
-        templateUrl: 'views/pfs/pfs_analysis.html'
+        templateUrl: 'views/pfs/pfs_analysis.html',
+        data: {
+        	css: 'assets/styles/pfs_analysis.css'
+    	}
       })
       
       .state('app.dcs_index', {
