@@ -209,6 +209,11 @@
         }
       })
       
+      .state('app.pfs_analysis', {
+        url: '/pfs_analysis',
+        templateUrl: 'views/pfs/pfs_analysis.html'
+      })
+      
       .state('app.dcs_index', {
         url: '/dcs_index?page',
         templateUrl: 'views/dcs/dcs_index.html',
