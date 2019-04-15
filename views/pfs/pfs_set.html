@@ -75,26 +75,26 @@
 								<table class="table-data">
 									<thead>
 										<tr>
-											<th class="tl">指定来源</th>
+											<th class="tl" width="120px">指定来源</th>
 											<th class="tl">全部数据源</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr>
 											<td class="tl">阅读量阙值</td>
-											<td class="tl">文章被转发超过该值会触发报警提醒，主要针对微博类数据使用，建议值100</td>
+											<td class="tl"><input type="text" class="form-control" placeholder="文章被转发超过该值会触发报警提醒，主要针对微博类数据使用，建议值100" /></td>
 										</tr>
 										<tr>
 											<td class="tl">评论数阙值</td>
-											<td class="tl">文章被评论超过该值会触发报警提醒，主要针对微博类数据使用，建议值100</td>
+											<td class="tl"><input type="text" class="form-control" placeholder="文章被评论超过该值会触发报警提醒，主要针对微博类数据使用，建议值100" /></td>
 										</tr>
 										<tr>
 											<td class="tl">转发数阙值</td>
-											<td class="tl">文章被转发超过该值会触 报警提醒，主要针对微博类数据使用，建议值100</td>
+											<td class="tl"><input type="text" class="form-control" placeholder="文章被转发超过该值会触 报警提醒，主要针对微博类数据使用，建议值100" /></td>
 										</tr>
 										<tr>
 											<td class="tl">负面情绪阙值</td>
-											<td class="tl">文章情感值小于该值会触发报警，针对所有数据类型，建议值0.2</td>
+											<td class="tl"><input type="text" class="form-control" placeholder="文章情感值小于该值会触发报警，针对所有数据类型，建议值0.2" /></td>
 										</tr>
 									</tbody>
 								</table>
@@ -105,15 +105,23 @@
 							<div class="data-box subtab">
 								<div class="table-tool">
 									<div class="tool-row clearfix">
-										<div class="tool-item">
-											<ul class="tab-list">
-												<li class="tab-item actived">
-													<a href="javascript:void(0);">指定来源</a>
-												</li>
-												<li class="tab-item">
-													<a href="javascript:void(0);">自定义数据源</a>
-												</li>
-											</ul>
+										<div class="tool-l">
+											<div class="tool-item">
+												<ul class="tab-list">
+													<li class="tab-item actived">
+														<a href="javascript:void(0);">指定来源</a>
+													</li>
+													<li class="tab-item">
+														<a href="javascript:void(0);">自定义数据源</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+										<div class="tool-r">
+											<div class="tool-item search-input clearfix">
+												<input type="text" placeholder="请输入您要查找的内容" class="tool-control">
+												<button type="button" class="c-btn">搜索</button>
+											</div>
 										</div>
 									</div>
 								</div>
