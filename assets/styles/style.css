@@ -139,6 +139,19 @@ a:focus{
 	background-color: #0092ee
 }
 
+.c-btn-hole {
+    border: 1px solid #00a4ff;
+    background-color: #fff;
+    color: #00a4ff;
+    line-height: 33px
+}
+
+.c-btn-hole:hover {
+    background-color: #00a4ff;
+    border: 1px solid #00a4ff;
+    color: #fff
+}
+
 
 /*栅格*/
 
@@ -2375,7 +2388,8 @@ textarea.c-control {
 .coll-section-hd-extra {
 	float: right;
 	line-height: 40px;
-	margin-left: 20px
+	margin-left: 20px;
+	font-size: 0;
 }
 
 .coll-section-hd-extra:after {

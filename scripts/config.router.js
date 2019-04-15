@@ -217,6 +217,19 @@
     	}
       })
       
+      .state('app.product_buy', {
+        url: '/product_buy',
+        templateUrl: 'views/pfs/product_buy.html'
+      })
+      
+      .state('app.product_detail', {
+        url: '/product_detail',
+        templateUrl: 'views/pfs/product_detail.html',
+        data: {
+        	css: 'assets/styles/product_detail.css'
+    	}
+      })
+      
       .state('app.dcs_index', {
         url: '/dcs_index?page',
         templateUrl: 'views/dcs/dcs_index.html',
