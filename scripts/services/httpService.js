@@ -4,8 +4,8 @@
         .module('httpService', [])
         .service('httpService', ['$http', '$localStorage', function ($http, $localStorage) {
             var self = this;
-            //var host = 'http://hadupu.cn/api'
-            var host = 'http://localhost:8080/api'
+            var host = 'http://hadupu.cn/api'
+            //var host = 'http://localhost:8080/api'
 
             function postRequest(url, data, options, success, fail){
                 var header = {'Content-Type': 'application/json'}
@@ -69,6 +69,10 @@
                 postRequest(host + '/users/register', data, {auth:false}, success, fail)
             }
 
+            self.resetPassword = function(data,success, fail){
+                postRequest(host + '/users/resetPassword', data, {auth:false}, success, fail)
+            }
+
             /**
              * login
              * @param data
@@ -77,6 +81,10 @@
              */
             self.login = function(data, success, fail){
                 postRequest(host + '/users/login', data, {auth:false}, success, fail)
+            }
+
+            self.adminLogin = function(data, success, fail){
+                postRequest(host + '/users/adminLogin', data, {auth:false}, success, fail)
             }
 
             /**
@@ -89,9 +97,15 @@
             self.updateUserWarn = function(data, success, fail){
                 postRequest(host + '/users/updateUserWarn', data, {auth:true}, success, fail)
             }
-
+            self.updateWarnInfo = function(data, success, fail){
+                postRequest(host + '/users/updateWarnInfo', data, {auth:true}, success, fail)
+            }
             self.updateSpecifySource = function(data, success,fail){
                 postRequest(host + '/users/updateSpecifySource', data, {auth:true}, success, fail)
+            }
+
+            self.updateSpecifyWarning = function(data, success,fail){
+                postRequest(host + '/users/updateSpecifyWarning', data, {auth:true}, success, fail)
             }
 
             self.wechatOpenId = function(data, success, fail){
@@ -113,6 +127,10 @@
              */
             self.today_data = function(success,fail){
                 getRequest(host + '/yuqing/today_data', null, {auth:true}, success, fail)
+            }
+
+            self.words = function(data, success, fail){
+                getRequest(host + '/yuqing/words', data, {auth:true}, success, fail)
             }
 
             /**
@@ -159,12 +177,16 @@
             self.getKeyWordList = function(data,success,fail){
                 getRequest(host + '/yuqing/keyWord/list', data, {auth:true}, success, fail)
             }
+            self.getKeyRequest = function(data,success,fail){
+                getRequest(host + '/yuqing/keyWord/requestList', data, {auth:true}, success, fail)
+            }
             self.getKeyWordCount = function(success,fail){
                 getRequest(host + '/yuqing/keyWord/count', null, {auth:true}, success, fail)
             }
             self.updateKeyWord = function(data, success, fail){
                 postRequest(host + '/yuqing/keyWord/update', data, {auth:true}, success, fail)
             }
+
             self.deleteKeyWord = function(data, success, fail){
                 postRequest(host + '/yuqing/keyWord/delete', data, {auth:true}, success, fail)
             }
@@ -177,14 +199,20 @@
             self.getRequestCount = function(success,fail){
                 getRequest(host + '/dataRequest/count', null, {auth:true}, success, fail)
             }
-            self.getWarningSetList = function(data,success,fail){
+            self.getWarningSetList = function(data, success,fail){
                 getRequest(host + '/yuqing/warningSet/list', data, {auth:true}, success, fail)
             }
-            self.getWarningSetCount = function(success,fail){
-                getRequest(host + '/yuqing/warningSet/count', null, {auth:true}, success, fail)
+            self.getWarningSetCount = function(data, success,fail){
+                getRequest(host + '/yuqing/warningSet/count', data, {auth:true}, success, fail)
             }
             self.addWarningSet = function(data,success,fail){
                 postRequest(host + '/yuqing/warningSet/add', data, {auth:true}, success, fail)
+            }
+            self.upsertWarningSet = function(data, success, fail){
+                postRequest(host + '/yuqing/warningSet/upsert', data, {auth:true}, success, fail)
+            }
+            self.updatetWarningSetAll = function(data, success, fail){
+                postRequest(host + '/yuqing/warningSet/updateAll', data, {auth:true}, success, fail)
             }
             self.updateWarningSet = function(data, success, fail){
                 postRequest(host + '/yuqing/warningSet/update', data, {auth:true}, success, fail)
@@ -198,8 +226,17 @@
             self.getDataSourceList = function(data,success,fail){
                 getRequest(host + '/yuqing/dataSource/list', data, {auth:true}, success, fail)
             }
-            self.getDataSourceCount = function(success,fail){
-                getRequest(host + '/yuqing/dataSource/count', null, {auth:true}, success, fail)
+            self.getDataSourceCount = function(data, success,fail){
+                getRequest(host + '/yuqing/dataSource/count', data, {auth:true}, success, fail)
+            }
+            self.addDataSourceRequest = function(data,success,fail){
+                postRequest(host + '/yuqing/dataSourceRequest/add', data, {auth:true}, success, fail)
+            }
+            self.getDataSourceRequestList = function(data,success,fail){
+                getRequest(host + '/yuqing/dataSourceRequest/list', data, {auth:true}, success, fail)
+            }
+            self.getDataSourceRequestCount = function(data,success,fail){
+                getRequest(host + '/yuqing/dataSourceRequest/count', data, {auth:true}, success, fail)
             }
             self.deleteDataSourceSet = function(data, success, fail){
                 postRequest(host + '/yuqing/dataSource/delete', data, {auth:true}, success, fail)

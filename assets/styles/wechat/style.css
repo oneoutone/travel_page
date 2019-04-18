@@ -109,7 +109,7 @@ input[type=checkbox]:checked:before { content: '\e617';font-family: "iconfont"; 
 .analysis-item { background-color: #ffffff; margin-bottom: 15px }
 .analysis-item .cont { padding: 15px; border-top: 1px solid #ebebeb }
 
-.f-content { padding-bottom: 40px }
+.f-content { padding-bottom: 10px }
 .foot-btn { position: fixed; left: 0; right: 0; bottom: 0; height: 40px; box-shadow: 0 0 2px #e5e5e5 }
 .foot-btn .btn, .foot-btn .btn2 { font-size: 14px; text-align: center; line-height: 40px }
 .foot-btn .btn { color: #ffffff; background-color: #00a4ff }

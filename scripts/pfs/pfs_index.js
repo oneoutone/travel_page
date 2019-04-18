@@ -23,18 +23,12 @@
 			var line = []
 			for(var i=0; i<d.length; i++){
 				ticket.push([i+1, d[i].result.endtime])
-				positive.push([i+1, d[i].result.positive_num])
-				middle.push([i+1, d[i].result.middle_num])
+				positive.push([i+1, 0-d[i].result.positive_num])
 				negative.push([i+1, d[i].result.negative_num])
-				line.push([i+1, 10])
+				line.push([i+1, 50])
 				$.plot("#emotion", [
 					{
 						data: positive,
-						points: {show: true, radius: 2},
-						splines: {show: true, tension: 0.45, lineWidth: 2, fill: 0}
-					},
-					{
-						data: middle,
 						points: {show: true, radius: 2},
 						splines: {show: true, tension: 0.45, lineWidth: 2, fill: 0}
 					},
@@ -49,7 +43,7 @@
 						splines: {show: true, tension: 0.45, lineWidth: 2, fill: 0}
 					}
 				], {
-					colors: ['#1b9af9', '#f5bc34', '#d94b4b'],
+					colors: ['#1b9af9', '#d94b4b', '#CD2626'],
 					series: {shadowSize: 3},
 					legend: {backgroundColor: 'transparent'},
 					xaxis: {show: true, font: {color: '#ccc'}, position: 'bottom', ticks: ticket},
@@ -57,7 +51,7 @@
 					grid: {
 						hoverable: true,
 						clickable: true,
-						borderWidth: 20,
+						borderWidth: 40,
 						borderColor: 'rgba(255,255,255,0.5)',
 						color: 'rgba(120,120,120,0.5)'
 					},
@@ -89,34 +83,36 @@
 
 		vm.setChannel = function(channel){
 			vm.channel = channel
+			fetchData()
 		}
 
 		vm.setType = function(type){
 			vm.type = type
+			fetchData()
 		}
 
 		function fetchData(){
 			var data = {page: vm.page, size: 10}
 			data.article_type = 4
 			if(vm.channel == 'website'){
-				data.article_type = 1
+				data.article_type = 0
 			}
 			if(vm.channel == 'weibo'){
-				data.article_type = 2
+				data.article_type = 8
 			}
-			if(vm.channel == 'weixin'){
-				data.article_type = 3
+			if(vm.channel == 'wechat'){
+				data.article_type = 9
 			}
-			data.sentiment = 8
+			data.sentiment = 4
 
-			if(vm.type == 'actvive'){
+			if(vm.type == 'active'){
 				data.sentiment = 1
 			}
 			if(vm.type == 'negtive'){
-				data.sentiment = 2
+				data.sentiment = 3
 			}
 			if(vm.type == 'middle'){
-				data.sentiment = 3
+				data.sentiment = 2
 			}
 
 			httpService.data_count(data,function(result){
@@ -133,6 +129,9 @@
 				for(var i=0; i<vm.data.length; i++){
 					if(vm.data[i].result.content.length > 100){
 						vm.data[i].result.desc = vm.data[i].result.content.substr(0, 100)+'...'
+					}
+					if(!vm.data[i].result.content && vm.data[i].result.title){
+						vm.data[i].result.desc = vm.data[i].result.title
 					}
 				}
 			}, function(e){

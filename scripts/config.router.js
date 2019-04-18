@@ -85,6 +85,8 @@
       .state('app.recover_pwd', {
         url: '/recover_pwd',
         templateUrl: 'views/login/recover_pwd.html',
+        controller: "rePwdCtrl",
+        resolve: load(['toastr', 'jsencrypt', 'scripts/login/recover_pwd.js']),
         data: {
         	css: 'assets/styles/login.css'
     	}
@@ -139,7 +141,7 @@
         url: '/pfs_index',
         templateUrl: 'views/pfs/pfs_index.html',
         controller: "pfsIndexCtrl",
-        resolve: load(['plot', 'scripts/pfs/pfs_index.js']),
+        resolve: load(['plot', 'ui.bootstrap' ,'mgcrea.ngStrap', 'toastr', 'scripts/pfs/pfs_index.js']),
         data: {
           css: ['assets/styles/flot_set.css', 'assets/styles/pfs_index.css', 'assets/styles/news_list.css']
         }

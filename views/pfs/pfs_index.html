@@ -100,8 +100,8 @@
 					<div class="col-article-list">
 						<div class="com-article-panel" ng-repeat="item in data" ui-sref="app.news_detail({id: item.result.article_id})">
 							<div class="com-article-panel-body">
-								<span class="type type2">负面</span>
-								<h3 class="com-article-panel-title"><a ui-sref="app.news_detail">{{item.result.title}}</a></h3>
+								<span class="type {{(!item.result.postive || item.result.postive > 0.6 ) ? 'type1' : (item.result.postive < 0.4 ? 'type2' : 'type3')}}">{{(!item.result.postive || item.result.postive > 0.6) ? '正面' : (item.result.postive < 0.4 ? '负面' : '中性')}}</span>
+								<h3 class="com-article-panel-title"><a ui-sref="app.news_detail">{{item.result.title ? item.result.title : (item.result.content.length > 20 ? item.result.content.substr(0, 19) : item.result.content)}}</a></h3>
 								<div class="com-article-panel-info"><span>{{item.result.publish_time}}</span><span>来源：{{item.result.source_name}}</span><a class="news-analyse" href="javascript:void(0);" ui-sref="app.news_analyse">页面分析</a></div>
 								<p class="com-article-panel-desc">
 									<a href="javascript:void(0);" ui-sref="app.news_detail">{{item.result.desc}}</a>
