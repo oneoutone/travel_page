@@ -16,7 +16,7 @@
 		var vm = $scope
 		vm.default = {}
 		vm.tab = 1
-
+		vm.header = {name:'5'};
 		vm.set ={}
 
 		if($stateParams.page1){
@@ -382,6 +382,64 @@
 				toastr.error('更新报设置失败')
 			})
 		}
+		vm.set = {}
+		vm.showModal = function(item){
+			if(item == 'all'){
+				vm.update = 'all'
+				vm.set.sourceName = '批量设置'
+			}else{
+				vm.set.sourceName = item.sourceName
+				httpService.getWarningSetDetail({id: item.setId}, function(r){
+					vm.set.readNum = r.readNum
+					vm.set.discussNum = r.discussNum
+					vm.set.shareNum = r.shareNum
+					vm.set.negValue = r.negValue
+					vm.update = r.id
+				}, function(e){
+					console.log(e)
+				})
+			}
+			$('#myModal').modal('show')
+		}
+
+		vm.updateSet = function(){
+			var reg = /^[0-9]*$/
+			if(vm.set.readNum && !reg.test(vm.set.readNum)){
+				toastr.error('阅读量阈值只能是整数')
+				return
+			}
+			if(vm.set.discussNum && !reg.test(vm.set.discussNum)){
+				toastr.error('评论数阈值只能是整数')
+				return
+			}
+			if(vm.set.shareNum && !reg.test(vm.set.shareNum)){
+				toastr.error('转发数阈值只能是整数')
+				return
+			}
+			if(vm.set.negValue && (vm.set.negValue > 1 || vm.set.negValue <0)){
+				toastr.error('负面情绪阈值只能在0到1之间')
+				return
+			}
+
+			if(vm.update == 'all'){
+				httpService.updatetWarningSetAll(vm.set, function(r){
+					toastr.success('设置报警条件成功')
+					$('#myModal').modal('hide')
+				}, function(e){
+					toastr.error('设置报警条件失败')
+				})
+			}else{
+				vm.set.id = vm.update
+				httpService.upsertWarningSet(vm.set, function(r){
+					toastr.success('更新报警设置成功')
+					$('#myModal').modal('hide')
+				}, function(e){
+					toastr.error('更新报警设置失败')
+				})
+			}
+		}
+
+
 
 		vm.app.ready(function(){
 			fetchData()

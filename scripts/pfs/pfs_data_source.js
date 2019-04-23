@@ -14,7 +14,7 @@
 
 	function pfsDataSourceCtrl($scope, httpService, toastr, $stateParams, $state) {
 		var vm = $scope;
-		vm.data = {name:'5'};
+		vm.header = {name:'4'};
 		vm.default = true;
 		vm.request = {type: 'news', channel: 'website'}
 		vm.types = {"1": '咨询', "3": '政府', "2": '教育'}
@@ -148,10 +148,10 @@
 				return
 			}
 			httpService.addDataSourceRequest({
-				type: item.website_type,
-				channel: item.sourcetype,
-				sourceName: item.website,
-				sourceUrl: item.website_url
+				type: vm.request.type,
+				channel: vm.request.channel,
+				sourceName: vm.request.sourceName,
+				sourceUrl: vm.request.sourceUrl
 		}, function(r){
 				toastr.success('添加数据源请求成功')
 				$('#myModal').modal('hide')

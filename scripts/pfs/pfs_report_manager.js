@@ -6,11 +6,27 @@
 	pfsReportManagerCtrl.$inject = ['$scope', 'httpService'];
 
 	function pfsReportManagerCtrl($scope, httpService) {
-		$scope.data = {name:'6'};
-
+		var vm = $scope
+		vm.header = {name:'6'};
+		vm.request = {}
 		var now = new Date();
 		var end = moment(now).startOf('hour').format('YYYY-MM-DD HH:mm:ss')
 		var start = moment(now).startOf('hour').subtract(12, 'hours').format('YYYY-MM-DD HH:mm:ss')
+		vm.types = {
+			daily: '日报',
+			weekly: '周报',
+			monthly: '月报',
+			seasonly: '季报',
+			yearly: '年报'
+		}
+
+		function euroFormatter(v, axis) {
+			if(v >= 0){
+				return v
+			}
+			return -v
+		}
+
 		httpService.emotion_date({start: start, end: end}, function(result){
 			console.log(result)
 			var d = result.data
@@ -21,18 +37,12 @@
 			var line = []
 			for(var i=0; i<d.length; i++){
 				ticket.push([i+1, d[i].result.endtime])
-				positive.push([i+1, d[i].result.positive_num])
-				middle.push([i+1, d[i].result.middle_num])
-				negative.push([i+1, 0-d[i].result.negative_num])
-				line.push([i+1, 10])
+				positive.push([i+1, 0-d[i].result.positive_num])
+				negative.push([i+1, d[i].result.negative_num])
+				line.push([i+1, 50])
 				$.plot("#emotion", [
 					{
 						data: positive,
-						points: {show: true, radius: 2},
-						splines: {show: true, tension: 0.45, lineWidth: 2, fill: 0}
-					},
-					{
-						data: middle,
 						points: {show: true, radius: 2},
 						splines: {show: true, tension: 0.45, lineWidth: 2, fill: 0}
 					},
@@ -47,11 +57,11 @@
 						splines: {show: true, tension: 0.45, lineWidth: 2, fill: 0}
 					}
 				], {
-					colors: ['#1b9af9', '#f5bc34', '#d94b4b'],
+					colors: ['#1b9af9', '#d94b4b', '#CD2626'],
 					series: {shadowSize: 3},
 					legend: {backgroundColor: 'transparent'},
 					xaxis: {show: true, font: {color: '#ccc'}, position: 'bottom', ticks: ticket},
-					yaxis: {show: true, font: {color: '#ccc'}},
+					yaxis: {show: true, font: {color: '#ccc'} , tickFormatter: euroFormatter},
 					grid: {
 						hoverable: true,
 						clickable: true,
@@ -66,6 +76,60 @@
 		}, function(err){
 			console.log(err)
 		});
+
+
+		function fetchData(){
+			if(!vm.state){
+				vm.state = 'all'
+			}
+			if(!vm.page){
+				vm.page = 1
+			}
+			console.log(start)
+			var data = {page: vm.page, size: 10, type: vm.state}
+			var c = {type: vm.state}
+			if(vm.start){
+				data.start = moment(vm.start).format('YYYY-MM-DD')+ " 00:00:00"
+				c.start = moment(vm.start).format('YYYY-MM-DD')+ " 00:00:00"
+			}
+			if(vm.end){
+				data.end = moment(vm.end).format('YYYY-MM-DD')+ " 00:00:00"
+				c.end = moment(vm.end).format('YYYY-MM-DD')+ " 00:00:00"
+			}
+			httpService.getReportlist(data, function(result){
+				vm.reports = result
+			}, function(e){
+				console.log(e)
+			})
+
+			httpService.getReportCount(c, function(r){
+				vm.bigTotalItems = r.count
+				vm.bigCurrentPage = vm.page
+			}, function(e){
+				console.log(e)
+			})
+		}
+
+		vm.pageChanged = function(){
+			vm.page = vm.bigCurrentPage
+			fetchData()
+		}
+
+		vm.setState = function(v){
+			vm.state = v
+			vm.page = 1
+			fetchData()
+		}
+		vm.doFilter = function(){
+			console.log(vm.start)
+			console.log(vm.end)
+			vm.page = 1
+			fetchData()
+		}
+
+		vm.app.ready(function(){
+			fetchData()
+		})
 	}
 
 })();

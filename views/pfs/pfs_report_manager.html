@@ -8,40 +8,33 @@
 					<div class="tool-item">
 						<label>生成报表：</label>
 						<ul class="tab-list">
-							<li class="tab-item actived">
-								<a href="javascript:void(0);">日报</a>
+							<li class="tab-item {{state == 'all' ? 'actived' : ''}}">
+									<a ng-click="setState('all')">全部</a>
 							</li>
-							<li class="tab-item">
-								<a href="javascript:void(0);">周报</a>
+							<li class="tab-item {{state == 'daily' ? 'actived' : ''}}">
+								<a ng-click="setState('daily')">日报</a>
 							</li>
-							<li class="tab-item">
-								<a href="javascript:void(0);">月报</a>
+							<li class="tab-item {{state == 'weekly' ? 'actived' : ''}}">
+								<a ng-click="setState('weekly')">周报</a>
 							</li>
-							<li class="tab-item">
-								<a href="javascript:void(0);">季报</a>
+							<li class="tab-item {{state == 'monthly' ? 'actived' : ''}}">
+								<a ng-click="setState('monthly')">月报</a>
 							</li>
-							<li class="tab-item">
-								<a href="javascript:void(0);">年报</a>
+							<li class="tab-item {{state == 'seasonly' ? 'actived' : ''}}">
+								<a ng-click="setState('seasonly')">季报</a>
+							</li>
+							<li class="tab-item {{state == 'yearly' ? 'actived' : ''}}">
+								<a ng-click="setState('yearly')">年报</a>
 							</li>
 						</ul>
 					</div>
-				<!--</div>
-				<div class="tool-row clearfix">-->
-					<!--<div class="tool-item">
-						<label>自定义：开始时间：</label>
-						<input type="text" class="datepicker tool-control" name="start" >
-					</div>
 					<div class="tool-item">
-						<label>结束时间：</label>
-						<input type="text" class="datepicker tool-control" name="end">
-					</div>-->
-					<div class="tool-item">
-						<label>自定义：</label>
-						<input type="text" class="datepicker tool-control" name="start" placeholder="开始时间" style="margin-right: 5px;" >
+						<label>选择时间：</label>
+						<input type="text" class="datepicker tool-control" name="start" ng-model="start" placeholder="开始时间" style="margin-right: 5px;" >
 						<label>-</label>
-						<input type="text" class="datepicker tool-control" name="end" placeholder="结束时间" >
+						<input type="text" class="datepicker tool-control" name="end" ng-model="end" placeholder="结束时间" >
 					</div>
-					<button type="button" class="tool-item c-btn" style="float: right;">生成</button>
+					<button type="button" class="tool-item c-btn" style="float: right;" ng-click="doFilter()">查询</button>
 				</div>
 			</div>
 
@@ -50,49 +43,24 @@
 					<tr>
 						<th>采集时间</th>
 						<th>类别</th>
-						<!--<th>采集信息总数</th>
-						<th>采集信息源头总数</th>-->
 						<th>操作</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>2018-05-20 - 2019-01-09</td>
-						<td>日报</td>
-						<!--<td>10000</td>
-						<td>10000</td>-->
+					<tr ng-repeat="item in reports">
+						<td>{{item.start | date: 'yyyy-MM-dd'}} - {{item.end| date: 'yyyy-MM-dd'}}</td>
+						<td>{{types[item.type]}}</td>
 						<td class="opt">
-							<a href="javascript:void(0);">明细下载</a>
+							<a href="{{item.url}}">明细下载</a>
+						</td>
+					</tr>
+					<tr class="white b-white"  >
+						<td colspan="10" class="white b-white text-center">
+							<ul class="pagination" uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" total-items="true" max-size="10" class="pagination-sm" boundary-link-numbers="true" next-text="下一页" previous-text="上一页" rotate="false" ng-change="pageChanged()"></ul>
 						</td>
 					</tr>
 				</tbody>
 			</table>
-			<!--分页-->
-			<!--<div class="pageation">
-				<ul class="pageation-list">
-					<li class="list-item">
-						<a href="javascript:void(0);">上一页</a>
-					</li>
-					<li class="list-item actived">
-						<a href="javascript:void(0);">1</a>
-					</li>
-					<li class="list-item">
-						<a href="javascript:void(0);">2</a>
-					</li>
-					<li class="list-item">
-						<a href="javascript:void(0);">3</a>
-					</li>
-					<li class="list-item disabled">
-						<a href="javascript:void(0);">...</a>
-					</li>
-					<li class="list-item">
-						<a href="javascript:void(0);">10</a>
-					</li>
-					<li class="list-item">
-						<a href="javascript:void(0);">下一页</a>
-					</li>
-				</ul>
-			</div>-->
 			<div class="chart-list c-grid">
 				<div class="c-grid-layout" style="padding: 0;">
 					<div class="c-g-24">

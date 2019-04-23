@@ -42,9 +42,11 @@
             var enpassword = crypt.encrypt(vm.password);
             httpService.login({username: vm.phone, password: enpassword}, function(r){
                 vm.app.setAccessToken(r)
-                vm.app.init()
-                toastr.success("登陆成功，正在跳转")
-                $state.go('app.home')
+                vm.app.init(function(){
+                    toastr.success("登陆成功，正在跳转")
+                    $state.go('app.home')
+                })
+
             }, function(r){
                 toastr.error(r.message)
             })

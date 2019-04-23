@@ -6,12 +6,12 @@
 			<div class="tit">默认</div>
 			<div class="text">（打开开关对启用所有数据源启，关闭启用自定义数据源）</div>
 			<div class="switch">
-				<input type="checkbox" ng-model="custom" ng-change="sourceChanged()" />
+				<input type="checkbox" ng-model="!custom" ng-change="sourceChanged()" />
 				<label></label>
 			</div>
 		</div>
 		<div class="custom-data clearfix">
-			<div class="tit">自定义数据源</div>
+			<div class="tit">自定义数据源</div><span class="pull-right">(报警设置->自定义->指定数据源，查看已选择的数据源列表)</span>
 		</div>
 		
 		<div class="c-cont data-box">

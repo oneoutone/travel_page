@@ -14,7 +14,8 @@
 
 	function pfsKeywordCtrl($scope, httpService, toastr, $stateParams, $state) {
 		var vm = $scope
-		vm.type = "2"
+		vm.header = {name:'3'};
+		vm.type = "0"
 		if($stateParams.page){
 			vm.page = $stateParams.page
 		}else{
@@ -71,7 +72,16 @@
 		}
 
 		vm.doFilter = function(){
-			$state.go('app.pfs_keyword', {page: 1, filter: vm.filter})
+			httpService.words({type: vm.type, keyword: vm.filter}, function(r){
+				vm.words = r.keywordlist.filter(function(item){
+					if(item.keyword != '<桂林4日游>' && item.keyword != '<桂林5日游>'){
+						return item
+					}
+				})
+				vm.number = r.allnum
+			}, function(e){
+				console.log(e)
+			})
 		}
 
 		vm.showDeleteModal = function(item){
@@ -87,8 +97,15 @@
 		};
 
 		vm.setType = function(t){
+			vm.type = t
+			vm.filter = ""
 			httpService.words({type: t}, function(r){
-				vm.words = r.keywordlist
+				vm.words = r.keywordlist.filter(function(item){
+					if(item.keyword != '<桂林4日游>' && item.keyword != '<桂林5日游>'){
+						return item
+					}
+				})
+
 				vm.number = r.allnum
 			}, function(e){
 				console.log(e)
@@ -96,7 +113,7 @@
 		}
 		vm.app.ready(function(){
 			fetchData()
-			vm.setType(0)
+			vm.setType("0")
 		})
 
 	}

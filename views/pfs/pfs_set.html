@@ -67,7 +67,7 @@
 					<div class="tit">默认</div>
 					<div class="text">（打开开关对所有数据源启用默认设置，关闭启用自定义设置）</div>
 					<div class="switch">
-						<input type="checkbox" ng-model="specify" ng-change="updateSpecify()" />
+						<input type="checkbox" ng-model="!specify" ng-change="updateSpecify()" />
 						<label></label>
 					</div>
 				</div>
@@ -144,7 +144,7 @@
 											<tr>
 												<th>名称</th>
 												<th>地址</th>
-												<th></th>
+												<th><a ng-click="showModal('all')">批量设置阈值</a></th>
 											</tr>
 										</thead>
 										<tbody>
@@ -154,6 +154,7 @@
 												<td>
 													<div class="i-checks">
 														<label><input type="checkbox" class="icheckbox_square-blue" ng-model="item.checked" ng-click="sourceClicked(item)"></label>
+														<a ng-show="item.checked" ng-click="showModal(item)">设置阈值</a>
 													</div>
 												</td>
 											</tr>
@@ -280,6 +281,56 @@
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
 				<button type="button" class="btn btn-send" ng-click="deleteWarningSet()">确定</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+				<h4 class="modal-title" id="myModalLabel">报警条件设置</h4>
+			</div>
+			<div class="modal-body">
+				<form class="c-f-list">
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>指定来源</span></label>
+						<div class="c-f-list-con">
+							<input type="text" disabled ng-model="set.sourceName" class="c-control" disabled>
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>阅读量阙值</span></label>
+						<div class="c-f-list-con">
+							<input type="number" id="tt" ng-model="set.readNum" class="c-control">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>评论数阙值</span></label>
+						<div class="c-f-list-con">
+							<input type="number" ng-model="set.discussNum"   class="c-control">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>转发数阙值</span></label>
+						<div class="c-f-list-con">
+							<input type="number"  ng-model="set.shareNum"  class="c-control">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>负面情绪阙值</span></label>
+						<div class="c-f-list-con">
+							<input type="number" ng-model="set.negValue" class="c-control">
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-send" ng-click="updateSet()">确定</button>
 			</div>
 		</div>
 	</div>

@@ -18,12 +18,11 @@
 									<ul class="sign">
 										<li><img src="assets/img/icon-yq1.png"/>正面</li>
 										<li><img src="assets/img/icon-yq2.png"/>负面</li>
-										<li><img src="assets/img/icon-yq3.png"/>中性</li>
 									</ul>
 								</div>
 							</div>
 							<div class="panel-bd">
-								<div style="height: 254px;"><img src="assets/img/img-yq-e4.png"/></div>
+								<div id="emotion" style="height:280px"></div>
 							</div>
 						</div>
 					</div>
@@ -31,29 +30,11 @@
 						<div class="com-sidebar-panel">
 							<div class="panel-hd">
 								<h2 class="panel-title">报警提醒</h2>
-								<div class="panel-extra">
-									<a href="javascript:void(0);" target="_blank" class="panel-extra-link">更多&gt;&gt;</a>
-								</div>
 							</div>
 							<div class="panel-bd">
 								<ul class="com-disorder-list large">
-									<li>
-										<a href="javascript:void(0);" target="_blank">台旅游协会：免费落地签有望再延3个月</a>
-									</li>
-									<li>
-										<a href="javascript:void(0);" target="_blank">台旅游协会：免费落地签有望再延3个月</a>
-									</li>
-									<li>
-										<a href="javascript:void(0);" target="_blank">台旅游协会：免费落地签有望再延3个月</a>
-									</li>
-									<li>
-										<a href="javascript:void(0);" target="_blank">台旅游协会：免费落地签有望再延3个月</a>
-									</li>
-									<li>
-										<a href="javascript:void(0);" target="_blank">台旅游协会：免费落地签有望再延3个月</a>
-									</li>
-									<li>
-										<a href="javascript:void(0);" target="_blank">台旅游协会：免费落地签有望再延3个月</a>
+									<li ng-repeat="item in notifications">
+										<a>{{item.title}}</a>
 									</li>
 								</ul>
 							</div>
@@ -63,6 +44,73 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="c-section">
+		<div class="c-section-inner">
+			<div class="coll-section-hd">
+				<div class="coll-section-hd-extra">
+					<a class="coll-section-more" ui-sref="spider">进入</a>
+				</div>
+				<div class="coll-section-hd-main">
+					<h2 class="coll-section-hd-tit">数据定制平台</h2></div>
+			</div>
+
+				<!-- colored -->
+				<div class="ih-item circle colored effect5">
+					<a href="javascript:void(0);">
+						<div class="img"><img src="http://hadupu.cn/cloud/assets/img/spider/s1.png" alt="img"><p>最快即时即刻获取信息推送+完成工作所需</p></div>
+						<div class="info">
+							<div class="info-back">
+
+								<p></p>
+							</div>
+						</div>
+					</a>
+
+				</div>
+
+				<div class="ih-item circle colored effect5">
+					<a href="javascript:void(0);">
+						<div class="img"><img src="http://hadupu.cn/cloud/assets/img/spider/s2.png" alt="img"><p>数十万个主流网站,几乎覆盖全部网页信息</p></div>
+						<div class="info">
+							<div class="info-back">
+								<p></p>
+							</div>
+						</div>
+					</a>
+
+				</div>
+
+				<div class="ih-item circle colored effect5">
+					<a href="javascript:void(0);">
+						<div class="img"><img src="http://hadupu.cn/cloud/assets/img/spider/s3.png" alt="img"><p>采集100个网站,最低只需1000元/月</p></div>
+						<div class="info">
+							<div class="info-back">
+								<p></p>
+							</div>
+						</div>
+					</a>
+
+				</div>
+
+				<div class="ih-item circle colored effect5">
+					<a href="javascript:void(0);">
+						<div class="img"><img src="http://hadupu.cn/cloud/assets/img/spider/s4.png" alt="img"><p>指定网站+定制关键词, 准确满足工作所需</p></div>
+						<div class="info">
+							<div class="info-back">
+								<p></p>
+							</div>
+						</div>
+					</a>
+
+				</div>
+				<!-- end colored -->
+			</div>
+
+		</div>
+	</div>
+
+
 	<div class="c-section">
 		<div class="c-section-inner">
 			<div class="coll-section-hd">

@@ -50,8 +50,8 @@
 	}
 	
 	.tab-nav~.kwd-list {
-		min-height: 320px;
-		height: calc(100% - 45px - 52px);
+		min-height: 250px;
+		height: calc(100% - 120px - 52px);
 	}
 	
 	.kwd-list li {
@@ -231,7 +231,7 @@
 							<div class="c-selectarea-item actived" ng-click="setType(0)">分词词库</div>
 							<div class="c-selectarea-item" ng-click="setType(6)">行业基础词库</div>
 							<div class="c-selectarea-item" ng-click="setType(2)">正面词</div>
-							<div class="c-selectarea-item" ng-click="setType(1)">负面词</div>
+							<div class="c-selectarea-item" ng-click="setType(15)">负面词</div>
 							<div class="c-selectarea-item" ng-click="setType(3)">热词</div>
 						</div>
 					</div>
@@ -240,7 +240,7 @@
 						<div class="table-tool clearfix">
 							<div class="tool-r">
 								<div class="tool-item search-input clearfix">
-									<input type="text" placeholder="请输入您要查找的内容" ng-model="filter" class="tool-control">
+									<input type="text" placeholder="请输入您要查找的内容" ng-model="filter"  class="tool-control">
 									<button type="button" class="c-btn" ng-click="doFilter()">搜索</button>
 								</div>
 							</div>
@@ -249,20 +249,28 @@
 							<ul class="kwd-list clearfix">
 								<li ng-repeat="word in words" class="ellipsis">{{word.keyword}}</li>
 							</ul>
-							<div class="kwd-foot">共<span class="sum">{{number}}</span>个</div>
+							<div class="kwd-foot">共<span class="sum">3462381</span>个</div>
 						</div>
 						<div class="tab-pane">
 							<div class="tab-nav">
 								<ul class="tab-nav-list">
 									<li class="tab-nav-item actived" ng-click="setType(6)"><span>行政区域</span></li>
-									<li class="tab-nav-item" ng-click="setType(5)"><span>机构名称</span></li>
+									<li class="tab-nav-item" ng-click="setType(20)"><span>机构名称</span></li>
 									<li class="tab-nav-item" ng-click="setType(10)"><span>产品名称</span></li>
-									<li class="tab-nav-item" ng-click="setType(11)"><span>企业名称</span></li>
+									<li class="tab-nav-item" ng-click="setType(18)"><span>企业名称</span></li>
 									<li class="tab-nav-item" ng-click="setType(12)"><span>领导姓名</span></li>
 									<li class="tab-nav-item" ng-click="setType(13)"><span>会议会奖</span></li>
 									<li class="tab-nav-item" ng-click="setType(14)"><span>其他</span></li>
 								</ul>
 							</div>
+									<ul class="tab-nav-list" ng-show="type ==  18 || type == 5 || type == 11 || type == 19 ||  type == 17">
+										<li class="tab-nav-item {{type == 18 ? 'actived' : ''}}" ng-click="setType(18)"><span>景区</span></li>
+										<li class="tab-nav-item {{type == 5 ? 'actived' : ''}}" ng-click="setType(5)"><span>旅行社</span></li>
+										<li class="tab-nav-item {{type == 11 ? 'actived' : ''}}" ng-click="setType(11)"><span>星级酒店</span></li>
+										<li class="tab-nav-item {{type == 19 ? 'actived' : ''}}" ng-click="setType(19)"><span>旅店</span></li>
+										<li class="tab-nav-item {{type == 17 ? 'actived' : ''}}" ng-click="setType(17)"><span>餐饮</span></li>
+									</ul>
+
 							<ul class="kwd-list clearfix">
 								<li ng-repeat="word in words" class="ellipsis">{{word.keyword}}</li>
 							</ul>
@@ -277,7 +285,7 @@
 						<div class="tab-pane">
 							<div class="tab-nav">
 								<ul class="tab-nav-list">
-									<li class="tab-nav-item actived" ng-click="setType(1)"><span>高度敏感</span></li>
+									<li class="tab-nav-item actived" ng-click="setType(15)"><span>高度敏感</span></li>
 									<li class="tab-nav-item" ng-click="setType(1)"><span>敏感</span></li>
 								</ul>
 							</div>
@@ -302,21 +310,25 @@
 								<label>领域词典</label>
 								<select ng-model="type" class="tool-control">
 									<option value="6">行业基础词-行政区域</option>
-									<option value="5">行业基础词-机构名称</option>
+									<option value="20">行业基础词-机构名称</option>
 									<option value="10">行业基础词-产品名称</option>
-									<option value="11">行业基础词-企业名称</option>
+									<option value="18">行业基础词-企业名称-景区</option>
+									<option value="5">行业基础词-企业名称-旅行社</option>
+									<option value="11">行业基础词-企业名称-星级酒店</option>
+									<option value="19">行业基础词-企业名称-旅店</option>
+									<option value="17">行业基础词-企业名称-餐饮</option>
 									<option value="12">行业基础词-领导姓名</option>
 									<option value="13">行业基础词-会议会奖</option>
 									<option value="14">行业基础词-其他</option>
 									<option value="2">正面词</option>
 									<option value="1">负面词-敏感</option>
-									<option value="1">负面词-非常敏感</option>
+									<option value="15">负面词-非常敏感</option>
 									<option value="3">热词</option>
 								</select>
 							</div>
 							<div class="tool-item clearfix">
 								<label>关键词</label>
-								<input type="text" ng-model="word" class="tool-control">
+								<input type="text" ng-model="word" class="tool-control" placeholder="添加多个请用，分隔">
 							</div>
 							<button type="button" class="tool-item c-btn" ng-click="addKeyWord()">提&nbsp;交</button>
 						</div>

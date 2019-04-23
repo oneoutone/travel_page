@@ -4,8 +4,8 @@
         .module('httpService', [])
         .service('httpService', ['$http', '$localStorage', function ($http, $localStorage) {
             var self = this;
-            var host = 'http://hadupu.cn/api'
-            //var host = 'http://localhost:8080/api'
+            //var host = 'http://hadupu.cn/api'
+            var host = 'http://localhost:8080/api'
 
             function postRequest(url, data, options, success, fail){
                 var header = {'Content-Type': 'application/json'}
@@ -202,6 +202,9 @@
             self.getWarningSetList = function(data, success,fail){
                 getRequest(host + '/yuqing/warningSet/list', data, {auth:true}, success, fail)
             }
+            self.getWarningSetDetail = function(data, success,fail){
+                getRequest(host + '/yuqing/warningSet/detail', data, {auth:true}, success, fail)
+            }
             self.getWarningSetCount = function(data, success,fail){
                 getRequest(host + '/yuqing/warningSet/count', data, {auth:true}, success, fail)
             }
@@ -240,6 +243,21 @@
             }
             self.deleteDataSourceSet = function(data, success, fail){
                 postRequest(host + '/yuqing/dataSource/delete', data, {auth:true}, success, fail)
+            }
+            self.getNotificationList = function(success, fail){
+                getRequest(host + '/yuqing/article/list', null, {auth:true}, success, fail)
+            }
+            self.read = function(data, success, fail){
+                postRequest(host + '/yuqing/article/read', data, {auth:true}, success, fail)
+            }
+            self.getReportlist = function(data, success,fail){
+                getRequest(host + '/yuqing/report/list', data, {auth:true}, success, fail)
+            }
+            self.getReportCount = function(data, success,fail){
+                getRequest(host + '/yuqing/report/count', data, {auth:true}, success, fail)
+            }
+            self.analysis = function(data, success,fail){
+                getRequest(host + '/yuqing/analysis', data, {auth:false}, success, fail)
             }
             /**
              * get stored access token

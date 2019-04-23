@@ -116,6 +116,8 @@
       .state('app.console', {
         url: '/console',
         templateUrl: 'views/pfs/console.html',
+        controller: "ConsoleCtrl",
+        resolve: load(['plot', 'scripts/pfs/console.js']),
         data: {
         	css: 'assets/styles/pfs_index.css'
     	}
@@ -156,16 +158,16 @@
         	css: 'assets/styles/news_list.css'
     	}
       })
-      
-      .state('app.news_detail', {
-        url: '/news/:id',
-        templateUrl: 'views/pfs/news_detail.html',
-        controller: "newsDetailCtrl",
-        resolve: load(['scripts/pfs/news_detail.js']),
-        data: {
-        	css: 'assets/styles/news_detail.css'
-    	}
-      })
+
+        .state('app.news_detail', {
+          url: '/news/:id',
+          templateUrl: 'views/pfs/news_detail.html',
+          controller: "newsDetailCtrl",
+          resolve: load(['scripts/pfs/news_detail.js']),
+          data: {
+            css: 'assets/styles/news_detail.css'
+          }
+        })
       
       .state('app.news_analyse', {
         url: '/news_analyse',
@@ -205,7 +207,7 @@
         url: '/pfs_report_manager',
         templateUrl: 'views/pfs/pfs_report_manager.html',
         controller: "pfsReportManagerCtrl",
-        resolve: load(['scripts/pfs/pfs_report_manager.js']),
+        resolve: load(['ui.bootstrap' ,'mgcrea.ngStrap','scripts/pfs/pfs_report_manager.js']),
         data: {
           css: 'assets/styles/pfs_index.css'
         }
@@ -214,6 +216,8 @@
       .state('app.pfs_analysis', {
         url: '/pfs_analysis',
         templateUrl: 'views/pfs/pfs_analysis.html',
+        controller: "AnalysisCtrl",
+        resolve: load(['scripts/pfs/analysis.js']),
         data: {
         	css: 'assets/styles/pfs_analysis.css'
     	}

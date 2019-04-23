@@ -15,31 +15,20 @@
 				<thead>
 					<tr>
 						<th>级别</th>
-						<th>类别</th>
+						<th>内容</th>
 						<th>时间</th>
 						<th>来源</th>
 						<th>操作</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>敏感/高度敏感</td>
-						<td>大虾太贵了，坑人</td>
-						<td>2019-03-27 15:52</td>
-						<td>马蜂窝旅游</td>
+					<tr ng-repeat="item in notifications" >
+						<td>{{item.postive <0.2 ? '高度敏感': (item.postive <0.4 ? ' 敏感' : '正常')}}</td>
+						<td>{{item.title}}</td>
+						<td>{{item.created | date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+						<td>{{item.source_name}}</td>
 						<td class="opt">
-							<a href="javascript:void(0);">已读</a>
-							<a href="javascript:void(0);">未读</a>
-						</td>
-					</tr>
-					<tr>
-						<td>敏感/高度敏感</td>
-						<td>大虾太贵了，坑人</td>
-						<td>2019-03-27 15:52</td>
-						<td>马蜂窝旅游</td>
-						<td class="opt">
-							<a href="javascript:void(0);">已读</a>
-							<a href="javascript:void(0);">未读</a>
+							<a ng-click="goDetail(item)">{{item.status == 1 ? '未读': '已读'}}</a>
 						</td>
 					</tr>
 				</tbody>
@@ -58,7 +47,6 @@
 						<ul class="sign">
 							<li><img src="assets/img/icon-yq1.png" />正面</li>
 							<li><img src="assets/img/icon-yq2.png" />负面</li>
-							<li><img src="assets/img/icon-yq3.png" />中性</li>
 						</ul>
 					</div>
 				</div>
@@ -85,14 +73,14 @@
 
 		<!--文章-->
 		<div class="c-cont tab">
-			<div class="tab-nav">
-				<ul class="tab-nav-list">
-					<li class="tab-nav-item {{type == 'all' ? 'actived' : ''}}" ng-click="setType('all')"><span>全部</span></li>
-					<li class="tab-nav-item {{type == 'active' ? 'actived' : ''}}" ng-click="setType('active')"><span>正面</span></li>
-					<li class="tab-nav-item {{type == 'negtive' ? 'actived' : ''}}" ng-click="setType('negtive')"><span>负面</span></li>
-					<li class="tab-nav-item {{type == 'middle' ? 'actived' : ''}}" ng-click="setType('middle')"><span>中性</span></li>
-				</ul>
-			</div>
+			<!--<div class="tab-nav">-->
+				<!--<ul class="tab-nav-list">-->
+					<!--<li class="tab-nav-item {{type == 'all' ? 'actived' : ''}}" ng-click="setType('all')"><span>全部</span></li>-->
+					<!--<li class="tab-nav-item {{type == 'active' ? 'actived' : ''}}" ng-click="setType('active')"><span>正面</span></li>-->
+					<!--<li class="tab-nav-item {{type == 'negtive' ? 'actived' : ''}}" ng-click="setType('negtive')"><span>负面</span></li>-->
+					<!--<li class="tab-nav-item {{type == 'middle' ? 'actived' : ''}}" ng-click="setType('middle')"><span>中性</span></li>-->
+				<!--</ul>-->
+			<!--</div>-->
 			<div class="tab-content">
 				<div class="tab-pane actived">
 
