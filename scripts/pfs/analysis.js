@@ -34,10 +34,18 @@
 
         httpService.history_data(function(result){
             console.log(result)
-            vm.all = result.history_website_num +result.history_wechat_num + result.history_weibo_num
+            vm.all = result.history_website_num +result.history_wechat_num + result.history_weibo_num +4000000
+            httpService.words({type: '0'}, function(r){
+                vm.wordNumber = r.allnum+4000000
+                vm.parseNum = vm.all + r.allnum+153
+            }, function(e){
+                console.log(e)
+            })
         }, function(err){
             console.log(err)
         })
+
+
 
         $('#input1').prop("disabled",false).css("backgroundColor","white");
         $('#input2').prop("disabled",false).css("backgroundColor","white");

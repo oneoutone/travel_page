@@ -3,10 +3,22 @@
 	angular
 		.module('app')
 		.controller('newsAnalyseCtrl', newsAnalyseCtrl);
-	newsAnalyseCtrl.$inject = ['$scope'];
+	newsAnalyseCtrl.$inject = ['$scope', '$stateParams', 'httpService'];
 
-	function newsAnalyseCtrl($scope) {
-		$scope.data = {name:'2'};
+	function newsAnalyseCtrl($scope, $stateParams, httpService) {
+		var vm = $scope
+		vm.header = {name:'2'};
+
+		vm.app.ready(function(){
+			if(!$stateParams.id){
+				return
+			}
+			httpService.article({id: $stateParams.id}, function(r){
+				vm.article = r
+			}, function(e){
+				console.log(e)
+			})
+		})
 	}
 
 })();

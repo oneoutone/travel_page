@@ -232,7 +232,7 @@
 							<div class="c-selectarea-item" ng-click="setType(6)">行业基础词库</div>
 							<div class="c-selectarea-item" ng-click="setType(2)">正面词</div>
 							<div class="c-selectarea-item" ng-click="setType(15)">负面词</div>
-							<div class="c-selectarea-item" ng-click="setType(3)">热词</div>
+							<div class="c-selectarea-item" ng-click="setType(3)">特殊关键词</div>
 						</div>
 					</div>
 
@@ -249,7 +249,7 @@
 							<ul class="kwd-list clearfix">
 								<li ng-repeat="word in words" class="ellipsis">{{word.keyword}}</li>
 							</ul>
-							<div class="kwd-foot">共<span class="sum">3462381</span>个</div>
+							<div class="kwd-foot">共<span class="sum">{{number + 3903000}}</span>个</div>
 						</div>
 						<div class="tab-pane">
 							<div class="tab-nav">
@@ -287,6 +287,7 @@
 								<ul class="tab-nav-list">
 									<li class="tab-nav-item actived" ng-click="setType(15)"><span>高度敏感</span></li>
 									<li class="tab-nav-item" ng-click="setType(1)"><span>敏感</span></li>
+									<li class="tab-nav-item" ng-click="setType(15)"><span>高危词</span></li>
 								</ul>
 							</div>
 							<ul class="kwd-list clearfix">
@@ -323,7 +324,8 @@
 									<option value="2">正面词</option>
 									<option value="1">负面词-敏感</option>
 									<option value="15">负面词-非常敏感</option>
-									<option value="3">热词</option>
+									<option value="15">负面词-高危词</option>
+									<option value="3">特殊关键词</option>
 								</select>
 							</div>
 							<div class="tool-item clearfix">

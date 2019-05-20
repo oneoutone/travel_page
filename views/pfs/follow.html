@@ -1,0 +1,59 @@
+<div ng-include="apiInclude + 'head_nav_pfs.html'"></div>
+
+
+<div class="chart-list c-grid">
+    <div class="c-grid-layout">
+        <div class="c-cont">
+                <h1 class="col-article-title">{{article.title}}</h1>
+                <div class="col-article-info">
+                    <span>{{article.publish_time}}</span>
+                    <!--<span>情感分析：{{article.postive > 0.6 ? '正面' : (article.postive < 0.4 ? '负面' : '中性')}}</span>-->
+                    <span>来源：{{article.source_name}}</span>
+                </div>
+                <div class="col-article">{{article.content}}</div>
+        </div>
+        <div class="c-g-24">
+            <div class="com-sidebar-panel">
+                <div class="panel-hd">
+                    <h2 class="panel-title">阅读量走势</h2>
+                    <div class="panel-extra">
+                    </div>
+                </div>
+                <div class="panel-bd">
+                    <div id="emotion1" style="height:280px"></div>
+                </div>
+            </div>
+        </div>
+        <div class="c-g-24">
+            <div class="com-sidebar-panel">
+                <div class="panel-hd">
+                    <h2 class="panel-title">评论数走势</h2>
+                    <div class="panel-extra">
+                    </div>
+                </div>
+                <div class="panel-bd">
+                    <div id="emotion2" style="height:280px"></div>
+                </div>
+            </div>
+        </div>
+        <div class="c-g-24">
+            <div class="com-sidebar-panel">
+                <div class="panel-hd">
+                    <h2 class="panel-title">转发数走势</h2>
+                    <div class="panel-extra">
+                    </div>
+                </div>
+                <div class="panel-bd">
+                    <div id="emotion3" style="height:280px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('.tab-list li').click(function() {
+        $(this).addClass('actived').siblings().removeClass('actived');
+    })
+
+    $(".datepicker").datepicker();
+</script>

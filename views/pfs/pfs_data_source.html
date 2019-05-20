@@ -6,7 +6,7 @@
 			<div class="tit">默认</div>
 			<div class="text">（打开开关对启用所有数据源启，关闭启用自定义数据源）</div>
 			<div class="switch">
-				<input type="checkbox" ng-model="!custom" ng-change="sourceChanged()" />
+				<input type="checkbox" ng-model="defaultValue" ng-change="sourceChanged()" />
 				<label></label>
 			</div>
 		</div>
@@ -21,7 +21,7 @@
 						<label>种类：</label>
 						<select class="tool-control" ng-model="type2">
 							<option value="all">全部</option>
-							<option value="1">咨询</option>
+							<option value="1">资讯</option>
 							<option value="3">政府</option>
 							<option value="2">教育</option>
 						</select>
@@ -39,7 +39,8 @@
 				</div>
 				<div class="tool-r">
 					<div class="tool-item search-input clearfix">
-						<input type="text" placeholder="请输入您要查找的url" ng-model="filter2" class="tool-control">
+						<input type="text" placeholder="请输入您要查找的名称" ng-model="filter3" class="tool-control" style="margin-right:20px">
+						<input type="text" placeholder="请输入您要查找的url" ng-model="filter2" class="tool-control" style="margin-right:20px">
 						<button type="button" class="c-btn"  ng-click="fetchSource()">搜索</button>
 					</div>
 				</div>
@@ -67,7 +68,8 @@
 						</td>
 					</tr>
 					<tr class="white b-white"  >
-						<td colspan="10" class="white b-white text-center">
+					<td>已选择: {{sourceNum}}</td>
+						<td colspan="2" class="white b-white text-center">
 							<ul class="pagination" uib-pagination total-items="bigTotalItems2" ng-model="bigCurrentPage2" total-items="true" max-size="10" class="pagination-sm" boundary-link-numbers="true" next-text="下一页" previous-text="上一页" rotate="false" ng-change="pageChanged2()"></ul>
 
 						</td>
@@ -127,6 +129,7 @@
 						<td>{{channels[item.channel]}}</td>
 					</tr>
 					<tr class="white b-white"  >
+
 						<td colspan="10" class="white b-white text-center">
 							<ul class="pagination" uib-pagination total-items="bigTotalItems1" ng-model="bigCurrentPage1" total-items="true" max-size="10" class="pagination-sm" boundary-link-numbers="true" next-text="下一页" previous-text="上一页" rotate="false" ng-change="pageChanged1()"></ul>
 

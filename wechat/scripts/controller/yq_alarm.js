@@ -16,6 +16,13 @@
 
         var vm = $scope
 
+        httpService.getNotificationList(function(r){
+            vm.notifications = r
+            console.log(r)
+        }, function(err){
+            console.log(err)
+        })
+
 
     }
 })();

@@ -51,16 +51,21 @@
                 var maxN = 0
                 for(var i=0; i<d.length; i++){
                     ticket.push([i+1, moment(d[i].result.endtime).format('HH')])
+                    if(d[i].result.positive_num + d[i].result.negative_num + d[i].result.middle_num > 100){
+                        var total = d[i].result.positive_num + d[i].result.negative_num + d[i].result.middle_num
+                        d[i].result.positive_num = Math.round(d[i].result.positive_num*100/total)
+                        d[i].result.sensitive_num = Math.round(d[i].result.sensitive_num*100/total)
+                    }
                     positive.push([i+1, d[i].result.positive_num > 99 ? -99 : 0-d[i].result.positive_num])
-                    negative.push([i+1, d[i].result.negative_num > 99 ? 99 : d[i].result.negative_num])
+                    negative.push([i+1, d[i].result.sensitive_num > 99 ? 99 : d[i].result.sensitive_num])
                     line.push([i+1, 50])
                     line1.push([i+1, 90])
                     line2.push([i+1, -90])
                     if(maxP < d[i].result.positive_num){
                         maxP = d[i].result.positive_num
                     }
-                    if(maxN < d[i].result.negative_num){
-                        maxN = d[i].result.negative_num
+                    if(maxN < d[i].result.sensitive_num){
+                        maxN = d[i].result.sensitive_num
                     }
                 }
                 if(maxP > 99){

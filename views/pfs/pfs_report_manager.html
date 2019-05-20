@@ -61,6 +61,33 @@
 					</tr>
 				</tbody>
 			</table>
+
+			<div class="chart-list c-grid">
+				<table class="table-data">
+					<thead>
+					<tr>
+						<th>采集总数</th>
+						<th>负面数</th>
+						<th>严重数</th>
+						<th>负面已读次数</th>
+						<th>正面数量</th>
+						<th>中性数量</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>{{all}}</td>
+						<td>{{neg}}</td>
+						<td>{{danger}}</td>
+						<td>{{read}}</td>
+						<td>{{pos}}</td>
+						<td>{{middle}}</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+
+
 			<div class="chart-list c-grid">
 				<div class="c-grid-layout" style="padding: 0;">
 					<div class="c-g-24">
@@ -76,12 +103,34 @@
 								</div>
 							</div>
 							<div class="panel-bd">
-								<div id="emotion" style="height:280px"></div>
+								<div id="emotion" style="height:320px"></div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+
+			<!--<div ng-show="show2" class="chart-list c-grid">-->
+				<!--<div class="c-grid-layout" style="padding: 0;">-->
+					<!--<div class="c-g-24">-->
+						<!--<div class="com-sidebar-panel">-->
+							<!--<div class="panel-hd">-->
+								<!--<h2 class="panel-title">情感走势</h2>-->
+								<!--<div class="panel-extra">-->
+									<!--<ul class="sign">-->
+										<!--<li><img src="assets/img/icon-yq1.png" />正面</li>-->
+										<!--<li><img src="assets/img/icon-yq2.png" />负面</li>-->
+										<!--<li><img src="assets/img/icon-yq3.png" />中性</li>-->
+									<!--</ul>-->
+								<!--</div>-->
+							<!--</div>-->
+							<!--<div class="panel-bd">-->
+								<!--<div id="emotion1" style="height:280px"></div>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
 
 		</div>
 	</div>

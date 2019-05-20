@@ -17,14 +17,14 @@
 		vm.header = {name:'4'};
 		vm.default = true;
 		vm.request = {type: 'news', channel: 'website'}
-		vm.types = {"1": '咨询', "3": '政府', "2": '教育'}
+		vm.types = {"1": '资讯', "3": '政府', "2": '教育'}
 		vm.channels = {"1": '网站', "3": '微信', "2": '微博'}
 		vm.type1 = 'all'
 		vm.channel1 = 'all'
 		vm.type2 = 'all'
 		vm.channel2 = 'all'
 		vm.sourceChanged = function(){
-			httpService.updateSpecifySource({specifySource: !vm.custom}, function(){
+			httpService.updateSpecifySource({specifySource: vm.defaultValue ? false: true}, function(){
 				toastr.success('更新成功')
 			}, function(e){
 				console.log(e)
@@ -50,7 +50,7 @@
 		}
 
 		vm.fetchSource = function(){
-			httpService.sources({website_url: vm.filter2, pagenum: vm.page2, type: vm.type2, channel:vm.channel2}, function(r){
+			httpService.sources({website_url: vm.filter2, website_name: vm.filter3,  pagenum: vm.page2, type: vm.type2, channel:vm.channel2}, function(r){
 				vm.urls = r.data
 				vm.urls.forEach(function(t){
 					var e = vm.sources.filter(function(v){
@@ -79,6 +79,7 @@
 			httpService.getDataSourceList(data,function(result){
 				console.log(result)
 				vm.sources = result
+				vm.sourceNum = result.length
 				vm.fetchSource()
 			}, function(e){
 				console.log(e)
@@ -90,6 +91,7 @@
 			if(!item.checked){
 				httpService.deleteDataSourceSet({id: item.sourceId}, function(r){
 					toastr.success('取消数据源成功')
+					vm.sourceNum --
 					delete item.sourceId
 				}, function(e){
 					item.checked = true
@@ -103,6 +105,7 @@
 					sourceUrl: item.website_url
 				}, function(r){
 					toastr.success('添加数据源请求成功')
+					vm.sourceNum ++
 					item.sourceId = r.id
 				}, function(e){
 					item.checked = false
@@ -201,7 +204,7 @@
 			fetchData()
 			fetchData1()
 			httpService.getProfile(function(user){
-				vm.custom = user.specifySource
+				vm.defaultValue = user.specifySource ? false : true
 			}, function(e){
 				console.log(e)
 			})

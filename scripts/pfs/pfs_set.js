@@ -318,7 +318,7 @@
 		}
 
 		vm.updateSpecify = function(){
-			httpService.updateSpecifyWarning({specifyWarning: vm.specify ? true : false }, function(r){
+			httpService.updateSpecifyWarning({specifyWarning: vm.defaultValue ? false : true }, function(r){
 				toastr.success('更新报报警默认设置成功')
 			}, function(err){
 				toastr.error('更新报警默认设置失败')
@@ -447,7 +447,7 @@
 			//fetchDataSource()
 			fetchWarnings()
 			httpService.getProfile(function(user){
-				vm.specify = user.specify_warn_setting
+				vm.defaultValue = !user.specify_warn_setting
 				vm.message_warn = user.message_warn ? user.message_warn : false
 				vm.wechat_warn = user.wechat_warn ? user.wechat_warn : false
 				vm.email_warn = user.email_warn ? user.email_warn : false

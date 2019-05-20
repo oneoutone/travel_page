@@ -170,7 +170,7 @@
         })
       
       .state('app.news_analyse', {
-        url: '/news_analyse',
+        url: '/news_analyse/:id',
         templateUrl: 'views/pfs/news_analyse.html',
         controller: "newsAnalyseCtrl",
         resolve: load(['scripts/pfs/news_analyse.js'])
@@ -192,6 +192,16 @@
         	css: 'assets/styles/pfs_set.css'
     	}
       })
+
+        .state('app.follow', {
+          url: '/follow?id',
+          templateUrl: 'views/pfs/follow.html',
+          controller: "FollowCtrl",
+          resolve: load(['ui.bootstrap', 'mgcrea.ngStrap', 'toastr', 'ui.select', 'scripts/pfs/follow.js']),
+          data: {
+            css: 'assets/styles/pfs_index.css'
+          }
+        })
       
       .state('app.pfs_data_source', {
         url: '/pfs_data_source&page',
@@ -207,7 +217,7 @@
         url: '/pfs_report_manager',
         templateUrl: 'views/pfs/pfs_report_manager.html',
         controller: "pfsReportManagerCtrl",
-        resolve: load(['ui.bootstrap' ,'mgcrea.ngStrap','scripts/pfs/pfs_report_manager.js']),
+        resolve: load(['ui.bootstrap' ,'mgcrea.ngStrap', 'plot', 'scripts/pfs/pfs_report_manager.js']),
         data: {
           css: 'assets/styles/pfs_index.css'
         }

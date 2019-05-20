@@ -87,11 +87,18 @@
                 postRequest(host + '/users/adminLogin', data, {auth:false}, success, fail)
             }
 
+            self.upsertManager = function(data, success, fail){
+                postRequest(host + '/users/upsertManager', data, {auth:true}, success, fail)
+            }
             /**
              *get user info
              */
             self.getProfile = function(success, fail){
                 getRequest(host + '/users/profile', null, {auth:true}, success, fail)
+            }
+
+            self.getUserById = function(id, success, fail){
+                getRequest(host + '/users/userById', {id: id}, {auth:true}, success, fail)
             }
 
             self.updateUserWarn = function(data, success, fail){
@@ -199,6 +206,15 @@
             self.getRequestCount = function(success,fail){
                 getRequest(host + '/dataRequest/count', null, {auth:true}, success, fail)
             }
+            self.getRequestAllList = function(data,success,fail){
+                getRequest(host + '/dataRequest/allList', data, {auth:true}, success, fail)
+            }
+            self.getRequestById = function(data,success,fail){
+                getRequest(host + '/dataRequest/record', data, {auth:true}, success, fail)
+            }
+            self.getRequestAllCount = function(data,success,fail){
+                getRequest(host + '/dataRequest/allCount', data, {auth:true}, success, fail)
+            }
             self.getWarningSetList = function(data, success,fail){
                 getRequest(host + '/yuqing/warningSet/list', data, {auth:true}, success, fail)
             }
@@ -229,6 +245,9 @@
             self.getDataSourceList = function(data,success,fail){
                 getRequest(host + '/yuqing/dataSource/list', data, {auth:true}, success, fail)
             }
+            self.dataSourceUpdate = function(data,success,fail){
+                postRequest(host + '/dataRequest/update', data, {auth:true}, success, fail)
+            }
             self.getDataSourceCount = function(data, success,fail){
                 getRequest(host + '/yuqing/dataSource/count', data, {auth:true}, success, fail)
             }
@@ -258,6 +277,12 @@
             }
             self.analysis = function(data, success,fail){
                 getRequest(host + '/yuqing/analysis', data, {auth:false}, success, fail)
+            }
+            self.reportData = function(data, success,fail){
+                getRequest(host + '/yuqing/reportData', data, {auth:true}, success, fail)
+            }
+            self.getManagers = function(success,fail){
+                getRequest(host + '/users/managers', null, {auth:true}, success, fail)
             }
             /**
              * get stored access token

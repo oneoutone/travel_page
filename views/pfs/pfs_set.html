@@ -46,6 +46,15 @@
 		border-radius: 2px;
 		margin-left: 165px;
 	}
+
+	 .warn {
+		float: left;
+		color: #999999;
+		font-size: 15px;
+		line-height: 22px;
+		margin-left: 20px;
+		 margin-top: 20px;
+	}
 </style>
 <div ng-include="apiInclude + 'head_nav_pfs.html'"></div>
 
@@ -67,7 +76,7 @@
 					<div class="tit">默认</div>
 					<div class="text">（打开开关对所有数据源启用默认设置，关闭启用自定义设置）</div>
 					<div class="switch">
-						<input type="checkbox" ng-model="!specify" ng-change="updateSpecify()" />
+						<input type="checkbox" ng-model="defaultValue" ng-change="updateSpecify()" />
 						<label></label>
 					</div>
 				</div>
@@ -85,25 +94,25 @@
 								<table class="table-data">
 									<thead>
 										<tr>
-											<th class="tl" width="120px">指定来源</th>
+											<th class="tl">指定来源</th>
 											<th class="tl">全部数据源</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr>
-											<td class="tl">阅读量阙值</td>
+											<td class="tl">阅读量阈值(文章被转发超过该值会触发报警提醒，主要针对微博类数据使用，建议值100,设置为0不触发预警)</td>
 											<td class="tl"><input type="text" class="form-control"  ng-model="default.readNum" placeholder="文章被转发超过该值会触发报警提醒，主要针对微博类数据使用，建议值100,设置为0不触发预警" /></td>
 										</tr>
 										<tr>
-											<td class="tl">评论数阙值</td>
+											<td class="tl">评论数阈值(文章被评论超过该值会触发报警提醒，主要针对微博类数据使用，建议值100,设置为0不触发预警)</td>
 											<td class="tl"><input type="text" class="form-control" ng-model="default.discussNum" placeholder="文章被评论超过该值会触发报警提醒，主要针对微博类数据使用，建议值100,设置为0不触发预警" /></td>
 										</tr>
 										<tr>
-											<td class="tl">转发数阙值</td>
+											<td class="tl">转发数阈值(文章被转发超过该值会触 报警提醒，主要针对微博类数据使用，建议值100,设置为0不触发预警)</td>
 											<td class="tl"><input type="text" class="form-control" ng-model="default.shareNum" placeholder="文章被转发超过该值会触 报警提醒，主要针对微博类数据使用，建议值100,设置为0不触发预警" /></td>
 										</tr>
 										<tr>
-											<td class="tl">负面情绪阙值</td>
+											<td class="tl">负面情绪阈值(文章情感值小于该值会触发报警，针对所有数据类型，建议值0.2,设置为0不触发预警)</td>
 											<td class="tl"><input type="text" class="form-control" ng-model="default.negValue" placeholder="文章情感值小于该值会触发报警，针对所有数据类型，建议值0.2,设置为0不触发预警" /></td>
 										</tr>
 									</tbody>
@@ -185,10 +194,11 @@
 											<tr>
 												<td>全部</td>
 												<td>全部</td>
-												<td><input type="text" class="form-control" ng-model="readNum1" /></td>
-												<td><input type="text" class="form-control" ng-model="discussNum1" /></td>
-												<td><input type="text" class="form-control" ng-model="shareNum1" /></td>
-												<td><input type="text" class="form-control" ng-model="negValue1" /></td>
+
+												<td><input type="text" class="form-control" ng-model="readNum1" placeholder="文章被转发超过该值会触发报警提醒"/></td>
+												<td><input type="text" class="form-control" ng-model="discussNum1" placeholder="文章被评论超过该值会触发报警提醒"/></td>
+												<td><input type="text" class="form-control" ng-model="shareNum1" placeholder="文章被转发超过该值会触发报警提醒"/></td>
+												<td><input type="text" class="form-control" ng-model="negValue1" placeholder="文章情感值小于该值会触发报警,建议值0.2"/></td>
 												<td class="opt">
 													<a class="edit-btn" ng-click="saveAll()">保存</a>
 												</td>
@@ -215,7 +225,10 @@
 									</table>
 									<!--分页-->
 								</div>
-
+								<div class="warn">阅读量阈值: 文章被转发超过该值会触发报警提醒，主要针对微博类数据使用，建议值100,设置为0不触发预警</div>
+								<div class="warn">评论数阈值: 文章被评论超过该值会触发报警提醒，主要针对微博类数据使用，建议值100,设置为0不触发预警</div>
+								<div class="warn">转发数阈值: 文章被转发超过该值会触 报警提醒，主要针对微博类数据使用，建议值100,设置为0不触发预警</div>
+								<div class="warn">负面情绪阈值: 文章情感值小于该值会触发报警，针对所有数据类型，建议值0.2,设置为0不触发预警</div>
 							</div>
 						</div>
 					</div>
@@ -240,7 +253,7 @@
 							<div class="i-checks">
 								<label><input type="checkbox" ng-model="wechat_warn" ng-change="updateUserWarn()" class="icheckbox_square-blue"  id="c2" >微信</label>
 							</div>
-							<div class="f-set-con"><img class="img" src="assets/img/img-qr-code.png" alt="" /></div>
+							<div class="f-set-con"><img class="img" src="assets/img/code.jpg" alt="" /></div>
 						</div>
 						<div class="f-set-item clearfix">
 							<div class="i-checks">

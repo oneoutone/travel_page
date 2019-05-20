@@ -9,6 +9,8 @@
 		var vm = $scope
 		vm.header = {name:'6'};
 		vm.request = {}
+		vm.show1 = true
+		vm.show2 = false
 		var now = new Date();
 		var end = moment(now).startOf('hour').format('YYYY-MM-DD HH:mm:ss')
 		var start = moment(now).startOf('hour').subtract(12, 'hours').format('YYYY-MM-DD HH:mm:ss')
@@ -41,6 +43,39 @@
 				negative.push([i+1, d[i].result.negative_num])
 				line.push([i+1, 50])
 				$.plot("#emotion", [
+					{
+						data: positive,
+						points: {show: true, radius: 2},
+						splines: {show: true, tension: 0.45, lineWidth: 2, fill: 0}
+					},
+					{
+						data: negative,
+						points: {show: true, radius: 2},
+						splines: {show: true, tension: 0.45, lineWidth: 2, fill: 0}
+					},
+					{
+						data: line,
+						points: {show: true, radius: 2},
+						splines: {show: true, tension: 0.45, lineWidth: 2, fill: 0}
+					}
+				], {
+					colors: ['#1b9af9', '#d94b4b', '#CD2626'],
+					series: {shadowSize: 3},
+					legend: {backgroundColor: 'transparent'},
+					xaxis: {show: true, font: {color: '#ccc'}, position: 'bottom', ticks: ticket},
+					yaxis: {show: true, font: {color: '#ccc'} , tickFormatter: euroFormatter},
+					grid: {
+						hoverable: true,
+						clickable: true,
+						borderWidth: 40,
+						borderColor: 'rgba(255,255,255,0.5)',
+						color: 'rgba(120,120,120,0.5)'
+					},
+					tooltip: true,
+					tooltipOpts: {content: '%y.2', defaultTheme: false, shifts: {x: 0, y: -40}}
+				}).draw();
+
+				$.plot("#emotion1", [
 					{
 						data: positive,
 						points: {show: true, radius: 2},
@@ -116,10 +151,61 @@
 		}
 
 		vm.setState = function(v){
+			httpService.reportData({type: v}, function(r){
+				console.log(r)
+				vm.all = r.all
+				vm.danger = r.danger
+				vm.middle = r.middle
+				vm.neg = r.neg
+				vm.pos = r.pos
+				vm.read = r.read
+
+				var d = r.detail
+				var ticket = []
+				var positive = []
+				var middle = []
+				var negative = []
+				var line = []
+				for(var i=0; i<d.length; i++) {
+					ticket.push([i + 1, d[i].date])
+					positive.push([i + 1, 0 - d[i].pos])
+					negative.push([i + 1, d[i].neg])
+					line.push([i + 1, 50])
+				}
+					$.plot("#emotion", [
+						{
+							data: positive,
+							points: {show: true, radius: 2},
+							splines: {show: true, lineWidth: 1, fill: 0}
+						},
+						{
+							data: negative,
+							points: {show: true, radius: 2},
+							splines: {show: true, lineWidth:1, fill: 0}
+						},
+					], {
+						colors: ['#1b9af9', '#d94b4b'],
+						series: {shadowSize: 2},
+						legend: {backgroundColor: 'transparent'},
+						xaxis: {show: true, font: {color: '#ccc'}, position: 'bottom', ticks: ticket},
+						yaxis: {show: true, font: {color: '#ccc'}},
+						grid: {
+							hoverable: true,
+							borderWidth: 40,
+							borderColor: 'rgba(255,255,255,0.5)',
+							color: 'rgba(120,120,120,0.5)'
+						},
+						tooltip: true,
+						tooltipOpts: {defaultTheme: false, shifts: {x: 0, y: -40}}
+					}).draw()
+				}, function(err){
+
+				})
 			vm.state = v
 			vm.page = 1
 			fetchData()
 		}
+
 		vm.doFilter = function(){
 			console.log(vm.start)
 			console.log(vm.end)
