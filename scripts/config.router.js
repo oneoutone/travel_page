@@ -85,6 +85,8 @@
       .state('app.recover_pwd', {
         url: '/recover_pwd',
         templateUrl: 'views/login/recover_pwd.html',
+        controller: "rePwdCtrl",
+        resolve: load(['toastr', 'jsencrypt', 'scripts/login/recover_pwd.js']),
         data: {
         	css: 'assets/styles/login.css'
     	}
@@ -114,6 +116,8 @@
       .state('app.console', {
         url: '/console',
         templateUrl: 'views/pfs/console.html',
+        controller: "ConsoleCtrl",
+        resolve: load(['plot', 'scripts/pfs/console.js']),
         data: {
         	css: 'assets/styles/pfs_index.css'
     	}
@@ -139,7 +143,7 @@
         url: '/pfs_index',
         templateUrl: 'views/pfs/pfs_index.html',
         controller: "pfsIndexCtrl",
-        resolve: load(['plot', 'scripts/pfs/pfs_index.js']),
+        resolve: load(['plot', 'ui.bootstrap' ,'mgcrea.ngStrap', 'toastr', 'scripts/pfs/pfs_index.js']),
         data: {
           css: ['assets/styles/flot_set.css', 'assets/styles/pfs_index.css', 'assets/styles/news_list.css']
         }
@@ -154,19 +158,19 @@
         	css: 'assets/styles/news_list.css'
     	}
       })
-      
-      .state('app.news_detail', {
-        url: '/news/:id',
-        templateUrl: 'views/pfs/news_detail.html',
-        controller: "newsDetailCtrl",
-        resolve: load(['scripts/pfs/news_detail.js']),
-        data: {
-        	css: 'assets/styles/news_detail.css'
-    	}
-      })
+
+        .state('app.news_detail', {
+          url: '/news/:id',
+          templateUrl: 'views/pfs/news_detail.html',
+          controller: "newsDetailCtrl",
+          resolve: load(['scripts/pfs/news_detail.js']),
+          data: {
+            css: 'assets/styles/news_detail.css'
+          }
+        })
       
       .state('app.news_analyse', {
-        url: '/news_analyse',
+        url: '/news_analyse/:id',
         templateUrl: 'views/pfs/news_analyse.html',
         controller: "newsAnalyseCtrl",
         resolve: load(['scripts/pfs/news_analyse.js'])
@@ -188,6 +192,16 @@
         	css: 'assets/styles/pfs_set.css'
     	}
       })
+
+        .state('app.follow', {
+          url: '/follow?id',
+          templateUrl: 'views/pfs/follow.html',
+          controller: "FollowCtrl",
+          resolve: load(['ui.bootstrap', 'mgcrea.ngStrap', 'toastr', 'ui.select', 'scripts/pfs/follow.js']),
+          data: {
+            css: 'assets/styles/pfs_index.css'
+          }
+        })
       
       .state('app.pfs_data_source', {
         url: '/pfs_data_source&page',
@@ -203,7 +217,7 @@
         url: '/pfs_report_manager',
         templateUrl: 'views/pfs/pfs_report_manager.html',
         controller: "pfsReportManagerCtrl",
-        resolve: load(['scripts/pfs/pfs_report_manager.js']),
+        resolve: load(['ui.bootstrap' ,'mgcrea.ngStrap', 'plot', 'scripts/pfs/pfs_report_manager.js']),
         data: {
           css: 'assets/styles/pfs_index.css'
         }
@@ -212,6 +226,8 @@
       .state('app.pfs_analysis', {
         url: '/pfs_analysis',
         templateUrl: 'views/pfs/pfs_analysis.html',
+        controller: "AnalysisCtrl",
+        resolve: load(['scripts/pfs/analysis.js']),
         data: {
         	css: 'assets/styles/pfs_analysis.css'
     	}

@@ -63,6 +63,12 @@
           controller: "AnalysisCtrl",
           resolve: load(['moment', 'plot', 'scripts/controller/yq_analysis.js'])
         })
+        .state('chart', {
+          url: '/chart',
+          templateUrl: 'views/chart.html',
+          controller: "ChartCtrl",
+          resolve: load(['moment', 'plot', 'scripts/controller/chart.js'])
+        })
         .state('yq_alarm', {
           url: '/yq_alarm',
           templateUrl: 'views/yq_alarm.html',

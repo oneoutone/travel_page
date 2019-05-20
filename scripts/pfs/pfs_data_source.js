@@ -14,11 +14,17 @@
 
 	function pfsDataSourceCtrl($scope, httpService, toastr, $stateParams, $state) {
 		var vm = $scope;
-		vm.data = {name:'5'};
+		vm.header = {name:'4'};
 		vm.default = true;
-
+		vm.request = {type: 'news', channel: 'website'}
+		vm.types = {"1": '资讯', "3": '政府', "2": '教育'}
+		vm.channels = {"1": '网站', "3": '微信', "2": '微博'}
+		vm.type1 = 'all'
+		vm.channel1 = 'all'
+		vm.type2 = 'all'
+		vm.channel2 = 'all'
 		vm.sourceChanged = function(){
-			httpService.updateSpecifySource({specifySource: vm.custom}, function(){
+			httpService.updateSpecifySource({specifySource: vm.defaultValue ? false: true}, function(){
 				toastr.success('更新成功')
 			}, function(e){
 				console.log(e)
@@ -32,30 +38,136 @@
 			vm.page = 1
 		}
 
-		vm.fetchSource = function(select){
-			httpService.sources({website_url: vm.filter, pagenum: 1}, function(r){
+		if($stateParams.page1){
+			vm.page1 = $stateParams.page1
+		}else{
+			vm.page1 = 1
+		}
+		if($stateParams.page2){
+			vm.page2 = $stateParams.page2
+		}else{
+			vm.page2 = 1
+		}
+
+		vm.fetchSource = function(){
+			httpService.sources({website_url: vm.filter2, website_name: vm.filter3,  pagenum: vm.page2, type: vm.type2, channel:vm.channel2}, function(r){
 				vm.urls = r.data
+				vm.urls.forEach(function(t){
+					var e = vm.sources.filter(function(v){
+						return v.sourceUrl == t.result.website_url
+					})
+					if(e && e.length > 0){
+						console.log('sfdasfgsafeafasf')
+						t.result.checked = true
+						t.result.sourceId = e[0].id
+					}
+				})
+				vm.bigTotalItems2 = r.size
+				vm.bigCurrentPage2 = vm.page2
 			}, function(e){
 				console.log(e)
 			})
 		}
 
+		vm.pageChanged2 = function(){
+			vm.page2 = vm.bigCurrentPage2
+			vm.fetchSource()
+		}
 
 		function fetchData(){
-			var data = {page: vm.page, size: 10}
+			var data = {page: 1, size: 10000}
 			httpService.getDataSourceList(data,function(result){
 				console.log(result)
 				vm.sources = result
+				vm.sourceNum = result.length
+				vm.fetchSource()
 			}, function(e){
 				console.log(e)
 			})
 
-			httpService.getDataSourceCount(function(r){
-				vm.bigTotalItems = r.count
-				vm.bigCurrentPage = vm.page
+		}
+
+		vm.dateSourceClicked = function(item){
+			if(!item.checked){
+				httpService.deleteDataSourceSet({id: item.sourceId}, function(r){
+					toastr.success('取消数据源成功')
+					vm.sourceNum --
+					delete item.sourceId
+				}, function(e){
+					item.checked = true
+					toastr.error('取消数据源失败')
+				})
+			}else{
+				httpService.addDataSource({
+					type: item.website_type,
+					channel: item.sourcetype,
+					sourceName: item.website,
+					sourceUrl: item.website_url
+				}, function(r){
+					toastr.success('添加数据源请求成功')
+					vm.sourceNum ++
+					item.sourceId = r.id
+				}, function(e){
+					item.checked = false
+					toastr.error(e.message)
+					console.log(e)
+				})
+			}
+		}
+
+		function fetchData1(){
+			var p = {channel: vm.channel1, type: vm.type1, filter: vm.filter1}
+			var data = {page: vm.page1, size: 10, channel: vm.channel1, type: vm.type1, filter: vm.filter1}
+			httpService.getDataSourceRequestList(data,function(result){
+				console.log(result)
+				vm.dataSourceRequest = result
 			}, function(e){
 				console.log(e)
 			})
+
+			httpService.getDataSourceRequestCount(p,function(r){
+				vm.bigTotalItems1 = r.count
+				vm.bigCurrentPage1 = vm.page1
+			}, function(e){
+				console.log(e)
+			})
+		}
+
+		vm.doFilter1 = function(){
+			fetchData1()
+		}
+
+		vm.dpFilter2 = function(){
+			vm.fetchSource()
+		}
+
+		vm.addSourceRequest = function(item){
+			if(!vm.request.sourceName){
+				toastr.error('请输入数据源名称')
+				return
+			}
+			if(!vm.request.sourceUrl){
+				toastr.error('请输入数据源地址')
+				return
+			}
+			httpService.addDataSourceRequest({
+				type: vm.request.type,
+				channel: vm.request.channel,
+				sourceName: vm.request.sourceName,
+				sourceUrl: vm.request.sourceUrl
+		}, function(r){
+				toastr.success('添加数据源请求成功')
+				$('#myModal').modal('hide')
+				fetchData1()
+			}, function(e){
+				toastr.error(e.message)
+				console.log(e)
+			})
+		}
+
+		vm.showMyModel = function(){
+			vm.request = {type: '1', channel: '1'}
+			$('#myModal').modal('show')
 		}
 
 		vm.addSource = function(item){
@@ -83,12 +195,16 @@
 			})
 		}
 
+		vm.pageChanged1 = function(){
+			vm.page1 = vm.bigCurrentPage1
+			fetchData1()
+		}
 
 		vm.app.ready(function(){
 			fetchData()
-			vm.fetchSource()
+			fetchData1()
 			httpService.getProfile(function(user){
-				vm.custom = user.specifySource
+				vm.defaultValue = user.specifySource ? false : true
 			}, function(e){
 				console.log(e)
 			})

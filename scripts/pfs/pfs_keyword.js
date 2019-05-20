@@ -14,6 +14,8 @@
 
 	function pfsKeywordCtrl($scope, httpService, toastr, $stateParams, $state) {
 		var vm = $scope
+		vm.header = {name:'3'};
+		vm.type = "0"
 		if($stateParams.page){
 			vm.page = $stateParams.page
 		}else{
@@ -25,30 +27,21 @@
 
 
 		function fetchData(){
-			var data = {page: vm.page, size: 10}
-			if(vm.filter){
-				data.word = vm.filter
-			}
-			httpService.getKeyWordList(data,function(result){
-				console.log(result)
-				vm.keyWords = result
-			}, function(e){
-				console.log(r)
-			})
-
-			httpService.getKeyWordCount(function(r){
-				console.log(r)
-				vm.bigTotalItems = r.count
-				vm.bigCurrentPage = vm.page
+			httpService.getKeyRequest({status: 'waiting'}, function(result){
+				vm.requestkeyWords = result
 			}, function(e){
 				console.log(e)
 			})
 		}
 
 		 vm.addKeyWord = function(){
-			httpService.addKeyWord({word: vm.word}, function(r){
+			if(!vm.word){
+				toastr.error('请输入需要添加的关键词')
+				return
+			 }
+			httpService.addKeyWord({word: vm.word, type: vm.type}, function(r){
 				toastr.success('添加关键词成功')
-				$('#myModal').modal('hide')
+				vm.word = undefined
 				fetchData()
 			}, function(e){
 				console.log(e)
@@ -69,10 +62,9 @@
 			})
 		}
 
-		vm.deleteKeyWord = function(){
-			httpService.deleteKeyWord({word: vm.deleteItem.word}, function(r){
+		vm.deleteKeyWord = function(word){
+			httpService.deleteKeyWord({word: word}, function(r){
 				toastr.success('删除关键词成功')
-				$('#delete').modal('hide')
 				fetchData()
 			}, function(e){
 				toastr.error('删除关键词失败')
@@ -80,7 +72,16 @@
 		}
 
 		vm.doFilter = function(){
-			$state.go('app.pfs_keyword', {page: 1, filter: vm.filter})
+			httpService.words({type: vm.type, keyword: vm.filter}, function(r){
+				vm.words = r.keywordlist.filter(function(item){
+					if(item.keyword != '<桂林4日游>' && item.keyword != '<桂林5日游>'){
+						return item
+					}
+				})
+				vm.number = r.allnum
+			}, function(e){
+				console.log(e)
+			})
 		}
 
 		vm.showDeleteModal = function(item){
@@ -95,8 +96,24 @@
 			$state.go('app.pfs_keyword', {page: vm.bigCurrentPage, filter: vm.filter})
 		};
 
+		vm.setType = function(t){
+			vm.type = t
+			vm.filter = ""
+			httpService.words({type: t}, function(r){
+				vm.words = r.keywordlist.filter(function(item){
+					if(item.keyword != '<桂林4日游>' && item.keyword != '<桂林5日游>'){
+						return item
+					}
+				})
+
+				vm.number = r.allnum
+			}, function(e){
+				console.log(e)
+			})
+		}
 		vm.app.ready(function(){
 			fetchData()
+			vm.setType("0")
 		})
 
 	}

@@ -64,7 +64,7 @@ ul li p{}
     -webkit-transition: all 0.35s ease-in-out;
     -moz-transition: all 0.35s ease-in-out;
     transition: all 0.35s ease-in-out;
-	float:left; margin-left:6px; margin-right:5px;
+	float:left; margin-left:2px; margin-right:2px;
 }
 
 .ih-item,

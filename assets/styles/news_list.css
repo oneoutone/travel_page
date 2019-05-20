@@ -14,7 +14,8 @@
 
 .com-article-panel-body {
 	position: relative;
-	display: table-cell;
+	word-wrap: break-word;
+	word-break: break-all;
 	vertical-align: middle
 }
 

@@ -1,3 +1,12 @@
+<style type="text/css">
+	input:disabled{
+		color:black;
+		background: white;
+		background-color: transparent;
+		opacity: 1;
+	}
+</style>
+<div ng-include="apiInclude + 'head_nav_pfs.html'"></div>
 <div class="main">
 	<div class="c-section c-p-y-tall entry-mod">
 		<div class="c-section-inner">
@@ -10,12 +19,12 @@
 							</div>
 							<div class="c-media-body">
 								<h4 class="c-media-heading">数据源</h4>
-								<p class="c-media-info ellipsis-2">咨询、社交、政务、电声、微信、微博、APP</p>
+								<p class="c-media-info ellipsis-2">资讯、社交、政务、电声、微信、微博、APP</p>
 							</div>
 						</a>
 						<div class="form-inline">
 							<div class="form-group">
-								<input type="text" class="form-control" value="8888888888">
+								<input type="text" id="input1" class="form-control" style="text-align:right" ng-model="all" readonly >
 								<label>页</label>
 							</div>
 						</div>
@@ -32,7 +41,7 @@
 						</a>
 						<div class="form-inline">
 							<div class="form-group">
-								<input type="text" class="form-control" value="8888888888">
+								<input type="text" id="input2" class="form-control" style="text-align:right" ng-model="wordNumber" readonly>
 								<label>个</label>
 							</div>
 						</div>
@@ -49,7 +58,7 @@
 						</a>
 						<div class="form-inline">
 							<div class="form-group">
-								<input type="text" class="form-control" value="8888888888">
+								<input type="text" id="input3" class="form-control" style="text-align:right" ng-model="parseNum" readonly>
 								<label>次</label>
 							</div>
 						</div>
@@ -66,7 +75,7 @@
 						</a>
 						<div class="form-inline">
 							<div class="form-group">
-								<input type="text" class="form-control" value="8888888888">
+								<input type="text" id="input4" class="form-control"  style="text-align:right" value="29432" readonly>
 								<label>次</label>
 							</div>
 						</div>
@@ -83,7 +92,7 @@
 						</a>
 						<div class="form-inline">
 							<div class="form-group">
-								<input type="text" class="form-control" value="8888888888">
+								<input type="text" id="input5" class="form-control" style="text-align:right"  value="1694" readonly>
 								<label>份</label>
 							</div>
 						</div>
@@ -103,19 +112,19 @@
 				<div class="c-grid">
 					<div class="c-g-11">
 						<div class="c-control">
-							<textarea name="" rows="8" placeholder="请输入一段文字"></textarea>
+							<textarea ng-model="content1" rows="8" placeholder="请输入一段文字"></textarea>
 						</div>
 					</div>
 					<div class="c-g-2">
-						<button type="button" class="c-btn">解析</button>
+						<button type="button" class="c-btn" ng-click="check1()" ng-disabled="!content1">解析</button>
 					</div>
 					<div class="c-g-11">
-						<div class="c-control"></div>
+						<div class="c-control">{{value1}}</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="c-section-inner analysis-box">
+		<div class="c-section-inner analysis-box" >
 			<div class="coll-section-hd">
 				<div class="coll-section-hd-main">
 					<h2 class="coll-section-hd-tit">测词</h2></div>
@@ -124,15 +133,15 @@
 				<div class="c-grid">
 					<div class="c-g-11">
 						<div class="c-control">
-							<textarea name="" rows="8" placeholder="请输入一段文字"></textarea>
+							<textarea ng-model="content2"rows="8" placeholder="请输入一段文字"></textarea>
 						</div>
 					</div>
 					<div class="c-g-2">
-						<button type="button" class="c-btn">解析</button>
+						<button type="button" class="c-btn" ng-click="check2()" ng-disabled="!content2">解析</button>
 					</div>
 					<div class="c-g-11">
 						<div class="c-control">
-							<img class="img" src="assets/img/icon-an1.png">
+							<img class="img" ng-src="{{value2>0.6 ? 'assets/img/a2.jpg' : (value2>0.4 ? 'assets/img/a1.jpeg ' : 'assets/img/a3.jpg')}}">
 						</div>
 					</div>
 				</div>

@@ -52,12 +52,12 @@
 
     $rootScope.$on('$stateChangeStart', function (event, toState) {
       //check if login
-      if (!vm.app.isAuthenticated() && toState.name.indexOf('login') == -1 && toState.name.indexOf('register') == -1 && toState.name.indexOf('home') == -1){
+      if (!vm.app.isAuthenticated() && toState.name.indexOf('login') == -1 && toState.name.indexOf('register') == -1 && toState.name.indexOf('home') == -1 && toState.name.indexOf('pfs_analysis') == -1){
         var url = $location.path();
         var from = encodeURIComponent(url);
         // 如果已经在登陆界面，接收到401跳转到登陆界面了。
         vm.app.setting = {}
-        $location.path('/app/login').search('state=' + from);
+        $location.path('/app/login')
       }
     });
 
@@ -103,11 +103,6 @@
      */
     vm.app.init = function(callback){
       httpService.getProfile(function(data){
-        if(!data.id){
-          var url = $location.path();
-          var from = encodeURIComponent(url);
-          $location.path('/app/login').search('state=' + from);
-        }
         vm.app.setting.user = data
         vm.app.isReady = true
         vm.app.runTodos()
@@ -115,6 +110,9 @@
           callback()
         }
       }, function(err){
+        var url = $location.path();
+        var from = encodeURIComponent(url);
+        $location.path('/app/login').search('state=' + from);
         console.log(err)
       })
     };

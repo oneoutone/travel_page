@@ -8,7 +8,7 @@
 
 (function() {
   'use strict';
-  var apiInclude ='/cloud/views/include/';
+  var apiInclude ='views/include/';
   
   angular
     .module('app')

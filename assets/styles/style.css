@@ -1308,7 +1308,6 @@ a:focus{
 .c-nav-tit {
 	float: left;
 	height: 54px;
-	color: #333;
 	font-size: 18px;
 	line-height: 54px;
 }
@@ -2433,3 +2432,4 @@ textarea.c-control {
 	text-overflow: ellipsis;
 	overflow: hidden
 }
+
