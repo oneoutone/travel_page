@@ -62,7 +62,16 @@
                 controller: "SignUpCtrl",
                 resolve: load(['toastr', 'scripts/controllers/signin/signup.js'])
             })
-
+            
+            .state('app.index',{
+                url: '/index',
+                templateUrl: 'views/pfs/index.html'
+            })
+            
+            .state('app.backlog',{
+                url: '/backlog',
+                templateUrl: 'views/pfs/backlog.html'
+            })
             // 运营团队权限配置
             .state('app.manager',{
                 url: '/managers',

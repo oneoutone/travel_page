@@ -69,7 +69,6 @@ li {
 }
 
 a {
-	color: #00a4ff;
 	text-decoration: none;
 	cursor: pointer
 }
@@ -1713,7 +1712,6 @@ a:focus{
 .tab-nav {
 	position: relative;
 	overflow: hidden;
-	margin-bottom: 20px
 }
 
 .tab-nav:before {
@@ -2012,10 +2010,6 @@ textarea.c-control {
 	padding: 20px;
 }
 
-.tab-pane .data-box {
-	padding: 0 20px 20px 20px;
-}
-
 .table-data {
 	width: 100%;
 	text-align: center;
@@ -2036,6 +2030,10 @@ textarea.c-control {
 	border-bottom: 1px solid #e5e5e5;
 }
 
+.table-data th a { 
+	color: #00A4FF;
+}
+
 .table-data td {
 	padding: 10px;
 	color: #333;
@@ -2052,10 +2050,15 @@ textarea.c-control {
 .table-data td.opt a {
 	position: relative;
 	display: inline-block;
+	color: #00a4ff;
 	font-size: 14px;
 	line-height: 22px;
 	margin-left: 17px;
 	outline: none;
+}
+
+.table-data td.opt a:hover {
+	text-decoration: underline;
 }
 
 .table-data td.opt a:first-child {

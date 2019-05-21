@@ -233,6 +233,13 @@
     	}
       })
       
+      .state('app.pfs_proposal', {
+        url: '/pfs_proposal',
+        templateUrl: 'views/pfs/pfs_proposal.html',
+        controller: "pfsProposalCtrl",
+        resolve: load(['ui.bootstrap' ,'mgcrea.ngStrap', 'toastr', 'scripts/pfs/pfs_proposal.js'])
+      })
+      
       .state('app.product_buy', {
         url: '/product_buy',
         templateUrl: 'views/pfs/product_buy.html'
