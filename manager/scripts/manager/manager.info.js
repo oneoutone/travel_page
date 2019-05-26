@@ -31,11 +31,6 @@
                             vm.user.roles[roles[i]] = true
                         }
                     }
-                    console.log(vm.user.roles)
-                    if(vm.user.roles.admin == true){
-                        vm.user.roles.data = true
-                        vm.user.roles.yuqing = true
-                    }
                 }, function (err) {
                     console.log(err)
                     toastr.error("获取管理员信息失败")
@@ -119,11 +114,8 @@
                 if(vm.user.roles.admin == true){
                     roles += ',admin'
                 }
-                if(vm.user.roles.yuqing == true){
-                    roles += ',yuqing'
-                }
-                if(vm.user.roles.data == true){
-                    roles += ',data'
+                if(vm.user.roles.manager == true){
+                    roles += ',manager'
                 }
 
                 httpService.upsertManager({roles: roles, id: vm.user.id}, function(data){

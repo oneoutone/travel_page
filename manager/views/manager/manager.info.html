@@ -68,7 +68,7 @@
                         <div class="col-md-6 col-xs-12">
                             <div class="form-group ">
                                 <label>用户名</label>
-                                <input id="nameInput" type="text"  class="form-control" ng-model="user.username" required>
+                                <input id="nameInput" type="text"  class="form-control" ng-disabled="user.id" ng-model="user.username" required>
                             </div>
                             <div class="form-group ">
                                 <label>手机号</label>
@@ -98,7 +98,7 @@
                             <div class="form-group">
                                 <div class="checkbox">
                                     <label class="ui-check">
-                                        <input type="checkbox" ng-disabled="user.roles.admin || (!app.setting.user.roles.admin && !app.setting.user.roles.manage)" ng-model="user.roles.admin">
+                                        <input type="checkbox" ng-disabled="user.id == app.setting.user.id" ng-model="user.roles.admin">
                                         <i class="dark-white"></i>
                                         管理员
                                     </label>
@@ -110,27 +110,16 @@
                             <div class="form-group">
                                 <div class="checkbox">
                                     <label class="ui-check">
-                                        <input type="checkbox" ng-disabled="user.roles.admin || (!app.setting.user.roles.admin && !app.setting.user.roles.manage)" ng-model="user.roles.yuqing" >
+                                        <input type="checkbox" ng-disabled="user.id == app.setting.user.id" ng-model="user.roles.manager" >
                                         <i class="dark-white"></i>
-                                        舆情平台
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <div class="checkbox">
-                                    <label class="ui-check">
-                                        <input type="checkbox" ng-disabled="user.roles.admin || (!app.setting.user.roles.admin && !app.setting.user.roles.manage)" ng-model="user.roles.data">
-                                        <i class="dark-white"></i>
-                                        数据定制平台
+                                        客户经理
                                     </label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="submit" ladda="permissionLoading" data-style="expand-left" ng-hide="user.roles.admin  || (!app.setting.user.roles.admin && !app.setting.user.roles.manage)" class="btn m-t {{app.setting.theme.primary}}">保存</button>
+                        <button type="submit" ladda="permissionLoading" data-style="expand-left" ng-hide="user.id == app.setting.user.id" class="btn m-t {{app.setting.theme.primary}}">保存</button>
                     </div>
                 </form>
             </div>

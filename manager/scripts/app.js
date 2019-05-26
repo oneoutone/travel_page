@@ -14,6 +14,7 @@
             'oc.lazyLoad',
             'se.util',
             'angular-ladda',
+            'uiRouterStyles',
             'httpService'
         ])
     //     .config(["$locationProvider", function($locationProvider) {

@@ -199,6 +199,25 @@
                 controller: "DataSourceCtrl",
                 resolve: load(['ui.bootstrap', 'toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/data/dataSource.js'])
             })
+            .state('app.clientList', {
+                url: '/clientList?filter&status&page',
+                templateUrl: 'views/manager/client.list.html',
+                controller: "ClientListCtrl",
+                resolve: load(['toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/manager/client.list.js'])
+            })
+            .state('app.clientInfo', {
+                url: '/clientInfo/:id',
+                templateUrl: 'views/manager/client.info.html',
+                controller: "ClientInfoCtrl",
+                resolve: load(['toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/manager/client.info.js']),
+                data: {title: '客户信息'}
+            })
+            .state('app.clientListOfManager', {
+                url: '/clientListOfManager?filter&status&page',
+                templateUrl: 'views/manager/manager.client.list.html',
+                controller: "ManagerClientListCtrl",
+                resolve: load(['toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/manager/manager.client.list.js'])
+            })
 
         function load(srcs, callback) {
             return {

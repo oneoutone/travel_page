@@ -20,6 +20,15 @@
         function fetchManagers(){
             httpService.getManagers(function(data){
                 $scope.userList = data;
+                for(var i=0; i<$scope.userList.length; i++){
+                    if($scope.userList[i].roles.indexOf("admin") >= 0){
+                        $scope.userList[i].title = '系统管理员'
+                    }else if($scope.userList[i].roles.indexOf("manager") >= 0){
+                        $scope.userList[i].title = '客户经理'
+                    }else{
+                        $scope.userList[i].title = '后台用户'
+                    }
+                }
             }, function(err){
                console.log(err)
             })

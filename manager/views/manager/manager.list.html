@@ -33,6 +33,7 @@
                 </div>
                 <div class="p-a-md">
                     <p><img src="../../assets/img/a7.jpg" class="img-circle w-56"></p>
+                    <span>{{item.title}}</span>
                     <a href class="text-md block">{{item.username="" ? 'Admin':item.username}}<span class="label label-sm danger m-l-sm" ng-if="hasPermission(item,'admin')">Admin</span> </a>
                 </div>
             </div>

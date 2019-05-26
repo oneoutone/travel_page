@@ -1,0 +1,81 @@
+<div class="padding white">
+    <div class="tab-pane p-v-sm active" id="tab_1">
+        <form name="form" class="form-validation"  noValidate>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <label>单位名称：</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="company.name">
+                    </div>
+                </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <label>统一社会信用代码：</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="company.regNo">
+                    </div>
+                </div>
+                <div class="col-md-6 col-md-offset-3" >
+                    <label>单位账号：</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="company.acNo">
+                    </div>
+                </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <label>开户行：</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="company.bank">
+                    </div>
+                </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <label>单位地址：</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="company.address">
+                    </div>
+                </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <label>单位电话：</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="company.phone">
+                    </div>
+                </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <label>联系人：</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="company.contactPeople">
+                    </div>
+                </div>
+                <div class="col-md-2 col-md-offset-3" ng-hide="company.id">
+                    <label>管理员用户名：</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="company.adminUserName">
+                    </div>
+                </div>
+                <div class="col-md-2" ng-hide="company.id">
+                    <label>管理员名称：</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="company.adminName">
+                    </div>
+                </div>
+                <div class="col-md-2 " ng-hide="company.id">
+                    <label>密码：</label>
+                    <div class="form-group">
+                        <input type="password" class="form-control" ng-model="company.adminPassword">
+                    </div>
+                </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <label>客户经理：</label>
+                    <div class="form-group">
+                        <select type="text" class="form-control c-select" ng-model="company.managerId">
+                            <option ng-repeat="manager in managers" value="{{manager.id}}">{{manager.username}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group col-md-6 col-md-offset-3">
+                    <button type="submit" ladda="profileLoading" data-style="expand-left" ng-click="save()" class="btn m-t {{app.setting.theme.primary}}">保存</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+

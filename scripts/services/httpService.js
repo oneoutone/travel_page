@@ -284,6 +284,24 @@
             self.getManagers = function(success,fail){
                 getRequest(host + '/users/managers', null, {auth:true}, success, fail)
             }
+            self.getRole_managers = function(success,fail){
+                getRequest(host + '/users/role_managers', null, {auth:true}, success, fail)
+            }
+            self.createCompany = function(data, success,fail){
+                postRequest(host + '/company', data, {auth:true}, success, fail)
+            }
+            self.updateCompany = function(data, success,fail){
+                postRequest(host + '/company/update', data, {auth:true}, success, fail)
+            }
+            self.getCompanyById = function(id, success, fail) {
+                getRequest(host + '/company/findById', {id: id}, {auth: true}, success, fail)
+            }
+            self.getAllCompanyList = function(data, success, fail) {
+                getRequest(host + '/company/allList', data, {auth: true}, success, fail)
+            }
+            self.getAllCompanyCount = function(data, success, fail) {
+                getRequest(host + '/company/allCount', data, {auth: true}, success, fail)
+            }
             /**
              * get stored access token
              * @returns {*|string}

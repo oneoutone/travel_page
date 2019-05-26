@@ -1,7 +1,33 @@
 
 <ul class="nav" ui-nav>
   <li class="nav-header hidden-folded">
-    <small class="text-muted">系统管理</small>
+    <small class="text-muted">客户经理空间</small>
+  </li>
+
+  <li>
+    <a>
+        <span class="nav-caret">
+          <i class="fa fa-caret-down"></i>
+        </span>
+      <span class="nav-label">
+        </span>
+      <span class="nav-icon">
+          <i class="material-icons">extension</i>
+        </span>
+      <span class="nav-text">舆情平台</span>
+    </a>
+    <ul class="nav-sub">
+      <li ui-sref-active="active">
+        <a ui-sref="app.dataList">
+          <span class="nav-text">待办事项</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.clientListOfManager">
+          <span class="nav-text">客户配置</span>
+        </a>
+      </li>
+    </ul>
   </li>
 
   <li>
@@ -95,12 +121,20 @@
 
 
   <!-- 系统配置板块 -->
-  <li class="nav-header hidden-folded">
-    <small class="text-muted">系统配置</small>
+  <li class="nav-header hidden-folded" ng-show="app.setting.user.roles.admin">
+    <small class="text-muted">管理员空间</small>
   </li>
 
+  <li ui-sref-active="active" ng-show="app.setting.user.roles.admin">
+    <a ui-sref="app.clientList">
+        <span class="nav-icon">
+          <i class="material-icons">recent_actors </i>
+        </span>
+      <span class="nav-text">客户列表</span>
+    </a>
+  </li>
 
-  <li ui-sref-active="active">
+  <li ui-sref-active="active" ng-show="app.setting.user.roles.admin">
     <a ui-sref="app.manager.list">
         <span class="nav-icon">
           <i class="material-icons">recent_actors </i>
