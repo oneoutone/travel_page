@@ -718,6 +718,14 @@
 	line-height: 1.8;
 }
 
+.index-experience .exp-cont .text a {
+	color: #00a4ff;
+}
+
+.index-experience .exp-cont .text a:hover {
+	text-decoration: underline;
+}
+
 .index-experience .exp-btn {
 	text-align: center;
 	padding-top: 35px;

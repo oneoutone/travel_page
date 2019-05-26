@@ -4,8 +4,8 @@
         .module('httpService', [])
         .service('httpService', ['$http', '$localStorage', function ($http, $localStorage) {
             var self = this;
-            //var host = 'http://hadupu.cn/api'
-            var host = 'http://localhost:8080/api'
+            var host = 'http://hadupu.cn/api'
+            //var host = 'http://localhost:8080/api'
 
             function postRequest(url, data, options, success, fail){
                 var header = {'Content-Type': 'application/json'}
