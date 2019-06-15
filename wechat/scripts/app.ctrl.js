@@ -51,7 +51,7 @@
     $rootScope.$on('$stateChangeStart', function (event, toState) {
       //check if login
       console.log('$stateChangeStart')
-      if (!vm.app.isAuthenticated() && toState.name.indexOf('login') == -1 && toState.name.indexOf('register') == -1 && toState.name.indexOf('home') == -1){
+      if (!vm.app.isAuthenticated() && toState.name.indexOf('login') == -1 && toState.name.indexOf('register') == -1 && toState.name.indexOf('home') == -1 && toState.name.indexOf('leader') == -1){
         var url = $location.path();
         var from = encodeURIComponent(url);
         // 如果已经在登陆界面，接收到401跳转到登陆界面了。

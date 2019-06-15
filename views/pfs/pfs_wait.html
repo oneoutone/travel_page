@@ -1,0 +1,126 @@
+<style type="text/css">
+    .item-box {
+        background-color: #ffffff;
+        margin-bottom: 20px;
+    }
+
+    .section-tit {
+        line-height: 20px;
+        font-size: 16px;
+        color: #333;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .col-article-list {
+        padding: 0;
+        border-top: 1px solid #e5e5e5;
+    }
+
+    .keyword-list {
+        padding: 0 0 20px 0;
+    }
+
+    .kw-item {
+        float: left;
+        position: relative;
+        padding: 6px 18px;
+        color: #333;
+        font-size: 14px;
+        border: 1px solid #e5e5e5;
+        border-radius: 3px;
+        margin: 5px 20px 5px 0;
+        cursor: pointer;
+    }
+
+    .kw-item .del {
+        display: none;
+        position: absolute;
+        right: -5px;
+        top: -5px;
+        width: 16px;
+        height: 16px;
+        color: #ffffff;
+        font-size: 12px;
+        line-height: 16px;
+        text-align: center;
+        background-color: #fe5151;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .kw-item.active .del {
+        display: block;
+    }
+
+    .kw-item.active {
+        color: #00a4ff;
+        border: 1px solid #d2f2ff;
+        background-color: #d2f2ff;
+    }
+</style>
+<div ng-include="apiInclude + 'head_nav_pfs.html'"></div>
+<div class="padding c-section c-main">
+    <div class="item-box data-box c-section-inner">
+        <h2 class="section-tit">待审核关键词<span style="vertical-align: top;font-size: 14px;color: #666;">（{{requestkeyWords.length}}个）</span></h2>
+        <div class="keyword-box">
+            <ul class="keyword-list clearfix">
+                <li class="kw-item " ng-repeat="word in requestkeyWords">{{word.word}}({{word.tp}})<i class="del fa fa-minus"></i></li>
+            </ul>
+            <div class="table-tool" style="margin-bottom: 0;">
+                <button type="button" class="c-btn" ng-show="requestkeyWords.length > 0" ng-click="confirmWord()">通过</button>
+            </div>
+        </div>
+    </div>
+    <div class="item-box data-box c-section-inner">
+        <h2 class="section-tit">待审核数据</h2>
+        <table class="table-data">
+            <thead>
+            <tr>
+                <th>名称</th>
+                <th>地址</th>
+                <th>状态</th>
+                <th>种类</th>
+                <th>渠道</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in dataSourceRequest">
+                <td>{{item.sourceName}}</td>
+                <td>{{item.sourceUrl}}</td>
+                <td><span  class="{{item.status == 'pass' ? 'green' : 'red'}}">{{item.status == 'waiting' ? '待审核' : (item.status == 'pass' ? '已添加' : '已拒绝')}}</span></td>
+                <td>{{types[item.type]}}</td>
+                <td>{{channels[item.channel]}}</td>
+                <td class="opt">
+                    <a ng-click="dataSourcePass(item)">通过</a>
+                    <a ng-click="dataSourceRefuse(item)">拒绝</a>
+                </td>
+            </tr>
+            <td colspan="10" class="white b-white text-center">
+                <ul class="pagination" uib-pagination total-items="bigTotalItems1" ng-model="bigCurrentPage1" total-items="true" max-size="10" class="pagination-sm" boundary-link-numbers="true" next-text="下一页" previous-text="上一页" rotate="false" ng-change="pageChanged1()"></ul>
+
+            </td>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="item-box data-box c-section-inner" >
+        <h2 class="section-tit">待办建议</h2>
+        <div class="col-article-list">
+            <div class="com-article-panel" ng-repeat="item in advices">
+                <a href="javascript:void(0);" target="_blank">
+                    <div class="com-article-panel-body">
+                        <h3 class="com-article-panel-title">{{item.title}}</h3>
+                        <p class="com-article-panel-desc">{{item.content}}</p>
+                    </div>
+                </a>
+            </div>
+            <div  class="white b-white text-center" ng-show="advices.length > 0">
+                <ul class="pagination" uib-pagination total-items="bigTotalItems1" ng-model="bigCurrentPage1" total-items="true" max-size="10" class="pagination-sm" boundary-link-numbers="true" next-text="下一页" previous-text="上一页" rotate="false" ng-change="pageChanged1()"></ul>
+
+            </div>
+        </div>
+    </div>
+
+</div>

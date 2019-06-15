@@ -148,8 +148,19 @@
           css: ['assets/styles/flot_set.css', 'assets/styles/pfs_index.css', 'assets/styles/news_list.css']
         }
       })
-      
-      .state('app.news_list', {
+
+        .state('app.pfs_wait', {
+          url: '/pfs_wait',
+          templateUrl: 'views/pfs/pfs_wait.html',
+          controller: "WaitCtrl",
+          resolve: load(['ui.bootstrap' ,'mgcrea.ngStrap', 'toastr', 'scripts/pfs/wait.js']),
+          data: {
+            css: ['assets/styles/flot_set.css', 'assets/styles/pfs_index.css', 'assets/styles/news_list.css']
+          }
+        })
+
+
+        .state('app.news_list', {
         url: '/news/?channel&type&page',
         templateUrl: 'views/pfs/news_list.html',
         controller: "newsListCtrl",
@@ -158,6 +169,16 @@
         	css: 'assets/styles/news_list.css'
     	}
       })
+
+        .state('app.follow_list', {
+          url: '/follow_list?page',
+          templateUrl: 'views/pfs/follow_list.html',
+          controller: "FollowListCtrl",
+          resolve: load(['ui.bootstrap' ,'mgcrea.ngStrap', 'toastr', 'scripts/pfs/follow_list.js']),
+          data: {
+            css: 'assets/styles/news_list.css'
+          }
+        })
 
         .state('app.news_detail', {
           url: '/news/:id',
@@ -232,6 +253,15 @@
         	css: 'assets/styles/pfs_analysis.css'
     	}
       })
+        .state('app.pfs_index1',{
+          url: '/pfs_index1',
+          templateUrl: 'views/pfs/pfs_index1.html',
+          controller: "Index1Ctrl",
+          resolve: load(['scripts/pfs/pfs_index1.js']),
+          data: {
+            css:  'assets/styles/pfs_index.css'
+          }
+        })
       
       .state('app.pfs_proposal', {
         url: '/pfs_proposal',

@@ -34,39 +34,53 @@
             })
 
             var now = new Date();
-            var end = moment(now).subtract(12, 'hours').startOf('hour').format('YYYY-MM-DD HH:mm:ss')
-            var start = moment(now).subtract(12, 'hours').startOf('hour').subtract(12, 'hours').format('YYYY-MM-DD HH:mm:ss')
+            var end = moment(now).startOf('hour').format('YYYY-MM-DD HH:mm:ss')
+            var start = moment(now).startOf('hour').subtract(12, 'hours').format('YYYY-MM-DD HH:mm:ss')
+            var eDate = moment(now).startOf('hour').subtract(12, 'hours').toDate()
+            var sDate = moment(now).startOf('hour').toDate()
             httpService.emotion_date({start: start, end: end}, function(result){
                 console.log(result)
                 $('#loadingToast').fadeOut(100)
-                var d = result.data
+                var posData = result.positive
+                var negData = result.negative
                 var ticket = []
                 var positive = []
-                var middle = []
                 var negative = []
                 var line = []
                 var line1 = []
                 var line2 = []
                 var maxP = 0
                 var maxN = 0
-                for(var i=0; i<d.length; i++){
-                    ticket.push([i+1, moment(d[i].result.endtime).format('HH')])
-                    if(d[i].result.positive_num + d[i].result.negative_num + d[i].result.middle_num > 100){
-                        var total = d[i].result.positive_num + d[i].result.negative_num + d[i].result.middle_num
-                        d[i].result.positive_num = Math.round(d[i].result.positive_num*100/total)
-                        d[i].result.sensitive_num = Math.round(d[i].result.sensitive_num*100/total)
+                for(var s = eDate; s<sDate; s=moment(s).add(1, 'hours').toDate()) {
+                    var dString = moment(s).format('YYYY-MM-DD HH:mm:ss')
+                    ticket.push([ticket.length + 1, dString])
+                    line.push([ticket.length + 1, 50])
+                    line1.push([ticket.length + 1, 90])
+                    line2.push([ticket.length + 1, -90])
+                    var p0 = posData.filter(function (item) {
+                        return item.time == dString
+                    })
+                    if (p0 && p0.length > 0) {
+                        positive.push([ticket.length + 1, p0[0].count > 99 ? -99 : 0 - p0[0].count])
+                        if (maxP < p0[0].count ) {
+                            maxP = p0[0].count
+                        }
+                    } else {
+                        positive.push([ticket.length + 1, 0])
                     }
-                    positive.push([i+1, d[i].result.positive_num > 99 ? -99 : 0-d[i].result.positive_num])
-                    negative.push([i+1, d[i].result.sensitive_num > 99 ? 99 : d[i].result.sensitive_num])
-                    line.push([i+1, 50])
-                    line1.push([i+1, 90])
-                    line2.push([i+1, -90])
-                    if(maxP < d[i].result.positive_num){
-                        maxP = d[i].result.positive_num
+
+                    var n0 = negData.filter(function (item) {
+                        return item.time == dString
+                    })
+                    if (n0 && n0.length > 0) {
+                        negative.push([ticket.length + 1, n0[0].count > 99 ? 99 : n0[0].count])
+                        if (maxN < n0[0].count) {
+                            maxN = n0[0].count
+                        }
+                    } else {
+                        negative.push([ticket.length + 1, 0])
                     }
-                    if(maxN < d[i].result.sensitive_num){
-                        maxN = d[i].result.sensitive_num
-                    }
+
                 }
                 if(maxP > 99){
                     maxP =99
@@ -106,12 +120,6 @@
                     }
 
                 }
-                console.log(maxP)
-                console.log(maxN)
-                console.log(bks)
-                console.log(positive)
-                console.log(negative)
-
                 function euroFormatter(v, axis) {
                     if(v >= 0){
                         return v

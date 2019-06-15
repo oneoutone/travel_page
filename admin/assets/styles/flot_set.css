@@ -1,0 +1,26 @@
+.legend>div,
+.legend>table {
+	height: 200px!important;
+	top: 50%!important;
+	margin-top: -100px!important;
+	margin-top: 0;
+}
+
+.legend>table {
+	font-size: 14px!important;
+}
+
+.legendColorBox>div {
+	border: 0!important;
+	padding: 0!important;
+}
+
+.legendColorBox>div>div {
+	border-radius: 2px;
+	border-width: 6px!important;
+	box-sizing: content-box;
+}
+
+.legendLabel {
+	padding-left: 8px;
+}

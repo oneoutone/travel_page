@@ -1,0 +1,26 @@
+.intro-box h1 {
+	font-size: 34px;
+	line-height: 1.5;
+	padding: 5px 0;
+	margin-bottom: 20px;
+	border-bottom: #e5e5e5 1px solid;
+}
+
+.intro-box .img {
+	float: right;
+	margin: 0 0 15px 15px;
+}
+
+.intro-box .cont p {
+	text-indent: 2em;
+	font-size: 14px;
+	line-height: 24px;
+	margin-bottom: 15px;
+}
+
+.intro-box .cont h3 {
+	text-indent: 2em;
+	font-size: 16px;
+	padding-top: 20px;
+	margin-bottom: 15px;
+}

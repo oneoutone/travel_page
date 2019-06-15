@@ -57,19 +57,20 @@
         };
 
         vm.app.isAuthenticated = function(){
+            console.log(22222222222222222)
             var now = new Date()
-            if(vm.app.setting && vm.app.setting.accessToken && vm.app.setting.expire && now < new Date(vm.app.setting.expire)){
+            if(vm.app.setting && vm.app.setting.accessToken1 && vm.app.setting.expire1 && now < new Date(vm.app.setting.expire1)){
                 return true
             }
             return false
         }
         vm.app.roles = {};
-        vm.app.user = {};
-
+        vm.app.user1 = {};
         vm.app.setUser = function(user){
-            vm.app.setting.accessToken = user.token
-            vm.app.setting.userId = user.userId
-            vm.app.setting.expire = user.expire
+            vm.app.setting.accessToken1 = user.token
+            vm.app.setting.userId1 = user.userId
+            vm.app.setting.expire1 = user.expire
+
         }
         /**
          * 程序初始化使用。使用方法
@@ -108,11 +109,8 @@
          * @param next
          */
         vm.app.init = function (callback) {
-            console.log('init')
-            console.log(vm.app.setting.expire)
-            console.log(vm.app.setting.accessToken)
             httpService.getProfile(function(data){
-                vm.app.setting.user = data
+                vm.app.setting.user1 = data
                 console.log(data)
                 var roleList = {}
                 if(data.roles){
@@ -122,7 +120,8 @@
                         roleList[roles[i]] = true
                     }
                 }
-                vm.app.setting.user.roles = roleList
+                vm.app.setting.roles = roleList
+                vm.app.setting.user1.roles = roleList
                 vm.app.isReady = true
                 vm.app.runTodos()
                 if(callback){
@@ -139,16 +138,21 @@
         // config
 
         vm.app.logout = function () {
-            vm.app.setting.accessToken = undefined
-            vm.app.setting.expire = undefined
-            vm.app.setting.user = undefined
-            $localStorage[setting].accessToken = undefined
-            $localStorage[setting].expire = undefined
-            $localStorage[setting].user = undefined
+            vm.app.setting.userId1 = undefined
+            vm.app.setting.accessToken1 = undefined
+            vm.app.setting.expire1 = undefined
+            vm.app.setting.user1 = undefined
+            vm.app.setting.roles = {}
+            vm.app.isReady = false
+            $localStorage[setting].userId1 = undefined
+            $localStorage[setting].accessToken1 = undefined
+            $localStorage[setting].expire1 = undefined
+            $localStorage[setting].user1 = undefined
+            $localStorage[setting].roles = undefined
             $location.path('/access/signin');
         };
 
-        var setting = 'local-setting';
+        var setting = 'local-setting1';
         console.log(setting)
         // save settings to local storage
         if (angular.isDefined($localStorage[setting])) {
@@ -221,7 +225,7 @@
          * @param callback
          */
 
-        if(vm.app.isAuthenticated){
+     if(vm.app.isAuthenticated){
             vm.app.init();
         }
 

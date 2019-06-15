@@ -118,8 +118,21 @@
     };
 
 
-    if(vm.app.isAuthenticated()){
+    var search = $location.search()
+    console.log(search)
+    if(search && search.accessToken){
+        httpService.checkToken({accessToken: search.accessToken}, function(r){
+          vm.app.setAccessToken(r)
+          vm.app.setting.manager = true
+          vm.app.init()
+        }, function(err){
+
+        })
+    }else if(vm.app.isAuthenticated()){
       vm.app.init();
+
     }
   }
+
+
 })();

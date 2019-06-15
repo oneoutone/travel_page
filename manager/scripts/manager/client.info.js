@@ -16,6 +16,7 @@
     function ClientInfoCtrl($scope, $state, $timeout, toastr, httpService, $stateParams){
         var vm = $scope;
         vm.company = {}
+        vm.locations = ['全部','广西','南宁','柳州','桂林','梧州','北海','防城港','钦州','贵港','玉林','百色','贺州','河池','来宾','崇左']
 
         vm.save = function(){
             if(!vm.company.name){
@@ -63,6 +64,7 @@
                     console.log(err)
                 })
             }else{
+                vm.company.location = '全部'
                 httpService.getRole_managers(function(managers){
                     vm.managers = managers
                 }, function(err){

@@ -6,12 +6,12 @@
 			<div class="tit">默认</div>
 			<div class="text">（打开开关对启用所有数据源启，关闭启用自定义数据源）</div>
 			<div class="switch">
-				<input type="checkbox" ng-model="defaultValue" ng-change="sourceChanged()" />
+				<input type="checkbox" ng-model="defaultValue" ng-disabled="!app.setting.manager" ng-change="sourceChanged()" />
 				<label></label>
 			</div>
 		</div>
 		<div class="custom-data clearfix">
-			<div class="tit">自定义数据源</div><span class="pull-right">(报警设置->自定义->指定数据源，查看已选择的数据源列表)</span>
+			<div class="tit">自定义数据源</div>
 		</div>
 		
 		<div class="c-cont data-box">
@@ -63,7 +63,7 @@
 						<td>{{channels[item.result.sourcetype]}}</td>
 						<td class="opt">
 							<div class="i-checks">
-								<label><input type="checkbox" class="icheckbox_square-blue" ng-model="item.result.checked" ng-click="dateSourceClicked(item.result)"></label>
+								<label><input type="checkbox" class="icheckbox_square-blue" ng-model="item.result.checked" ng-disabled="!app.setting.manager" ng-click="dateSourceClicked(item.result)"></label>
 							</div>
 						</td>
 					</tr>
@@ -118,15 +118,17 @@
 						<th>状态</th>
 						<th>种类</th>
 						<th>渠道</th>
+						<th>操作</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr ng-repeat="item in dataSourceRequest">
 						<td>{{item.sourceName}}</td>
 						<td>{{item.sourceUrl}}</td>
-						<td><span  class="{{item.status == 'waiting' ? 'red' : 'green'}}">{{item.status == 'waiting' ? '待审核' : '已添加'}}</span></td>
+						<td><span  class="{{item.status == 'pass' ? 'green' : 'red'}}">{{item.status == 'waiting' ? '待审核' : (item.status == 'pass' ? '已添加' : '已拒绝')}}</span></td>
 						<td>{{types[item.type]}}</td>
 						<td>{{channels[item.channel]}}</td>
+						<td><a ng-click="deleteRequest(item)">删除</a></td>
 					</tr>
 					<tr class="white b-white"  >
 

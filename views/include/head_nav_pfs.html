@@ -1,13 +1,22 @@
 <div class="c-nav-bottom">
 	<div class="wrap clearfix">
-		<div class="c-nav-tit"><ul class="c-nav-list"><li class="presentation" ui-sref="app.pfs_index">
+		<div class="c-nav-tit"><ul class="c-nav-list"><li class="presentation" ui-sref="{{app.setting.manager ? 'app.pfs_index1' : 'app.pfs_index'}}">
 			<a style="font-size: 18px" href="javascript:void(0);">舆情监测平台</a></li></ul></div>
 		<ul class="c-nav-list">
-			<li class="presentation" ng-class="header.name == '1'?'curr':''" ui-sref="app.pfs_index">
+			<li class="presentation" ng-class="header.name == '1'?'curr':''" ui-sref="{{app.setting.manager ? 'app.pfs_index1' : 'app.pfs_index'}}">
 				<a href="javascript:void(0);">首页</a>
 			</li>
 			<li class="presentation" ng-class="header.name == '2'?'curr':''" ui-sref="app.news_list">
-				<a href="javascript:void(0);">舆情列表</a>
+				<a href="javascript:void(0);">文章列表</a>
+			</li>
+			<li class="presentation" ng-class="header.name == '9'?'curr':''" ui-sref="app.follow_list">
+				<a href="javascript:void(0);">持续关注</a>
+			</li>
+			<li ng-show="app.setting.manager" class="presentation" ng-class="header.name == '8'?'curr':''" ui-sref="app.pfs_wait">
+				<a href="javascript:void(0);">待办</a>
+			</li>
+			<li class="presentation" ng-class="header.name == '6'?'curr':''" ui-sref="app.pfs_report_manager">
+				<a href="javascript:void(0);">报表管理</a>
 			</li>
 			<li class="presentation" ng-class="header.name == '3'?'curr':''" ui-sref="app.pfs_keyword">
 				<a href="javascript:void(0);">领域词典</a>
@@ -15,13 +24,10 @@
 			<li class="presentation" ng-class="header.name == '4'?'curr':''" ui-sref="app.pfs_data_source">
 				<a href="javascript:void(0);">数据源设置</a>
 			</li>
-			<li class="presentation" ng-class="header.name == '5'?'curr':''" ui-sref="app.pfs_set">
+			<li ng-show="app.setting.manager" class="presentation" ng-class="header.name == '5'?'curr':''" ui-sref="app.pfs_set">
 				<a href="javascript:void(0);">报警设置</a>
 			</li>
-			<li class="presentation" ng-class="header.name == '6'?'curr':''" ui-sref="app.pfs_report_manager">
-				<a href="javascript:void(0);">报表管理</a>
-			</li>
-			<li class="presentation" ng-class="header.name == '7'?'curr':''" ui-sref="app.pfs_proposal">
+			<li class="presentation" ng-show="!app.setting.manager" ng-class="header.name == '7'?'curr':''" ui-sref="app.pfs_proposal">
 				<a href="javascript:void(0);">建议</a>
 			</li>
 		</ul>

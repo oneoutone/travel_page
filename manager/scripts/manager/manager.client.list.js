@@ -26,14 +26,14 @@
             if(vm.status == '禁用'){
                 status = 'forbid'
             }
-
-            httpService.getAllCompanyList({filter: vm.filter, status: status, size: 10, page: vm.page, managerId: vm.app.setting.user.id}, function(data){
+            console.log(111111111111111111)
+            httpService.getAllCompanyList({filter: vm.filter, status: status, size: 10, page: vm.page, managerId: vm.app.setting.user1.id}, function(data){
                 vm.list = data
             }, function(err){
                 console.log(err)
             })
 
-            httpService.getAllCompanyCount({filter: vm.filter, status: status, managerId: vm.app.setting.user.id}, function(data){
+            httpService.getAllCompanyCount({filter: vm.filter, status: status, managerId: vm.app.setting.user1.id}, function(data){
                 vm.bigTotalItems = data.count
                 vm.bigCurrentPage = vm.page
             }, function(err){
@@ -57,14 +57,25 @@
 
 
         vm.doFilter = function(){
-            $state.go('app.clientList', {page: 1, filter: vm.filter, status: vm.status})
+            $state.go('app.clientListOfManager', {page: 1, filter: vm.filter, status: vm.status})
+        }
+
+        vm.openConfig= function(row){
+            httpService.clientToken({clientId: row.adminId}, function(r){
+                console.log(r)
+                //window.open("http://hadupu.cn/admin/#/app/pfs_index1?accessToken="+r.token, '_blank')
+                window.open("http://localhost:3000/admin/#/app/pfs_index1?accessToken="+r.token, '_blank')
+
+            }, function(e){
+                toastr.error('打开配置页面失败')
+            })
         }
 
         $scope.pageChanged = function() {
             if(vm.bigCurrentPage == vm.page){
                 return
             }
-            $state.go('app.clientList', {page: vm.bigCurrentPage, filter: vm.filter, status: vm.status})
+            $state.go('app.clientListOfManager', {page: vm.bigCurrentPage, filter: vm.filter, status: vm.status})
         };
 
         vm.app.ready(function(){
@@ -86,5 +97,7 @@
             vm.size = 10
             vm.fetchData()
         })
+
+
     }
 })();

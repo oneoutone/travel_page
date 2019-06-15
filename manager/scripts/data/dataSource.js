@@ -62,6 +62,7 @@
             }
             httpService.dataSourceUpdate({id: vm.data.id, urls: vm.sources.join(',')}, function(){
                 toastr.success('更新数据源成功')
+
             }, function (err){
                 toastr.error('更新数据源失败')
             })

@@ -1,0 +1,704 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 100%;
+}
+
+a {
+	color: #00a4ff;
+}
+
+.c-btn-small {
+	height: 30px;
+	line-height: 28px;
+	min-width: 100px;
+	font-size: 14px;
+}
+
+.c-section.c-p-y-tall {
+	padding: 30px 0 0;
+}
+
+.c-section-inner {
+	margin: 0 auto;
+	width: 100%;
+	padding: 0;
+}
+
+.c-section-hd {
+	padding-bottom: 30px;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.c-section-tit {
+	text-align: center;
+	font-size: 18px;
+	color: #000;
+	font-weight: 400;
+	line-height: 1.5;
+}
+
+
+/*轮播*/
+
+.banner-reg {
+	position: relative;
+	display: block;
+	overflow: hidden;
+}
+
+.banner {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	border: none;
+}
+
+.banner ul {
+	position: relative;
+	padding-top: 50%;
+	border: none;
+	background-color: rgb(31, 37, 49);
+}
+
+.banner ul li {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding-top: 50%;
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+	z-index: -1;
+}
+
+.banner ul li.actived {
+	z-index: 0;
+}
+
+.banner ul li:first-child {
+	display: block;
+	z-index: 0;
+}
+
+.banner .dots {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	bottom: 2px;
+	z-index: 1;
+	line-height: 0;
+	font-size: 0;
+	text-align: center;
+	padding: 10px 0;
+	overflow: hidden;
+}
+
+.banner .dots li {
+	display: inline-block;
+	float: none;
+	list-style: none;
+	margin: 0 5px;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: #ABABAB;
+	cursor: pointer;
+	opacity: 0.44;
+}
+
+.banner .dots li.actived {
+	background: #FFF;
+	opacity: 0.8;
+}
+
+.ban-box {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	color: #fff;
+	padding: 0 15px;
+	z-index: 2;
+	margin-top: -45px;
+}
+
+.ban-tit {
+	font-size: 20px;
+	text-align: center;
+	line-height: 36px;
+	font-weight: 400;
+}
+
+.ban-text {
+	height: 48px;
+	font-size: 14px;
+	line-height: 20px;
+	margin-top: 5px;
+}
+
+
+/*去注册*/
+
+.c-hero-m-aside {
+	position: relative;
+	display: block;
+	padding: 15px 100px 15px 15px;
+	background-image: url(../img/bg-m1.png);
+	font-size: 14px;
+	line-height: 20px;
+	pointer-events: all;
+	background-position: 0px 0px;
+	background-size: cover;
+}
+
+.c-hero-m-aside a {
+	display: block;
+	color: inherit;
+}
+
+.c-hero-m-aside .btn-register {
+	display: inline-block;
+	position: absolute;
+	right: 15px;
+	top: 15px;
+	width: 80px;
+	min-width: 80px;
+	padding-left: 12px;
+	padding-right: 12px;
+	color: #fff;
+}
+
+
+/*了解广西旅游云产品与服务*/
+
+.home-product-list {
+	margin: 0 auto;
+	font-size: 0;
+	display: block;
+	padding-right: 0;
+}
+
+.home-product-m-title {
+	display: block;
+	position: relative;
+	padding: 10px 15px 10px 57px;
+	border-bottom: 1px solid #e5e5e5;
+	font-size: 16px;
+	line-height: 32px;
+}
+
+.home-product-m-title:after {
+	content: '';
+	position: absolute;
+	right: 15px;
+	top: 22px;
+	width: 14px;
+	height: 8px;
+	background-image: url(../img/home-media12-201811061900.svg);
+	-webkit-transition: -webkit-transform .2s;
+	transition: -webkit-transform .2s;
+	transition: transform .2s;
+	transition: transform .2s, -webkit-transform .2s;
+	background-position: 39.92% 90.53%;
+	background-size: 1942.8571428571427% 3400%;
+	background-repeat: no-repeat;
+}
+
+.home-product-icon {
+	position: absolute;
+	left: 15px;
+	top: 10px;
+	width: 32px;
+	height: 32px;
+	display: block;
+}
+
+.home-product-icon img {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.home-product-icon .active-img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+}
+
+.home-product-m-title.actived {
+	color: #00a4ff;
+}
+
+.home-product-m-title.actived .home-product-icon img {
+	opacity: 0;
+}
+
+.home-product-m-title.actived .home-product-icon .active-img {
+	opacity: 1;
+}
+
+.home-product-m-title.actived:after {
+	-webkit-transform: rotate(-180deg);
+	transform: rotate(-180deg);
+	background-image: url(../img/home-media12-201811061900.svg);
+	background-position: 33.72% 90.53%;
+	background-size: 1942.8571428571427% 3400%;
+	background-repeat: no-repeat;
+}
+
+.home-product-list>ul {
+	display: none;
+	padding: 10px 0;
+	background-color: #f7f8fa;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.home-product-list>ul.actived {
+	display: block;
+}
+
+.home-product-item {
+	display: block;
+	vertical-align: top;
+}
+
+.home-product-list-normal .home-product-item>a {
+	padding: 11px 15px;
+}
+
+.home-product-item a {
+	display: block;
+	color: #333;
+}
+
+.home-product-item-tit {
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.home-product-list-normal .home-product-item-tit {
+	line-height: 24px;
+}
+
+.home-product-item-txt {
+	font-size: 14px;
+}
+
+.home-product-list-normal .home-product-item-txt {
+	color: #999;
+	line-height: 24px;
+}
+
+
+/*3.内容-专家*/
+
+.expert-item {
+	padding: 12px 15px;
+	background-color: #ffffff;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.expert-item .exp-img {
+	width: 50px;
+	height: 50px;
+	border-radius: 3px;
+}
+
+.expert-item .exp-info {
+	padding-left: 15px;
+}
+
+.expert-item .exp-name {
+	color: #333;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+.expert-item .exp-work {
+	color: #666;
+	font-size: 14px;
+	line-height: 1.5;
+	padding-top: 4px;
+}
+
+
+/*4.内容-旅游大数据报告厅*/
+
+.index-m-report .c-section-hd {
+	border-bottom: none;
+}
+
+.index-m-report .c-section-bd {
+	padding-left: 15px;
+}
+
+.index-m-report .report-item {
+	float: left;
+	width: 50%;
+	padding-right: 15px;
+	margin-bottom: 15px;
+}
+
+.index-m-report .report-item a {
+	display: block;
+	text-align: center;
+	border: 1px solid #e5e5e5;
+	background-color: #ffffff;
+}
+
+.index-m-report .report-item img {
+	display: block;
+	width: 100%;
+}
+
+.index-m-report .report-item h3 {
+	color: #333;
+	font-size: 14px;
+	line-height: 1.4;
+	padding: 5px;
+}
+
+
+/*支持192个业务场景的全栈解决方案*/
+
+.solution-m-tit {
+	display: block;
+	position: relative;
+	padding: 10px 15px;
+	border-bottom: 1px solid #e5e5e5;
+	font-size: 16px;
+	line-height: 32px;
+}
+
+.solution-m-tit:after {
+	content: '';
+	position: absolute;
+	right: 15px;
+	top: 22px;
+	width: 14px;
+	height: 8px;
+	background-image: url(../img/home-media12-201811061900.svg);
+	transition: transform .2s;
+	background-position: 39.92% 90.53%;
+	background-size: 1942.8571428571427% 3400%;
+	background-repeat: no-repeat;
+}
+
+.solution-m-tit h3 {
+	font-weight: 400;
+}
+
+.solution-m-tit.actived {
+	color: #00a4ff;
+}
+
+.solution-m-tit.actived:after {
+	-webkit-transform: rotate(-180deg);
+	transform: rotate(-180deg);
+	background-image: url(../img/home-media12-201811061900.svg);
+	background-position: 33.72% 90.53%;
+	background-size: 1942.8571428571427% 3400%;
+	background-repeat: no-repeat;
+}
+
+.solution-m-con {
+	display: none;
+	padding: 10px 0;
+	background-color: #f7f8fa;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.solution-m-con.actived {
+	display: block;
+}
+
+.solution-m-txt {
+	padding: 10px 20px 0;
+	color: #333;
+	line-height: 1.6;
+}
+
+.solution-m-txt a {
+	color: #00a4ff;
+	display: inline-block;
+}
+
+.solution-m-logo {
+	padding: 20px 10px 0;
+	font-size: 0;
+}
+
+.solution-m-logo-item {
+	display: inline-block;
+	height: 45px;
+	width: 33.3333%;
+	text-align: center;
+	padding: 0 10px;
+	margin-bottom: 15px;
+	vertical-align: top;
+	font-size: 0;
+	white-space: normal;
+}
+
+.solution-m-logo-item:after {
+	content: '';
+	width: 0;
+	height: 100%;
+	display: inline-block;
+	vertical-align: middle;
+	overflow: hidden;
+}
+
+.solution-m-logo-item img {
+	display: inline-block;
+	vertical-align: middle;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+
+/*7.内容-提供安全专家服务和合规性资质*/
+
+.c-media-heading {
+	text-align: center;
+	font-size: 16px;
+	color: #333;
+	margin: 0;
+	padding: 0;
+	font-weight: 400;
+	line-height: 1.5;
+}
+
+.c-media-info {
+	font-size: 14px;
+	color: #666;
+	margin-top: 5px;
+	line-height: 1.6;
+	word-wrap: break-word;
+}
+
+.c-media-horiz {
+	position: relative;
+	line-height: 1.5;
+	background: #fff;
+}
+
+.c-media-horiz>a {
+	display: block;
+	padding: 20px;
+}
+
+.c-media-horiz .c-media-img {
+	display: table-cell;
+	vertical-align: top;
+	width: inherit;
+	padding: 0 15px 0 0;
+}
+
+.c-media-horiz .c-media-body {
+	display: table-cell;
+	vertical-align: top;
+	margin-top: 0;
+}
+
+.c-media-horiz .c-media-heading {
+	text-align: left;
+}
+
+.home-certificate .c-section-hd {
+	border-bottom: none;
+}
+
+.home-certificate .c-section-bd {
+	padding: 0 15px;
+}
+
+.home-certificate .c-media-horiz {
+	border: 1px solid #e5e5e5;
+	margin-bottom: 15px;
+}
+
+.home-certificate .c-media-horiz>a {
+	padding: 14px;
+}
+
+.home-certificate .c-media-horiz .c-media-img {
+	padding-right: 15px;
+}
+
+.home-certificate .c-media-horiz .c-media-img img {
+	width: 32px;
+	height: 32px;
+}
+
+
+/*立即体验*/
+
+.home-footer-mod.c-p-y-tall {
+	padding: 0;
+	height: 280px;
+	max-height: 394px;
+	background: url(../img/bg-free.png) top center no-repeat #f7f8fa;
+	background-size: auto 100%;
+}
+
+.home-footer-mod .c-section-inner {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	padding: 0 15px;
+	height: 100%;
+	position: relative;
+	z-index: 2;
+}
+
+.home-footer-mod .c-section-hd {
+	border-bottom: none;
+	padding-bottom: 12px;
+	margin-bottom: 0;
+}
+
+.home-footer-info {
+	font-size: 14px;
+	line-height: 1.7;
+	color: #333;
+	text-align: center;
+}
+
+.home-footer-btn {
+	padding-top: 33px;
+	text-align: center;
+}
+
+
+/*底部*/
+
+.c-footer {
+	background-color: #2e3033;
+}
+
+.c-footer .c-footer-website {
+	position: relative;
+	padding: 12px 15px;
+}
+
+.c-footer .c-footer-website:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 1px;
+	border-bottom: 1px solid #393c40;
+	transform: scale3d(1, .5, 1);
+	transform-origin: center bottom;
+}
+
+.c-footer .c-footer-website .tit {
+	color: #fff;
+	font-size: 14px;
+	line-height: 1.5;
+	letter-spacing: 0;
+	margin-bottom: 8px;
+}
+
+.c-footer .c-footer-website ul li {
+	float: left;
+	margin-right: 10px;
+}
+
+.c-footer .c-footer-website ul li a {
+	color: #ccc;
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+.c-footer .foot-qr {
+	text-align: center;
+	font-size: 0;
+	line-height: 0;
+	padding: 20px 15px 30px 15px;
+}
+
+.c-footer .foot-qr .foot-qr-item {
+	display: inline-block;
+	width: 80px;
+	margin: 0 8px;
+}
+
+.c-footer .foot-qr .foot-qr-item .img {
+	display: block;
+	width: 80px;
+	height: 80px;
+}
+
+.c-footer .foot-qr .foot-qr-item .qr-text {
+	color: #ccc;
+	font-size: 12px;
+	line-height: 1.5;
+	text-align: center;
+	margin-top: 15px;
+}
+
+
+/*返回顶部*/
+
+.return_top {
+	position: fixed;
+	z-index: 99;
+	right: 8px;
+	bottom: 15px;
+	width: 44px;
+	height: 44px;
+	box-sizing: border-box;
+	white-space: nowrap;
+	text-indent: 100%;
+	overflow: hidden;
+	border-radius: 50%;
+	border: 1px solid #e1e8f0;
+	background-color: #fff;
+	box-shadow: 0 0 0 1px rgba(227, 229, 233, .25)
+}
+
+.return_top:before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	margin-left: -7px;
+	top: 50%;
+	margin-top: -4px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 7px 8px;
+	border-color: transparent transparent #666
+}
+
+.return_top:after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	margin-left: -7px;
+	top: 50%;
+	margin-top: -1px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 7px 8px;
+	border-color: transparent transparent #fff
+}

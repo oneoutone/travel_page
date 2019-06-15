@@ -4,8 +4,8 @@
         .module('httpService', [])
         .service('httpService', ['$http', '$localStorage', function ($http, $localStorage) {
             var self = this;
-            var host = 'http://hadupu.cn/api'
-            //var host = 'http://localhost:8080/api'
+            //var host = 'http://hadupu.cn/api'
+            var host = 'http://localhost:8080/api'
 
             function postRequest(url, data, options, success, fail){
                 var header = {'Content-Type': 'application/json'}
@@ -154,6 +154,10 @@
                 getRequest(host + '/yuqing/emotion_data', data, {auth:true}, success, fail)
             }
 
+            self.leader_date = function(data,success, fail){
+                getRequest(host + '/yuqing/leader_data', data, {auth:false}, success, fail)
+            }
+
             self.data = function(data, success,fail){
                 getRequest(host + '/yuqing/data', data, {auth:true}, success, fail)
             }
@@ -164,6 +168,9 @@
 
             self.article = function(data, success,fail){
                 getRequest(host + '/yuqing/article', data, {auth:true}, success, fail)
+            }
+            self.trend = function(data, success,fail){
+                getRequest(host + '/yuqing/trend', data, {auth:true}, success, fail)
             }
 
             self.weiboV = function(success,fail){
@@ -302,16 +309,51 @@
             self.getAllCompanyCount = function(data, success, fail) {
                 getRequest(host + '/company/allCount', data, {auth: true}, success, fail)
             }
+            self.addAdvice = function(data, success, fail) {
+                postRequest(host + '/advice', data, {auth: true}, success, fail)
+            }
+            self.checkToken = function(data, success, fail) {
+                postRequest(host + '/users/checkToken', data, {auth: false}, success, fail)
+            }
+            self.clientToken = function(data, success, fail) {
+                postRequest(host + '/users/clientToken', data, {auth: true}, success, fail)
+            }
+            self.adviceCountByUserId = function(success, fail) {
+                getRequest(host + '/advice/countByUserId', null, {auth: true}, success, fail)
+            }
+            self.adviceListByUserId = function(data, success, fail) {
+                getRequest(host + '/advice/listByUserId', data, {auth: true}, success, fail)
+            }
+            self.deleteDataSourceRequestById = function(data, success, fail) {
+                postRequest(host + '/yuqing/dataSourceRequest/deleteById', data, {auth: true}, success, fail)
+            }
+            self.updateDataSourceRequestById = function(data, success, fail) {
+                postRequest(host + '/yuqing/dataSourceRequest/update', data, {auth: true}, success, fail)
+            }
+            self.confirmWord = function(success, fail) {
+                postRequest(host + '/yuqing/keyWord/confirm', null, {auth: true}, success, fail)
+            }
+            self.createFollow = function(data, success,fail){
+                postRequest(host + '/follow', data, {auth:true}, success, fail)
+            }
+            self.followCountByUserId = function(success, fail) {
+                getRequest(host + '/follow/countByUserId', null, {auth: true}, success, fail)
+            }
+            self.followListByUserId = function(data, success, fail) {
+                getRequest(host + '/follow/listByUserId', data, {auth: true}, success, fail)
+            }
+            self.deleteFollowById = function(data, success, fail) {
+                postRequest(host + '/follow/delete', data, {auth: true}, success, fail)
+            }
+            self.followFindByArticleId = function(data, success, fail) {
+                getRequest(host + '/follow/findByUserId', data, {auth: true}, success, fail)
+            }
             /**
              * get stored access token
              * @returns {*|string}
              */
             function getAccessToken() {
-                if (!self.accessToken) {
-                    self.accessToken = $localStorage["local-setting"].accessToken
-                }
-                console.log(self.accessToken)
-                return self.accessToken
+                return $localStorage["local-setting"].accessToken
             }
         }])
 })();

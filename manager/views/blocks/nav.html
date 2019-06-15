@@ -17,11 +17,11 @@
       <span class="nav-text">舆情平台</span>
     </a>
     <ul class="nav-sub">
-      <li ui-sref-active="active">
-        <a ui-sref="app.dataList">
-          <span class="nav-text">待办事项</span>
-        </a>
-      </li>
+      <!--<li ui-sref-active="active">-->
+        <!--<a ui-sref="app.dataList">-->
+          <!--<span class="nav-text">待办事项</span>-->
+        <!--</a>-->
+      <!--</li>-->
       <li ui-sref-active="active">
         <a ui-sref="app.clientListOfManager">
           <span class="nav-text">客户配置</span>
@@ -31,23 +31,23 @@
   </li>
   
   
-  <li>
-    <a ui-sref="app.index">
-        <span class="nav-icon">
-          <i class="material-icons">recent_actors </i>
-        </span>
-      <span class="nav-text">首页</span>
-    </a>
-  </li>
-  
-  <li>
-    <a ui-sref="app.backlog">
-        <span class="nav-icon">
-          <i class="material-icons">recent_actors </i>
-        </span>
-      <span class="nav-text">待办</span>
-    </a>
-  </li>
+  <!--<li>-->
+    <!--<a ui-sref="app.index">-->
+        <!--<span class="nav-icon">-->
+          <!--<i class="material-icons">recent_actors </i>-->
+        <!--</span>-->
+      <!--<span class="nav-text">首页</span>-->
+    <!--</a>-->
+  <!--</li>-->
+  <!---->
+  <!--<li>-->
+    <!--<a ui-sref="app.backlog">-->
+        <!--<span class="nav-icon">-->
+          <!--<i class="material-icons">recent_actors </i>-->
+        <!--</span>-->
+      <!--<span class="nav-text">待办</span>-->
+    <!--</a>-->
+  <!--</li>-->
 
   <li>
     <a>
@@ -67,84 +67,18 @@
           <span class="nav-text">申请列表</span>
         </a>
       </li>
-      <li ui-sref-active="active" ng-show="app.setting.user.roles.productConfirm || app.setting.user.roles.admin">
-        <a ui-sref="app.confirm.list">
-          <span class="nav-text">任务列表</span>
-        </a>
-      </li>
     </ul>
   </li>
 
-  <li>
-    <a>
-        <span class="nav-caret">
-          <i class="fa fa-caret-down"></i>
-        </span>
-        <span class="nav-label">
-        </span>
-        <span class="nav-icon">
-          <i class="material-icons">extension</i>
-        </span>
-      <span class="nav-text">礼品兑换</span>
-    </a>
-    <ul class="nav-sub">
-      <li ui-sref-active="active" ng-show="app.setting.user.roles.productEdit || app.setting.user.roles.admin">
-        <a ui-sref="app.product.list">
-          <span class="nav-text">兑换列表</span>
-        </a>
-      </li>
-      <li ui-sref-active="active" ng-show="app.setting.user.roles.productConfirm || app.setting.user.roles.admin">
-        <a ui-sref="app.confirm.list">
-          <span class="nav-text">礼品审核</span>
-        </a>
-      </li>
-      <li ui-sref-active="active">
-        <a ui-sref="app.redeem.list">
-          <span class="nav-text">兑换订单</span>
-        </a>
-      </li>
-    </ul>
-  </li>
-
-  <li>
-    <a>
-        <span class="nav-caret">
-          <i class="fa fa-caret-down"></i>
-        </span>
-      <span class="nav-label">
-        </span>
-      <span class="nav-icon">
-          <i class="material-icons">extension</i>
-        </span>
-      <span class="nav-text">会议预约</span>
-    </a>
-    <ul class="nav-sub">
-      <li ui-sref-active="active">
-        <a ui-sref="app.company.list">
-          <span class="nav-text">入驻公司</span>
-        </a>
-      </li>
-      <li ui-sref-active="active">
-         <a ui-sref="app.meetingRoom.list">
-           <span class="nav-text">会议室配置</span>
-         </a>
-      </li>
-      <li ui-sref-active="active">
-        <a ui-sref="app.meeting.grid">
-          <span class="nav-text">会议预约</span>
-        </a>
-      </li>
-    </ul>
-  </li>
 
 
 
   <!-- 系统配置板块 -->
-  <li class="nav-header hidden-folded" ng-show="app.setting.user.roles.admin">
+  <li class="nav-header hidden-folded" ng-show="app.setting.user1.roles.admin">
     <small class="text-muted">管理员空间</small>
   </li>
 
-  <li ui-sref-active="active" ng-show="app.setting.user.roles.admin">
+  <li ui-sref-active="active" ng-show="app.setting.user1.roles.admin">
     <a ui-sref="app.clientList">
         <span class="nav-icon">
           <i class="material-icons">recent_actors </i>
@@ -153,7 +87,7 @@
     </a>
   </li>
 
-  <li ui-sref-active="active" ng-show="app.setting.user.roles.admin">
+  <li ui-sref-active="active" ng-show="app.setting.user1.roles.admin">
     <a ui-sref="app.manager.list">
         <span class="nav-icon">
           <i class="material-icons">recent_actors </i>

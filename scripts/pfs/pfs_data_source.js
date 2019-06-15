@@ -29,7 +29,6 @@
 			}, function(e){
 				console.log(e)
 			})
-
 		}
 
 		if($stateParams.page){
@@ -43,6 +42,7 @@
 		}else{
 			vm.page1 = 1
 		}
+
 		if($stateParams.page2){
 			vm.page2 = $stateParams.page2
 		}else{
@@ -130,6 +130,15 @@
 				vm.bigCurrentPage1 = vm.page1
 			}, function(e){
 				console.log(e)
+			})
+		}
+
+		vm.deleteRequest = function(item){
+			httpService.deleteDataSourceRequestById({id: item.id}, function(){
+				toastr.success('删除成功')
+				fetchData1()
+			}, function(err){
+				toastr.error('删除失败，请稍后再试')
 			})
 		}
 

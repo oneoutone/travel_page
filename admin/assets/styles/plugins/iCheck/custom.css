@@ -1,0 +1,55 @@
+/* iCheck plugin Square skin, blue
+----------------------------------- */
+
+.icheckbox_square-blue,
+.iradio_square-blue {
+	display: inline-block;
+	*display: inline;
+	vertical-align: middle;
+	margin: 0;
+	padding: 0;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #d1d2d3;
+	cursor: pointer;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.icheckbox_square-blue.hover,
+.icheckbox_square-blue:hover,
+.iradio_square-blue.hover,
+.iradio_square-blue:hover {
+	border: 1px solid #00a4ff;
+}
+
+.icheckbox_square-blue.checked {
+	background-image: url(blue1.png);
+}
+
+.iradio_square-blue.checked {
+	background-image: url(blue3.png);
+}
+
+.icheckbox_square-blue.disabled,
+.iradio_square-blue.disabled {
+	background-color: #e8e8e8;
+	cursor: default;
+}
+
+.icheckbox_square-blue.disabled:hover,
+.iradio_square-blue.disabled:hover {
+	border: 1px solid #d1d2d3;
+}
+
+.icheckbox_square-blue.checked.disabled {
+	background-image: url(blue2.png);
+}
+
+.iradio_square-blue.checked.disabled {
+	background-image: url(blue4.png);
+}
+
+.iradio_square-blue {
+	border-radius: 50%;
+}

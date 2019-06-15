@@ -40,7 +40,7 @@
                 $scope.loading = false
                 vm.app.setUser(result)
                 vm.app.init(function(){
-                    $state.go('app.manager.list', {reload: true})
+                    $state.go('app.clientListOfManager', {}, {reload: true})
                 })
             }, function(result){
                 console.log(result)

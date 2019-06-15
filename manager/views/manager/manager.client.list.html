@@ -36,11 +36,6 @@
             </form>
 
         </div>
-        <div class="box-body b-t">
-            <button type="button" ui-sref="app.clientInfo" class="btn btn-sm {{app.setting.theme.primary}}">
-                <i class="material-icons">add</i> 新建
-            </button>
-        </div>
         <table id="teamTable" class="table table-striped" data-empty="没有记录">
             <thead>
             <tr>
@@ -57,8 +52,7 @@
                 <td class="v-m">{{row.nickname}}</td>
                 <td class="v-m">{{row.status == 'normal' ? '正常': '禁用'}}</td>
                 <td class="v-m">
-                    <button class="btn btn-xs {{app.setting.theme.primary}}" ui-sref="app.clientInfo({id: row.id})" >数据源配置</button>
-                    <button class="btn btn-xs {{app.setting.theme.primary}}" ng-click="updateStatus(row)" >报警配置</button>
+                    <button class="btn btn-xs {{app.setting.theme.primary}}" ng-click="openConfig(row)">客户配置</button>
                 </td>
             </tr>
             <tr class="white b-white" ng-show="bigTotalItems > 10">

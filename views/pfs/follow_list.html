@@ -1,0 +1,42 @@
+<div ng-include="apiInclude + 'head_nav_pfs.html'"></div>
+
+<div class="c-section c-main">
+    <div class="c-section-inner">
+        <!--文章-->
+        <div class="c-cont tab">
+            <!--<div class="tab-nav">-->
+            <!--<ul class="tab-nav-list">-->
+            <!--<li class="tab-nav-item {{type == 'all' ? 'actived' : ''}}" ng-click="setType('all')"><span>全部</span></li>-->
+            <!--<li class="tab-nav-item {{type == 'active' ? 'actived' : ''}}" ng-click="setType('active')"><span>正面</span></li>-->
+            <!--<li class="tab-nav-item {{type == 'negtive' ? 'actived' : ''}}" ng-click="setType('negtive')"><span>负面</span></li>-->
+            <!--<li class="tab-nav-item {{type == 'middle' ? 'actived' : ''}}" ng-click="setType('middle')"><span>中性</span></li>-->
+            <!--</ul>-->
+            <!--</div>-->
+            <div class="tab-content">
+                <div class="tab-pane actived">
+
+                    <!--文章列表-->
+                    <div class="col-article-list">
+                        <div class="com-article-panel" ng-repeat="item in data">
+                            <div class="com-article-panel-body">
+                                <!--<span class="type {{(!item.result.postive || item.result.postive > 0.6 ) ? 'type1' : (item.result.postive < 0.4 ? 'type2' : 'type3')}}">{{(!item.result.postive || item.result.postive > 0.6) ? '正面' : (item.result.postive < 0.4 ? '负面' : '中性')}}</span>-->
+                                <h3 class="com-article-panel-title"><a ui-sref="app.news_detail({id: item.articleId})">{{item.title}}</a></h3>
+                                <div class="com-article-panel-info"><span>{{item.publish_time}}</span><span>来源：{{item.source_name}}</span><a class="news-analyse" href="javascript:void(0);" ui-sref="app.news_analyse({id: item.articleId})">页面分析</a><a class="news-analyse text-danger" ui-sref="app.follow({id: item.articleId})"><span class="text-danger ">转发： {{item.shareTrend}} 评论：{{item.supportTrend}} 阅读： {{item.readTrend}} </span></a><span class="pull-right text-blue"><a  ng-click="deleteFollow(item)">取消关注</a></span></div>
+                                <p class="com-article-panel-desc">
+                                    <a>{{item.content}}</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--分页-->
+                    <div class="pageation" style="text-align:center">
+                        <ul class="pagination" uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" total-items="true" max-size="10" class="pagination-sm" boundary-link-numbers="true" next-text="下一页" previous-text="上一页" rotate="false" ng-change="pageChanged()"></ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
