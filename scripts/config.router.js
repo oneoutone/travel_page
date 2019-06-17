@@ -123,6 +123,22 @@
     	}
       })
       
+      .state('app.pfs_event', {
+        url: '/pfs_event',
+        templateUrl: 'views/pfs/pfs_event.html',
+        data: {
+        	css: 'assets/styles/pfs_event.css'
+    	}
+      })
+      
+      .state('app.pfs_event_detail', {
+        url: '/pfs_event_detail',
+        templateUrl: 'views/pfs/pfs_event_detail.html',
+        data: {
+        	css: ['assets/styles/pfs_event.css', 'assets/styles/news_list.css']
+    	}
+      })
+      
       .state('app.pfs_detail', {
         url: '/pfs_detail',
         templateUrl: 'views/pfs/pfs_detail.html',
