@@ -25,7 +25,7 @@
 						</div>
 					</div>
 				</div>
-				<a class="coll-section-more" ui-sref="app.bps_purchase">进入采购商管理</a>
+				<a class="coll-section-more" ng-click="buyerClicked()">{{!permissons.buyer ? '成为采购商' : (permissons.buyer.status == 'waiting' ? '审批中' : '进入采购商管理')}}</a>
 			</div>
 		</div>
 	</div>
@@ -55,7 +55,7 @@
 						</div>
 					</div>
 				</div>
-				<a class="coll-section-more" ui-sref="app.bps_audit">成为供应商</a>
+				<a class="coll-section-more" ng-click="buyerClicked()">{{!permissons.supplier ? '成为供应商' : (permissons.supplier.status == 'waiting' ? '审批中' : '进入供应商管理')}}</a>
 			</div>
 		</div>
 	</div>
@@ -85,7 +85,7 @@
 						</div>
 					</div>
 				</div>
-				<a class="coll-section-more" ui-sref="app.bps_distributor">进入分销商管理</a>
+				<a class="coll-section-more" ui-sref="app.bps_distributor">{{!permissons.distributor ? '成为分销商' : (permissons.distributor.status == 'waiting' ? '审批中' : '进入分销商管理')}}</a>
 			</div>
 		</div>
 	</div>

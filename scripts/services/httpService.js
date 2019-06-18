@@ -348,6 +348,17 @@
             self.followFindByArticleId = function(data, success, fail) {
                 getRequest(host + '/follow/findByUserId', data, {auth: true}, success, fail)
             }
+
+            //bids
+            self.upserBidsInfo = function(data, success, fail) {
+                postRequest(host + '/bid/upsertBidInfo', data, {auth: true}, success, fail)
+            }
+            self.getBidsInfo = function(success, fail) {
+                getRequest(host + '/bid/bidsInfo', null, {auth: true}, success, fail)
+            }
+            self.bidPermissions = function(success, fail) {
+                getRequest(host + '/bid/permissions', null, {auth: true}, success, fail)
+            }
             /**
              * get stored access token
              * @returns {*|string}

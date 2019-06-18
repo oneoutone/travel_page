@@ -1,4 +1,3 @@
-<div ng-include="apiInclude + 'head_nav_bps.html'"></div>
 
 <div class="c-section c-main">
 	<div class="c-section-inner">
@@ -24,43 +23,43 @@
 					<div class="f-list-item">
 						<label class="c-f-list-tit"><span>公司名称：</span></label>
 						<div class="c-f-list-con">
-							<input type="text" class="c-control">
+							<input type="text" ng-model="bidInfo.name" class="c-control">
 						</div>
 					</div>
 					<div class="f-list-item">
 						<label class="c-f-list-tit"><span>统一社会信用代码：</span></label>
 						<div class="c-f-list-con">
-							<input type="text" class="c-control">
+							<input type="text"  ng-model="bidInfo.regNo" class="c-control">
 						</div>
 					</div>
 					<div class="f-list-item">
 						<label class="c-f-list-tit"><span>公司账号：</span></label>
 						<div class="c-f-list-con">
-							<input type="text" class="c-control">
+							<input type="text"  ng-model="bidInfo.acNo" class="c-control">
 						</div>
 					</div>
 					<div class="f-list-item">
 						<label class="c-f-list-tit"><span>开户行：</span></label>
 						<div class="c-f-list-con">
-							<input type="text" class="c-control">
+							<input type="text" ng-model="bidInfo.bank" class="c-control">
 						</div>
 					</div>
 					<div class="f-list-item">
 						<label class="c-f-list-tit"><span>公司地址：</span></label>
 						<div class="c-f-list-con">
-							<input type="text" class="c-control">
+							<input type="text" ng-model="bidInfo.address"  class="c-control">
 						</div>
 					</div>
 					<div class="f-list-item">
 						<label class="c-f-list-tit"><span>联系电话：</span></label>
 						<div class="c-f-list-con">
-							<input type="text" class="c-control">
+							<input type="text" ng-model="bidInfo.phone" class="c-control">
 						</div>
 					</div>
 					<div class="f-list-item">
 						<label class="c-f-list-tit"><span>联系人：</span></label>
 						<div class="c-f-list-con">
-							<input type="text" class="c-control">
+							<input type="text" ng-model="bidInfo.contactPeople"  class="c-control">
 						</div>
 					</div>
 					<div class="f-list-item">
@@ -76,43 +75,41 @@
 					<div class="f-list-item">
 						<label class="c-f-list-tit"><span>产品名称：</span></label>
 						<div class="c-f-list-con">
-							<input type="text" class="c-control">
-						</div>
-					</div>
-					<div class="f-list-item">
-						<label class="c-f-list-tit"><span>类别：</span></label>
-						<div class="c-f-list-con">
-							<input type="text" class="c-control">
+							<input type="text" ng-model="bidInfo.productName" class="c-control">
 						</div>
 					</div>
 					<div class="f-list-item">
 						<label class="c-f-list-tit"><span>适应行业：</span></label>
 						<div class="c-f-list-con">
-							<input type="text" class="c-control">
+							<select ng-model="type" class="tool-control">
+								<option value="旅游">旅游</option>
+								<option value="教育">教育</option>
+								<option value="政务">政务</option>
+							</select>
 						</div>
 					</div>
 					<div class="f-list-item">
 						<label class="c-f-list-tit"><span>行业关键词：</span></label>
 						<div class="c-f-list-con">
-							<input type="text" class="c-control">
+							<input type="text" ng-model="bidInfo.keyWords" class="c-control">
 						</div>
 					</div>
 					<div class="f-list-item">
 						<label class="c-f-list-tit"><span>产品优势：</span></label>
 						<div class="c-f-list-con">
-							<textarea name="content" rows="4" class="c-control"></textarea>
+							<textarea name="content" rows="4" ng-model="bidInfo.productAdvantage" class="c-control"></textarea>
 						</div>
 					</div>
 					<div class="f-list-item">
 						<label class="c-f-list-tit"><span>实施优势：</span></label>
 						<div class="c-f-list-con">
-							<textarea name="content" rows="4" class="c-control"></textarea>
+							<textarea name="content" rows="4" ng-model="bidInfo.processAdvantage" class="c-control"></textarea>
 						</div>
 					</div>
 					<div class="f-list-item">
 						<label class="c-f-list-tit"><span>相关链接：</span></label>
 						<div class="c-f-list-con">
-							<input type="text" class="c-control">
+							<input type="text" ng-model="bidInfo.url" class="c-control">
 						</div>
 					</div>
 					<div class="f-list-item">
