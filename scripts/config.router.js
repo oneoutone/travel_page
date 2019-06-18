@@ -314,6 +314,8 @@
       .state('app.bps_index', {
         url: '/bps_index',
         templateUrl: 'views/bps/bps_index.html',
+        controller: "bpsIndexCtrl",
+        resolve: load(['toastr', 'scripts/bps/bps_index.js']),
         data: {
         	css: 'assets/styles/bps_index.css'
     	}
@@ -338,7 +340,7 @@
         url: '/bps_audit',
         templateUrl: 'views/bps/bps_audit.html',
         controller: "bpsAuditCtrl",
-        resolve: load(['scripts/bps/bps_audit.js']),
+        resolve: load(['toastr', 'scripts/bps/bps_audit.js']),
         data: {
         	css: 'assets/styles/bps_audit.css'
     	}
