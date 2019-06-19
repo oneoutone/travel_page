@@ -4,8 +4,8 @@
         .module('httpService', [])
         .service('httpService', ['$http', '$localStorage', function ($http, $localStorage) {
             var self = this;
-            var host = 'http://hadupu.cn/api'
-            //var host = 'http://localhost:8080/api'
+            //var host = 'http://hadupu.cn/api'
+            var host = 'http://localhost:8080/api'
 
             function postRequest(url, data, options, success, fail){
                 var header = {'Content-Type': 'application/json'}
@@ -358,6 +358,15 @@
             }
             self.bidPermissions = function(success, fail) {
                 getRequest(host + '/bid/permissions', null, {auth: true}, success, fail)
+            }
+            self.upsertBuyer = function( success, fail) {
+                postRequest(host + '/bid/buyer', null, {auth: true}, success, fail)
+            }
+            self.upsertSupplier = function( success, fail) {
+                postRequest(host + '/bid/supplier', null, {auth: true}, success, fail)
+            }
+            self.upsertDistributor = function( success, fail) {
+                postRequest(host + '/bid/distributor', null, {auth: true}, success, fail)
             }
             /**
              * get stored access token

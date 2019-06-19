@@ -342,6 +342,28 @@
             self.followFindByArticleId = function(data, success, fail) {
                 getRequest(host + '/follow/findByUserId', data, {auth: true}, success, fail)
             }
+            //bid
+            self.buyerCount = function(data, success, fail) {
+                getRequest(host + '/bid/buyerCount', data, {auth: true}, success, fail)
+            }
+            self.buyerList = function(data, success, fail) {
+                getRequest(host + '/bid/buyerList', data, {auth: true}, success, fail)
+            }
+            self.supplierCount = function(data, success, fail) {
+                getRequest(host + '/bid/supplierCount', data, {auth: true}, success, fail)
+            }
+            self.supplierList = function(data, success, fail) {
+                getRequest(host + '/bid/supplierList', data, {auth: true}, success, fail)
+            }
+            self.distributorCount = function(data, success, fail) {
+                getRequest(host + '/bid/distributorCount', data, {auth: true}, success, fail)
+            }
+            self.distributorList = function(data, success, fail) {
+                getRequest(host + '/bid/distributorList', data, {auth: true}, success, fail)
+            }
+            self.updateBuyer = function(data, success, fail) {
+                postRequest(host + '/bid/updateBuyer', data, {auth: true}, success, fail)
+            }
             /**
              * get stored access token
              * @returns {*|string}

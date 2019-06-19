@@ -337,7 +337,7 @@
       })
       
       .state('app.bps_audit', {
-        url: '/bps_audit',
+        url: '/bps_audit?type',
         templateUrl: 'views/bps/bps_audit.html',
         controller: "bpsAuditCtrl",
         resolve: load(['toastr', 'scripts/bps/bps_audit.js']),

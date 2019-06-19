@@ -227,6 +227,24 @@
                 controller: "ManagerClientListCtrl",
                 resolve: load(['toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/manager/manager.client.list.js'])
             })
+            .state('app.eventList', {
+                url: '/eventList?page&filter',
+                templateUrl: 'views/manager/eventList.html'
+            })
+            .state('app.buyerList', {
+                url: '/buyerList?page&status&filter',
+                templateUrl: 'views/manager/buyerList.html',
+                controller: "BuyerListCtrl",
+                resolve: load(['toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/manager/buyerList.js'])
+            })
+            .state('app.supplierList', {
+                url: '/supplierList?page&status',
+                templateUrl: 'views/manager/supplierList.html'
+            })
+            .state('app.distributorList', {
+                url: '/distributorList?page&status',
+                templateUrl: 'views/manager/distributorList.html'
+            })
 
         function load(srcs, callback) {
             return {
