@@ -235,15 +235,22 @@
                 url: '/buyerList?page&status&filter',
                 templateUrl: 'views/manager/buyerList.html',
                 controller: "BuyerListCtrl",
-                resolve: load(['toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/manager/buyerList.js'])
+                resolve: load(['toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/manager/buyerList.js']),
+                data: {title: '供应商列表'}
             })
             .state('app.supplierList', {
-                url: '/supplierList?page&status',
-                templateUrl: 'views/manager/supplierList.html'
+                url: '/supplierList?page&status&filter',
+                templateUrl: 'views/manager/supplierList.html',
+                controller: "SupplierListCtrl",
+                resolve: load(['toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/manager/supplierList.js']),
+                data: {title: '供应商列表'}
             })
             .state('app.distributorList', {
-                url: '/distributorList?page&status',
-                templateUrl: 'views/manager/distributorList.html'
+                url: '/distributorList?page&status&filter',
+                templateUrl: 'views/manager/distributorList.html',
+                controller: "DistributorListCtrl",
+                resolve: load(['toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/manager/DistributorList.js']),
+                data: {title: '分销商列表'}
             })
 
         function load(srcs, callback) {

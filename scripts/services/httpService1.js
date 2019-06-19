@@ -364,6 +364,12 @@
             self.updateBuyer = function(data, success, fail) {
                 postRequest(host + '/bid/updateBuyer', data, {auth: true}, success, fail)
             }
+            self.updateSupplier = function(data, success, fail) {
+                postRequest(host + '/bid/updateSupplier', data, {auth: true}, success, fail)
+            }
+            self.updateDistributor = function(data, success, fail) {
+                postRequest(host + '/bid/updateDistributor', data, {auth: true}, success, fail)
+            }
             /**
              * get stored access token
              * @returns {*|string}

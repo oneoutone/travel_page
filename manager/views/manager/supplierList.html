@@ -10,125 +10,134 @@
 
 <div class="padding">
 
-    <div class="box">
-        <div class="box-body head_form">
-            <form>
-                <div>
-                    <div class="form-inline col-sm-5">
-                        <label>客户名称</label>
-                        <input type="text" class="form-control-sm p-x b-a" ng-model="filter" placeholder="客户名称">
-                    </div>
-
-                    <div class="form-inline col-sm-4">
-                        <label>状态</label>
-                        <select ng-model="status"  class="form-control c-select form-control-sm p-a-0 p-l p-r-lg" style="border-radius: .2rem; width: 10rem;">
-                            <option ng-selected="item == status" ng-repeat="item in statusList"  value="{{item}}">{{item}}</option>
-                        </select>
-                    </div>
-
-                    <div class="form-inline col-sm-3">
-                        <button  type="button"  ng-click="doFilter()" class=" btn btn-sm btn-outline b-{{app.setting.theme.primary}} text-{{app.setting.theme.primary}}">
-                            查询
-                        </button>
-                    </div>
-
+<div class="box">
+    <div class="box-body head_form">
+        <form>
+            <div>
+                <div class="form-inline col-sm-5">
+                    <label>客户名称</label>
+                    <input type="text" class="form-control-sm p-x b-a" ng-model="filter" placeholder="客户名称">
                 </div>
-            </form>
 
-        </div>
-        <div class="box-body b-t">
-            <button type="button" ui-sref="app.clientInfo" class="btn btn-sm {{app.setting.theme.primary}}">
-                <i class="material-icons">add</i> 新建
-            </button>
-        </div>
-        <table id="teamTable" class="table table-striped" data-empty="没有记录">
-            <thead>
-            <tr>
-                <th data-breakpoints="xs sm md" data-sortable="false">单位名称</th>
-                <th data-breakpoints="xs sm md" data-sortable="false">管理员账号</th>
-                <th data-breakpoints="xs sm md" data-sortable="false">管理员名称</th>
-                <th data-breakpoints="xs sm md" data-sortable="false">状态</th>
-                <th data-breakpoints="xs sm md" data-sortable="false">操作</th>
-            </tr>
-            </thead>
-            <tr ng-repeat="row in list">
-                <td class="v-m">{{row.name}}</td>
-                <td class="v-m">{{row.username}}</td>
-                <td class="v-m">{{row.nickname}}</td>
-                <td class="v-m">{{row.status == 'normal' ? '正常': '禁用'}}</td>
-                <td class="v-m">
-                    <button class="btn btn-xs {{app.setting.theme.primary}}" ui-sref="app.clientInfo({id: row.id})" >编辑</button>
-                    <button class="btn btn-xs {{app.setting.theme.primary}}" ng-click="updateStatus(row)" >{{row.status == 'normal' ? '禁用' : '启用'}}</button>
-                </td>
-            </tr>
-            <tr class="white b-white" ng-show="bigTotalItems > 10">
-                <td colspan="6" class="white b-white text-center">
-                    <ul class="pagination" uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" total-items="true" max-size="10" class="pagination-sm" boundary-link-numbers="true" next-text="下一页" previous-text="上一页" rotate="false" ng-change="pageChanged()"></ul>
-                </td>
-            </tr>
-        </table>
+                <div class="form-inline col-sm-4">
+                    <label>状态</label>
+                    <select ng-model="status"  class="form-control c-select form-control-sm p-a-0 p-l p-r-lg" style="border-radius: .2rem; width: 10rem;">
+                        <option ng-selected="item == status" ng-repeat="item in statusList"  value="{{item}}">{{item}}</option>
+                    </select>
+                </div>
+
+                <div class="form-inline col-sm-3">
+                    <button  type="button"  ng-click="doFilter()" class=" btn btn-sm btn-outline b-{{app.setting.theme.primary}} text-{{app.setting.theme.primary}}">
+                        查询
+                    </button>
+                </div>
+
+            </div>
+        </form>
+
     </div>
+    <table id="teamTable" class="table table-striped" data-empty="没有记录">
+        <thead>
+        <tr>
+            <th data-breakpoints="xs sm md" data-sortable="false">企业名称</th>
+            <th data-breakpoints="xs sm md" data-sortable="false">行业</th>
+            <th data-breakpoints="xs sm md" data-sortable="false">联系人</th>
+            <th data-breakpoints="xs sm md" data-sortable="false">联系人电话</th>
+            <th data-breakpoints="xs sm md" data-sortable="false">状态</th>
+            <th data-breakpoints="xs sm md" data-sortable="false">操作</th>
+        </tr>
+        </thead>
+        <tr ng-repeat="row in list">
+            <td class="v-m">{{row.name}}</td>
+            <td class="v-m">{{row.industry}}</td>
+            <td class="v-m">{{row.contactPeople}}</td>
+            <td class="v-m">{{row.phone}}</td>
+            <td class="v-m">{{row.status == 'normal' ? '正常': ' 待审核'}}</td>
+            <td class="v-m">
+                <button class="btn btn-xs {{app.setting.theme.primary}}" ng-click="showDetail(row)" >查看详情</button>
+                <button ng-show="row.status == 'waiting'" class="btn btn-xs {{app.setting.theme.primary}}" ng-click="updateStatus(row)" >通过</button>
+            </td>
+        </tr>
+        <tr class="white b-white" ng-show="bigTotalItems > 10">
+            <td colspan="6" class="white b-white text-center">
+                <ul class="pagination" uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" total-items="true" max-size="10" class="pagination-sm" boundary-link-numbers="true" next-text="下一页" previous-text="上一页" rotate="false" ng-change="pageChanged()"></ul>
+            </td>
+        </tr>
+    </table>
+</div>
 </div>
 
-<!-- Modal -->
 <!-- .modal -->
-<div id="myModal1" class="modal white-overlay" data-backdrop="false">
-    <div class="modal-dialog">
+<div id="m-edit" class="modal white-overlay" data-backdrop="false">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content box-shadow-z3">
             <div class="modal-header">
-                <h5 class="modal-title">数据源信息</h5>
+                <h5 class="modal-title">详情</h5>
             </div>
             <div class="modal-body p-a-0">
-                <form name="dbForm" role="form">
+                <form name="dbForm" role="form" id="teamForm" class="form-validation"  novalidate>
                     <div class="p-a-md">
-                        <div class="form-group">
-                            <label class="control-label">用户提交关键词</label>
-                            <select ng-model="data.status"  class="form-control c-select form-control-sm p-a-0 p-l p-r-lg" style="border-radius: .2rem; width: 10rem;">
-                                <option ng-selected="item == data.status" ng-repeat="item in statusList"  value="{{item}}">{{item}}</option>
-                            </select>
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label >公司名称</label>
+                                <input  type="text" disabled  class="form-control checkPost"  ng-model="info.name" >
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>统一社会信用代码：</label>
+                                <input  type="text"  disabled class="form-control" ng-model="info.regNo" >
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>公司账号：</label>
+                                <input type="text"  disabled class="form-control" ng-model="info.acNo" >
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>开户行：</label>
+                                <input type="text"  disabled class="form-control" ng-model="info.bank" >
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>公司地址：</label>
+                                <input type="text"  disabled class="form-control" ng-model="info.address" >
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>联系人手机号</label>
+                                <input type="tel" disabled  class="form-control" ng-model="info.phone">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>联系人</label>
+                                <input type="tel" disabled class="form-control" ng-model="info.contactPeople">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>产品名称</label>
+                                <input type="tel" disabled  class="form-control" ng-model="info.productName">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>适应行业</label>
+                                <input type="tel" disabled class="form-control" ng-model="info.industry">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>行业关键词：</label>
+                                <input type="tel" disabled  class="form-control" ng-model="info.keyWords">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>产品优势：</label>
+                                <input type="tel" disabled class="form-control" ng-model="info.productAdvantage">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>实施优势：：</label>
+                                <input type="tel" disabled  class="form-control" ng-model="info.processAdvantage">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>相关链接：</label>
+                                <input type="tel" disabled class="form-control" ng-model="info.url">
+                            </div>
                         </div>
                     </div>
 
                     <div class="modal-footer">
-                        <button class="btn btn-sm white" data-dismiss="modal">取消</button>
-                        <button ladda="completeLoading" data-style="expand-left" class="btn btn-sm {{app.setting.theme.primary}}" ng-click="updateStatus()">完成</button>
+                        <button data-dismiss="modal" class="btn btn-sm {{app.setting.theme.primary}}" >知道了</button>
                     </div>
-
                 </form>
             </div>
-
-        </div>
-    </div>
-</div>
-
-<!-- .modal -->
-<div id="myModal" class="modal white-overlay" data-backdrop="false">
-    <div class="modal-dialog">
-        <div class="modal-content box-shadow-z3">
-            <div class="modal-header">
-                <h5 class="modal-title">数据源信息</h5>
-            </div>
-            <div class="modal-body p-a-0">
-                <form name="dbForm" role="form">
-                    <div class="p-a-md">
-                        <div class="form-group">
-                            <label class="control-label">用户提交关键词</label>
-                            <textarea type="text" disabled class="form-control" ng-model="data.keyWord"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>关键词配置</label>
-                            <textarea type="text" class="form-control" ng-model="words"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button class="btn btn-sm white" data-dismiss="modal">取消</button>
-                        <button ladda="completeLoading" data-style="expand-left" class="btn btn-sm {{app.setting.theme.primary}}" ng-click="updateKeyWord()">完成</button>
-                    </div>
-
-                </form>
-            </div>
-
         </div>
     </div>
 </div>

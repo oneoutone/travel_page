@@ -50,7 +50,8 @@
             })
         }
 
-        vm.showDetail = function(){
+        vm.showDetail = function(item){
+            vm.info = item
             $('#m-edit').modal('show')
         }
 

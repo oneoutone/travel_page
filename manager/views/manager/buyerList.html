@@ -54,7 +54,7 @@
                 <td class="v-m">{{row.phone}}</td>
                 <td class="v-m">{{row.status == 'normal' ? '正常': ' 待审核'}}</td>
                 <td class="v-m">
-                    <button class="btn btn-xs {{app.setting.theme.primary}}" ng-click="showDetail()" >查看详情</button>
+                    <button class="btn btn-xs {{app.setting.theme.primary}}" ng-click="showDetail(row)" >查看详情</button>
                     <button ng-show="row.status == 'waiting'" class="btn btn-xs {{app.setting.theme.primary}}" ng-click="updateStatus(row)" >通过</button>
                 </td>
             </tr>
@@ -75,36 +75,69 @@
                 <h5 class="modal-title">详情</h5>
             </div>
             <div class="modal-body p-a-0">
-                <form name="dbForm" role="form" id="teamForm" class="form-validation" ng-submit="createCompany()" novalidate>
+                <form name="dbForm" role="form" id="teamForm" class="form-validation"  novalidate>
                     <div class="p-a-md">
                         <div class="row">
+                            <div class="form-group col-md-12">
+                                <label >公司名称</label>
+                                <input  type="text" disabled  class="form-control checkPost"  ng-model="info.name" >
+                            </div>
                             <div class="form-group col-md-6">
-                                <label for="nameInput">公司名称</label>
-                                <input id="nameInput" type="text" disabled  class="form-control checkPost"  ng-model="company.name" required >
+                                <label>统一社会信用代码：</label>
+                                <input  type="text"  disabled class="form-control" ng-model="info.regNo" >
                             </div>
-                            <div class="form-group col-md-3">
-                                <label for="ceoInput">联系人</label>
-                                <input id="ceoInput" type="text"  class="form-control" ng-model="company.contactPeople" >
+                            <div class="form-group col-md-6">
+                                <label>公司账号：</label>
+                                <input type="text"  disabled class="form-control" ng-model="info.acNo" >
                             </div>
-                            <div class="form-group col-md-3">
-                                <label for="phoneInput">联系人手机号</label>
-                                <input id="phoneInput" type="tel" ng-pattern="/^[0-9]{11}$/" placeholder="11位手机号码"  class="form-control" ng-model="company.phone">
+                            <div class="form-group col-md-6">
+                                <label>开户行：</label>
+                                <input type="text"  disabled class="form-control" ng-model="info.bank" >
                             </div>
-                            <div class="form-group col-md-3">
-                                <label for="emailInput">联系邮箱</label>
-                                <input id="emailInput" type="tel" ng-pattern="/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}/" placeholder="邮箱"  class="form-control" ng-model="company.email">
+                            <div class="form-group col-md-6">
+                                <label>公司地址：</label>
+                                <input type="text"  disabled class="form-control" ng-model="info.address" >
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>联系人手机号</label>
+                                <input type="tel" disabled  class="form-control" ng-model="info.phone">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>联系人</label>
+                                <input type="tel" disabled class="form-control" ng-model="info.contactPeople">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>产品名称</label>
+                                <input type="tel" disabled  class="form-control" ng-model="info.productName">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>适应行业</label>
+                                <input type="tel" disabled class="form-control" ng-model="info.industry">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>行业关键词：</label>
+                                <input type="tel" disabled  class="form-control" ng-model="info.keyWords">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>产品优势：</label>
+                                <input type="tel" disabled class="form-control" ng-model="info.productAdvantage">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>实施优势：：</label>
+                                <input type="tel" disabled  class="form-control" ng-model="info.processAdvantage">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>相关链接：</label>
+                                <input type="tel" disabled class="form-control" ng-model="info.url">
                             </div>
                         </div>
                     </div>
 
                     <div class="modal-footer">
-                        <button class="btn btn-sm white" data-dismiss="modal">取消</button>
-                        <button type="submit" ladda="loading" data-style="expand-left" class="btn btn-sm {{app.setting.theme.primary}}" >完成</button>
+                        <button data-dismiss="modal" class="btn btn-sm {{app.setting.theme.primary}}" >知道了</button>
                     </div>
-
                 </form>
             </div>
-
         </div>
     </div>
 </div>
