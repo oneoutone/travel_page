@@ -229,7 +229,11 @@
             })
             .state('app.eventList', {
                 url: '/eventList?page&filter',
-                templateUrl: 'views/manager/eventList.html'
+                templateUrl: 'views/manager/eventList.html',
+            })
+            .state('app.eventBind', {
+                url: '/eventBind?page&filter',
+                templateUrl: 'views/manager/eventBind.html',
             })
             .state('app.buyerList', {
                 url: '/buyerList?page&status&filter',
