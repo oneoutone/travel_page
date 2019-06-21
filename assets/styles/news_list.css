@@ -8,7 +8,7 @@
 
 .com-article-panel {
 	border-bottom: 1px solid #e5e5e5;
-	padding: 20px 0;
+	padding: 16px 0 15px 0;
 }
 
 .com-article-panel-body {
@@ -41,7 +41,7 @@
 }
 
 .com-article-panel-info {
-	margin-bottom: 10px;
+	margin-bottom: 6px;
 	color: #999;
 	font-size: 0
 }
@@ -50,7 +50,7 @@
 .com-article-panel-info .news-analyse {
 	display: inline-block;
 	vertical-align: middle;
-	font-size: 14px;
+	font-size: 12px;
 	margin-left: 30px;
 }
 
@@ -63,11 +63,11 @@
 }
 
 .com-article-panel-title {
-	font-size: 18px;
-	line-height: 27px;
+	font-size: 16px;
+	line-height: 24px;
 	color: #000;
 	font-weight: 400;
-	margin-bottom: 10px;
+	margin-bottom: 8px;
 	margin-right: 50px;
 	white-space: nowrap;
 	overflow: hidden;
@@ -75,8 +75,9 @@
 }
 
 .com-article-panel-desc {
-	line-height: 24px;
 	color: #666;
+	font-size: 14px;
+	line-height: 24px;
 	word-wrap: break-word
 }
 
@@ -90,4 +91,10 @@
 .com-article-panel .com-article-panel-title>a:hover,
 .com-article-panel-desc>a:hover {
 	color: #00a4ff
+}
+
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
