@@ -383,6 +383,18 @@
             self.offerList = function(data, success, fail) {
                 getRequest(host + '/bid/offerList', data, {auth: true}, success, fail)
             }
+            self.applyCount = function(data, success, fail) {
+                getRequest(host + '/bid/applyCount', data, {auth: true}, success, fail)
+            }
+            self.applyList = function(data, success, fail) {
+                getRequest(host + '/bid/applyList', data, {auth: true}, success, fail)
+            }
+            self.upsertPurchaseApply = function(data, success, fail) {
+                postRequest(host + '/bid/upsertPurchaseApply', data, {auth: true}, success, fail)
+            }
+            self.getPurchaseApply = function(data, success, fail) {
+                getRequest(host + '/bid/findPurchaseApply', data, {auth: true}, success, fail)
+            }
             /**
              * get stored access token
              * @returns {*|string}

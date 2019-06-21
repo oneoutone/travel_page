@@ -24,21 +24,54 @@
             if(vm.state == state){
                 return
             }
+            vm.page = 1
             vm.state = state
+            fetchData()
         }
 
-        function fetchData() {
-            var data = {page: vm.page, size: 10, filter: vm.filter}
+        function fetchData(){
+            if(vm.state == 1 || vm.state == 4){
+                var data = {page: vm.page, size: 10, filter: vm.filter}
 
-            httpService.offerCount({filter: vm.filter}, function (result) {
-                vm.bigTotalItems = result.count
-                vm.bigCurrentPage = vm.page
-            }, function (e) {
-                console.log(e)
-            })
+                httpService.offerCount({filter: vm.filter}, function (result) {
+                    vm.bigTotalItems = result.count
+                    vm.bigCurrentPage = vm.page
+                }, function (e) {
+                    console.log(e)
+                })
 
-            httpService.offerList(data, function(r){
-                vm.offers = r
+                httpService.offerList(data, function(r){
+                    vm.offers = r
+                    for(var i=0; i<vm.offers.length; i++){
+                        fetchState(vm.offers[i])
+                    }
+                }, function(err){
+                    console.log(err)
+                })
+            }else {
+                var type = '已申请'
+                if(vm.state == 2){
+                    type = '已邀标'
+                }
+                var data = {page: vm.page, size: 10, filter: vm.filter, type: type, purchaseId: vm.purchaseId}
+                httpService.applyCount({purchaseId: vm.purchaseId, type: type, filter: vm.filter}, function (result) {
+                    vm.bigTotalItems = result.count
+                    vm.bigCurrentPage = vm.page
+                }, function (e) {
+                    console.log(e)
+                })
+
+                httpService.applyList(data, function(r){
+                    vm.offers = r
+                }, function(err){
+                    console.log(err)
+                })
+            }
+        }
+
+        function fetchState(item){
+            httpService.getPurchaseApply({purchaseId: vm.purchaseId, bidInfoId:item.id}, function(re){
+                item.state = re.result
             }, function(err){
                 console.log(err)
             })
@@ -48,12 +81,22 @@
             if(vm.bigCurrentPage == vm.page){
                 return
             }
-            $state.go('app.bps_purchase', {page: vm.bigCurrentPage})
+            vm.page = vm.bigCurrentPage
+            fetchData()
         }
 
         vm.doFilter = function(){
             vm.page = 1
             fetchData()
+        }
+
+        vm.invite = function(item){
+            httpService.upsertPurchaseApply({purchaseId: vm.purchaseId, bidInfoId: item.id, type: '已邀标'}, function(r){
+                toastr.success('邀标成功')
+                fetchData()
+            }, function(e){
+                toastr.error('邀标失败，请稍后再试')
+            })
         }
 
         vm.save = function(){
