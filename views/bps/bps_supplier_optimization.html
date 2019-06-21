@@ -5,10 +5,10 @@
 		<!--筛选-->
 		<div class="c-area">
 			<div class="c-area-con">
-				<div class="c-selectarea-item actived">优选供应商</div>
-				<div class="c-selectarea-item">已邀供应商</div>
-				<div class="c-selectarea-item">申请供应商</div>
-				<div class="c-selectarea-item">供应商搜索</div>
+				<div class="c-selectarea-item {{state == 1 ? 'actived' : ''}}" ng-click="setState(1)">优选供应商</div>
+				<div class="c-selectarea-item {{state == 2 ? 'actived' : ''}}" ng-click="setState(2)">已邀供应商</div>
+				<div class="c-selectarea-item {{state == 3 ? 'actived' : ''}}" ng-click="setState(3)">申请供应商</div>
+				<div class="c-selectarea-item {{state == 4 ? 'actived' : ''}}" ng-click="setState(4)">所有供应商</div>
 
 			</div>
 		</div>
@@ -18,8 +18,8 @@
 			<div class="table-tool clearfix">
 				<div class="tool-r">
 					<div class="tool-item search-input clearfix">
-						<input type="text" placeholder="请输入您要查找的信息" class="tool-control">
-						<button type="button" class="c-btn">搜索</button>
+						<input type="text" placeholder="请输入您要查找的信息" ng-model="filter" class="tool-control">
+						<button type="button" class="c-btn" ng-click="doFilter()">搜索</button>
 					</div>
 				</div>
 			</div>
@@ -36,145 +36,100 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>公司1</td>
-						<td>产品1</td>
-						<td>小张</td>
-						<td>11232321122</td>
+					<tr ng-repeat="item in offers">
+						<td>{{item.name}}</td>
+						<td>{{item.productName}}</td>
+						<td>{{item.contactPeople}}</td>
+						<td>{{item.phone}}</td>
 						<td>已邀标</td>
 						<td class="opt">
-							<a href="javascript:void(0);">详情</a>
+							<a ng-click="showDetail(item)">详情</a>
 							<a href="javascript:void(0);">邀标</a>
 						</td>
 					</tr>
-					<tr>
-						<td>公司2</td>
-						<td>产品2</td>
-						<td>小李</td>
-						<td>11232321121</td>
-						<td>已应标</td>
-						<td class="opt">
-							<a href="javascript:void(0);">详情</a>
-							<a href="javascript:void(0);">邀标</a>
-						</td>
-					</tr>
-					<tr>
-						<td>公司3</td>
-						<td>产品3</td>
-						<td>小王</td>
-						<td>11232321123</td>
-						<td>已申请</td>
-						<td class="opt">
-							<a href="javascript:void(0);">详情</a>
-							<a href="javascript:void(0);">邀标</a>
-						</td>
-					</tr>
-					<tr>
-						<td>公司3</td>
-						<td>产品3</td>
-						<td>小王</td>
-						<td>11232321123</td>
-						<td>已申请</td>
-						<td class="opt">
-							<a href="javascript:void(0);">详情</a>
-							<a href="javascript:void(0);">邀标</a>
-						</td>
-					</tr>
-					<tr>
-						<td>公司3</td>
-						<td>产品3</td>
-						<td>小王</td>
-						<td>11232321123</td>
-						<td>已申请</td>
-						<td class="opt">
-							<a href="javascript:void(0);">详情</a>
-							<a href="javascript:void(0);">邀标</a>
-						</td>
-					</tr>
-					<tr>
-						<td>公司3</td>
-						<td>产品3</td>
-						<td>小王</td>
-						<td>11232321123</td>
-						<td>已申请</td>
-						<td class="opt">
-							<a href="javascript:void(0);">详情</a>
-							<a href="javascript:void(0);">邀标</a>
-						</td>
-					</tr>
-					<tr>
-						<td>公司3</td>
-						<td>产品3</td>
-						<td>小王</td>
-						<td>11232321123</td>
-						<td>已申请</td>
-						<td class="opt">
-							<a href="javascript:void(0);">详情</a>
-							<a href="javascript:void(0);">邀标</a>
-						</td>
-					</tr>
-					<tr>
-						<td>公司3</td>
-						<td>产品3</td>
-						<td>小王</td>
-						<td>11232321123</td>
-						<td>已申请</td>
-						<td class="opt">
-							<a href="javascript:void(0);">详情</a>
-							<a href="javascript:void(0);">邀标</a>
-						</td>
-					</tr>
-					<tr>
-						<td>公司3</td>
-						<td>产品3</td>
-						<td>小王</td>
-						<td>11232321123</td>
-						<td>已申请</td>
-						<td class="opt">
-							<a href="javascript:void(0);">详情</a>
-							<a href="javascript:void(0);">邀标</a>
-						</td>
-					</tr>
-					<tr>
-						<td>公司3</td>
-						<td>产品3</td>
-						<td>小王</td>
-						<td>11232321123</td>
-						<td>已申请</td>
-						<td class="opt">
-							<a href="javascript:void(0);">详情</a>
-							<a href="javascript:void(0);">邀标</a>
+					<tr class="white b-white">
+						<td colspan="10" class="white b-white text-center">
+							<ul class="pagination" uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" total-items="true" max-size="10" class="pagination-sm" boundary-link-numbers="true" next-text="下一页" previous-text="上一页" rotate="false" ng-change="pageChanged()"></ul>
 						</td>
 					</tr>
 				</tbody>
 			</table>
-			<!--分页-->
-			<div class="pageation">
-				<ul class="pageation-list">
-					<li class="list-item">
-						<a href="javascript:void(0);">上一页</a>
-					</li>
-					<li class="list-item actived">
-						<a href="javascript:void(0);">1</a>
-					</li>
-					<li class="list-item">
-						<a href="javascript:void(0);">2</a>
-					</li>
-					<li class="list-item">
-						<a href="javascript:void(0);">3</a>
-					</li>
-					<li class="list-item disabled">
-						<a href="javascript:void(0);">...</a>
-					</li>
-					<li class="list-item">
-						<a href="javascript:void(0);">10</a>
-					</li>
-					<li class="list-item">
-						<a href="javascript:void(0);">下一页</a>
-					</li>
-				</ul>
-			</div>
-
 		</div>
 	</div>
 </div>
+
+<!-- .modal -->
+<div id="m-edit" class="modal" data-backdrop="false">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content box-shadow-z3">
+			<div class="modal-header">
+				<h5 class="modal-title">详情</h5>
+			</div>
+			<div class="modal-body p-a-0">
+				<form name="dbForm" role="form" id="teamForm" class="form-validation"  novalidate>
+					<div class="p-a-md">
+						<div class="row">
+							<div class="form-group col-md-12">
+								<label >公司名称</label>
+								<input  type="text" disabled  class="form-control checkPost white"  ng-model="info.name" >
+							</div>
+							<div class="form-group col-md-6">
+								<label>统一社会信用代码：</label>
+								<input  type="text"  disabled class="form-control" ng-model="info.regNo" >
+							</div>
+							<div class="form-group col-md-6">
+								<label>公司账号：</label>
+								<input type="text"  disabled class="form-control" ng-model="info.acNo" >
+							</div>
+							<div class="form-group col-md-6">
+								<label>开户行：</label>
+								<input type="text"  disabled class="form-control" ng-model="info.bank" >
+							</div>
+							<div class="form-group col-md-6">
+								<label>公司地址：</label>
+								<input type="text"  disabled class="form-control" ng-model="info.address" >
+							</div>
+							<div class="form-group col-md-6">
+								<label>联系人手机号</label>
+								<input type="tel" disabled  class="form-control" ng-model="info.phone">
+							</div>
+							<div class="form-group col-md-6">
+								<label>联系人</label>
+								<input type="tel" disabled class="form-control" ng-model="info.contactPeople">
+							</div>
+							<div class="form-group col-md-6">
+								<label>产品名称</label>
+								<input type="tel" disabled  class="form-control" ng-model="info.productName">
+							</div>
+							<div class="form-group col-md-6">
+								<label>适应行业</label>
+								<input type="tel" disabled class="form-control" ng-model="info.industry">
+							</div>
+							<div class="form-group col-md-6">
+								<label>行业关键词：</label>
+								<input type="tel" disabled  class="form-control" ng-model="info.keyWords">
+							</div>
+							<div class="form-group col-md-6">
+								<label>产品优势：</label>
+								<input type="tel" disabled class="form-control" ng-model="info.productAdvantage">
+							</div>
+							<div class="form-group col-md-6">
+								<label>实施优势：：</label>
+								<input type="tel" disabled  class="form-control" ng-model="info.processAdvantage">
+							</div>
+							<div class="form-group col-md-6">
+								<label>相关链接：</label>
+								<input type="tel" disabled class="form-control" ng-model="info.url">
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<button data-dismiss="modal" class="c-btn" >知道了</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+

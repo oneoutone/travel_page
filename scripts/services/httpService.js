@@ -368,6 +368,21 @@
             self.upsertDistributor = function( success, fail) {
                 postRequest(host + '/bid/distributor', null, {auth: true}, success, fail)
             }
+            self.upsertPurchase = function(data, success, fail) {
+                postRequest(host + '/bid/upsertPurchase', data, {auth: true}, success, fail)
+            }
+            self.purchaseCount = function(data, success, fail) {
+                getRequest(host + '/bid/purchaseCount', data, {auth: true}, success, fail)
+            }
+            self.purchaseList = function(data, success, fail) {
+                getRequest(host + '/bid/purchaseList', data, {auth: true}, success, fail)
+            }
+            self.offerCount = function(data, success, fail) {
+                getRequest(host + '/bid/offerCount', data, {auth: true}, success, fail)
+            }
+            self.offerList = function(data, success, fail) {
+                getRequest(host + '/bid/offerList', data, {auth: true}, success, fail)
+            }
             /**
              * get stored access token
              * @returns {*|string}

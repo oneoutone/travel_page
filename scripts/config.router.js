@@ -323,7 +323,9 @@
       
       .state('app.bps_purchase', {
         url: '/bps_purchase',
-        templateUrl: 'views/bps/bps_purchase.html'
+        templateUrl: 'views/bps/bps_purchase.html',
+        controller: "bpsPurchaseCtrl",
+        resolve: load(['ui.bootstrap' ,'mgcrea.ngStrap', 'toastr', 'scripts/bps/bps_purchase.js'])
       })
       
       .state('app.bps_supplier', {
@@ -332,8 +334,13 @@
       })
       
       .state('app.bps_supplier_optimization', {
-        url: '/bps_supplier_optimization',
-        templateUrl: 'views/bps/bps_supplier_optimization.html'
+        url: '/bps_supplier_optimization?purchaseId',
+        templateUrl: 'views/bps/bps_supplier_optimization.html',
+        controller: "bpsSupplierOptimizationCtrl",
+        resolve: load(['ui.bootstrap' ,'mgcrea.ngStrap', 'toastr', 'scripts/bps/bps_supplier_optimization.js']),
+        data: {
+          css: 'assets/styles/pfs_data_source.css'
+        }
       })
       
       .state('app.bps_audit', {
@@ -350,6 +357,16 @@
         url: '/bps_distributor',
         templateUrl: 'views/bps/bps_distributor.html'
       })
+
+        .state('app.bps_detail', {
+          url: '/bps_detail',
+          templateUrl: 'views/bps/bps_detail.html',
+          controller: "bpsDetailCtrl",
+          resolve: load(['toastr', 'scripts/bps/bps_detail.js']),
+          data: {
+            css: 'assets/styles/bps_audit.css'
+          }
+        })
       
       .state('app.tes_recruit', {
         url: '/tes_recruit',

@@ -5,7 +5,7 @@
 		<div class="c-cont data-box">
 			<div class="table-tool clearfix">
 				<div class="tool-l">
-					<button type="button" class="tool-item c-btn" data-toggle="modal" data-target="#myModal">新建</button>
+					<button type="button" class="tool-item c-btn" ng-click="showModal()">新建</button>
 				</div>
 			</div>
 
@@ -21,195 +21,58 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>旅游资源采购</td>
-						<td>旅游</td>
-						<td>10000</td>
-						<td>2019-11-02</td>
-						<td>公开招标</td>
+					<tr ng-repeat="item in purchases">
+						<td>{{item.name}}</td>
+						<td>{{item.industry}}</td>
+						<td>{{item.price}}</td>
+						<td>{{item.start | date: "yyyy-MM-dd"}}</td>
+						<td>{{item.status}}</td>
 						<td class="opt">
-							<a href="javascript:void(0);" ui-sref="app.bps_supplier_optimization">供应商优选</a>
-							<a href="javascript:void(0);" class="state-change">状态变更</a>
-							<a href="javascript:void(0);">修改</a>
-							<a href="javascript:void(0);">删除</a>
+							<a href="javascript:void(0);" ui-sref="app.bps_supplier_optimization({purchaseId: item.id})">供应商优选</a>
+							<a ng-click="showStateModal(item)" class="state-change">状态变更</a>
+							<a ng-click="showModal(item)">修改</a>
 						</td>
 					</tr>
-					<tr>
-						<td>旅游资源采购</td>
-						<td>旅游</td>
-						<td>10000</td>
-						<td>2019-11-02</td>
-						<td>推荐邀标</td>
-						<td class="opt">
-							<a href="javascript:void(0);" ui-sref="app.bps_supplier_optimization">供应商优选</a>
-							<a href="javascript:void(0);" class="state-change">状态变更</a>
-							<a href="javascript:void(0);">修改</a>
-							<a href="javascript:void(0);">删除</a>
-						</td>
-					</tr>
-					<tr>
-						<td>旅游资源采购</td>
-						<td>旅游</td>
-						<td>10000</td>
-						<td>2019-11-02</td>
-						<td>已结束</td>
-						<td class="opt">
-							<a href="javascript:void(0);" ui-sref="app.bps_supplier_optimization">供应商优选</a>
-							<a href="javascript:void(0);" class="state-change">状态变更</a>
-							<a href="javascript:void(0);">修改</a>
-							<a href="javascript:void(0);">删除</a>
-						</td>
-					</tr>
-					<tr>
-						<td>旅游资源采购</td>
-						<td>旅游</td>
-						<td>10000</td>
-						<td>2019-11-02</td>
-						<td>公开招标</td>
-						<td class="opt">
-							<a href="javascript:void(0);" ui-sref="app.bps_supplier_optimization">供应商优选</a>
-							<a href="javascript:void(0);" class="state-change">状态变更</a>
-							<a href="javascript:void(0);">修改</a>
-							<a href="javascript:void(0);">删除</a>
-						</td>
-					</tr>
-					<tr>
-						<td>旅游资源采购</td>
-						<td>旅游</td>
-						<td>10000</td>
-						<td>2019-11-02</td>
-						<td>公开招标</td>
-						<td class="opt">
-							<a href="javascript:void(0);" ui-sref="app.bps_supplier_optimization">供应商优选</a>
-							<a href="javascript:void(0);" class="state-change">状态变更</a>
-							<a href="javascript:void(0);">修改</a>
-							<a href="javascript:void(0);">删除</a>
-						</td>
-					</tr>
-					<tr>
-						<td>旅游资源采购</td>
-						<td>旅游</td>
-						<td>10000</td>
-						<td>2019-11-02</td>
-						<td>公开招标</td>
-						<td class="opt">
-							<a href="javascript:void(0);" ui-sref="app.bps_supplier_optimization">供应商优选</a>
-							<a href="javascript:void(0);" class="state-change">状态变更</a>
-							<a href="javascript:void(0);">修改</a>
-							<a href="javascript:void(0);">删除</a>
-						</td>
-					</tr>
-					<tr>
-						<td>旅游资源采购</td>
-						<td>旅游</td>
-						<td>10000</td>
-						<td>2019-11-02</td>
-						<td>公开招标</td>
-						<td class="opt">
-							<a href="javascript:void(0);" ui-sref="app.bps_supplier_optimization">供应商优选</a>
-							<a href="javascript:void(0);" class="state-change">状态变更</a>
-							<a href="javascript:void(0);">修改</a>
-							<a href="javascript:void(0);">删除</a>
-						</td>
-					</tr>
-					<tr>
-						<td>旅游资源采购</td>
-						<td>旅游</td>
-						<td>10000</td>
-						<td>2019-11-02</td>
-						<td>公开招标</td>
-						<td class="opt">
-							<a href="javascript:void(0);" ui-sref="app.bps_supplier_optimization">供应商优选</a>
-							<a href="javascript:void(0);" class="state-change">状态变更</a>
-							<a href="javascript:void(0);">修改</a>
-							<a href="javascript:void(0);">删除</a>
-						</td>
-					</tr>
-					<tr>
-						<td>旅游资源采购</td>
-						<td>旅游</td>
-						<td>10000</td>
-						<td>2019-11-02</td>
-						<td>公开招标</td>
-						<td class="opt">
-							<a href="javascript:void(0);" ui-sref="app.bps_supplier_optimization">供应商优选</a>
-							<a href="javascript:void(0);" class="state-change">状态变更</a>
-							<a href="javascript:void(0);">修改</a>
-							<a href="javascript:void(0);">删除</a>
-						</td>
-					</tr>
-					<tr>
-						<td>旅游资源采购</td>
-						<td>旅游</td>
-						<td>10000</td>
-						<td>2019-11-02</td>
-						<td>公开招标</td>
-						<td class="opt">
-							<a href="javascript:void(0);" ui-sref="app.bps_supplier_optimization">供应商优选</a>
-							<a href="javascript:void(0);" class="state-change">状态变更</a>
-							<a href="javascript:void(0);">修改</a>
-							<a href="javascript:void(0);">删除</a>
+					<tr class="white b-white"  >
+
+						<td colspan="10" class="white b-white text-center">
+							<ul class="pagination" uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" total-items="true" max-size="10" class="pagination-sm" boundary-link-numbers="true" next-text="下一页" previous-text="上一页" rotate="false" ng-change="pageChanged()"></ul>
+
 						</td>
 					</tr>
 				</tbody>
-			</table>
-			<!--分页-->
-			<div class="pageation">
-				<ul class="pageation-list">
-					<li class="list-item">
-						<a href="javascript:void(0);">上一页</a>
-					</li>
-					<li class="list-item actived">
-						<a href="javascript:void(0);">1</a>
-					</li>
-					<li class="list-item">
-						<a href="javascript:void(0);">2</a>
-					</li>
-					<li class="list-item">
-						<a href="javascript:void(0);">3</a>
-					</li>
-					<li class="list-item disabled">
-						<a href="javascript:void(0);">...</a>
-					</li>
-					<li class="list-item">
-						<a href="javascript:void(0);">10</a>
-					</li>
-					<li class="list-item">
-						<a href="javascript:void(0);">下一页</a>
-					</li>
-				</ul>
-			</div>
 
+			</table>
 		</div>
 	</div>
 </div>
 
 <!-- 新建 Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	<div class="modal-dialog" role="document">
+	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-				<h4 class="modal-title" id="myModalLabel">新建采招</h4>
+				<h4 class="modal-title" id="myModalLabel">新建</h4>
 			</div>
 			<div class="modal-body">
 				<form class="c-f-list">
 					<div class="f-list-item">
 						<label class="c-f-list-tit"><span>名称</span></label>
 						<div class="c-f-list-con">
-							<input type="text" class="c-control">
+							<input type="text" ng-model="purchase.name" class="c-control">
 						</div>
 					</div>
 					<div class="f-list-item">
 						<label class="c-f-list-tit"><span>描述</span></label>
 						<div class="c-f-list-con">
-							<textarea name="content" rows="3" class="c-control"></textarea>
+							<textarea name="content" ng-model="purchase.detail" rows="3" class="c-control"></textarea>
 						</div>
 					</div>
 					<div class="f-list-item">
-						<label class="c-f-list-tit"><span>类型</span></label>
+						<label class="c-f-list-tit"><span>行业</span></label>
 						<div class="c-f-list-con">
-							<select class="c-control">
+							<select class="c-control" ng-model="purchase.industry">
 								<option value="旅游">旅游</option>
 								<option value="教育">教育</option>
 								<option value="科技">科技</option>
@@ -218,22 +81,34 @@
 						</div>
 					</div>
 					<div class="f-list-item">
-						<label class="c-f-list-tit"><span>优选数量</span></label>
+						<label class="c-f-list-tit"><span>金额</span></label>
 						<div class="c-f-list-con">
-							<input type="text" class="c-control">
+							<input type="text" ng-model="purchase.price" class="c-control">
 						</div>
 					</div>
 					<div class="f-list-item">
-						<label class="c-f-list-tit"><span>截止日期</span></label>
+						<label class="c-f-list-tit"><span>地域</span></label>
 						<div class="c-f-list-con">
-							<input type="text" class="c-control datepicker">
+							<input type="text" ng-model="purchase.location" class="c-control">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>开始日期</span></label>
+						<div class="c-f-list-con">
+							<input type="text" ng-model="purchase.start" class="c-control datepicker">
+						</div>
+					</div>
+					<div class="f-list-item">
+						<label class="c-f-list-tit"><span>结束日期</span></label>
+						<div class="c-f-list-con">
+							<input type="text"  ng-model="purchase.end"class="c-control datepicker">
 						</div>
 					</div>
 				</form>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-				<button type="button" class="btn btn-send">确定</button>
+				<button type="button" class="btn btn-send" ng-click="save()">确定</button>
 			</div>
 		</div>
 	</div>
@@ -252,11 +127,10 @@
 					<div class="f-list-item">
 						<label class="c-f-list-tit"><span>状态</span></label>
 						<div class="c-f-list-con">
-							<select class="c-control">
-								<option value="优选邀标">优选邀标</option>
-								<option value="公开招标">公开招标</option>
-								<option value="未开始">未开始</option>
+							<select class="c-control" ng-model="purchase.status">
+								<option value="已发布">已发布</option>
 								<option value="已结束">已结束</option>
+								<option value="已废除">已废除</option>
 							</select>
 						</div>
 					</div>
@@ -264,7 +138,7 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-				<button type="button" class="btn btn-send">确定</button>
+				<button type="button" class="btn btn-send" ng-click="save()">确定</button>
 			</div>
 		</div>
 	</div>
