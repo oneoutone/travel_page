@@ -124,8 +124,10 @@
       })
       
       .state('app.pfs_event', {
-        url: '/pfs_event',
+        url: '/pfs_event?filter&page',
         templateUrl: 'views/pfs/pfs_event.html',
+        controller: "EventCtrl",
+        resolve: load(['ui.bootstrap' ,'mgcrea.ngStrap', 'toastr', 'scripts/pfs/pfs_event.js']),
         data: {
         	css: 'assets/styles/pfs_event.css'
     	}

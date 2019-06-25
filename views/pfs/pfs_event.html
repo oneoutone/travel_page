@@ -7,84 +7,33 @@
 			<div class="table-tool clearfix">
 				<div class="tool-r">
 					<div class="tool-item search-input clearfix">
-						<input type="text" placeholder="请输入您要查找的内容" class="tool-control">
-						<button type="button" class="c-btn">搜索</button>
+						<input type="text" placeholder="请输入您要查找的内容" class="tool-control" ng-model="filter">
+						<button type="button" class="c-btn" ng-click="doFilter()">搜索</button>
 					</div>
 				</div>
 			</div>
 
 			<!--事件列表-->
 			<div class="col-event-list">
-				<div class="com-event-panel">
+				<div class="com-event-panel" ng-repeat="row in list">
 					<div class="com-event-panel-body">
-						<span class="about">相关文章：99</span>
-						<h3 class="com-event-panel-title"><a ui-sref="app.pfs_event_detail">王源吸烟后首登央视</a></h3>
+						<span class="about">相关文章：{{row.count}}</span>
+						<h3 class="com-event-panel-title"><a ui-sref="app.pfs_event_detail">{{row.title}}</a></h3>
 						<div class="com-event-panel-info">
-							<span>发布时间：2019-06-11</span>
-							<span>今日文章：9</span>
-							<span>相关行业：旅游</span>
-							<span>相关地区：北京</span>
-							<span>热度走势：↑</span>
+							<span>发布时间：{{row.created | date: 'yyyy-MM-dd'}}</span>
+							<!--<span>今日文章：9</span>-->
+							<span>相关行业：{{row.industry}}</span>
+							<span>相关地区：{{row.location}}</span>
+							<!--<span>热度走势：↑</span>-->
 						</div>
 					</div>
 				</div>
-				<div class="com-event-panel">
-					<div class="com-event-panel-body">
-						<span class="about">相关文章：99</span>
-						<h3 class="com-event-panel-title"><a ui-sref="app.pfs_event_detail">印度高温已致36死</a></h3>
-						<div class="com-event-panel-info">
-							<span>发布时间：2019-06-11</span>
-							<span>今日文章：9</span>
-							<span>相关行业：旅游</span>
-							<span>相关地区：北京</span>
-							<span>热度走势：↑</span>
-						</div>
-					</div>
+				<div class="pageation" style="text-align:center">
+					<ul class="pagination" uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" total-items="true" max-size="10" class="pagination-sm" boundary-link-numbers="true" next-text="下一页" previous-text="上一页" rotate="false" ng-change="pageChanged()"></ul>
 				</div>
-				<div class="com-event-panel">
-					<div class="com-event-panel-body">
-						<span class="about">相关文章：99</span>
-						<h3 class="com-event-panel-title"><a ui-sref="app.pfs_event_detail">福建龙岩山体滑坡</a></h3>
-						<div class="com-event-panel-info">
-							<span>发布时间：2019-06-11</span>
-							<span>今日文章：9</span>
-							<span>相关行业：旅游</span>
-							<span>相关地区：北京</span>
-							<span>热度走势：↑</span>
-						</div>
-					</div>
-				</div>
-				<div class="com-event-panel">
-					<div class="com-event-panel-body">
-						<span class="about">相关文章：99</span>
-						<h3 class="com-event-panel-title"><a ui-sref="app.pfs_event_detail">公交司机下跪道歉</a></h3>
-						<div class="com-event-panel-info">
-							<span>发布时间：2019-06-11</span>
-							<span>今日文章：9</span>
-							<span>相关行业：旅游</span>
-							<span>相关地区：北京</span>
-							<span>热度走势：↑</span>
-						</div>
-					</div>
-				</div>
+
+				<!--分页-->
 			</div>
-
-			<!--分页-->
-			<div class="pageation" style="text-align:center">
-				<ul class="pagination">
-					<li role="menuitem" class="pagination-prev ng-scope disabled">
-						<a href="" class="ng-binding">上一页</a>
-					</li>
-					<li role="menuitem" class="pagination-page ng-scope active">
-						<a href="" class="ng-binding">1</a>
-					</li>
-					<li role="menuitem" class="pagination-next ng-scope disabled">
-						<a href="" class="ng-binding">下一页</a>
-					</li>
-				</ul>
-
-			</div>
-
 		</div>
 
 	</div>

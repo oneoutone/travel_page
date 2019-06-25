@@ -342,6 +342,15 @@
             self.followFindByArticleId = function(data, success, fail) {
                 getRequest(host + '/follow/findByUserId', data, {auth: true}, success, fail)
             }
+            self.upsertEvent = function(data, success, fail) {
+                postRequest(host + '/event/upsert', data, {auth: true}, success, fail)
+            }
+            self.eventCount = function(data, success, fail) {
+                getRequest(host + '/event/eventCount', data, {auth: true}, success, fail)
+            }
+            self.eventList = function(data, success, fail) {
+                getRequest(host + '/event/eventList', data, {auth: true}, success, fail)
+            }
             /**
              * get stored access token
              * @returns {*|string}

@@ -370,6 +370,28 @@
             self.updateDistributor = function(data, success, fail) {
                 postRequest(host + '/bid/updateDistributor', data, {auth: true}, success, fail)
             }
+            self.upsertEvent = function(data, success, fail) {
+                postRequest(host + '/event/upsert', data, {auth: true}, success, fail)
+            }
+            self.eventCount = function(data, success, fail) {
+                getRequest(host + '/event/eventCount', data, {auth: true}, success, fail)
+            }
+            self.eventList = function(data, success, fail) {
+                getRequest(host + '/event/eventList', data, {auth: true}, success, fail)
+            }
+            self.upsertEventArticle = function(data, success, fail) {
+                postRequest(host + '/event/upsertEventArticle', data, {auth: true}, success, fail)
+            }
+            self.eventArticleCount = function(data, success, fail) {
+                getRequest(host + '/event/eventArticleCount', data, {auth: true}, success, fail)
+            }
+            self.eventArticleList = function(data, success, fail) {
+                getRequest(host + '/event/eventArticleList', data, {auth: true}, success, fail)
+            }
+            self.deleteEventArticleById = function(data, success, fail) {
+                postRequest(host + '/event/deleteEventArticleById', data, {auth: true}, success, fail)
+            }
+
             /**
              * get stored access token
              * @returns {*|string}

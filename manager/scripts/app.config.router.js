@@ -140,7 +140,7 @@
                 url: '/list?org&productName&employeeId&start&end&page',
                 templateUrl: 'views/product/redeem.list.html',
                 controller: "RedeemListCtrl",
-                resolve: load(['toastr', 'moment', 'mgcrea.ngStrap', 'scripts/product/redeem.list.js'])
+                resolve: load(['ui.bootstrap', 'toastr', 'moment', 'mgcrea.ngStrap', 'scripts/product/redeem.list.js'])
             })
             .state('app.redeem.info', {
                 url: '/info?id',
@@ -159,7 +159,7 @@
                 url: '/list?status&index',
                 templateUrl: 'views/meeting/company.list.html',
                 controller: "CompanyListCtrl",
-                resolve: load(['toastr', 'moment','ui.bootstrap', 'scripts/meeting/company.list.js'])
+                resolve: load(['ui.bootstrap', 'toastr', 'moment','ui.bootstrap', 'scripts/meeting/company.list.js'])
             })
 
             .state('app.employee',{
@@ -200,7 +200,7 @@
                 url: '/dataList?name&status&page',
                 templateUrl: 'views/data/dataList.html',
                 controller: "DataListCtrl",
-                resolve: load(['toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/data/dataList.js'])
+                resolve: load(['ui.bootstrap', 'toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/data/dataList.js'])
             })
             .state('app.dataSource', {
                 url: '/dataList/:id',
@@ -212,7 +212,7 @@
                 url: '/clientList?filter&status&page',
                 templateUrl: 'views/manager/client.list.html',
                 controller: "ClientListCtrl",
-                resolve: load(['toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/manager/client.list.js'])
+                resolve: load(['ui.bootstrap', 'toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/manager/client.list.js'])
             })
             .state('app.clientInfo', {
                 url: '/clientInfo/:id',
@@ -225,35 +225,39 @@
                 url: '/clientListOfManager?filter&status&page',
                 templateUrl: 'views/manager/manager.client.list.html',
                 controller: "ManagerClientListCtrl",
-                resolve: load(['toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/manager/manager.client.list.js'])
+                resolve: load(['ui.bootstrap', 'toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/manager/manager.client.list.js'])
             })
             .state('app.eventList', {
                 url: '/eventList?page&filter',
                 templateUrl: 'views/manager/eventList.html',
+                controller: "EventListCtrl",
+                resolve: load(['ui.bootstrap','toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/manager/eventList.js'])
             })
             .state('app.eventBind', {
-                url: '/eventBind?page&filter',
+                url: '/eventBind',
                 templateUrl: 'views/manager/eventBind.html',
+                controller: "EventBindCtrl",
+                resolve: load(['ui.bootstrap','toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/manager/eventArticle.js'])
             })
             .state('app.buyerList', {
                 url: '/buyerList?page&status&filter',
                 templateUrl: 'views/manager/buyerList.html',
                 controller: "BuyerListCtrl",
-                resolve: load(['toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/manager/buyerList.js']),
+                resolve: load(['ui.bootstrap','toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/manager/buyerList.js']),
                 data: {title: '供应商列表'}
             })
             .state('app.supplierList', {
                 url: '/supplierList?page&status&filter',
                 templateUrl: 'views/manager/supplierList.html',
                 controller: "SupplierListCtrl",
-                resolve: load(['toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/manager/supplierList.js']),
+                resolve: load(['ui.bootstrap','toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/manager/supplierList.js']),
                 data: {title: '供应商列表'}
             })
             .state('app.distributorList', {
                 url: '/distributorList?page&status&filter',
                 templateUrl: 'views/manager/distributorList.html',
                 controller: "DistributorListCtrl",
-                resolve: load(['toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/manager/DistributorList.js']),
+                resolve: load(['ui.bootstrap','toastr', 'moment','mgcrea.ngStrap','ui.select', 'scripts/manager/DistributorList.js']),
                 data: {title: '分销商列表'}
             })
 
