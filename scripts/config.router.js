@@ -139,6 +139,16 @@
     	}
       })
       
+      .state('pfs_statistics', {
+        url: '/pfs_statistics',
+        templateUrl: 'views/pfs/pfs_statistics.html',
+        controller: "pfsStatisticsCtrl",
+        resolve: load(['scripts/pfs/pfs_statistics.js']),
+        data: {
+        	css: 'assets/styles/pfs_statistics.css'
+    	}
+      })
+      
       .state('app.pfs_detail', {
         url: '/pfs_detail',
         templateUrl: 'views/pfs/pfs_detail.html',

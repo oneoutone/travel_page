@@ -1,0 +1,285 @@
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+*:before,
+*:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background-color: #22c0dd;
+	font-family: 'pingfang SC', 'helvetica neue', arial, 'hiragino sans gb', 'microsoft yahei ui', 'microsoft yahei', simsun, sans-serif;
+}
+
+ul {
+	list-style: none;
+}
+
+li {
+	list-style-type: none;
+}
+
+.ng-scope {
+	height: 100%;
+}
+
+.statistics-table {
+	width: 100%;
+	height: 100%;
+	border-collapse: separate;
+	border-spacing: 10px;
+	border: 0;
+}
+
+.statistics-table>tbody>tr>td {
+	position: relative;
+	height: 33.33%;
+	color: #ffffff;
+	border: 10px solid rgba(0, 0, 0, .5);
+	background-color: #052035;
+	box-shadow: 0px 0px 2px 0 #2d6d99 inset;
+}
+
+.statistics-table>tbody>tr>td:before,
+.statistics-table>tbody>tr>td:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	width: 14px;
+	height: 14px;
+	border-top: 2px solid #2d6d99;
+}
+
+.statistics-table>tbody>tr>td:before {
+	left: 0;
+	border-left: 2px solid #2d6d99;
+}
+
+.statistics-table>tbody>tr>td:after {
+	right: 0;
+	border-right: 2px solid #2d6d99;
+}
+
+.statistics-table .title {
+	font-size: 16px;
+	line-height: 20px;
+	text-align: center;
+	padding: 18px 10px 10px 10px;
+}
+
+.statistics-table .ps-cont {
+	height: calc(100% - 48px);
+	padding: 10px;
+}
+
+.statistics-table .ps-cont table {
+	border: 0;
+	width: 100%;
+	height: 100%;
+}
+
+
+/*敏感信息*/
+
+.sensitive-list {
+	height: calc(100% - 48px);
+	padding: 10px;
+}
+
+.sensitive-item {
+	padding: 10px 0;
+	border-bottom: 1px solid #1f304e;
+}
+
+.sensitive-item .tit {
+	position: relative;
+	font-size: 14px;
+	line-height: 22px;
+	padding-left: 32px;
+}
+
+.sensitive-item .tit .num {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 22px;
+	height: 22px;
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+	line-height: 20px;
+	border: 1px solid #558792;
+	border-radius: 50%;
+}
+
+.sensitive-item .info {
+	color: #999;
+	font-size: 12px;
+	overflow: hidden;
+	margin-top: 8px;
+	text-align: right;
+}
+
+.sensitive-item .time,
+.sensitive-item .by {
+	display: inline-block;
+	min-width: 80px;
+	padding-left: 10px;
+}
+
+
+/*舆情追踪*/
+
+.main-info {
+	float: left;
+	width: 66%;
+	height: 100%;
+}
+
+.main-info .title {
+	position: relative;
+}
+
+.main-info .time {
+	position: absolute;
+	left: 10px;
+	top: 18px;
+	color: #357ab5;
+	font-size: 12px;
+}
+
+.main-table td {
+	padding: 0 8px;
+}
+
+.main-table .topic {
+	font-size: 18px;
+	text-align: center;
+}
+
+.main-table .subtit {
+	height: 30px;
+	color: #357ab5;
+	font-size: 14px;
+}
+
+.main-table .tit {
+	white-space: nowrap;
+	height: 30px;
+	font-size: 18px;
+	text-align: right;
+}
+
+.main-table .num {
+	white-space: nowrap;
+	font-size: 18px;
+	letter-spacing: 3px;
+}
+
+.main-table .num1 {
+	background-image: -webkit-linear-gradient(bottom, #2f61b6, #fff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.main-table .num2 {
+	background-image: -webkit-linear-gradient(bottom, #b14869, #fff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+
+/*实时走势*/
+
+.chart-r {
+	float: right;
+	width: 32%;
+	height: 100%;
+}
+
+.chart-r .title {
+	text-align: left;
+}
+
+
+/*产品检测、来源统计*/
+
+.progress {
+	height: 8px;
+	overflow: hidden;
+	background-color: #1b3649;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+}
+
+.progress-bar {
+	float: left;
+	width: 0;
+	height: 100%;
+	font-size: 12px;
+	line-height: 8px;
+	color: #fff;
+	text-align: center;
+	border-radius: 4px;
+	background: -webkit-linear-gradient(left, #2a6cf4, #6bddf7);
+	background: -o-linear-gradient(right, #2a6cf4, #6bddf7);
+	background: -moz-linear-gradient(right, #2a6cf4, #6bddf7);
+	background: linear-gradient(to right, #2a6cf4, #6bddf7);
+	-webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+	box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+	-webkit-transition: width .6s ease;
+	-o-transition: width .6s ease;
+	transition: width .6s ease;
+}
+
+.progress-table td {
+	white-space: nowrap;
+}
+
+.progress-table .tit {
+	font-size: 12px;
+	padding-right: 10px;
+}
+
+.progress-table .num {
+	width: 99%;
+}
+
+.source-table .tit {
+	text-align: right;
+}
+
+
+/*参数统计*/
+
+.parameter-table td {
+	height: auto;
+	border: 0;
+}
+
+.parameter-table .tit {
+	font-size: 12px;
+}
+
+.parameter-table .num {
+	text-align: right;
+	color: #ff4c52;
+	letter-spacing: 3px;
+	background-image: -webkit-linear-gradient(bottom, #2f61b6, #fff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
