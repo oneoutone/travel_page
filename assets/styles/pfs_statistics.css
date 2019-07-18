@@ -1,0 +1,323 @@
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+*:before,
+*:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	font-family: 'pingfang SC', 'helvetica neue', arial, 'hiragino sans gb', 'microsoft yahei ui', 'microsoft yahei', simsun, sans-serif;
+}
+
+ul {
+	list-style: none;
+}
+
+li {
+	list-style-type: none;
+}
+
+.ng-scope {
+	height: 100%;
+}
+
+.statistics-table {
+	width: 100%;
+	height: 100%;
+	background: url(../img/bg-statistics.jpg) no-repeat center;
+	-webkit-background-size: cover;
+	background-size: cover;
+	border-collapse: separate;
+	border-spacing: 10px;
+	border: 0;
+}
+
+.statistics-table>tbody>tr>td {
+	height: 33.33%;
+	color: #ffffff;
+	border: 2px solid rgba(76, 249, 255, 0.5);
+	background-color: transparent;
+}
+
+.statistics-table .title {
+	color: #4fd9fc;
+	font-size: 17px;
+	line-height: 20px;
+	text-align: center;
+	padding: 18px 10px;
+	background: url(../img/bg-tit.png) no-repeat center;
+}
+
+.statistics-table .ps-cont {
+	height: calc(100% - 56px);
+	padding: 10px 20px 20px 20px;
+}
+
+.statistics-table .ps-cont .table {
+	border: 0;
+	width: 100%;
+	height: 100%;
+	padding-bottom: 20px;
+}
+
+
+/*敏感信息*/
+
+.sensitive-list {
+	height: calc(100% - 56px);
+	padding: 0 10px 10px 10px;
+}
+
+.sensitive-item {
+	padding: 10px 0;
+	border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
+.sensitive-item .tit {
+	position: relative;
+	font-size: 14px;
+	line-height: 22px;
+	padding: 2px 0 2px 36px;
+}
+
+.sensitive-item .tit .num {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 26px;
+	height: 26px;
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+	line-height: 24px;
+	border: 1px solid #ffffff;
+	border-radius: 50%;
+}
+
+.sensitive-item .info {
+	color: #41defd;
+	font-size: 12px;
+	overflow: hidden;
+	margin-top: 8px;
+	text-align: right;
+}
+
+.sensitive-item .time,
+.sensitive-item .by {
+	display: inline-block;
+	min-width: 80px;
+	padding-left: 10px;
+}
+
+
+/*舆情追踪*/
+
+.main-statistics {
+	height: 100%;
+	background-color: rgba(41, 85, 252, 0.16);
+}
+
+.main-info {
+	float: left;
+	width: 66%;
+	height: 100%;
+	background: url(../img/bg-statistics2.png) no-repeat center bottom;
+}
+
+.main-info .title {
+	position: relative;
+	height: 56px;
+	background: none;
+}
+
+.main-info .title2 {
+	position: absolute;
+	top: -3px;
+	left: 50%;
+	margin-left: -203px;
+	width: 406px;
+	height: 64px;
+	color: #ffffff;
+	font-size: 36px;
+	line-height: 40px;
+	text-align: center;
+	padding: 14px 0 10px 0;
+	background: url(../img/bg-statistics4.png) no-repeat;
+}
+
+.main-info .time {
+	position: absolute;
+	left: 10px;
+	top: 18px;
+	color: #ffffff;
+	font-size: 14px;
+}
+
+.main-table td {
+	padding: 0 6px;
+}
+
+.main-table .topic {
+	font-size: 18px;
+	text-align: center;
+	padding: 30px 0 10px 0;
+}
+
+.main-table .topic-text {
+	min-width: 492px;
+	min-height: 72px;
+	display: inline-block;
+	color: #4fd9fc;
+	font-size: 25px;
+	line-height: 44px;
+	padding: 14px 20px;
+	background: url(../img/bg-statistics3.png) no-repeat center;
+	-webkit-background-size: 100%;
+	background-size: 100%;
+}
+
+.main-table .topic-text .num {
+	display: inline-block;
+	vertical-align: top;
+	color: #ee4b4a;
+	font-size: 43px;
+	font-style: normal;
+	line-height: 44px;
+	margin: 0 10px;
+}
+
+.main-table .tit {
+	white-space: nowrap;
+	height: 38px;
+	color: #4fd9fc;
+	font-size: 16px;
+	text-align: right;
+}
+
+.main-table .num {
+	white-space: nowrap;
+	font-size: 33px;
+	letter-spacing: 3px;
+	font-weight: bold;
+}
+
+.main-table .num1 {
+	color: #fed000;
+}
+
+.main-table .num2 {
+	color: #40a93f;
+}
+
+
+/*实时走势*/
+
+.chart-r {
+	float: right;
+	width: 32%;
+	height: 100%;
+}
+
+
+/*产品检测、来源统计*/
+
+.progress {
+	height: 10px;
+	overflow: hidden;
+	background-color: #604e72;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+}
+
+.progress-bar {
+	float: left;
+	width: 0;
+	height: 100%;
+	font-size: 12px;
+	line-height: 10px;
+	color: #fff;
+	text-align: center;
+	border-radius: 4px;
+	background: -webkit-linear-gradient(left, #3581f5, #68d7f6);
+	background: -o-linear-gradient(right, #3581f5, #68d7f6);
+	background: -moz-linear-gradient(right, #3581f5, #68d7f6);
+	background: linear-gradient(to right, #3581f5, #68d7f6);
+	-webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+	box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+	-webkit-transition: width .6s ease;
+	-o-transition: width .6s ease;
+	transition: width .6s ease;
+}
+
+.progress-table td {
+	white-space: nowrap;
+}
+
+.progress-table .tit {
+	font-size: 14px;
+	text-align: right;
+	padding-right: 10px;
+}
+
+.progress-table .num {
+	width: 99%;
+}
+
+.source-table .tit {
+	text-align: right;
+}
+
+
+/*参数统计*/
+
+.parameter-table td {
+	height: auto;
+	border: 0;
+	vertical-align: middle;
+}
+
+.parameter-table .tit {
+	font-size: 16px;
+}
+
+.parameter-table .num {
+	font-size: 28px;
+	text-align: right;
+	letter-spacing: 3px;
+	font-weight: bold;
+}
+
+.parameter-table tr:nth-child(5n + 1) .num {
+	color: #ee4b4a;
+}
+
+.parameter-table tr:nth-child(5n + 2) .num {
+	color: #fed000;
+}
+
+.parameter-table tr:nth-child(5n + 3) .num {
+	color: #fda237;
+}
+
+.parameter-table tr:nth-child(5n + 4) .num {
+	color: #5fcc5f;
+}
+
+.parameter-table tr:nth-child(5n) .num {
+	color: #11c0ff;
+}
