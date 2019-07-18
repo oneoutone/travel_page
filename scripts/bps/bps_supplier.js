@@ -9,10 +9,10 @@
                 timeOut: 1000
             });
         })
-        .controller('bpsIndexCtrl', bpsIndexCtrl);
-    bpsIndexCtrl.$inject = ['$scope', 'httpService', '$state', 'toastr'];
+        .controller('bpsSupplierCtrl', bpsSupplierCtrl);
+    bpsSupplierCtrl.$inject = ['$scope', 'httpService', '$state', 'toastr'];
 
-    function bpsIndexCtrl($scope, httpService, $state, toastr) {
+    function bpsSupplierCtrl($scope, httpService, $state, toastr) {
         var vm = $scope;
 
         vm.buyerClicked = function(){

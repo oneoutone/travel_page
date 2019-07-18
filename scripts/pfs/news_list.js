@@ -58,6 +58,8 @@
 			if(vm.channel == 'forum'){
 				data.article_type = 7
 			}
+
+			data.article_type = 6
 			data.sentiment = 4
 
 			if(vm.type == 'active'){
@@ -178,7 +180,7 @@
 				}, function(e){
 					toastr.error('添加失败，请稍后再试')
 				})
-			}else{
+			}else{ 
 				httpService.deleteFollowById({articleId: item.article_id}, function(r){
 					toastr.success('取消成功')
 					item.followed = false

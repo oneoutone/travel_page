@@ -3,7 +3,13 @@
 		<div class="c-nav-tit">采招项目服务平台</div>
 		<ul class="c-nav-list">
 			<li class="presentation">
-				<a ui-sref="app.bps_purchase">项目管理</a>
+				<a ui-sref="app.bps_purchase" ng-show="app.setting.bid_role == 'buyer'">采购商管理</a>
+			</li>
+			<li class="presentation">
+				<a ui-sref="app.bps_supplier" ng-show="app.setting.bid_role == 'supplier'">供应商管理</a>
+			</li>
+			<li class="presentation">
+				<a ui-sref="app.bps_distributor" ng-show="app.setting.bid_role == 'distributor'">分销商管理</a>
 			</li>
 			<li class="presentation">
 				<a ui-sref="app.bps_detail">我的优选信息</a>

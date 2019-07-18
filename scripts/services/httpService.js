@@ -404,6 +404,12 @@
             self.eventArticleCount = function(data, success, fail) {
                 getRequest(host + '/event/eventArticleCount', data, {auth: true}, success, fail)
             }
+            self.eventArticleList = function(data, success, fail) {
+                getRequest(host + '/event/eventArticleList', data, {auth: true}, success, fail)
+            }
+            self.eventById = function(data, success, fail) {
+                getRequest(host + '/event/eventById', data, {auth: true}, success, fail)
+            }
             /**
              * get stored access token
              * @returns {*|string}

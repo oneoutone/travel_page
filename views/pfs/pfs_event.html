@@ -18,7 +18,7 @@
 				<div class="com-event-panel" ng-repeat="row in list">
 					<div class="com-event-panel-body">
 						<span class="about">相关文章：{{row.count}}</span>
-						<h3 class="com-event-panel-title"><a ui-sref="app.pfs_event_detail">{{row.title}}</a></h3>
+						<h3 class="com-event-panel-title"><a ui-sref="app.pfs_event_detail({eventId: row.id})">{{row.title}}</a></h3>
 						<div class="com-event-panel-info">
 							<span>发布时间：{{row.created | date: 'yyyy-MM-dd'}}</span>
 							<!--<span>今日文章：9</span>-->

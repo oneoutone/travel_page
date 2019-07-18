@@ -94,7 +94,7 @@
         }
 
         vm.fetchData = function(){
-            var data = {page: vm.page1, size: 5}
+            var data = {page: vm.page1, size: 5, filter: vm.filter}
             data.article_type = 4
             data.sentiment = 4
             httpService.data_count(data,function(result){
@@ -129,8 +129,13 @@
             if(vm.bigCurrentPage == vm.page){
                 return
             }
-            $state.go('app.eventList', {page: vm.bigCurrentPage, filter: vm.filter})
+            $state.go('app.eventList', {page: vm.bigCurrentPage})
         };
+
+        vm.doFilter = function(){
+            vm.page1 = 1
+            vm.fetchData()
+        }
 
         vm.showAdd = function(){
             vm.event = {}

@@ -5,14 +5,14 @@
 		<div class="event-data">
 			<div class="com-event-panel">
 				<div class="com-event-panel-body">
-					<span class="about">相关文章：99</span>
-					<h3 class="com-event-panel-title"><a ui-sref="app.pfs_event_detail">王源吸烟后首登央视</a></h3>
+					<span class="about">相关文章：{{event.count}}</span>
+					<h3 class="com-event-panel-title"><a ui-sref="app.pfs_event_detail">{{event.title}}</a></h3>
 					<div class="com-event-panel-info">
-						<span>发布时间：2019-06-11</span>
-						<span>今日文章：9</span>
-						<span>相关行业：旅游</span>
-						<span>相关地区：北京</span>
-						<span>热度走势：↑</span>
+						<span>发布时间：{{event.created | date: 'yyyy-MM-dd'}}</span>
+						<!--<span>今日文章：9</span>-->
+						<span>相关行业：{{event.industry}}</span>
+						<span>相关地区：{{event.location}}</span>
+						<!--<span>热度走势：↑</span>-->
 					</div>
 				</div>
 			</div>
@@ -22,60 +22,19 @@
 		<div class="c-cont">
 
 			<div class="col-article-list">
-				<div class="com-article-panel">
+				<div class="com-article-panel" ng-repeat="row in list">
 					<div class="com-article-panel-body">
-						<h3 class="com-article-panel-title"><a href="">王源吸烟风波后首登《新闻联播》 获多个镜头特写</a></h3>
-						<div class="com-article-panel-info"><span>2019-06-14 09:48:52.0</span><span>来源：财经国家周刊</span></div>
+						<h3 class="com-article-panel-title"><a ui-sref="app.news_detail({id: row.articleId})">{{row.title}}</a></h3>
+						<div class="com-article-panel-info"><span>{{row.publish_time}}</span><span>来源：{{row.source_name}}</span></div>
 						<p class="com-article-panel-desc">
-							<a href="javascript:void(0);">王源，之前他在TFBOYS成员里面算是非常乖巧，非常阳光的一个正能量男孩，随着上次王源在公众场合吸烟，被媒体报道之后，很少有他的新闻出来，很多网友说估计王源要凉凉，而且已经一个月没有听到关于他的消息了，但是看新闻的想必都知道。。。</a>
+							<a>{{row.content}}</a>
 						</p>
 					</div>
 				</div>
-				<div class="com-article-panel">
-					<div class="com-article-panel-body">
-						<h3 class="com-article-panel-title"><a href="">王源吸烟后登央视新闻,神情庄严专注,知错能改得到网... </a></h3>
-						<div class="com-article-panel-info"><span>2019-06-14 09:48:52.0</span><span>来源：财经国家周刊</span></div>
-						<p class="com-article-panel-desc">
-							<a href="javascript:void(0);">王源，之前他在TFBOYS成员里面算是非常乖巧，非常阳光的一个正能量男孩，随着上次王源在公众场合吸烟，被媒体报道之后，很少有他的新闻出来，很多网友说估计王源要凉凉，而且已经一个月没有听到关于他的消息了，但是看新闻的想必都知道。。。</a>
-						</p>
-					</div>
-				</div>
-				<div class="com-article-panel">
-					<div class="com-article-panel-body">
-						<h3 class="com-article-panel-title"><a href="">王源吸烟后登央视新闻联播！我们不能因为一件事就去否定一个人</a></h3>
-						<div class="com-article-panel-info"><span>2019-06-14 09:48:52.0</span><span>来源：财经国家周刊</span></div>
-						<p class="com-article-panel-desc">
-							<a href="javascript:void(0);">王源，之前他在TFBOYS成员里面算是非常乖巧，非常阳光的一个正能量男孩，随着上次王源在公众场合吸烟，被媒体报道之后，很少有他的新闻出来，很多网友说估计王源要凉凉，而且已经一个月没有听到关于他的消息了，但是看新闻的想必都知道。。。</a>
-						</p>
-					</div>
-				</div>
-				<div class="com-article-panel">
-					<div class="com-article-panel-body">
-						<h3 class="com-article-panel-title"><a href="">王源吸烟后登央视，手拿小红星获多次特写镜头，网友留言两极分化</a></h3>
-						<div class="com-article-panel-info"><span>2019-06-14 09:48:52.0</span><span>来源：财经国家周刊</span></div>
-						<p class="com-article-panel-desc">
-							<a href="javascript:void(0);">王源，之前他在TFBOYS成员里面算是非常乖巧，非常阳光的一个正能量男孩，随着上次王源在公众场合吸烟，被媒体报道之后，很少有他的新闻出来，很多网友说估计王源要凉凉，而且已经一个月没有听到关于他的消息了，但是看新闻的想必都知道。。。</a>
-						</p>
-					</div>
+				<div class="pageation" style="text-align:center">
+					<ul class="pagination" uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" total-items="true" max-size="10" class="pagination-sm" boundary-link-numbers="true" next-text="下一页" previous-text="上一页" rotate="false" ng-change="pageChanged()"></ul>
 				</div>
 			</div>
-			
-			<!--分页-->
-			<div class="pageation" style="text-align:center">
-				<ul class="pagination">
-					<li role="menuitem" class="pagination-prev ng-scope disabled">
-						<a href="" class="ng-binding">上一页</a>
-					</li>
-					<li role="menuitem" class="pagination-page ng-scope active">
-						<a href="" class="ng-binding">1</a>
-					</li>
-					<li role="menuitem" class="pagination-next ng-scope disabled">
-						<a href="" class="ng-binding">下一页</a>
-					</li>
-				</ul>
-
-			</div>
-
 		</div>
 
 	</div>

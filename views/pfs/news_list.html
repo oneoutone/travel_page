@@ -36,7 +36,7 @@
 								<h3 class="com-article-panel-title"><a ui-sref="app.news_detail({id: item.result.article_id})">{{item.result.title ? item.result.title : (item.result.content.length > 20 ? item.result.content.substr(0, 19) : item.result.content)}}</a></h3>
 								<div class="com-article-panel-info"><span>{{item.result.publish_time}}</span><span>来源：{{item.result.source_name}}</span><a class="news-analyse" href="javascript:void(0);" ui-sref="app.news_analyse({id: item.result.article_id})">页面分析</a><a ng-show="item.result.showTrend == true" class="news-analyse text-danger" href="javascript:void(0);" ui-sref="app.follow({id: item.result.article_id})"><span class="text-danger ">转发： {{item.result.shareTrend}} 评论：{{item.result.supportTrend}} 阅读： {{item.result.readTrend}} </span></a><span class="pull-right text-blue"><a ng-show="item.result.showTrend == true" ng-click="addFollow(item.result)">{{item.result.followed ? '取消关注': '添加关注'}}</a></span></div>
 								<p class="com-article-panel-desc">
-									<a href="javascript:void(0);" ui-sref="app.news_detail">{{item.result.desc}}</a>
+									<a>{{item.result.desc}}</a>
 								</p>
 							</div>
 						</div>

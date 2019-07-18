@@ -7,7 +7,7 @@
 
     function EventCtrl($scope, $stateParams, httpService, $state) {
         var vm = $scope
-
+        vm.header = {name:'10'}
 
         vm.fetchData = function(){
             httpService.eventList({filter: vm.filter, size: 10, page: vm.page}, function(data){
